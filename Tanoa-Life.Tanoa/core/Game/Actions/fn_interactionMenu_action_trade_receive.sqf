@@ -14,7 +14,7 @@ if (isNull _from) exitWith {};
 _text = "";
 
 if (_money > 0) then {
-	_text = _text + format["- %1$<br/>", ([_money] call AlysiaClient_fnc_numberText)];
+	_text = _text + format["- %1BTC<br/>", ([_money] call AlysiaClient_fnc_numberText)];
 };
 
 {

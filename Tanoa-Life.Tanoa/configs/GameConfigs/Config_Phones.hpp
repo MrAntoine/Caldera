@@ -198,23 +198,23 @@ class ALYSIA_PHONE
 	{
 		class lite
 		{
-			name="Lite";
+			name="Rés. gratuit";
 			bill=0;
 			sms_price=25;
 			sms_max=3;
 			contacts_max=5;
 			backlist_max=0;
 			hide_number=0;
-			sides[]={"CIV","EAST","WEST","GUER"};
+			sides[]={"CIV"};
 		};
 
 		class classic
 		{
-			name="Classique";
+			name="Rés. inter.";
 			bill=350;
 			sms_price=8;
 			sms_max=10;
-			hide_number=1;
+			hide_number=0;
 			contacts_max=20;
 			backlist_max=5;
 			sides[]={"CIV"};
@@ -222,26 +222,14 @@ class ALYSIA_PHONE
 
 		class luxe
 		{
-			name="Illimité";
+			name="Rés. militaire";
 			bill=610;
 			sms_price=0;
-			sms_max=20;
+			sms_max=50;
 			hide_number=1;
 			contacts_max=50;
 			backlist_max=10;
 			sides[]={"CIV"};
-		};
-
-		class faction
-		{
-			name="Faction";
-			bill=25;
-			sms_price=0;
-			hide_number=1;
-			sms_max=10;
-			contacts_max=15;
-			backlist_max=5;
-			sides[]={"GUER","EAST","WEST"};
 		};
 	};
 };

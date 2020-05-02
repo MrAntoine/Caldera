@@ -25,6 +25,7 @@ _extraAll = getNumber(_config >> "extra_all");
 _sound = getText(_config >> "sound");
 _area = getNumber(_config >> "area");
 _license = getText(_config >> "license");
+private _maverickexp = getText(_config >> "Actions");
 
 if ((_tool != "") && ((currentWeapon player) != _tool)) exitWith
 {
@@ -89,7 +90,11 @@ while {(g_action_inUse && !g_interrupted)} do
 			((_tool != "") && ((secondaryWeapon player) != _tool))
 	) exitWith {titleText["* Récolte annulée *", "PLAIN DOWN"]};
 
+
+
 	player playMove "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
+	//player playMove "Skyline_SwingAnim_Outils";
+
 	if (_sound != "") then {
 		playSound _sound;
 	};
@@ -123,6 +128,15 @@ while {(g_action_inUse && !g_interrupted)} do
 	if (!_space) exitWith {
 		["Votre inventaire est plein."] call AlysiaClient_fnc_info;
 	};
+
+
+	if (_space) then {
+	//["gatherEXP"] spawn mav_ttm_fnc_addExp; ////////////////////Ajout XP/////////////////////
+
+	[_maverickexp] spawn mav_ttm_fnc_addExp;
+
+	};
+
 
 	if (!g_interrupted) then
 	{

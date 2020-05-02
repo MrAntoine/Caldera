@@ -102,7 +102,7 @@ if (_fill) then
 		[getText(missionConfigFile >> "ALYSIA_FUEL" >> _type >> "item_jerrycan"), true] call AlysiaClient_fnc_handleItem;
 		_station setVariable [_type, (_currentLiters - _liters), true];
 		[false, _bill, "Station Essence"] call AlysiaClient_fnc_handleATM;
-		[format["<t color='#8cff9b'>%1</t>$ ont été prélevés de votre compte en banque.", ([_bill] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
+		[format["<t color='#8cff9b'>%1</t>BTC ont été prélevés de votre compte Bitcoin.", ([_bill] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
 	} else {
 		["Le transfert n'a pas pu aboutir.<br/>Vous n'avez pas de jerrycan vide."] call AlysiaClient_fnc_error;
 	};

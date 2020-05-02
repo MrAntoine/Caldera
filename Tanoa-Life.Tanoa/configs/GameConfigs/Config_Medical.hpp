@@ -2,14 +2,15 @@ class ALYSIA_MEDICAL
 {
 	class stabilize
 	{
-		hand_succeed_percentage=1;
-		debif_succeed_percentage=50;
+		hand_succeed_percentage=1; //chance de réa en massage cardique
+		piqure_succeed_percentage=30;
+		debif_succeed_percentage=60; //chance de réa avec un défib
 	};
 
 	class regen
 	{
-		regen_basic=2;
-		regen_healthy=6;
+		regen_basic=1; //Point de vie regen si nourriture >= 50 et soif >= 50
+		regen_healthy=3;
 		regen_morphine_multiplier=3;
 	};
 

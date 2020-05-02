@@ -27,7 +27,7 @@ _action =
 [
 	format
 	[
-		"Vous êtes sur le point de payer la licence : <t color='#FF4000'>%1</t>.<br/>Prix : <t color='#8cff9b'>%2</t>$.<br/>Validez-vous ?",
+		"Vous êtes sur le point de payer la licence : <t color='#FF4000'>%1</t>.<br/>Prix : <t color='#8cff9b'>%2</t>BTC.<br/>Validez-vous ?",
 		[_license] call AlysiaClient_fnc_licenseGetName,
 		[getNumber(missionConfigFile >> "ALYSIA_LICENSES" >> _license >> "factions" >> str(side _target) >> "price")] call AlysiaClient_fnc_numberText
 	],

@@ -18,8 +18,8 @@ if (getNumber(_config >> "apply_rank") isEqualTo 1) then
 
 (_display displayCtrl 7601) ctrlSetStructuredText parseText format
 [
-		"Vous avez <t color='#8cff9b'>%1</t>$ en banque.<br/><br/>"
-	+	"Vous recevrez <t color='#8cff9b'>%2</t>$ de <t color='#FF8000'>%3</t> dans %4 minute(s).",
+		"Vous avez <t color='#8cff9b'>%1</t>BTC sur votre compte Bitcoin.<br/><br/>"
+	+	"Vous recevrez <t color='#8cff9b'>%2</t>BTC de <t color='#FF8000'>%3</t> dans %4 minute(s).",
 	[g_atm] call AlysiaClient_fnc_numberText,
 	[_salary] call AlysiaClient_fnc_numberText,
 	getText(_config >> "name"),

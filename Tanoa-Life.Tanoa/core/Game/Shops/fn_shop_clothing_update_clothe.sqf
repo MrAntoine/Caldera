@@ -91,9 +91,9 @@ if (count(_licenses) > 0) then
 (_display displayCtrl 3104) ctrlSetStructuredText parseText format
 [
 		"<t font='EtelkaMonospacePro' size='0.8'>"
-	+	"<t align='left'>Rank</t><t align='right' color='%1'>%2</t><br/>"
+	+	"<t align='left'>Rang</t><t align='right' color='%1'>%2</t><br/>"
 	+	"<t align='left'>Licence(s)</t><t align='right'>%3</t>"
-	+	"<t align='left'>Prix</t><t align='right' color='%4'>%5$</t><br/>"
+	+	"<t align='left'>Prix</t><t align='right' color='%4'>%5BTC</t><br/>"
 	+	"</t>",
 	if (_rank_condition) then {"#31B404"} else {"#DF0101"},
 	([playerSide, _rank] call AlysiaClient_fnc_rankToStr),

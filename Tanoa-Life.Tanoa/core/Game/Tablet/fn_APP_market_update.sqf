@@ -32,10 +32,10 @@ _diff = _price - _sync;
 [
 		"<t font='EtelkaMonospacePro' size='0.8'>"
 	+	"<t align='center' color='#086A87'>- Prix -</t><br/>"
-	+	"<t align='left'>Actuel</t><t align='right'><t color='#8cff9b'>%1</t>$</t><br/>"
-	+	"<t align='left'>Maximum</t><t align='right'><t color='#8cff9b'>%2</t>$</t><br/>"
-	+	"<t align='left'>Minimum</t><t align='right'><t color='#8cff9b'>%3</t>$</t><br/>"
-	+	"<t align='left'>Depuis dernier évènement</t><t align='right'>%5<t color='%6'>%7</t>$</t><br/><br/>"
+	+	"<t align='left'>Actuel</t><t align='right'><t color='#8cff9b'>%1</t>BTC</t><br/>"
+	+	"<t align='left'>Maximum</t><t align='right'><t color='#8cff9b'>%2</t>BTC</t><br/>"
+	+	"<t align='left'>Minimum</t><t align='right'><t color='#8cff9b'>%3</t>BTC</t><br/>"
+	+	"<t align='left'>Depuis dernier évènement</t><t align='right'>%5<t color='%6'>%7</t>BTC</t><br/><br/>"
 	+	"<t align='center' color='#086A87'>- Informations - </t><br/>"
 	+	"<t align='left'>Légal</t><t align='right'>%4</t><br/>"
 	+	"</t>",

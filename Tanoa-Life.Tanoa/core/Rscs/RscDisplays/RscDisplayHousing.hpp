@@ -2,7 +2,7 @@ class RscDisplayHousingBuy: RscDisplayDefaultInteraction
 {
 	idd=45000;
 	name="RscDisplayHousingBuy";
-	
+
 	class controlsBackground: DEFAULT_controlsBackground
 	{
 		class BACKGROUND: BACKGROUND
@@ -11,12 +11,12 @@ class RscDisplayHousingBuy: RscDisplayDefaultInteraction
 		};
 		class FRAME: FRAME {};
 	};
-	
+
 	class controls: DEFAULT_controls
 	{
 		class TITLE: TITLE
 		{
-			text="<t size='1.5' align='center'>Achat de bâtiment</t>";
+			text="<t size='1.5' align='center'>Squat de bâtiment</t>";
 		};
 
 		class OPTION_EXIT_FRAME: OPTION_EXIT_FRAME {};
@@ -28,7 +28,7 @@ class RscDisplayHousingBuy: RscDisplayDefaultInteraction
 		{
 			idc=45006;
 			colorBackground[]={0,0,0,0.6};
-			
+
 			x=0.381406 * safezoneW + safezoneX;
 			y=0.401 * safezoneH + safezoneY;
 			w=0.237187 * safezoneW;
@@ -74,9 +74,9 @@ class RscDisplayHousingBuy: RscDisplayDefaultInteraction
 		class ACTION_BUY_TEXT: RscStructuredText
 		{
 			idc=45004;
-			text="<t align='left' size='1.3'>Acheter</t>";
+			text="<t align='left' size='1.3'>Squatter</t>";
 			colorBackground[]={0,0,0,0};
-			
+
 			x=0.484531 * safezoneW + safezoneX;
 			y=0.621 * safezoneH + safezoneY;
 			w=0.0567187 * safezoneW;
@@ -86,8 +86,8 @@ class RscDisplayHousingBuy: RscDisplayDefaultInteraction
 		{
 			idc=45005;
 			action="[] spawn AlysiaClient_fnc_house_menu_action_buy;";
-			onMouseEnter="ctrlSetText[45003,""Alysia_Client_Texture\Data\global\action_buy_select.paa""];ctrlShow[45002, false];((findDisplay 45000) displayCtrl 45001) ctrlSetBackgroundColor [1,1,1,1];((findDisplay 45000) displayCtrl 45004) ctrlSetStructuredText parseText ""<t align='left' size='1.3' color='#000000'>Acheter</t>"";";
-			onMouseExit="ctrlSetText[45003,""Alysia_Client_Texture\Data\global\action_buy.paa""];ctrlShow[45002, true];((findDisplay 45000) displayCtrl 45001) ctrlSetBackgroundColor [0,0,0,0.6];((findDisplay 45000) displayCtrl 45004) ctrlSetStructuredText parseText ""<t align='left' size='1.3' color='#FFFFFF'>Acheter</t>"";";
+			onMouseEnter="ctrlSetText[45003,""Alysia_Client_Texture\Data\global\action_buy_select.paa""];ctrlShow[45002, false];((findDisplay 45000) displayCtrl 45001) ctrlSetBackgroundColor [1,1,1,1];((findDisplay 45000) displayCtrl 45004) ctrlSetStructuredText parseText ""<t align='left' size='1.3' color='#000000'>Squatter</t>"";";
+			onMouseExit="ctrlSetText[45003,""Alysia_Client_Texture\Data\global\action_buy.paa""];ctrlShow[45002, true];((findDisplay 45000) displayCtrl 45001) ctrlSetBackgroundColor [0,0,0,0.6];((findDisplay 45000) displayCtrl 45004) ctrlSetStructuredText parseText ""<t align='left' size='1.3' color='#FFFFFF'>Squatter</t>"";";
 
 			x=0.443281 * safezoneW + safezoneX;
 			y=0.61 * safezoneH + safezoneY;

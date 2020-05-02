@@ -51,6 +51,16 @@
 				('SkylineItems_Bandage' in (magazines player))
 			"
 		],[
+			"massage",
+			"Epinéphrine.",
+			"[g_interaction_target, 'epinephrine'] spawn AlysiaClient_fnc_action_stabilize;",
+			"
+				('SkylineItems_Eponephrine' in (magazines player)) &&
+				!(g_interaction_target getVariable ['bed_awake', false]) &&
+				!(g_interaction_target getVariable ['transporting',false]) &&
+				(isNull (attachedTo g_interaction_target))
+			"
+		],[
 			"defib",
 			"Defib.",
 			"[g_interaction_target, 'defib'] spawn AlysiaClient_fnc_action_stabilize;",

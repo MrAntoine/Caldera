@@ -1,5 +1,7 @@
 
+//#include "common2.hpp"
 #include "common.hpp"
+#include "common3.hpp"
 
 #include "RscDisplays\RscDisplayDefault.hpp"
 #include "RscDisplays\RscDisplayDefaultInteraction.hpp"
@@ -38,6 +40,9 @@
 #include "RscDisplays\RscDisplayLaunder.hpp"
 #include "RscDisplays\RscDisplayWallet.hpp"
 
+#include "..\..\maverick\maverick_master.cpp"
+//#include "..\..\Taneino\TaneinoDialogMaster.hpp"
+#include "RscDisplays\dialog\venteVeh.hpp"
 class RscTitles
 {
 	#include "RscTitles\RscTitlePlayer.hpp"
@@ -45,4 +50,6 @@ class RscTitles
 	#include "RscTitles\RscTitleLoot.hpp"
 	#include "RscTitles\RscTitleMessage.hpp"
 	#include "RscTitles\RscTitleArrest.hpp"
+	#include "..\..\maverick\maverick_titles_master.cpp"
+	#include "..\..\maverick\talent-tree-modular\gui\_masterTitles.cpp"
 };

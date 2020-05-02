@@ -28,7 +28,7 @@ if ((_vehicleInfo select 9) isEqualTo 0) exitWith
 
 (_display displayCtrl 99004) ctrlSetStructuredText parseText format
 [
-	"<t align='center' color='#8cff9b'>%1</t><t align='right'>$</t>",
+	"<t align='center' color='#8cff9b'>%1</t><t align='right'>BTC</t>",
 	[_vehicleInfo select 21] call AlysiaClient_fnc_numberText
 ];
 

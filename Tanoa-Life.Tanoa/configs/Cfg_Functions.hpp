@@ -8,7 +8,7 @@ class CfgFunctions
 			file="core\EventHandlers";
 			class actionKeyHandler {};
 			class onPlayerESC {};
-			class onPlayerFireNear {};
+			//class onPlayerFireNear {};
 			class onPlayerHandleDamage {};
 			class onPlayerInventoryOpen {};
 			class onPlayerKeyPress {};
@@ -31,6 +31,10 @@ class CfgFunctions
 			class query_update_usual {};
 		};
 	};
+
+	#include "..\maverick\maverick_functions_master.cpp"
+
+	#include "..\Taneino\taneino_functions.cpp"
 
 	class Public
 	{
@@ -64,6 +68,13 @@ class CfgFunctions
 			class border_south_missile_launch {};
 		};
 
+		class Radio
+		{
+			file="core\Game\Radio";
+			class radio_destroy {};
+			class radio_repair {};
+		};
+
 		class Dog
 		{
 			file="core\Game\Dog";
@@ -72,6 +83,12 @@ class CfgFunctions
 			class dog_follow {};
 			class dog_stop {};
 			class dog_hire {};
+		};
+
+		class Secu
+		{
+			file="core\Game\Secu";
+			class card {};
 		};
 
 		class VirtualInventory
@@ -99,6 +116,7 @@ class CfgFunctions
 		class Companies
 		{
 			file="core\Game\Companies";
+			class markerOpenClose {};
 			class company_create_open {};
 			class company_create_action {};
 			class company_create_update {};
@@ -306,8 +324,12 @@ class CfgFunctions
 		class Vehicles
 		{
 			file="core\Game\Vehicles";
+			class vehicleMenu_sell {}
 			class clearVehicleAmmo {};
 			class activateNitro {};
+			class venteVeh {};
+			class returnVente {};
+			class receivedVeh {};
 			class vehicleMenu_plate {};
 			class vehicleMenu_flip {};
 			class vehicleMenu_key {};
@@ -332,6 +354,8 @@ class CfgFunctions
 			class vehicleMenu_bomb {};
 			class vehicleMenu_speaker {};
 			class vehicleMenu_push {};
+			class rafistolage {};
+			class repair {};
 			class handleFuel {};
 		};
 
@@ -343,7 +367,7 @@ class CfgFunctions
 			class drill_desactivate {};
 			class drill_take {};
 		};
-		
+
 		class C4
 		{
 			file="core\Game\C4";
@@ -369,6 +393,7 @@ class CfgFunctions
 			class fuelStation_fuel_getStock {};
 			class fuelStation_fuel_handle {};
 			class fuelStation_refuel_pay {};
+			class robFuel_station {};
 		};
 
 		class Housing
@@ -464,6 +489,8 @@ class CfgFunctions
 		{
 			file="core\Game\Gather";
 			class catchTurtle {};
+			class catchGoat {};
+			class catchSheep {};
 			class pickGather {};
 			class plantHarvest {};
 			class plantCreate {};
@@ -532,11 +559,16 @@ class CfgFunctions
 			class interactions_player_to_speaker {};
 			class interactions_player_to_dog {};
 			class interactions_player_to_laboratory {};
+			class interactions_player_to_radio {}; //ajout
+
 		};
 
 		class Actions
 		{
 			file="core\Game\Actions";
+			class echange {};
+			class radarea {};
+			class radareaeffect {};
 			class building_light_handle {};
 			class building_light_update {};
 			class building_door_lock_handle {};
@@ -602,6 +634,7 @@ class CfgFunctions
 			class welcomeInit {};
 			class welcomeMenu_Open {};
 			class welcomeMenu_Proceed {};
+			class loggedOut {};
 		};
 
 		class Tablet

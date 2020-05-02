@@ -64,7 +64,7 @@ if ((lbSize _list) isEqualTo 0) then {
 
 (_display displayCtrl 2411) ctrlSetStructuredText parseText format
 [
-	"<t align='center' color='#8cff9b'>%1$<br/>%2$<br/>%3$</t>",
+	"<t align='center' color='#8cff9b'>%1BTC<br/>%2BTC<br/>%3BTC</t>",
 	[(g_shop_receive_dollar + g_shop_receive_illegal) - g_shop_bill_dollar] call AlysiaClient_fnc_numberText,
 	[g_shop_receive_dollar + g_shop_receive_illegal] call AlysiaClient_fnc_numberText,
 	[g_shop_bill_dollar] call AlysiaClient_fnc_numberText

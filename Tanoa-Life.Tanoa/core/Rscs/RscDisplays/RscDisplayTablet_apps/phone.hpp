@@ -57,7 +57,7 @@ PHONE_CATEGORY_IDCS[] =
 class PHONE_CATEGORY_NUMBER: RscStructuredText
 {
 	idc=PHONE_CATEGORY_NUMBER_IDC;
-	
+
 	x=0.324687 * safezoneW + safezoneX;
 	y=0.346 * safezoneH + safezoneY;
 	w=0.154687 * safezoneW;
@@ -66,7 +66,7 @@ class PHONE_CATEGORY_NUMBER: RscStructuredText
 class PHONE_CATEGORY_FORFAIT: RscStructuredText
 {
 	idc=PHONE_CATEGORY_FORFAIT_IDC;
-	
+
 	x=0.489688 * safezoneW + safezoneX;
 	y=0.346 * safezoneH + safezoneY;
 	w=0.185625 * safezoneW;
@@ -539,7 +539,7 @@ class PHONE_MESSAGE_SEND_NUMBER_FRAME: RscFrame
 class PHONE_MESSAGE_SEND_HIDE_HEADER: RscStructuredText
 {
 	idc=PHONE_MESSAGE_SEND_HIDE_HEADER_IDC;
-	text="<t align='center'>Masquer son numéro</t>";
+	text="<t align='center'>Masquer num.</t>";
 	colorBackground[]={0,0,0,0.8};
 
 	x=0.5825 * safezoneW + safezoneX;
@@ -649,7 +649,7 @@ class PHONE_SETTING_SMS_HEADER: RscStructuredText
 {
 	idc=PHONE_SETTING_SMS_HEADER_IDC;
 	text="<t size='1.3'>Alerte SMS</t>";
-	
+
 	x=0.324687 * safezoneW + safezoneX;
 	y=0.478 * safezoneH + safezoneY;
 	w=0.165 * safezoneW;
@@ -955,7 +955,7 @@ PHONE_BLACKLIST_BACKGROUND=PHONE_BACKGROUND;
 class PHONE_BLACKLIST_LIST_FRAME: RscFrame
 {
 	idc=PHONE_BLACKLIST_LIST_FRAME_IDC;
-	
+
 	x=0.324687 * safezoneW + safezoneX;
 	y=0.39 * safezoneH + safezoneY;
 	w=0.216563 * safezoneW;
@@ -1476,7 +1476,7 @@ class PHONE_CALL_HISTORY: RscListBox
 
 // =======================================[Calling]=======================================
 #define PHONE_CALLING_ACTION_HANGUP_IMAGE_IDC      11000
-#define PHONE_CALLING_ACTION_HANGUP_BUTTON_IDC     11001        
+#define PHONE_CALLING_ACTION_HANGUP_BUTTON_IDC     11001
 #define PHONE_CALLING_FRAME_IDC                    11002
 #define PHONE_CALLING_NUMBER_IDC                   11003
 #define PHONE_CALLING_TIMER_IDC                    11004
@@ -1524,7 +1524,7 @@ class PHONE_CALLING_FRAME: RscText
 {
 	idc=PHONE_CALLING_FRAME_IDC;
 	colorBackground[]={0,0,0,0.6};
-	
+
 	x=0.391719 * safezoneW + safezoneX;
 	y=0.379 * safezoneH + safezoneY;
 	w=0.211406 * safezoneW;
@@ -1614,7 +1614,7 @@ class PHONE_CALLRECEIVING_FRAME: RscText
 {
 	idc=PHONE_CALLRECEIVING_FRAME_IDC;
 	colorBackground[]={0,0,0,0.6};
-	
+
 	x=0.391719 * safezoneW + safezoneX;
 	y=0.379 * safezoneH + safezoneY;
 	w=0.211406 * safezoneW;

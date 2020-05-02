@@ -31,10 +31,10 @@ switch (_action) do
 	case "withdraw":
 	{
 		if (_amount > getNumber(_config >> "withdraw_max")) exitWith {
-			[format["Vous ne pouvez pas retirer plus de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "withdraw_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas retirer plus de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "withdraw_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (_amount < getNumber(_config >> "withdraw_min")) exitWith {
-			[format["Vous ne pouvez pas retirer moins de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "withdraw_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas retirer moins de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "withdraw_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (g_atm < _amount) exitWith {
 			["Solde insuffisant"] call AlysiaClient_fnc_error;
@@ -42,18 +42,18 @@ switch (_action) do
 
 		_tax = _amount * (getNumber(_config >> "withdraw_tax") / 100);
 		if (g_atm < _tax) exitWith {
-			[format["Vous n'avez pas assez d'argent dans votre compte pour payer la taxe de prélèvement de ce DAB s'élevant à <t color='#8cff9b'>%1</t>$", [_tax] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous n'avez pas assez d'argent dans votre compte pour payer la taxe de prélèvement de ce DAB s'élevant à <t color='#8cff9b'>%1</t>BTC", [_tax] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 
 		_atm_money = g_interaction_target getVariable ["money", getNumber(_config >> "money_stock")];
 		if (_amount > _atm_money) exitWith {
-			[format["Il n'y à pas assez d'argent dans le DAB pour retirer <t color='#8cff9b'>%1</t>$.<br/>Max : <t color='#8cff9b'>%2</t>$", [_amount] call AlysiaClient_fnc_numberText, [_atm_money] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Il n'y à pas assez d'argent dans le DAB pour retirer <t color='#8cff9b'>%1</t>BTC.<br/>Max : <t color='#8cff9b'>%2</t>BTC", [_amount] call AlysiaClient_fnc_numberText, [_atm_money] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 
 		[
 			format
 			[
-				"Vous avez retiré <t color='#8cff9b'>%1</t>$ de votre compte.<br/>Vous avez payé <t color='#8cff9b'>%2</t>$ de taxe.",
+				"Vous avez retiré <t color='#8cff9b'>%1</t>BTC de votre compte.<br/>Vous avez payé <t color='#8cff9b'>%2</t>BTC de taxe.",
 				[_amount] call AlysiaClient_fnc_numberText,
 				[_tax] call AlysiaClient_fnc_numberText
 			]
@@ -68,16 +68,16 @@ switch (_action) do
 	case "deposit":
 	{
 		if (_amount > getNumber(_config >> "deposit_max")) exitWith {
-			[format["Vous ne pouvez pas déposer plus de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "deposit_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas déposer plus de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "deposit_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (_amount < getNumber(_config >> "deposit_min")) exitWith {
-			[format["Vous ne pouvez pas déposer moins de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "deposit_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas déposer moins de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "deposit_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (g_cash < _amount) exitWith {
 			["Vous n'avez pas assez de fonds sur vous"] call AlysiaClient_fnc_error;
 		};
 
-		[format["Vous avez déposé <t color='#8cff9b'>%1</t>$ sur votre compte.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
+		[format["Vous avez déposé <t color='#8cff9b'>%1</t>BTC sur votre compte.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
 		[g_interaction_target, true, _amount] call AlysiaClient_fnc_atmMoneyHandle;
 		[false, _amount] call AlysiaClient_fnc_handleCash;
 		[true, _amount, "Dépot DAB"] call AlysiaClient_fnc_handleATM;
@@ -87,10 +87,10 @@ switch (_action) do
 	case "deposit_faction":
 	{
 		if (_amount > getNumber(_config >> "deposit_max")) exitWith {
-			[format["Vous ne pouvez pas déposer plus de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "deposit_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas déposer plus de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "deposit_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (_amount < getNumber(_config >> "deposit_min")) exitWith {
-			[format["Vous ne pouvez pas déposer moins de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "deposit_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas déposer moins de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "deposit_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (g_cash < _amount) exitWith {
 			["Vous n'avez pas assez d'argent sur vous."] call AlysiaClient_fnc_error;
@@ -98,7 +98,7 @@ switch (_action) do
 
 		if ([true, _amount] call AlysiaClient_fnc_atmFactionHandle) then
 		{
-			[format["Vous avez déposé <t color='#8cff9b'>%1</t>$ le compte de votre faction.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
+			[format["Vous avez déposé <t color='#8cff9b'>%1</t>BTC le compte de votre faction.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
 			[g_interaction_target, true, _amount] call AlysiaClient_fnc_atmMoneyHandle;
 			[false, _amount] call AlysiaClient_fnc_handleCash;
 		};
@@ -108,20 +108,20 @@ switch (_action) do
 	case "withdraw_faction":
 	{
 		if (_amount > getNumber(_config >> "withdraw_max")) exitWith {
-			[format["Vous ne pouvez pas retirer plus de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "withdraw_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas retirer plus de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "withdraw_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (_amount < getNumber(_config >> "withdraw_min")) exitWith {
-			[format["Vous ne pouvez pas retirer moins de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "withdraw_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas retirer moins de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "withdraw_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 
 		_atm_money = g_interaction_target getVariable ["money", getNumber(_config >> "money_stock")];
 		if (_amount > _atm_money) exitWith {
-			[format["Il n'y à pas assez d'argent dans le DAB pour retirer <t color='#8cff9b'>%1</t>$.<br/>Max : <t color='#8cff9b'>%2</t>$", [_amount] call AlysiaClient_fnc_numberText, [_atm_money] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Il n'y à pas assez d'argent dans le DAB pour retirer <t color='#8cff9b'>%1</t>BTC.<br/>Max : <t color='#8cff9b'>%2</t>BTC", [_amount] call AlysiaClient_fnc_numberText, [_atm_money] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 
 		if ([false, _amount] call AlysiaClient_fnc_atmFactionHandle) then
 		{
-			[format["Vous avez retiré <t color='#8cff9b'>%1</t>$ du compte votre faction.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
+			[format["Vous avez retiré <t color='#8cff9b'>%1</t>BTC du compte votre faction.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
 			[true, _amount] call AlysiaClient_fnc_handleCash;
 			[g_interaction_target, false, _amount] call AlysiaClient_fnc_atmMoneyHandle;
 		} else {
@@ -133,16 +133,16 @@ switch (_action) do
 	case "deposit_company":
 	{
 		if (_amount > getNumber(_config >> "deposit_max")) exitWith {
-			[format["Vous ne pouvez pas déposer plus de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "deposit_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas déposer plus de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "deposit_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (_amount < getNumber(_config >> "deposit_min")) exitWith {
-			[format["Vous ne pouvez pas déposer moins de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "deposit_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas déposer moins de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "deposit_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (g_cash < _amount) exitWith {
 			["Vous n'avez pas assez d'argent sur vous."] call AlysiaClient_fnc_error;
 		};
 
-		[format["Vous avez déposé <t color='#8cff9b'>%1</t>$ le compte de votre entreprise.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
+		[format["Vous avez déposé <t color='#8cff9b'>%1</t>BTC le compte de votre entreprise.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
 		[g_interaction_target, true, _amount] call AlysiaClient_fnc_atmMoneyHandle;
 		[false, _amount] call AlysiaClient_fnc_handleCash;
 		[g_company, true, _amount, (player getVariable "realname"), "Dépot"] remoteExec ["AlysiaServer_fnc_company_bank_handle", 2];
@@ -152,15 +152,15 @@ switch (_action) do
 	case "withdraw_company":
 	{
 		if (_amount > getNumber(_config >> "withdraw_max")) exitWith {
-			[format["Vous ne pouvez pas retirer plus de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "withdraw_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas retirer plus de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "withdraw_max")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 		if (_amount < getNumber(_config >> "withdraw_min")) exitWith {
-			[format["Vous ne pouvez pas retirer moins de <t color='#8cff9b'>%1</t>$.", [getNumber(_config >> "withdraw_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Vous ne pouvez pas retirer moins de <t color='#8cff9b'>%1</t>BTC.", [getNumber(_config >> "withdraw_min")] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 
 		_atm_money = g_interaction_target getVariable ["money", getNumber(_config >> "money_stock")];
 		if (_amount > _atm_money) exitWith {
-			[format["Il n'y à pas assez d'argent dans le DAB pour retirer <t color='#8cff9b'>%1</t>$.<br/>Max : <t color='#8cff9b'>%2</t>$", [_amount] call AlysiaClient_fnc_numberText, [_atm_money] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+			[format["Il n'y à pas assez d'argent dans le DAB pour retirer <t color='#8cff9b'>%1</t>BTC.<br/>Max : <t color='#8cff9b'>%2</t>BTC", [_amount] call AlysiaClient_fnc_numberText, [_atm_money] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 		};
 
 		if ((g_company getVariable ["company_bank", 0]) >= _amount) then
@@ -168,7 +168,7 @@ switch (_action) do
 			[g_company, false, _amount, (player getVariable "realname"), "Retrait"] remoteExec ["AlysiaServer_fnc_company_bank_handle", 2];
 			[true, _amount] call AlysiaClient_fnc_handleCash;
 			[g_interaction_target, false, _amount] call AlysiaClient_fnc_atmMoneyHandle;
-			[format["Vous avez retiré <t color='#8cff9b'>%1</t>$ du compte votre faction.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
+			[format["Vous avez retiré <t color='#8cff9b'>%1</t>BTC du compte votre faction.", [_amount] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
 		} else {
 			["Solde insuffisant"] call AlysiaClient_fnc_error;
 		};

@@ -71,27 +71,27 @@ while {!(isNull _display)} do
 {
 	if (isNull _from) exitWith
 	{
-		["Passeport <t color='#FFBF00'>interrompu</t>.<br/>Cible invalide."] call AlysiaClient_fnc_info;
+		["Puce intradermique <t color='#FFBF00'>interrompu</t>.<br/>Cible invalide."] call AlysiaClient_fnc_info;
 		closeDialog 0;
 	};
 	if (player getVariable ["is_coma", false]) exitWith
 	{
-		["Passeport <t color='#FFBF00'>interrompu</t>.<br/>Vous êtes dans le coma."] call AlysiaClient_fnc_info;
+		["Puce intradermique <t color='#FFBF00'>interrompu</t>.<br/>Vous êtes dans le coma."] call AlysiaClient_fnc_info;
 		closeDialog 0;
 	};
 	if ((player distance _from) > ((((boundingBox _from) select 1) select 0) + 2.5)) exitWith
 	{
-		["Passeport <t color='#FFBF00'>interrompu</t>.<br/>Vous êtes trop loin de la cible."] call AlysiaClient_fnc_info;
+		["Puce intradermique <t color='#FFBF00'>interrompu</t>.<br/>Vous êtes trop loin de la cible."] call AlysiaClient_fnc_info;
 		closeDialog 0;
 	};
 	if (player getVariable ["restrained", false]) exitWith
 	{
-		["Passeport <t color='#FFBF00'>interrompu</t>.<br/>Vous êtes menotté."] call AlysiaClient_fnc_info;
+		["Puce intradermique <t color='#FFBF00'>interrompu</t>.<br/>Vous êtes menotté."] call AlysiaClient_fnc_info;
 		closeDialog 0;
 	};
 	if (player getVariable ["surrender", false]) exitWith
 	{
-		["Passeport <t color='#FFBF00'>interrompu</t>.<br/>Vous avez les mains sur la tête."] call AlysiaClient_fnc_info;
+		["Puce intradermique <t color='#FFBF00'>interrompu</t>.<br/>Vous avez les mains sur la tête."] call AlysiaClient_fnc_info;
 		closeDialog 0;
 	};
 

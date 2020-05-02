@@ -18,11 +18,11 @@ if (_price > g_atm) exitWith {};
 
 _name = ctrlText 90011;
 if (_name isEqualTo "") exitWith {
-	["Vous n'avez pas entré le nom de l'entreprise."] call AlysiaClient_fnc_error;
+	["Vous n'avez pas entré le nom de votre maison."] call AlysiaClient_fnc_error;
 };
 _bad = [_name, getText(missionConfigFile >> "ALYSIA_COMMPAGNIES_INFO" >> "name_allowed")] call AlysiaClient_fnc_TextAllowed;
 if (_bad != "") exitWith {
-	[format["Vous utilisez un caractère interdit dans le nom de l'entreprise (%1).", _bad]] call AlysiaClient_fnc_error;
+	[format["Vous utilisez un caractère interdit dans le nom de votre maison (%1).", _bad]] call AlysiaClient_fnc_error;
 };
 if (([_name] call CBA_fnc_strLen) > getNumber(missionConfigFile >> "ALYSIA_COMMPAGNIES_INFO" >> "name_max")) exitWith {
 	[format["Votre message ne doit pas dépasser %1 caractères.", getNumber(missionConfigFile >> "ALYSIA_COMPANIES_TYPES" >> "characters_max")]] call AlysiaClient_fnc_error;
@@ -31,7 +31,7 @@ if (([_name] call CBA_fnc_strLen) > getNumber(missionConfigFile >> "ALYSIA_COMMP
 closeDialog 0;
 
 if (isNull g_interaction_target) exitWith {
-	["Impossible de récupérer les informations du propriétaire de l'entreprise"] call AlysiaClient_fnc_error;
+	["Impossible de récupérer les informations du propriétaire de la maison"] call AlysiaClient_fnc_error;
 };
 
 if (!(isNull g_objPut)) exitWith {
@@ -42,7 +42,7 @@ _object = getText(missionConfigFile >> "ALYSIA_COMPANIES_TYPES" >> _type >> "bui
 _object attachTo [player, [0, 10, 1]];
 g_objPut = _object;
 
-_action_1 = player addAction["Placer l'<t color='#FFFF33'>entreprise</t>",
+_action_1 = player addAction["Placer la<t color='#FFFF33'> maison</t>",
 {
 	detach g_objPut;
 }, "", 9999992, true, true, "",'!isNull g_objPut'];
@@ -63,11 +63,11 @@ if (isNull _object) exitWith {};
 
 if (isNull g_interaction_target) exitWith
 {
-	["Impossible de récupérer les informations du propriétaire de l'entreprise."] call AlysiaClient_fnc_error;
+	["Impossible de récupérer les informations du propriétaire de la maison."] call AlysiaClient_fnc_error;
 	deleteVehicle _object;
 };
 
 _object setPos [((getPos _object) select 0), ((getPos _object) select 1), 0];
 playSound "buy";
-[false, _price, "Création d'entreprise"] call AlysiaClient_fnc_handleATM;
+[false, _price, "Construction de maison"] call AlysiaClient_fnc_handleATM;
 [_type, _object, g_interaction_target, _name] remoteExec ["AlysiaServer_fnc_company_insert", 2];

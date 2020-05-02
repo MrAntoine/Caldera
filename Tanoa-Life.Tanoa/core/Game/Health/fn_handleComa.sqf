@@ -121,8 +121,8 @@ while {(_death_timer > 0) && !g_coma_dead && (player getVariable ["is_coma", fal
 
 	_ctrl_samu ctrlSetStructuredText parseText format
 	[
-		"<t align='center'><t color='#FF8000'>%1 membres</t> du <t color='#0489B1'>SAMU</t> présents</t>",
-		independent countSide allPlayers
+		"<t align='center'><t color='#FF8000'>%1 personnes</t> présente <t color='#0489B1'>pour</t> vous secourir</t>",
+		civilian countSide allPlayers
 	];
 
 	_someone_near = false;
@@ -174,7 +174,7 @@ while {(_death_timer > 0) && !g_coma_dead && (player getVariable ["is_coma", fal
 		{
 			_ctrl_suicide_left ctrlSetStructuredText parseText format
 			[
-				"<t align='center' size='1.4'>Vous avez contacté le SAMU récemment. Vous aurez de nouveau la possibilité d'aller directement en soin intensif dans %1</t>",
+				"<t align='center' size='1.4'>Vous avez envoyé une signal de détresse. Vous aurez de nouveau la possibilité d'aller directement en soin intensif dans %1</t>",
 				[(player getVariable ["medic_request_time", 0]) - time, "H:MM:SS"] call CBA_fnc_formatElapsedTime
 			];
 			_ctrl_suicide_left ctrlShow true;

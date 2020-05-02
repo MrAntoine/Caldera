@@ -12,17 +12,17 @@ _action = switch (true) do
 	case (player getVariable ["is_coma", false]): {true};
 	case ((player getVariable ["surrender", false]) || (player getVariable ["restrained", false])):
 	{
-		["Quelqu'un cherche votre porte-feuille dans vos affaires."] call AlysiaClient_fnc_info;
+		["Quelqu'un cherche votre puce intradermique."] call AlysiaClient_fnc_info;
 		true;
 	};
 	default
 	{
 		_ret = [
 			"<t align='center'><img size='4' image='Alysia_Client_Texture\Data\interactions\player_to_player_basics\action_wallet.paa'/></t><br/><br/><br/>" +
-			"<t color='#FF8000'>Quelqu'un</t> souhaite accéder à votre <t color='#74DF00'>porte-feuille</t>.<br/><br/>" +
-			"Cela lui donnera un visuel sur <t color='#58ACFA'>vos licences</t> ainsi que <t color='#58ACFA'>votre passeport</t>.<br/><br/>" +
+			"<t color='#FF8000'>Quelqu'un</t> souhaite accéder à votre <t color='#74DF00'>puce intradermique</t>.<br/><br/>" +
+			"Cela lui donnera un visuel sur <t color='#58ACFA'>vos licences</t> ainsi que <t color='#58ACFA'>votre puce intradermique</t>.<br/><br/>" +
 			"Acceptez-vous ?",
-			"Porte-feuille",
+			"Puce intradermique",
 			"Accepter",
 			"Refuser"
 		] call BIS_fnc_guiMessage;

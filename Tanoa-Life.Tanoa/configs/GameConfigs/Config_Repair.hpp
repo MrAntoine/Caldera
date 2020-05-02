@@ -1,6 +1,6 @@
 class ALYSIA_REPAIR
 {
-	class HitFuel
+	/*class HitFuel
 	{
 		name="Réservoir";
 		tool="Alysia_repair_toolbox";
@@ -41,7 +41,7 @@ class ALYSIA_REPAIR
 	};
 	class HitRTrack: HitLTrack {
 		name="Chenille droite";
-	};
+	};*/
 
 	class HitLFWheel
 	{
@@ -80,7 +80,7 @@ class ALYSIA_REPAIR
 		name="Roue arrière";
 	};
 
-	class HitGlass1
+	/*class HitGlass1
 	{
 		name="Vitre";
 		tool="Alysia_repair_toolbox";
@@ -262,5 +262,5 @@ class ALYSIA_REPAIR
 		time=9;
 	};
 	class HitStarter2: HitStarter1 {};
-	class HitStarter3: HitStarter1 {};
+	class HitStarter3: HitStarter1 {};*/
 };

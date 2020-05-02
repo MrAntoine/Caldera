@@ -20,51 +20,15 @@ class ALYSIA_FARMING_PLANT_OBJETCS
 	};
 	*/
 
-	//Plante de mais
-	class Alysia_Plants_Assets_Mais_01_F
+	//Plante de Aubepine
+	class Oleander_White
 	{
-		seed="corn_seed";
-		receive[]={{"corn",6,1}};
+		seed="aubepine_seed";
+		receive[]={{"aubepine",3,1}};
 		distance=2;
 		growingTime=120;
-		groundLevel=2;
-		upLevel=2;
-		extraGrow=50;
-	};
-
-	//Plante de haricot
-	class Alysia_Plants_Assets_Haricot_01_F
-	{
-		seed="bean_seed";
-		receive[]={{"bean",6,1}};
-		distance=1;
-		growingTime=120;
-		groundLevel=1.23;
-		upLevel=1.23;
-		extraGrow=50;
-	};
-
-	//Plante de coton
-	class Alysia_Plants_Assets_Coton_01_F
-	{
-		receive[]={{"cotton",6,1}};
-		seed="cotton_seed";
-		distance=2;
-		growingTime=120;
-		groundLevel=0.9;
-		upLevel=0.9;
-		extraGrow=50;
-	};
-
-	//Blé
-	class Alysia_Plants_Assets_Ble_01_F
-	{
-		receive[]={{"wheat",6,1}};
-		seed="wheatseed";
-		distance=3;
-		growingTime=120;
-		groundLevel=0.9;
-		upLevel=0.9;
+		groundLevel=1.5;
+		upLevel=1.5;
 		extraGrow=50;
 	};
 
@@ -73,18 +37,6 @@ class ALYSIA_FARMING_PLANT_OBJETCS
 	{
 		receive[]={{"houblon",6,1}};
 		seed="houblon_seed";
-		distance=3;
-		growingTime=120;
-		groundLevel=0.9;
-		upLevel=0.9;
-		extraGrow=50;
-	};
-
-	//Orge
-	class Alysia_Plants_Assets_Orge_01_F
-	{
-		receive[]={{"orge",6,1}};
-		seed="orge_seed";
 		distance=3;
 		growingTime=120;
 		groundLevel=0.9;
@@ -129,77 +81,6 @@ class ALYSIA_FARMING_PLANT_OBJETCS
 		extraGrow=100;
 	};
 
-	//Plante de patate
-	class Alysia_Plants_Assets_Patate_01_F
-	{
-		receive[]={{"patate",4,1}};
-		seed="patate_seed";
-		distance=1.2;
-		growingTime=120;
-		groundLevel=0.6;
-		upLevel=0.6;
-		extraGrow=50;
-	};
-
-	//Olivier
-	class Alysia_Plants_Assets_Olivier_01_F
-	{
-		receive[]={{"olive",7,1}};
-		seed="olive_seed";
-		distance=10;
-		growingTime=540;
-		groundLevel=0;
-		upLevel=0;
-		extraGrow=70;
-	};
-
-	//Plante de tomate
-	class Alysia_Plants_Assets_Tomate_01_F
-	{
-		receive[]={{"tomato",4,1}};
-		seed="tomato_seed";
-		distance=1.3;
-		growingTime=120;
-		groundLevel=1.1;
-		upLevel=1.1;
-		extraGrow=50;
-	};
-
-	//Plante de citrouille
-	class Alysia_Plants_Assets_Citrouille_01_F
-	{
-		receive[]={{"pumpkin",1,0}};
-		seed="pumpkin_seed";
-		distance=1.6;
-		growingTime=160;
-		groundLevel=0.4;
-		upLevel=0.4;
-		extraGrow=50;
-	};
-
-	//Plante de courgette
-	class Alysia_Plants_Assets_Courgette_01_F
-	{
-		receive[]={{"zucchini",3,1}};
-		seed="zucchini_seed";
-		distance=1.1;
-		growingTime=140;
-		groundLevel=0.3;
-		upLevel=0.3;
-		extraGrow=50;
-	};
-
-	//Plante de tournesol
-	class Alysia_Plants_Assets_Tournesol_01_F
-	{
-		receive[]={{"sunflower",1,0}};
-		seed="sunflower_seed";
-		distance=0.8;
-		growingTime=150;
-		groundLevel=2;
-		upLevel=2;
-		extraGrow=50;
-	};
 	class Oleander2
 	{
 		receive[]={{"heroin",2,1}};
@@ -233,35 +114,86 @@ class ALYSIA_FARMING_PLANT_OBJETCS
 		extraGrow=100;
 		disableForMill=1;
 	};
-	class Plant_Mullein
+
+
+
+	//Plante de coton
+	class Alysia_Plants_Assets_Coton_01_F
 	{
-		receive[]={{"coffee",6,1}};
-		seed="coffee_seed";
-		distance=4;
-		growingTime=320;
-		groundLevel=1.3;
-		upLevel=1.3;
+		receive[]={{"cotton",3,1}};
+		seed="cotton_seed";
+		distance=2;
+		growingTime=120;
+		groundLevel=0.9;
+		upLevel=0.9;
 		extraGrow=50;
 	};
-	class Tree_Grape_Rouge
+
+	//valériane
+	class Oleander2
 	{
-		receive[]={{"raisin_red",5,1}};
-		seed="raisin_black_seed";
+		receive[]={{"valeriane",3,1}};
+		seed="valeriane_seed";
 		distance=2;
-		growingTime=410;
-		groundLevel=1.2;
-		upLevel=1.1;
-		extraGrow=70;
+		growingTime=120;
+		groundLevel=1.5;
+		upLevel=1.5;
+		extraGrow=50;
 	};
-	class Tree_Grape_Blanc: Tree_Grape_Rouge
+
+	//Ortie
+	class Plant_Green_Shrub
 	{
-		receive[]={{"raisin_white",5,1}};
-		seed="raisin_white_seed";
+		receive[]={{"ortie",3,1}};
+		seed="ortie_seed";
+		distance=2;
+		growingTime=120;
+		groundLevel=0.8;
+		upLevel=0.8;
+		extraGrow=50;
+	};
+
+	//Orge
+	class Flower_Medium_White2
+	{
+		receive[]={{"reinedespres",3,1}};
+		seed="reinedespres_seed";
+		distance=2;
+		growingTime=120;
+		groundLevel=0.4;
+		upLevel=0.4;
+		extraGrow=50;
 	};
 };
 
 class ALYSIA_FARMING_PLANT_MARKERS
 {
+	class aubepine_field
+	{
+		plant="Oleander_White";
+		area=40;
+	};
+	class coton_field
+	{
+		plant="Alysia_Plants_Assets_Coton_01_F";
+		area=40;
+	};
+	class valeriane_field
+	{
+		plant="Oleander2";
+		area=40;
+	};
+	class ortie_field
+	{
+		plant="Plant_Green_Shrub";
+		area=15;
+	};
+	class reinedespres_field
+	{
+		plant="Flower_Medium_White2";
+		area=30;
+	};
+
 	class corn_field_marker_1
 	{
 		plant="Alysia_Plants_Assets_Mais_01_F";
@@ -271,23 +203,7 @@ class ALYSIA_FARMING_PLANT_MARKERS
 	{
 		plant="Alysia_Plants_Assets_Tabac_01_F";
 	};
-	class bean_field_marker_1: corn_field_marker_1
-	{
-		plant="Alysia_Plants_Assets_Haricot_01_F";
-	};
-	class bean_field_marker_2: bean_field_marker_1 {};
-	class cotton_field_marker_1: corn_field_marker_1
-	{
-		plant="Alysia_Plants_Assets_Coton_01_F";
-	};
-	class wheat_field_marker_1: corn_field_marker_1
-	{
-		plant="Alysia_Plants_Assets_Ble_01_F";
-	};
-	class coffee_field_marker_1: corn_field_marker_1
-	{
-		plant="Plant_Mullein";
-	};
+
 
 	class heroin_field_marker_1: corn_field_marker_1
 	{
@@ -309,4 +225,5 @@ class ALYSIA_FARMING_PLANT_MARKERS
 	{
 		plant="Alysia_Plants_Assets_Champignon_01_F";
 	};
+
 };

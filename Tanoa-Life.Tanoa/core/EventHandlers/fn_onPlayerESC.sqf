@@ -9,6 +9,7 @@ _display = _this select 0;
 
 _abortButton = _display displayCtrl 104;
 _abortButton ctrlEnable false;
+/*
 _abortButton buttonSetAction
 "
 	[] call compile PreprocessFileLineNumbers ""core\MySQL\fn_query_update_disconnect.sqf"";
@@ -16,6 +17,8 @@ _abortButton buttonSetAction
 		deleteVehicle (missionNamespace getVariable[""g_objPut"", objNull]);
 	};
 ";
+*/
+_abortButton ctrlSetEventHandler ["ButtonClick","[] spawn AlysiaClient_fnc_loggedOut; (findDisplay 49) closeDisplay 2; true"];
 
 _manuelButton = _display displayCtrl 122;
 _manuelButton ctrlEnable false;

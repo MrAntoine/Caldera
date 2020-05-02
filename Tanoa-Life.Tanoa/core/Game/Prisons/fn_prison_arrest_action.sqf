@@ -38,10 +38,10 @@ if (!([_bail] call AlysiaClient_fnc_isNumber)) exitWith {
 };
 _bail = parseNumber(_bail);
 if (_bail < _bailMin) exitWith {
-	[format["La caution doit être supérieur à <t color='#8cff9b'>%1</t>$.", _bailMin]] call AlysiaClient_fnc_error;
+	[format["La caution doit être supérieur à <t color='#8cff9b'>%1</t>BTC.", _bailMin]] call AlysiaClient_fnc_error;
 };
 if (_bail > _bailMax) exitWith {
-	[format["La caution doit être inférieur ou égal à <t color='#8cff9b'>%1</t>$.", _bailMax]] call AlysiaClient_fnc_error;
+	[format["La caution doit être inférieur ou égal à <t color='#8cff9b'>%1</t>BTC.", _bailMax]] call AlysiaClient_fnc_error;
 };
 
 [g_interaction_prison, [lbData[20006, (lbCurSel 20006)], _time, _bail, (ctrlText 20012)]] remoteExec ["AlysiaClient_fnc_prison_prepare", g_interaction_target];

@@ -14,8 +14,9 @@ if (((_target getVariable ["house_owner", ["", ""]]) select 0) != (getPlayerUID 
 _price = round(getNumber(missionConfigFile >> "ALYSIA_HOUSES" >> (typeOf _target) >> "price") / 2);
 _action =
 [
-	format["Vous allez <t color='#DF0101'>vendre</t> votre maison pour <t color='#8cff9b'>%1$</t>", [_price] call AlysiaClient_fnc_numberText],
-	"Vente de propriété",
+	format["Vous allez <t color='#DF0101'>quitter</t> votre squat"],
+	//format["Vous allez <t color='#DF0101'>vendre</t> votre maison pour <t color='#8cff9b'>%1BTC</t>", [_price] call AlysiaClient_fnc_numberText],
+	"Quitter le squat",
 	"Valider",
 	"Annuler"
 ] call BIS_fnc_guiMessage;
@@ -30,7 +31,8 @@ if (_action) then
 
 	_index = g_houses find _target;
 	if (_index isEqualTo -1) exitWith {
-		["Vous n'avez pas les clés de cette maison."] call AlysiaClient_fnc_error;
+		//["Vous n'avez pas les clés de cette maison."] call AlysiaClient_fnc_error;
+		["Ce squat n'est pas à vous !."] call AlysiaClient_fnc_error;
 	};
 
 	if (g_respawn_point isEqualTo _target) then {
@@ -39,7 +41,7 @@ if (_action) then
 
 	g_houses deleteAt _index;
 	deleteMarkerLocal (format["house_%1", _index]);
-	[true, _price, "Vente maison"] call AlysiaClient_fnc_handleATM;
+	//[true, _price, "Vente maison"] call AlysiaClient_fnc_handleATM;
 	[_target, player] remoteExec ["AlysiaServer_fnc_house_sell", 2];
-	["Vente <t color='#3ADF00'>effectuée</t>.", "buy"] call AlysiaClient_fnc_info;
+	["Squat <t color='#3ADF00'>quittez</t>.", "buy"] call AlysiaClient_fnc_info;
 };

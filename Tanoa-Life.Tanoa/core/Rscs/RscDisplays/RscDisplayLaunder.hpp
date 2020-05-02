@@ -44,7 +44,7 @@ class RscDisplayBasicLaunder: RscDisplayDefaultInteraction
 		class AMOUNT_KN: RscStructuredText
 		{
 			colorBackground[]={0,0,0,0.8};
-			text="<t align='center'>$</t>";
+			text="<t align='center'>BTC</t>";
 
 			x=0.546406 * safezoneW + safezoneX;
 			y=0.423 * safezoneH + safezoneY;
@@ -159,7 +159,7 @@ class RscDisplayCompanyLaunder: RscDisplayDefaultInteraction
 		class AMOUNT_KN: RscStructuredText
 		{
 			colorBackground[]={0,0,0,0.8};
-			text="<t align='center'>$</t>";
+			text="<t align='center'>BTC</t>";
 
 			x=0.546406 * safezoneW + safezoneX;
 			y=0.423 * safezoneH + safezoneY;

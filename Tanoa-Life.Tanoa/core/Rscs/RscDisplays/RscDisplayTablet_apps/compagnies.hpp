@@ -18,7 +18,7 @@ COMPAGNIES_IDCS[]=
 	COMPAGNIES_INFORMATIONS_IDC
 };
 
-class COMPAGNIES_LIST: RscCombo
+/*class COMPAGNIES_LIST: RscCombo
 {
 	idc=COMPAGNIES_LIST_IDC;
 	onLBSelChanged="_this spawn AlysiaClient_fnc_APP_compagnies_update;";
@@ -28,18 +28,18 @@ class COMPAGNIES_LIST: RscCombo
 	y=0.379 * safezoneH + safezoneY;
 	w=0.185625 * safezoneW;
 	h=0.022 * safezoneH;
-};
-class COMPAGNIES_HEADER: RscStructuredText
+};*/
+/*class COMPAGNIES_HEADER: RscStructuredText
 {
 	idc=COMPAGNIES_HEADER_IDC;
-	text="<t align='center'>Entreprises</t>";
+	text="<t align='center'>Construction</t>";
 	colorBackground[]={0,0,0,0.8};
-	
+
 	x=0.324687 * safezoneW + safezoneX;
 	y=0.357 * safezoneH + safezoneY;
 	w=0.185625 * safezoneW;
 	h=0.022 * safezoneH;
-};
+};*/
 
 class COMPAGNIES_MAP_IMAGE: RscPicture
 {
@@ -70,7 +70,7 @@ class COMPAGNIES_MAP: RscMapControl
 	h=0.264 * safezoneH;
 };
 
-class COMPAGNIES_SELECT_HEADER: RscStructuredText
+/*class COMPAGNIES_SELECT_HEADER: RscStructuredText
 {
 	idc=COMPAGNIES_SELECT_HEADER_IDC;
 	colorBackground[]={0,0,0,0.8};
@@ -89,29 +89,29 @@ class COMPAGNIES_SELECT_INFO: RscStructuredText
 	y=0.379 * safezoneH + safezoneY;
 	w=0.159844 * safezoneW;
 	h=0.132 * safezoneH;
-};
+};*/
 class COMPAGNIES_MYCOMPANY: RscButtonMenu
 {
 	idc=COMPAGNIES_MYCOMPANY_IDC;
 	text="Mon entreprise";
-	action="['COMPANY'] spawn AlysiaClient_fnc_tabletApp;";
+	//action="['COMPANY'] spawn AlysiaClient_fnc_tabletApp;";
 
 	x=0.515469 * safezoneW + safezoneX;
 	y=0.654 * safezoneH + safezoneY;
 	w=0.0876563 * safezoneW;
 	h=0.022 * safezoneH;
 };
-class COMPAGNIES_INFORMATIONS: RscButtonMenu
+/*class COMPAGNIES_INFORMATIONS: RscButtonMenu
 {
 	idc=COMPAGNIES_INFORMATIONS_IDC;
 	text="Informations";
-	action="['COMPAGNIES_INFOLIST'] spawn AlysiaClient_fnc_tabletApp;";
+	//action="['COMPAGNIES_INFOLIST'] spawn AlysiaClient_fnc_tabletApp;";
 
 	x=0.608281 * safezoneW + safezoneX;
 	y=0.654 * safezoneH + safezoneY;
 	w=0.0721875 * safezoneW;
 	h=0.022 * safezoneH;
-};
+};*/
 
 class COMPAGNIES_SELECT_MEMBERS_HEADER: RscStructuredText
 {
@@ -173,7 +173,7 @@ COMPANY_IDCS[]=
 class COMPANY_HEADER_FRAME: RscFrame
 {
 	idc=COMPANY_HEADER_FRAME_IDC;
-	
+
 	x=0.335 * safezoneW + safezoneX;
 	y=0.357 * safezoneH + safezoneY;
 	w=0.33 * safezoneW;
@@ -183,7 +183,7 @@ class COMPANY_HEADER_BACKGROUND: RscText
 {
 	idc=COMPANY_HEADER_BACKGROUND_IDC;
 	colorBackground[]={0,0,0,0.6};
-	
+
 	x=0.335 * safezoneW + safezoneX;
 	y=0.357 * safezoneH + safezoneY;
 	w=0.33 * safezoneW;
@@ -192,7 +192,7 @@ class COMPANY_HEADER_BACKGROUND: RscText
 class COMPANY_HEADER_IMAGE: RscPicture
 {
 	idc=COMPANY_HEADER_IMAGE_IDC;
-	
+
 	x=0.335 * safezoneW + safezoneX;
 	y=0.357 * safezoneH + safezoneY;
 	w=0.04125 * safezoneW;
@@ -201,7 +201,7 @@ class COMPANY_HEADER_IMAGE: RscPicture
 class COMPANY_HEADER_TITLE: RscStructuredText
 {
 	idc=COMPANY_HEADER_TITLE_IDC;
-	
+
 	x=0.379323 * safezoneW + safezoneX;
 	y=0.37263 * safezoneH + safezoneY;
 	w=0.268125 * safezoneW;

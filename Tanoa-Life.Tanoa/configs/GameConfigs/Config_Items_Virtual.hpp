@@ -51,49 +51,419 @@ class ALYSIA_ITEMS
     //     buy_rank_GUER=4;- Rank require to buy item 'exemple' as GUER (independent) -
     //     sell_rank_GUER=4;- Rank require to sell item 'exemple' as GUER (independent) -
     // };
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class illegal_money
-    {
-        name="$ (argent sale)";
-        weight=0;
-        illegal=1;
-        image="Alysia_Client\Textures\Items_virtual\money.paa";
-        class remove
-        {
-            all=1;
-        };
-    };
 
-    class engrais
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Ressources minieres brut      ///////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    class wood
     {
-        name="Engrais";
-        weight=1;
-        price_buy=38;
-        image="Alysia_Client\Textures\Items_virtual\engrais.paa";
+        name="Buche de bois";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\tas_bois.paa";
         class remove {};
     };
-
-    class handcuffs
+    class plomb
     {
-        name="Menottes";
+        name="Minerai de plomb";
+        weight=6;
+        image="Alysia_Client\Textures\Items_virtual\minerai_plomb.paa";
+        class remove {};
+    };
+    class aluminium
+    {
+        name="Minerai d'aluminium";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\minerai_aluminium.paa";
+        class remove {};
+    };
+    class granulat
+    {
+        name="Granulat";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\granulat.paa";
+        class remove {};
+    };
+    class iron
+    {
+        name="Minerai de fer";
+        weight=4;
+        image="Alysia_Client\Textures\Items_virtual\minerai_fer.paa";
+        class remove {};
+    };
+    class charcoal
+    {
+        name="Charbon";
         weight=2;
-        price_buy=120;
-        image="Alysia_Client\Textures\Items_virtual\menottes.paa";
+        image="Alysia_Client\Textures\Items_virtual\charbon.paa";
         class remove {};
     };
-    class handcuffkeys
+    class sand
     {
-        name="Clés de menottes";
+        name="Sable";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\sable.paa";
+        class remove {};
+    };
+    class circuitimprime
+    {
+        name="Circuit imprimé";
         weight=1;
-        price_buy=12;
-        image="Alysia_Client\Textures\Items_virtual\clee_menottes.paa";
+        image="Alysia_Client\Textures\Items_virtual\circuitimprime.paa";
+        class remove {};
+    };
+    class detritus
+    {
+        name="Détritus";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\poubelle.paa";
+        class remove {};
+    };
+    class oilu
+    {
+        name="Baril de pétrole";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\petrole.paa";
+        store[]=
+        {
+            "d3s_next_bocha",
+            "d3s_next_bocha_1",
+            "d3s_next_bocha_2",
+            "d3s_next_bocha_3",
+            "d3s_next_bocha_4",
+            "d3s_next_bocha_5",
+            "Coffre",
+            "Skyline_Alysia_Boite_01_F",
+            "Skyline_Coffre_Small",
+            "Skyline_Coffre_Medium",
+            "Skyline_Coffre_Large",
+            "Skyline_Coffre_Extra",
+            "Skyline_Coffre_Mega"
+        };
+        class remove {};
+    };
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Ressources minieres traite    ///////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    class woodp
+    {
+        name="Planche";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\planche.paa";
+        class market
+        {
+            max=155;
+            min=80;
+        };
+        class remove {};
+    };
+    class ironp
+    {
+        name="Lingot de fer";
+        weight=7;
+        image="Alysia_Client\Textures\Items_virtual\lingot_fer.paa";
+        class market
+        {
+            max=750;
+            min=400;
+        };
+        class remove {};
+    };
+    class plombp
+    {
+        name="Lingot de plomb";
+        weight=11;
+        image="Alysia_Client\Textures\Items_virtual\lingot_plomb.paa";
+        class market
+        {
+            max=650;
+            min=350;
+        };
+        class remove {};
+    };
+    class aluminiump
+    {
+        name="Lingot d'aluminium";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\lingot_aluminium.paa";
+        class market
+        {
+            max=400;
+            min=200;
+        };
+        class remove {};
+    };
+    class conserve
+    {
+        name="Conserve vide";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\conserve.paa";
+        class remove {};
+    };
+    class steelp
+    {
+        name="Barre Acier";
+        weight=9;
+        image="Alysia_Client\Textures\Items_virtual\steel.paa";
+        class remove {};
+    };
+    class glass
+    {
+        name="Verre";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\verre.paa";
+        class market
+        {
+            max=400;
+            min=250;
+        };
+        class remove {};
+    };
+    class seringue
+    {
+        name="Seringue";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\seringue_vide.paa";
+        class remove {};
+    };
+    class bouteillevide
+    {
+        name="Bouteille vide";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\bouteillevide.paa";
+        class remove {};
+    };
+    class fioul: oilu
+    {
+        name="Fioul";
+        weight=2;
+        price_buy=0;
+        buy_license_CIV="";
+        image="Alysia_Client\Textures\Items_virtual\fioul.paa";
+        class market
+        {
+            max=500;
+            min=200;
+        };
+         store[]=
+        {
+            "d3s_next_bocha",
+            "d3s_next_bocha_1",
+            "d3s_next_bocha_2",
+            "d3s_next_bocha_3",
+            "d3s_next_bocha_4",
+            "d3s_next_bocha_5",
+            "Coffre",
+            "Skyline_Alysia_Boite_01_F",
+            "Skyline_Coffre_Small",
+            "Skyline_Coffre_Medium",
+            "Skyline_Coffre_Large",
+            "Skyline_Coffre_Extra",
+            "Skyline_Coffre_Mega"
+        };
+        class remove {};
+    };
+    class gazole: oilu
+    {
+        name="Gazole";
+        weight=2;
+        price_buy=0;
+        image="Alysia_Client\Textures\Items_virtual\gazole.paa";
+        class market
+        {
+            max=430;
+            min=200;
+        };
+         store[]=
+        {
+            "d3s_next_bocha",
+            "d3s_next_bocha_1",
+            "d3s_next_bocha_2",
+            "d3s_next_bocha_3",
+            "d3s_next_bocha_4",
+            "d3s_next_bocha_5",
+            "Coffre",
+            "Skyline_Alysia_Boite_01_F",
+            "Skyline_Coffre_Small",
+            "Skyline_Coffre_Medium",
+            "Skyline_Coffre_Large",
+            "Skyline_Coffre_Extra",
+            "Skyline_Coffre_Mega"
+        };
+        class remove {};
+    };
+    class plastique
+    {
+        name="Plastique";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\plastique.paa";
         class remove {};
     };
 
-    class medoc_rhume
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Ressources agricoles      ///////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    class cotton_seed
     {
-        name="Comprimé de Nurofex";
+        name="Graine (coton)";
+        weight=1;
+        price_buy=15;
+        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
+        class remove {};
+    };
+    class cotton
+    {
+        name="Coton";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\coton.paa";
+        class remove {};
+    };
+    class cottonp
+    {
+        name="Coton traité";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\boule_coton.paa";
+        class market
+        {
+            max=700;
+            min=530;
+        };
+        class remove {};
+    };
+    class tissue
+    {
+        name="Tissue";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\tissue.paa";
+        class remove {};
+    };
+    class aubepine_seed
+    {
+        name="Graine (Aubépine)";
+        weight=1;
+        price_buy=15;
+        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
+        class remove {};
+    };
+    class aubepine
+    {
+        name="Aubépine";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\aubepine.paa";
+        class remove {};
+    };
+    class aubepinep
+    {
+        name="Poudre d'Aubépine";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\poudre.paa";
+        class market
+        {
+            max=730;
+            min=550;
+        };
+        class remove {};
+    };
+    class valeriane_seed
+    {
+        name="Graine (Valériane)";
+        weight=1;
+        price_buy=15;
+        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
+        class remove {};
+    };
+    class valeriane
+    {
+        name="Valériane";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\valeriane.paa";
+        class remove {};
+    };
+    class valerianep
+    {
+        name="Poudre de Valériane";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\poudre.paa";
+        class market
+        {
+            max=650;
+            min=350;
+        };
+        class remove {};
+    };
+    class ortie_seed
+    {
+        name="Graine (Ortie)";
+        weight=1;
+        price_buy=15;
+        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
+        class remove {};
+    };
+    class ortie
+    {
+        name="Ortie";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\ortie.paa";
+        class remove {};
+    };
+    class ortiep
+    {
+        name="Poudre d'Ortie";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\poudre.paa";
+        class market
+        {
+            max=760;
+            min=550;
+        };
+        class remove {};
+    };
+    class reinedespres_seed
+    {
+        name="Graine (Reine des prés)";
+        weight=1;
+        price_buy=15;
+        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
+        class remove {};
+    };
+    class reinedespres
+    {
+        name="Reine des prés";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\reinedespres.paa";
+        class remove {};
+    };
+    class reinedespresp
+    {
+        name="Poudre de Reine des prés";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\poudre.paa";
+        class market
+        {
+            max=720;
+            min=500;
+        };
+        class remove {};
+    };
+    class turtle
+    {
+        name="Viande de tortue";
+        weight=3;
+        illegal=1;
+        image="Alysia_Client\Textures\Items_virtual\tortue.paa";
+        class remove {};
+    };
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Ressources pharmacie     ////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*class medoc_rhume
+    {
+        name="Antirhume";
         weight=1;
         image="Alysia_Client\Textures\Items_virtual\medoc_rhume.paa";
         price_buy=200;
@@ -139,52 +509,193 @@ class ALYSIA_ITEMS
             sound="painkiller_01";
         };
         class remove {};
-    };
+    };*/
 
-    class adn
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Ressources rares         ////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    class anarkhium
     {
-        name="Test ADN";
-        buy_license_GUER="guer_gen";
-        buy_rank_GUER=1;
-        weight=3;
-        price_buy=24500;
-        image="Alysia_Client\Textures\Items_virtual\adn.paa";
+        name="Fragment d'Anarkhium";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\uranium.paa";
         class remove {};
     };
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Objets utilisables       ////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     class scalpel
     {
         name="Scalpel chirurgical";
-        buy_license_GUER="guer_chirurgien";
-        buy_rank_GUER=1;
         weight=1;
         price_buy=9500;
         image="Alysia_Client\Textures\Items_virtual\scalpel.paa";
         class remove {};
     };
-    class stethoscope
+    class handcuffs
     {
-        name="Stethoscope";
-        buy_license_GUER="guer_medical";
-        buy_rank_GUER=1;
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\stethoscope.paa";
-        price_buy=1600;
+        name="Menottes";
+        weight=1;
+        price_buy=120;
+        image="Alysia_Client\Textures\Items_virtual\menottes.paa";
         class remove {};
     };
-    class brancard
+    class handcuffkeys
     {
-        name="Brancard";
-        buy_rank_GUER=1;
-        weight=7;
-        image="Alysia_Client\Textures\Items_virtual\brancard.paa";
-        price_buy=350;
-        class use
+        name="Clés de menottes";
+        weight=1;
+        price_buy=12;
+        image="Alysia_Client\Textures\Items_virtual\clee_menottes.paa";
+        class remove {};
+    };
+    class fishingpoles
+    {
+        name="Filet de pêche";
+        weight=1;
+        price_buy=100;
+        image="Alysia_Client\Textures\Items_virtual\filet_peche.paa";
+        class remove {};
+    };
+    class sifflet
+    {
+        name="Sifflet";
+        weight=1;
+        price_buy=3;
+        image="Alysia_Client\Textures\Items_virtual\sifflet.paa";
+        class remove {};
+    };
+    class money_transfer
+    {
+        name="Valise de billets de banque";
+        weight=4;
+        image="Alysia_Client\Textures\Items_virtual\money_transfer.paa";
+        store[]=
         {
-            action="['brancard'] spawn AlysiaClient_fnc_dynamicObject_deploy;";
+            "Skyline_Brinks_01_F",
+            "Skyline_Coffre_Small",
+            "Skyline_Coffre_Medium",
+            "Skyline_Coffre_Large",
+            "Skyline_Coffre_Extra",
+            "Skyline_Coffre_Mega"
         };
         class remove {};
     };
-
+     class serrureabime
+    {
+        name="Serrure abîmé";
+        weight=2;
+        price_buy=1750;
+        image="Alysia_Client\Textures\Items_virtual\serrure.paa";
+        buy_license_CIV="company_construction";
+        class use
+        {
+            action="[] spawn AlysiaClient_fnc_item_serrure;";
+        };
+        class remove {};
+    };
+    class serrure
+    {
+        name="Serrure neuve";
+        weight=2;
+        price_buy=1750;
+        image="Alysia_Client\Textures\Items_virtual\serrure.paa";
+        buy_license_CIV="company_construction";
+        class use
+        {
+            action="[] spawn AlysiaClient_fnc_item_serrure;";
+        };
+        class remove {};
+    };
+    class firework
+    {
+        name="Fusée d'artifice";
+        weight=2;
+        image="";
+        price_buy=8000;
+        class remove {};
+        class use
+        {
+            action="[] call AlysiaClient_fnc_item_firework;";
+        };
+    };
+    class lab_heal
+    {
+        name="Table d'opération";
+        weight=10;
+        price_buy=15400;
+        image="Alysia_Client\Textures\Items_virtual\lab_heal.paa";
+        class use
+        {
+            action="['lab_heal'] spawn AlysiaClient_fnc_labo_deploy;";
+        };
+        class remove {};
+    };
+    class lab_alimentaire
+    {
+        name="Laboratoire de cuisine";
+        weight=10;
+        price_buy=196800;
+        image="Alysia_Client\Textures\Items_virtual\lab_cigare.paa";
+        class use
+        {
+            action="['lab_alimentaire'] spawn AlysiaClient_fnc_labo_deploy;";
+        };
+        buy_license_CIV="chef_specialise";
+        class remove {};
+    };
+    class lab_clothing
+    {
+        name="Laboratoire tenues";
+        weight=10;
+        price_buy=103850;
+        image="Alysia_Client\Textures\Items_virtual\lab_cigare.paa";
+        class use
+        {
+            action="['lab_clothing'] spawn AlysiaClient_fnc_labo_deploy;";
+        };
+        class remove {};
+    };
+    class lab_medical
+    {
+        name="Laboratoire médical";
+        weight=10;
+        price_buy=103850;
+        image="Alysia_Client\Textures\Items_virtual\lab_cigare.paa";
+        class use
+        {
+            action="['lab_medical'] spawn AlysiaClient_fnc_labo_deploy;";
+        };
+        buy_license_CIV="medecin_specialise";
+        class remove {};
+    };
+    class lab_avance
+    {
+        name="Laboratoire d'ingénieur";
+        weight=10;
+        price_buy=103850;
+        image="Alysia_Client\Textures\Items_virtual\lab_cigare.paa";
+        class use
+        {
+            action="['lab_avance'] spawn AlysiaClient_fnc_labo_deploy;";
+        };
+        buy_license_CIV="ingenieur_specialise";
+        class remove {};
+    };
+    class lab_macon
+    {
+        name="Laboratoire d'architecte";
+        weight=10;
+        price_buy=103850;
+        image="Alysia_Client\Textures\Items_virtual\lab_cigare.paa";
+        class use
+        {
+            action="['lab_macon'] spawn AlysiaClient_fnc_labo_deploy;";
+        };
+        buy_license_CIV="architecte_specialise";
+        class remove {};
+    };
     class nitro
     {
         name="Nitro";
@@ -197,7 +708,6 @@ class ALYSIA_ITEMS
         };
         class remove {};
     };
-
     class barriere
     {
         name="Barrière (fixe)";
@@ -244,6 +754,17 @@ class ALYSIA_ITEMS
         class use
         {
             action="['table_wood'] spawn AlysiaClient_fnc_dynamicObject_deploy;";
+        };
+        class remove {};
+    };
+    class bonbonne_explo
+    {
+        name="Bonbonne explosive";
+        weight=9;
+        image="Alysia_Client\Textures\Items_virtual\bonbonne.paa";
+        class use
+        {
+            action="['bonbonne_explo'] spawn AlysiaClient_fnc_dynamicObject_deploy;";
         };
         class remove {};
     };
@@ -322,6 +843,18 @@ class ALYSIA_ITEMS
         };
         class remove {};
     };
+
+    class portail_electrique
+    {
+        name="Portail electrique";
+        weight=15;
+        class use
+        {
+            action="['portail_electrique'] spawn AlysiaClient_fnc_dynamicObject_deploy;";
+        };
+        class remove {};
+    };
+
     class watchpost_tall
     {
         name="Poste de garde (grand)";
@@ -353,7 +886,315 @@ class ALYSIA_ITEMS
         class remove {};
     };
 
-    class tabac_seed
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Nourriture de base       ////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    class wheat_cake
+    {
+        name="Ration alimentaire";
+        weight=2;
+        price_buy=23;
+        image="Alysia_Client\Textures\Items_virtual\prison_food.paa";
+        class remove {};
+        class food
+        {
+            hunger=5;
+            thirst=0;
+            sound="eat_biscuit";
+        };
+    };
+    class eau50
+    {
+        name="Bouteille d'eau de 50cl";
+        weight=1;
+        price_buy=19;
+        image="Alysia_Client\Textures\Items_virtual\eau50.paa";
+        class food
+        {
+            thirst=10;
+            sound="drink_water";
+        };
+        class remove {};
+    };
+    class goat
+    {
+        name="Chèvre cru";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\gigot_chevre.paa";
+        class remove {};
+    };
+    class gigotchevre
+    {
+        name="Gigot de chèvre cuit";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\chevre_cuit.paa";
+        class remove {};
+        class food
+        {
+            hunger=25;
+            thirst=0;
+            sound="eat_biscuit";
+        };
+    };
+    class conservechevre
+    {
+        name="Conserve de chèvre";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\chevre_conserve.paa";
+        class remove {};
+        class food
+        {
+            hunger=50;
+            thirst=0;
+            sound="eat_biscuit";
+        };
+    };
+    class platchevre
+    {
+        name="Plat préparé de chèvre";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\platprepare.paa";
+        class remove {};
+        class food
+        {
+            hunger=50;
+            souffle=1;
+            thirst=0;
+            sound="eat_biscuit";
+        };
+    };
+    class sheep
+    {
+        name="Mouton cru";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\gigot_mouton.paa";
+        class remove {};
+    };
+    class gigotmouton
+    {
+        name="Gigot de mouton cuit";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\mouton_cuit.paa";
+        class remove {};
+        class food
+        {
+            hunger=25;
+            thirst=0;
+            sound="eat_biscuit";
+        };
+    };
+    class conservemouton
+    {
+        name="Conserve de mouton";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\mouton_conserve.paa";
+        class remove {};
+        class food
+        {
+            hunger=50;
+            thirst=0;
+            sound="eat_biscuit";
+        };
+    };
+    class platmouton
+    {
+        name="Plat préparé de mouton";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\platprepare.paa";
+        class remove {};
+        class food
+        {
+            hunger=50;
+            thirst=0;
+            unlimitedRun=180;
+            sound="eat_biscuit";
+        };
+    };
+    class raisin
+    {
+        name="Raisin";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\raisin_black.paa";
+        class remove {};
+        class food
+        {
+            hunger=5;
+            thirst=10;
+            sound="eat_biscuit";
+        };
+    };
+    class bouteilleraisin
+    {
+        name="Bouteille de jus de raisin";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\jus_raisin.paa";
+        class remove {};
+        class food
+        {
+            hunger=0;
+            thirst=50;
+            sound="eat_biscuit";
+        };
+    };
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////           Fabrication Arme         ////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class shoulderp
+    {
+        name="Crosse";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\crosse.paa";
+        class remove {};
+    };
+    class intermediary_shoulderp
+    {
+        name="Crosse intermediaire";
+        weight=4;
+        image="Alysia_Client\Textures\Items_virtual\crosse.paa";
+        class remove {};
+    };
+    class military_shoulderp
+    {
+        name="Crosse Millitaire";
+        weight=5;
+        image="Alysia_Client\Textures\Items_virtual\crosse.paa";
+        class remove {};
+    };
+    class barrelp
+    {
+        name="Canon";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\canon.paa";
+        class remove {};
+    };
+    class intermediary_barrelp
+    {
+        name="Canon Intermediaire";
+        weight=4;
+        image="Alysia_Client\Textures\Items_virtual\canon.paa";
+        class remove {};
+    };
+    class military_barrelp
+    {
+        name="Canon Millitaire";
+        weight=5;
+        image="Alysia_Client\Textures\Items_virtual\canon.paa";
+        class remove {};
+    };
+    class receiverp
+    {
+        name="Culasse";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\culasse.paa";
+        class remove {};
+    };
+    class intermediary_receiverp
+    {
+        name="Culasse Intermediaire";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\culasse.paa";
+        class remove {};
+    };
+    class military_receiverp
+    {
+        name="Culasse Millitaire";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\culasse.paa";
+        class remove {};
+    };
+    class gripp
+    {
+        name="Poignée";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\poignee.paa";
+        class remove {};
+    };
+    class intermediary_gripp
+    {
+        name="Poignée Intermediaire";
+        weight=4;
+        image="Alysia_Client\Textures\Items_virtual\poignee.paa";
+        class remove {};
+    };
+    class military_gripp
+    {
+        name="Poignée Millitaire";
+        weight=5;
+        image="Alysia_Client\Textures\Items_virtual\poignee.paa";
+        class remove {};
+    };
+    class slapperp
+    {
+        name="Percuteur";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\percuteur.paa";
+        class remove {};
+    };
+    class intermediary_slapperp
+    {
+        name="Percuteur Intermediaire";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\percuteur.paa";
+        class remove {};
+    };
+    class military_slapperp
+    {
+        name="Percuteur Millitaire";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\percuteur.paa";
+        class remove {};
+    };
+    class framep
+    {
+        name="Armature";
+        weight=3;
+        image="Alysia_Client\Textures\Items_virtual\armature.paa";
+        class remove {};
+    };
+    class intermediary_framep
+    {
+        name="Armature Intermediaire";
+        weight=4;
+        image="Alysia_Client\Textures\Items_virtual\armature.paa";
+        class remove {};
+    };
+    class military_framep
+    {
+        name="Armature Millitaire";
+        weight=5;
+        image="Alysia_Client\Textures\Items_virtual\armature.paa";
+        class remove {};
+    };
+    class cylinderp
+    {
+        name="Barillet";
+        weight=2;
+        image="Alysia_Client\Textures\Items_virtual\barillet.paa";
+        class remove {};
+    };
+    class triggerp
+    {
+        name="Détente";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\detente.paa";
+        class remove {};
+    };
+    class magazinep
+    {
+        name="Chargeur vide";
+        weight=1;
+        image="Alysia_Client\Textures\Items_virtual\chargeur.paa";
+        class remove {};
+    };
+
+//////////////////////////////////
+
+      class tabac_seed
     {
         name="Graine (tabac)";
         weight=1;
@@ -394,181 +1235,7 @@ class ALYSIA_ITEMS
         class remove {};
     };
 
-    class objvaleur
-    {
-        name="Objet de valeur";
-        weight=1;
-        illegal=1;
-        image="Alysia_Client\Textures\Items_virtual\objet_de_valeur.paa";
-        class market
-        {
-            max=900;
-            min=270;
-        };
-        class remove {};
-    };
-
-    class artefact
-    {
-        name="Artefact";
-        weight=4;
-        illegal=1;
-        image="Alysia_Client\Textures\Items_virtual\artefact.paa";
-        class market
-        {
-            max=1500;
-            min=450;
-        };
-        class remove {};
-    };
-    class artefact_R
-    {
-        name="Artefact rénové";
-        weight=4;
-        illegal=1;
-        image="Alysia_Client\Textures\Items_virtual\artefact_R.paa";
-        class market
-        {
-            max=2750;
-            min=825;
-        };
-        class remove {};
-    };
-
-    class wood
-    {
-        name="Buche de bois";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\tas_bois.paa";
-        class market
-        {
-            max=588;
-            min=324;
-        };
-        class remove {};
-    };
-    class woodp
-    {
-        name="Planche";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\planche.paa";
-        class market
-        {
-            max=756;
-            min=416;
-        };
-        class remove {};
-    };
-    class furniture
-    {
-        name="Meuble";
-        weight=6;
-        image="Alysia_Client\Textures\Items_virtual\meuble.paa";
-        class market
-        {
-            max=6615;
-            min=3639;
-        };
-        class remove {};
-    };
-
-    class iron
-    {
-        name="Minerai de fer";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\minerai_fer.paa";
-        class remove {};
-    };
-    class ironp
-    {
-        name="Lingot de fer";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\lingot_fer.paa";
-        class market
-        {
-            max=1407;
-            min=774;
-        };
-        class remove {};
-    };
-    class soufre
-    {
-        name="Soufre";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\soufre.paa";
-        price_sell=70;
-        class remove {};
-    };
-    class hsoufre
-    {
-        name="Hydrate de soufre";
-        weight=2;
-        illegal=1;
-        image="Alysia_Client\Textures\Items_virtual\soufre_hydrate.paa";
-        class remove {};
-    };
-    class steelp
-    {
-        name="Barre Acier";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\steel.paa";
-        class market
-        {
-            max=4107;
-            min=774;
-        };
-        class remove {};
-    };
-    class charcoal
-    {
-        name="Charbon";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\charbon.paa";
-        class remove {};
-    };
-
-    class sand
-    {
-        name="Sable";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\sable.paa";
-        class remove {};
-    };
-    class glass
-    {
-        name="Verre";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\verre.paa";
-        class market
-        {
-            max=904;
-            min=498;
-        };
-        class remove {};
-    };
-    class seringue
-    {
-        name="Seringue";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\seringue_vide.paa";
-        class remove {};
-    };
-    class bouteillevide
-    {
-        name="Bouteille vide";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\bouteillevide.paa";
-        class remove {};
-    };
-    class conserve
-    {
-        name="Conserve vide";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\conserve.paa";
-        class remove {};
-    };
-
-    class cocaine_seed
+      class cocaine_seed
     {
         name="Graine (coca)";
         weight=1;
@@ -755,10 +1422,12 @@ class ALYSIA_ITEMS
     class bocal
     {
         name="Bocal";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\bocal.paa";
+        weight=2;
+        price_buy=352;
+        image="Alysia_Client\Textures\Items_virtual\bocal_mushroom.paa";
         class remove {};
     };
+
     class mushroom_dry
     {
         name="Champignon hallucinogène séché";
@@ -781,155 +1450,8 @@ class ALYSIA_ITEMS
         };
         class remove {};
     };
-    
-    class fishingpoles
-    {
-        name="Filet de pêche";
-        weight=1;
-        price_buy=100;
-        image="Alysia_Client\Textures\Items_virtual\filet_peche.paa";
-        class remove {};
-    };
 
-    class bean_seed
-    {
-        name="Graine (haricot)";
-        weight=1;
-        price_buy=18;
-        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
-        class remove {};
-    };
-    class bean
-    {
-        name="Haricot";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\haricot.paa";
-        class market
-        {
-            max=147;
-            min=81;
-        };
-        class remove {};
-    };
-    class bean_prepared
-    {
-        name="Haricot épluché";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\haricot.paa";
-        class remove {};
-        class food
-        {
-            hunger=2;
-            sound="eat_biscuit";
-        };
-    };
-    class bean_mash
-    {
-        name="Ration alimentaire (purée de haricots)";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\prison_food.paa";
-        class remove {};
-        class food
-        {
-            hunger=50;
-            thirst=30;
-            sound="eat_biscuit";
-        };
-    };
-
-    class corn_seed
-    {
-        name="Graine (maïs)";
-        weight=1;
-        price_buy=17;
-        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
-        class remove {};
-    };
-    class corn
-    {
-        name="Maïs";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\mais.paa";
-        class market
-        {
-            max=147;
-            min=81;
-        };
-        class food
-        {
-            hunger=10;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-
-    class wheatseed
-    {
-        name="Graine (blé)";
-        weight=1;
-        price_buy=8;
-        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
-        class remove {};
-    };
-    class wheat
-    {
-        name="Blé";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\ble.paa";
-        class market
-        {
-            max=189;
-            min=104;
-        };
-        class remove {};
-    };
-    class wheat_cake
-    {
-        name="Ration alimentaire (gateaux secs)";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\prison_food.paa";
-        class remove {};
-        class food
-        {
-            hunger=70;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-
-    class cotton_seed
-    {
-        name="Graine (coton)";
-        weight=1;
-        price_buy=50;
-        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
-        class remove {};
-    };
-    class cotton
-    {
-        name="Coton";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\coton.paa";
-        class market
-        {
-            max=370;
-            min=204;
-        };
-        class remove {};
-    };
-    class cottonp
-    {
-        name="Coton traité";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\boule_coton.paa";
-        class market
-        {
-            max=546;
-            min=301;
-        };
-        class remove {};
-    };
-    class crabe
+     class crabe
     {
         name="Crabe";
         weight=1;
@@ -992,14 +1514,7 @@ class ALYSIA_ITEMS
         };
         class remove {};
     };
-    class sifflet
-    {
-        name="Sifflet";
-        weight=1;
-        price_buy=3;
-        image="Alysia_Client\Textures\Items_virtual\sifflet.paa";
-        class remove {};
-    };
+
     class alcool_test
     {
         name="Alcootest";
@@ -1008,361 +1523,12 @@ class ALYSIA_ITEMS
         image="Alysia_Client\Textures\Items_virtual\alcool_test.paa";
         class remove {};
     };
-    class pierre
-    {
-        name="Pierre";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\pierre.paa";
-        class remove {};
-    };
-    class ciment
-    {
-        name="Ciment";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\ciment.paa";
-        class market
-        {
-            max=1200;
-            min=461;
-        };
-        class remove {};
-    };
-    class chips
-    {
-        name="Paquet de chips";
-        weight=1;
-        price_buy=41;
-        image="Alysia_Client\Textures\Items_virtual\chips.paa";
-        class food
-        {
-            hunger=20;
-            thirst=-10;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class chocolat
-    {
-        name="Barre chocolaté";
-        weight=1;
-        price_buy=14;
-        image="Alysia_Client\Textures\Items_virtual\chocolat.paa";
-        class food
-        {
-            hunger=10;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class villagoise
-    {
-        name="Villagoise";
-        weight=1;
-        price_buy=71;
-        image="Alysia_Client\Textures\Items_virtual\villageoise.paa";
-        class food
-        {
-            hunger=-5;
-            thirst=15;
-            sound="drink_wine";
-            alcool=0.06;
-        };
-        class remove {};
-    };
-    class eau50
-    {
-        name="Bouteille d'eau de 50cl";
-        weight=1;
-        price_buy=23;
-        image="Alysia_Client\Textures\Items_virtual\eau50.paa";
-        class food
-        {
-            thirst=15;
-            sound="drink_water";
-        };
-        class remove {};
-    };
-    class prison_food
-    {
-        name="Plateau repas de prison";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\prison_food.paa";
-        class food
-        {
-            hunger=100;
-            thirst=80;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class cassoulet
-    {
-        name="Conserve de Cassoulet";
-        weight=2;
-        image="Alysia_Client\Textures\Items_Inventaire\Cassoulet.paa";
-        class food
-        {
-            hunger=50;
-            thirst=-20;
-            sound="eat_biscuit";
-            unlimitedRun=120;
-        };
-        class remove {};
-    };
-    
-    class water
-    {
-        name="Bouteille d'eau";
-        weight=1;
-        price_buy=4;
-        image="Alysia_Client\Textures\Items_virtual\bouteille_eau.paa";
-        class food
-        {
-            thirst=40;
-            sound="drink_water";
-        };
-        class remove {};
-    };
-    class sparklingwater
-    {
-        name="Eau gazeuse";
-        weight=1;
-        price_buy=6;
-        image="Alysia_Client\Textures\Items_virtual\bouteille_eau_gazeuse.paa";
-        class food
-        {
-            thirst=40;
-            sound="drink_water";
-        };
-        class remove {};
-    };
-    class soda
-    {
-        name="Soda";
-        weight=1;
-        price_buy=5;
-        image="Alysia_Client\Textures\Items_virtual\soda.paa";
-        class food
-        {
-            thirst=30;
-            hunger=5;
-            sound="drink_soda";
-            unlimitedRun=3;
-        };
-        class remove {};
-    };
-    class cafe
-    {
-        name="Tasse de café";
-        weight=1;
-        price_buy=12;
-        image="Alysia_Client\Textures\Items_virtual\cafe.paa";
-        class food
-        {
-            thirst=10;
-            hunger=-10;
-            unlimitedRun=10;
-            sound="drink_water";
-        };
-        class remove {};
-    };
-
-    class pizza
-    {
-        name="Pizza";
-        weight=2;
-        price_buy=11;
-        image="Alysia_Client\Textures\Items_virtual\pizza.paa";
-        class food
-        {
-            hunger=60;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class sandwich
-    {
-        name="Sandwich au jambon";
-        weight=1;
-        price_buy=6;
-        image="Alysia_Client\Textures\Items_virtual\sandwich_jambon.paa";
-        class food
-        {
-            hunger=40;
-            thirst=-5;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class petitbeurre
-    {
-        name="Boîte de petits beurres";
-        weight=1;
-        price_buy=3;
-        image="Alysia_Client\Textures\Items_virtual\petitbeurre.paa";
-        class food
-        {
-            hunger=18;
-            thirst=-5;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class croissant
-    {
-        name="Croissant";
-        weight=1;
-        price_buy=3;
-        image="Alysia_Client\Textures\Items_virtual\croissant.paa";
-        class food
-        {
-            hunger=15;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class cerealbar
-    {
-        name="Barre de céréale";
-        weight=1;
-        price_buy=2;
-        image="Alysia_Client\Textures\Items_virtual\barre_de_cereale.paa";
-        class food
-        {
-            hunger=15;
-            thirst=-3;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class donut
-    {
-        name="Beignet";
-        weight=1;
-        price_buy=1;
-        image="Alysia_Client\Textures\Items_virtual\beignet.paa";
-        class food
-        {
-            hunger=8;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-    class cookie
-    {
-        name="Cookie";
-        weight=1;
-        price_buy=2;
-        image="Alysia_Client\Textures\Items_virtual\cookie.paa";
-        class food
-        {
-            hunger=5;
-            sound="eat_biscuit";
-        };
-        class remove {};
-    };
-
-    class oilu
-    {
-        name="Pétrole";
-        weight=10;
-        price_buy=200;
-        image="Alysia_Client\Textures\Items_virtual\petrole.paa";
-        buy_license_CIV="company_fuel";
-        store[]=
-        {
-            "Skyline_Scania_Streamline_Citerne_01_F",
-            "Skyline_Scania_Streamline_Citerne_02_F",
-            "Skyline_Scania_Streamline_Citerne_03_F",
-            "Skyline_Scania_Streamline_Citerne_04_F",
-            "Skyline_Scania_Streamline_Citerne_05_F",
-            "Skyline_Scania_Streamline_Citerne_06_F",
-            "Skyline_Scania_Streamline_Citerne_07_F",
-            "Skyline_Scania_Streamline_Citerne_08_F",
-            "Skyline_Scania_Streamline_Citerne_09_F",
-            "Skyline_Scania_Streamline_Citerne_10_F",
-            "Skyline_Scania_Streamline_Citerne_11_F",
-            "Skyline_Scania_Streamline_Citerne_12_F",
-            "Skyline_Scania_Streamline_Citerne_13_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_01_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_02_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_03_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_04_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_05_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_06_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_07_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_08_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_09_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_10_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_11_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_12_F",
-            "Skyline_Vehicule_Jonzie_Tanker_Truck_13_F",
-            "Skyline_Coffre_Small",
-            "Skyline_Coffre_Medium",
-            "Skyline_Coffre_Large",
-            "Skyline_Coffre_Extra",
-            "Skyline_Coffre_Mega"
-        };
-        class remove {};
-    };
-    class sp98: oilu
-    {
-        name="SansPlomb 98";
-        weight=1;
-        price_buy=0;
-        buy_license_CIV="";
-        image="Alysia_Client\Textures\Items_virtual\sp98.paa";
-        class remove {};
-    };
-    class sp95: sp98
-    {
-        name="SansPlomb 95";
-        image="Alysia_Client\Textures\Items_virtual\sp95.paa";
-        class remove {};
-    };
-    class gazole: sp98
-    {
-        name="Gazole";
-        image="Alysia_Client\Textures\Items_virtual\gazole.paa";
-        class remove {};
-    };
-    class gpl: sp98
-    {
-        name="GPL";
-        image="Alysia_Client\Textures\Items_virtual\gpl.paa";
-        class remove {};
-    };
-    class kerosene: sp98
-    {
-        name="Kéroséne";
-        image="Alysia_Client\Textures\Items_virtual\kerosene.paa";
-        class remove {};
-    };
-    class bio: sp98
-    {
-        name="Biocarburant";
-        image="Alysia_Client\Textures\Items_virtual\sp95.paa";
-        class remove {};
-    };
-    
-    class turtle
-    {
-        name="Viande de tortue";
-        weight=3;
-        illegal=1;
-        image="Alysia_Client\Textures\Items_virtual\tortue.paa";
-        class market
-        {
-            max=3650;
-            min=420;
-        };
-        class remove {};
-    };
 
     class destroy_archeo
     {
         name="Kit (Archélogie)";
         weight=6;
+        price_buy = 30000;
         image="Alysia_Client\Textures\Items_virtual\boite1.paa";
         class remove {};
     };
@@ -1392,7 +1558,7 @@ class ALYSIA_ITEMS
         weight=40;
         illegal=1;
         image="Alysia_Client\Textures\Items_virtual\drogue.paa";
-        buy_license_CIV="rebelle_1";
+       // buy_license_CIV="rebelle_1";
         class use
         {
             action="['lab_marijuana'] spawn AlysiaClient_fnc_labo_deploy;";
@@ -1406,7 +1572,7 @@ class ALYSIA_ITEMS
         weight=40;
         illegal=1;
         image="Alysia_Client\Textures\Items_virtual\drogue.paa";
-        buy_license_CIV="rebelle_1";
+       // buy_license_CIV="rebelle_1";
         class use
         {
             action="['lab_mushroom'] spawn AlysiaClient_fnc_labo_deploy;";
@@ -1457,70 +1623,6 @@ class ALYSIA_ITEMS
         };
         class remove {};
     };
-    class lab_heal: lab_marijuana
-    {
-        name="Table d'opération illégale";
-        price_buy=103850;
-        image="Alysia_Client\Textures\Items_virtual\lab_heal.paa";
-        class use
-        {
-            action="['lab_heal'] spawn AlysiaClient_fnc_labo_deploy;";
-        };
-        class remove {};
-    };
-    class lab_gun: lab_marijuana
-    {
-        name="Etabli illégale d'armement";
-        price_buy=259000;
-        image="";
-        class use
-        {
-            action="['lab_gun'] spawn AlysiaClient_fnc_labo_deploy;";
-        };
-        class remove {};
-    };
-    class lab_construction: lab_marijuana
-    {
-        name="Etabli illégale de constructions";
-        price_buy=88500;
-        image="Alysia_Client\Textures\Items_virtual\construction.paa";
-        class use
-        {
-            action="['lab_construction'] spawn AlysiaClient_fnc_labo_deploy;";
-        };
-        class remove {};
-    };
-
-    class money_transfer
-    {
-        name="Valise de billets de banque";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\money_transfer.paa";
-        store[]=
-        {
-            "Skyline_Brinks_01_F",
-            "Skyline_Coffre_Small",
-            "Skyline_Coffre_Medium",
-            "Skyline_Coffre_Large",
-            "Skyline_Coffre_Extra",
-            "Skyline_Coffre_Mega"
-        };
-        class remove {};
-    };
-
-    class serrure
-    {
-        name="Serrure neuve";
-        weight=2;
-        price_buy=1750;
-        image="Alysia_Client\Textures\Items_virtual\serrure.paa";
-        buy_license_CIV="company_construction";
-        class use
-        {
-            action="[] spawn AlysiaClient_fnc_item_serrure;";
-        };
-        class remove {};
-    };
 
     class horn_east
     {
@@ -1546,244 +1648,8 @@ class ALYSIA_ITEMS
         name="Mandat de perquisition";
         weight=1;
         price_buy=5000;
-        buy_rank_EAST=10;
-        buy_rank_WEST=5;
+        buy_license_CIV="chef_securite";
         image="Alysia_Client\Textures\Items_virtual\perqui_north.paa";
-        class remove {};
-    };
-
-    class ginger
-    {
-        name="Gingembre";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\ginger.paa";
-        class market
-        {
-            max=114;
-            min=63;
-        };
-        class remove {};
-    };
-
-    class cacao
-    {
-        name="Cabosse";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\cacaop.paa";
-        class remove {};
-    };
-    class cacaop
-    {
-        name="Fève de cacao";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cacao.paa";
-        class market
-        {
-            max=735;
-            min=405;
-        };
-        class remove {};
-    };
-    
-    class coffee_seed
-    {
-        name="Graine (Café)";
-        weight=1;
-        price_buy=15;
-        image="Alysia_Client\Textures\Items_virtual\master_seed.paa";
-        class remove {};
-    };
-    class coffee
-    {
-        name="Grain de café";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cafe_2.paa";
-        class remove {};
-    };
-    class coffeem
-    {
-        name="Café moulu";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\cafemoulu.paa";
-        class remove {};
-    };
-    class coffeec
-    {
-        name="Café en conserve";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\cafeconserve.paa";
-        class market
-        {
-            max=5925;
-            min=3259;
-        };
-        class remove {};
-    };
-
-    class banana
-    {
-        name="Régime de bananes";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\banana.paa";
-        class market
-        {
-            max=42;
-            min=24;
-        };
-        class remove {};
-    };
-
-    class sugar_cane
-    {
-        name="Canne à sucre";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\sugar_cane.paa";
-        class market
-        {
-            max=378;
-            min=208;
-        };
-        class remove {};
-    };
-    class sugar
-    {
-        name="Sucre de canne";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\sugar.paa";
-        class food
-        {
-            hunger=10;
-            thirst=-1;
-            sound="eat_biscuit";
-        };
-        class market
-        {
-            max=287;
-            min=158;
-        };
-        class remove {};
-    };
-    class rhum
-    {
-        name="Bouteille de Rhum";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\rhum.paa";
-        class food
-        {
-            hunger=-5;
-            thirst=25;
-            sound="drink_wine";
-            alcool=0.6;
-        };
-        class market
-        {
-            max=2344;
-            min=1290;
-        };
-        class remove {};
-    };
-
-    class millettia
-    {
-        name="Fleur de Millettia";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\millettia.paa";
-        class remove {};
-    };
-
-    class rare_earth
-    {
-        name="Terres rares";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\rare_earth.paa";
-        class market
-        {
-            max=1089;
-            min=599;
-        };
-        class remove {};
-    };
-
-    class amethyste
-    {
-        name="Améthyste";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\amethyste.paa";
-        class market
-        {
-            max=2500;
-            min=2250;
-        };
-        class remove {};
-    };
-    class saphir
-    {
-        name="Saphir";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\saphir.paa";
-        class market
-        {
-            max=33000;
-            min=18000;
-        };
-        class remove {};
-    };
-    class topaze
-    {
-        name="Topaze";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\topaze.paa";
-        class market
-        {
-            max=4250;
-            min=2475;
-        };
-        class remove {};
-    };
-    class volcano
-    {
-        name="Roche volcanique";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\volcano.paa";
-        price_sell=20;
-        class remove
-        {
-            disableSuitcase=1;
-            all=1;
-        };
-    };
-
-    class corail
-    {
-        name="Corail";
-        weight=2;
-        illegal=1;
-        image="Alysia_Client\Textures\Items_virtual\corail.paa";
-        class market
-        {
-            max=1800;
-            min=540;
-        };
-        class remove {};
-    };
-
-    class coconut
-    {
-        name="Noix de coco";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\coconut.paa";
-        class market
-        {
-            max=504;
-            min=278;
-        };
-        class remove {};
-    };
-    class tissue
-    {
-        name="Tissue";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\tissue.paa";
         class remove {};
     };
 
@@ -1954,13 +1820,6 @@ class ALYSIA_ITEMS
         image="Alysia_Client\Textures\Items_virtual\assembling.paa";
         class remove {};
     };
-    class cd_lafouine
-    {
-        name="Album de José Lafouine";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cd_lafouine.paa";
-        class remove {};
-    };
 
     class sea_food
     {
@@ -1976,635 +1835,8 @@ class ALYSIA_ITEMS
         class remove {};
     };
 
-    class orge_seed
-    {
-        name="Graine (orge)";
-        weight=1;
-        price_buy=90;
-        image="Alysia_Client\Textures\Items_virtual\Master_seed.paa";
-        buy_license_CIV="company_farming";
-        class remove {};
-    };
-    class orge
-    {
-        name="Orge";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\orge.paa";
-        class remove {};
-    };
-    class yeast
-    {
-        name="Levure";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\levure.paa";
-        price_buy=10;
-        buy_license_CIV="company_farming";
-        class remove {};
-    };
-    class Malte
-    {
-        name="Malte";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\malte.paa";
-        class remove {};
-    };
-    class Brassage
-    {
-        name="moût";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\brassage.paa";
-        class remove {};
-    };
-    class ferment_whisky
-    {
-        name="Whisky fermenté";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\ferment.paa";
-        class remove {};
-    };
-    class Whisky
-    {
-        name="Bouteille de Whisky";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\whisky.paa";
-        class remove {};
-        class food
-        {
-            hunger=0;
-            thirst=30;
-            sound="drink_wine";
-            alcool=0.40;
-        };
-    };
 
-    class houblon_seed
-    {
-        name="Graine (houblon)";
-        weight=1;
-        price_buy=90;
-        image="Alysia_Client\Textures\Items_virtual\Master_seed.paa";
-        buy_license_CIV="company_farming";
-        class remove {};
-    };
-    class houblon
-    {
-        name="houblon";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\houblon.paa";
-        class remove {};
-    };
-    class brewing
-    {
-        name="Houblonnage";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\brewing.paa";
-        class remove {};
-    };
-    class ferment_beer
-    {
-        name="Bierre fermenté";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\fermenter.paa";
-        class remove {};
-    };
-    class beer
-    {
-        name="Bierre";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\beer.paa";
-        class remove {};
-        class food
-        {
-            hunger=0;
-            thirst=30;
-            sound="drink_wine";
-            alcool=0.09;
-        };
-    };
-    //////////////// OLIVE ////////////////
-    class olive_seed
-    {
-        name="Graine (olivier)";
-        weight=1;
-        price_buy=90;
-        image="Alysia_Client\Textures\Items_virtual\Master_seed.paa";
-        buy_license_CIV="company_farming";
-        class remove {};
-    };
-    class olive
-    {
-        name="olive";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\olive.paa";
-        class remove {};
-        class food
-        {
-            hunger=5;
-            thirst=5;
-            sound="eat_biscuit";
-        };
-    };
-    class olive_oil
-    {
-        name="Huile d'olive";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\olive.paa";
-        class remove {};
-    };
-    class olive_oil_bottle
-    {
-        name="Bouteille d'huile d'olive";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\olive_oil_bottle.paa";
-        class remove {};
-    };
-    class olive_paste
-    {
-        name="Pâte d'olive";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\olive_paste.paa";
-        class remove {};
-    };
-    class tapenade
-    {
-        name="Tapenade";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\tapenade.paa";
-        class remove {};
-        class food
-        {
-            hunger=10;
-            thirst=5;
-            sound="eat_biscuit";
-        };
-    };
-    class olive_cocktail
-    {
-        name="Cocktail";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\olive_cocktail.paa";
-        class remove {};
-        class food
-        {
-            hunger=5;
-            thirst=10;
-            sound="eat_biscuit";
-        };
-    };
-    class flour
-    {
-        name="Farine";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\flour.paa";
-        class remove {};
-    };
-    class Dough
-    {
-        name="Pâte a pain";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\Dough.paa";
-        class remove {};
-    };
-    class baguette
-    {
-        name="Baguette";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\baguette.paa";
-        class remove {};
-        class food
-        {
-            hunger=12;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class salt
-    {
-        name="Sel";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\flour.paa";
-        buy_license_CIV="company_cook";
-        price_buy=20;
-        class remove {};
-    };
-    class egg
-    {
-        name="Oeuf";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\egg.paa";
-        buy_license_CIV="company_cook";
-        price_buy=7;
-        class remove {};
-    };
-    class butter
-    {
-        name="Beurre";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\butter.paa";
-        buy_license_CIV="company_cook";
-        price_buy=17;
-        class remove {};
-    };
-    class puff_pastry
-    {
-        name="Pâte Feuilleté";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\puff_pastry.paa";
-        class remove {};
-    };
-    class uncooked_croissant
-    {
-        name="Croissant cru";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\uncooked_croissant.paa";
-        class remove {};
-    };
-    class uncooked_chocolate_croissant
-    {
-        name="Pain au chocolat cru";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\uncooked_chocolate_croissant.paa";
-        class remove {};
-    };
-    class cooked_croissant
-    {
-        name="Croissant nature";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cooked_croissant.paa";
-        class remove {};
-        class food
-        {
-            hunger=22;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class cooked_chocolate_croissant
-    {
-        name="Pain au chocolat";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cooked_chocolate_croissant.paa";
-        class remove {};
-        class food
-        {
-            hunger=24;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class cake_batter
-    {
-        name="Pâte à gâteau";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cake_batter.paa";
-        class remove {};
-    };
-    class cake_chocolate_batter
-    {
-        name="Pâte à gâteau au chocolat";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cake_chocolate_batter.paa";
-        class remove {};
-    };
-    class cake
-    {
-        name="Gâteau nature";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\cake.paa";
-        class remove {};
-        class food
-        {
-            hunger=34;
-            thirst=-5;
-            sound="eat_biscuit";
-        };
-    };
-    class cake_chocolate: cake
-    {
-        name="Gâteau au chocolat";
-        image="Alysia_Client\Textures\Items_virtual\cake_chocolate.paa";
-        class food
-        {
-            hunger=44;
-            thirst=-5;
-            sound="eat_biscuit";
-        };
-    };
-    class milk
-    {
-        name="Bouteille de lait";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\milk.paa";
-        price_buy=22;
-        buy_license_CIV="company_cook";
-        class remove {};
-        class food
-        {
-            hunger=0;
-            thirst=20;
-            sound="drink_water";
-        };
-    };
 
-    class pork
-    {
-        name="Porc";
-        weight=36;
-        price_buy=500;
-        image="Alysia_Client\Textures\Items_virtual\pork.paa";
-        buy_license_CIV="company_cook";
-        class remove {};
-    };
-    class chop_pork
-    {
-        name="Côte de porc";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\chop_pork.paa";
-        class remove {};
-        class food
-        {
-            hunger=20;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class roast_pork
-    {
-        name="Roti de porc";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\roast_pork.paa";
-        class remove {};
-        class food
-        {
-            hunger=20;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class filet_mignon
-    {
-        name="Filet mignon de porc";
-        weight=14;
-        image="Alysia_Client\Textures\Items_virtual\filet_mignon.paa";
-        class remove {};
-        class food
-        {
-            hunger=30;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-
-    class Beef
-    {
-        name="Boeuf";
-        weight=8;
-        price_buy=1000;
-        image="Alysia_Client\Textures\Items_virtual\beef.paa";
-        buy_license_CIV="company_cook";
-        class remove {};
-    };
-    class rumsteak_beef
-    {
-        name="Roti de boeuf";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\rumsteak_beef.paa";
-        class remove {};
-        class food
-        {
-            hunger=30;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class beefsteak_beef
-    {
-        name="Beefsteak";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\beefsteak_beef.paa";
-        class remove {};
-        class food
-        {
-            hunger=30;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class ground_beef
-    {
-        name="Steak Haché";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\ground_beef.paa";
-        class remove {};
-        class food
-        {
-            hunger=30;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class rib_coast_beef
-    {
-        name="Côte de boeuf";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\rib_coast_beef.paa";
-        class remove {};
-        class food
-        {
-            hunger=20;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class beef_tenderloin_beef
-    {
-        name="Filet de boeuf";
-        weight=20;
-        image="Alysia_Client\Textures\Items_virtual\beef_tenderloin_beef.paa";
-        class remove {};
-        class food
-        {
-            hunger=40;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-    class rib_beef_steak
-    {
-        name="Entrecôte";
-        weight=10;
-        image="Alysia_Client\Textures\Items_virtual\rib_steak_beef.paa";
-        class remove {};
-        class food
-        {
-            hunger=20;
-            thirst=0;
-            sound="eat_biscuit";
-        };
-    };
-
-    class firework
-    {
-        name="Fusée d'artifice";
-        weight=2;
-        image="";
-        price_buy=8000;
-        buy_license_CIV="company_event";
-        class remove {};
-        class use
-        {
-            action="[] call AlysiaClient_fnc_item_firework;";
-        };
-    };
-
-    ///// weapons //////
-    class shoulderp
-    {
-        name="Crosse";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\crosse.paa";
-        class remove {};
-    };
-    class intermediary_shoulderp
-    {
-        name="Crosse intermediaire";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\crosse.paa";
-        class remove {};
-    };
-    class military_shoulderp
-    {
-        name="Crosse Millitaire";
-        weight=5;
-        image="Alysia_Client\Textures\Items_virtual\crosse.paa";
-        class remove {};
-    };
-    class barrelp
-    {
-        name="Canon";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\canon.paa";
-        class remove {};
-    };
-    class intermediary_barrelp
-    {
-        name="Canon Intermediaire";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\canon.paa";
-        class remove {};
-    };
-    class military_barrelp
-    {
-        name="Canon Millitaire";
-        weight=5;
-        image="Alysia_Client\Textures\Items_virtual\canon.paa";
-        class remove {};
-    };
-    class receiverp
-    {
-        name="Culasse";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\culasse.paa";
-        class remove {};
-    };
-    class intermediary_receiverp
-    {
-        name="Culasse Intermediaire";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\culasse.paa";
-        class remove {};
-    };
-    class military_receiverp
-    {
-        name="Culasse Millitaire";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\culasse.paa";
-        class remove {};
-    };
-    class gripp
-    {
-        name="Poignée";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\poignee.paa";
-        class remove {};
-    };
-    class intermediary_gripp
-    {
-        name="Poignée Intermediaire";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\poignee.paa";
-        class remove {};
-    };
-    class military_gripp
-    {
-        name="Poignée Millitaire";
-        weight=5;
-        image="Alysia_Client\Textures\Items_virtual\poignee.paa";
-        class remove {};
-    };
-    class slapperp
-    {
-        name="Percuteur";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\percuteur.paa";
-        class remove {};
-    };
-    class intermediary_slapperp
-    {
-        name="Percuteur Intermediaire";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\percuteur.paa";
-        class remove {};
-    };
-    class military_slapperp
-    {
-        name="Percuteur Millitaire";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\percuteur.paa";
-        class remove {};
-    };
-    class framep
-    {
-        name="Armature";
-        weight=3;
-        image="Alysia_Client\Textures\Items_virtual\armature.paa";
-        class remove {};
-    };
-    class intermediary_framep
-    {
-        name="Armature Intermediaire";
-        weight=4;
-        image="Alysia_Client\Textures\Items_virtual\armature.paa";
-        class remove {};
-    };
-    class military_framep
-    {
-        name="Armature Millitaire";
-        weight=5;
-        image="Alysia_Client\Textures\Items_virtual\armature.paa";
-        class remove {};
-    };
-    class cylinderp
-    {
-        name="Barillet";
-        weight=2;
-        image="Alysia_Client\Textures\Items_virtual\barillet.paa";
-        class remove {};
-    };
-    class triggerp
-    {
-        name="Détente";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\detente.paa";
-        class remove {};
-    };
-    class magazinep
-    {
-        name="Chargeur vide";
-        weight=1;
-        image="Alysia_Client\Textures\Items_virtual\chargeur.paa";
-        class remove {};
-    };
     class military_magazinep
     {
         name="Chargeur militaire vide";
@@ -2632,209 +1864,5 @@ class ALYSIA_ITEMS
         weight=0;
         image="Alysia_Client\Textures\Items_virtual\chevrotine.paa";
         class remove {};
-    };
-
-    //////////////////////// BLUEPRINTS ////////////////////////
-    class blueprint_gsh18
-    {
-        name="Patron de GSH18";
-        weight=0;
-        price_buy=10000;
-        buy_rank_EAST=10;
-        buy_rank_WEST=6;
-        image="Alysia_Client\Textures\Items_virtual\patron.paa";
-        class remove {};
-    };
-    class blueprint_sig: blueprint_gsh18
-    {
-        name="Patron de SIG P226";
-    };
-    class blueprint_m9: blueprint_gsh18
-    {
-        name="Patron de M9";
-    };
-    class blueprint_micro_uzi: blueprint_gsh18
-    {
-        name="Patron de Micro Uzi";
-        illegal=1;
-    };
-    class blueprint_vp70: blueprint_gsh18
-    {
-        name="Patron de VP70";
-    };
-    class blueprint_m1911: blueprint_gsh18
-    {
-         name="Patron de M1911";
-    };
-    class blueprint_cz75: blueprint_gsh18
-    {
-        name="Patron de CZ75";
-    };
-    class blueprint_protector: blueprint_gsh18
-    {
-        name="Patron de Protector";
-    };
-    class blueprint_ump_45: blueprint_gsh18
-    {
-        name="Patron de UMP45";
-    };
-    class blueprint_fnp_45: blueprint_gsh18
-    {
-        name="Patron de FNP45";
-        illegal=1;
-    };
-    class blueprint_rook_40: blueprint_gsh18
-    {
-        name="Patron de ROOK 40";
-    };
-    class blueprint_sw_659: blueprint_gsh18
-    {
-        name="Patron de SW659";
-        illegal=1;
-    };
-    class blueprint_tt_33: blueprint_gsh18
-    {
-        name="Patron de TT33";
-        illegal=1;
-    };
-    class blueprint_sdar: blueprint_gsh18
-    {
-        name="Patron de SDAR";
-    };
-    class blueprint_blaser_b95: blueprint_gsh18
-    {
-        name="Patron de Blaser 95";
-    };
-    class blueprint_pm73_rak: blueprint_gsh18
-    {
-        name="Patron de PM73 RAK";
-        illegal=1;
-    };
-    class blueprint_glock_18: blueprint_gsh18
-    {
-        name="Patron de Glock";
-    };
-    class blueprint_usp_40_match: blueprint_gsh18
-    {
-        name="Patron de USP 40";
-        illegal=1;
-    };
-    class blueprint_pm_9mm: blueprint_gsh18
-    {
-        name="Patron de PM 9MM";
-        illegal=1;
-    };
-    class blueprint_kimber_night_warrior: blueprint_gsh18
-    {
-        name="Patron de Kimber Night Warrior";
-        illegal=1;
-    };
-    class blueprint_umateba_model_6_unica: blueprint_gsh18
-    {
-        name="Patron de Umateba Unica";
-        illegal=1;
-    };
-    class blueprint_taurus_raging_bull: blueprint_gsh18
-    {
-        name="Patron de Taurus Raging Bull";
-        illegal=1;
-    };
-    class blueprint_taurus_tracker_455: blueprint_gsh18
-    {
-        name="Patron de Taurus Tracker 455";
-        illegal=1;
-    };
-    class blueprint_desert_eagle: blueprint_gsh18
-    {
-        name="Patron de Desert Eagle";
-        illegal=1;
-    };    
-    class blueprint_vermin_smg: blueprint_gsh18
-    {
-        name="Patron de Vermin SMG";
-    };
-    class blueprint_car_95: blueprint_gsh18
-    {
-        name="Patron de CAR 95";
-    };    
-    class blueprint_spar_16: blueprint_gsh18
-    {
-        name="Patron de SPAR 16";
-    };
-    class blueprint_hk416: blueprint_gsh18   
-    {        
-        name="Patron de HK416";
-    };      
-    class blueprint_hk417: blueprint_gsh18      
-    {
-       name="Patron de HK417";
-    };
-    class blueprint_akm: blueprint_gsh18
-    {
-        name="Patron de AKM";
-        illegal=1;
-    };
-    class blueprint_M4A1: blueprint_gsh18
-    {
-        name="Patron de M4A1";
-        illegal=1;
-    };
-    class blueprint_DP_28: blueprint_gsh18
-    {
-        name="Patron de DP28";
-        illegal=1;
-    };
-    class blueprint_AKS: blueprint_gsh18
-    {
-        name="Patron de AKS";
-        illegal=1;
-    };
-    class blueprint_AK12: blueprint_gsh18
-    {
-        name="Patron de AK12";
-        illegal=1;
-    };
-    class blueprint_SVD: blueprint_gsh18
-    {
-        name="Patron de SVD";
-        illegal=1;
-    };
-    class blueprint_mp44: blueprint_gsh18
-    {
-        name="Patron de MP 44";
-    };
-    class blueprint_g17: blueprint_gsh18
-    {
-        name="Patron de G17";
-    };
-    class blueprint_tec9: blueprint_gsh18
-    {
-        name="Patron de Tec9";
-        illegal=1;
-    };
-    class blueprint_ruger_mk2: blueprint_gsh18
-    {
-        name="Patron de Tec9";
-        illegal=1;
-    };
-    class blueprint_hedgehog: blueprint_gsh18
-    {
-        name="Patron de Hérisson Tchèque";
-        illegal=1;
-    };
-    class blueprint_watchpost_tall: blueprint_gsh18
-    {
-        name="Poste de garde (grand)";
-        illegal=1;
-    };
-    class blueprint_watchpost_small: blueprint_gsh18
-    {
-        name="Patron de Poste de garde (petit)";
-        illegal=1;
-    };
-    class blueprint_watchtower_wood: blueprint_gsh18
-    {
-        name="Patron de our de guet en bois";
-        illegal=1;
     };
 };

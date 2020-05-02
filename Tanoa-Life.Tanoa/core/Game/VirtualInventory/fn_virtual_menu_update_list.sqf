@@ -18,7 +18,7 @@ if (isNull _display) exitWith {};
 
 (_display displayCtrl 85004) ctrlSetStructuredText parseText format
 [
-	"<t align='left'>Porte-feuille</t><t align='right'><t color='#8cff9b'>%1</t>$</t>",
+	"<t align='left'>Porte-feuille</t><t align='right'><t color='#8cff9b'>%1</t>BTC</t>",
 	[g_cash] call AlysiaClient_fnc_numberText
 ];
 

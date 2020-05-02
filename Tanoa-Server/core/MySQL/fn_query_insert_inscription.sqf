@@ -26,7 +26,7 @@ if (
 [
 	format
 	[
-		"INSERT INTO players (uid,profileName,HEALTH_deseases,PHONE_messages,PHONE_contacts,PHONE_blacklist,TABLET_apps,RP_firstname,RP_lastname,RP_birth,RP_nationality,RP_sexe,CIV_gear,CIV_inventory,CIV_licenses,WEST_gear,WEST_inventory,WEST_licenses,EAST_gear,EAST_inventory,EAST_licenses,GUER_gear,GUER_inventory,GUER_licenses,JAIL_gear,RP_face,DYN_markers,CIV_cash) VALUES ('%2','%3','""[[],[],[]]""','%1','%1','%1','%1','%4','%5','%6','%7','%8','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%9','%1','2000')",
+		"INSERT INTO players (uid,profileName,HEALTH_deseases,PHONE_messages,PHONE_contacts,PHONE_blacklist,TABLET_apps,RP_firstname,RP_lastname,RP_birth,RP_nationality,RP_sexe,CIV_gear,CIV_inventory,CIV_licenses,WEST_gear,WEST_inventory,WEST_licenses,EAST_gear,EAST_inventory,EAST_licenses,GUER_gear,GUER_inventory,GUER_licenses,JAIL_gear,RP_face,DYN_markers,CIV_cash) VALUES ('%2','%3','""[[],[],[]]""','%1','%1','%1','%1','%4','%5','%6','%7','%8','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%1','%9','%1','25000')",
 		"""[]""",
 		(getPlayerUID _player),
 		_profileName,

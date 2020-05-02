@@ -1,10 +1,11 @@
 class ALYSIA_LABORATORIES
 {
+
 	class lab_marijuana
 	{
 		object="Skyline_Alysia_WorkBench_Marijuana_01_F";
 		process[]={"marijuana"};
-		destroy[]={"EAST"};
+		destroy[]={"EAST","CIV"};
 		class marker
 		{
 		 	ShapeLocal="ICON";
@@ -22,7 +23,7 @@ class ALYSIA_LABORATORIES
 	{
 		object="Skyline_Alysia_WorkBench_Marijuana_01_F";
 		process[]={"mushroom","mushroom_bocal"};
-		destroy[]={"EAST"};
+		destroy[]={"EAST","CIV"};
 		class marker
 		{
 		 	ShapeLocal="ICON";
@@ -40,7 +41,7 @@ class ALYSIA_LABORATORIES
 	{
 		object="Skyline_Alysia_WorkBench_Methamphetamine_01_F";
 		process[]={"meth"};
-		destroy[]={"EAST"};
+		destroy[]={"EAST","CIV"};
 		class marker
 		{
 		 	ShapeLocal="ICON";
@@ -58,7 +59,7 @@ class ALYSIA_LABORATORIES
 	{
 		object="Skyline_Alysia_WorkBench_Cocaine_01_F";
 		process[]={"cocaine","cocainec"};
-		destroy[]={"EAST"};
+		destroy[]={"EAST","CIV"};
 		class marker
 		{
 		 	ShapeLocal="ICON";
@@ -76,7 +77,7 @@ class ALYSIA_LABORATORIES
 	{
 		object="Skyline_Alysia_WorkBench_Heroine_01_F";
 		process[]={"heroin","seringueheroin"};
-		destroy[]={"EAST"};
+		destroy[]={"EAST","CIV"};
 		class marker
 		{
 		 	ShapeLocal="ICON";
@@ -90,60 +91,7 @@ class ALYSIA_LABORATORIES
 			require[]={{"ironp",20},{"glass",4},{"woodp",7}};
 		};
 	};
-	class lab_cigare
-	{
-		object="Land_Factory_Conv1_End_F";
-		process[]={"cigare","cigare_clothing"};
-		destroy[]={"EAST"};
-		class marker
-		{
-		 	ShapeLocal="ICON";
-			TypeLocal="Maels_labo_tabac";
-			ColorLocal="ColorRed";
-			SizeLocal[]={0.55,0.55};
-		};
-		class construction
-		{
-			object="Land_Bricks_V3_F";
-			require[]={{"ironp",5},{"pierre",10},{"woodp",5}};
-		};
-	};
-	class lab_heal
-	{
-		object="HealTable_F";
-		process[]={};
-		destroy[]={"EAST"};
-		class marker
-		{
-		 	ShapeLocal="ICON";
-			TypeLocal="Maels_hospital";
-			ColorLocal="ColorRed";
-			SizeLocal[]={0.55,0.55};
-		};
-		class construction
-		{
-			object="Land_Bricks_V3_F";
-			require[]={{"woodp",25}};
-		};
-	};
-	class lab_construction
-	{
-		object="Skyline_Alysia_WorkBench_Construction_01_F";
-		process[]={"chair_wood","table_wood","light_double","bag_01","bag_02"};
-		destroy[]={"EAST"};
-		class marker
-		{
-		 	ShapeLocal="ICON";
-			TypeLocal="Maels_factory";
-			ColorLocal="ColorRed";
-			SizeLocal[]={0.55,0.55};
-		};
-		class construction
-		{
-			object="Land_Bricks_V3_F";
-			require[]={{"ironp",12},{"pierre",8}};
-		};
-	};
+
 	class lab_gun
 	{
 		object="Skyline_Alysia_WorkBench_Weapon_01_F";
@@ -193,10 +141,151 @@ class ALYSIA_LABORATORIES
 			ColorLocal="ColorRed";
 			SizeLocal[]={0.55,0.55};
 		};
-		class construction 
+		class construction
 		{
 			object="Land_Bricks_V3_F";
 			require[]={{"ironp",15},{"pierre",8},{"woodp",5}};
+		};
+	};
+
+	class lab_cigare
+	{
+		object="Land_Factory_Conv1_End_F";
+		process[]={"cigare","cigare_clothing"};
+		destroy[]={"EAST","CIV"};
+		class marker
+		{
+		 	ShapeLocal="ICON";
+			TypeLocal="Maels_labo_tabac";
+			ColorLocal="ColorRed";
+			SizeLocal[]={0.55,0.55};
+		};
+		class construction
+		{
+			object="Land_Bricks_V3_F";
+			require[]={{"ironp",5},{"pierre",10},{"woodp",5}};
+		};
+	};
+
+	class lab_heal
+	{
+		object="HealTable_F";
+		process[]={};
+		class marker
+		{
+		 	ShapeLocal="ICON";
+			TypeLocal="plp_mark_civc_pharmacy";
+			ColorLocal="ColorRed";
+			SizeLocal[]={0.6,0.6};
+		};
+		class construction
+		{
+			object="Land_Bricks_V3_F";
+			require[]={{"ironp",12},{"woodp",25},{"aluminiump",9}};
+		};
+	};
+	class lab_alimentaire
+	{
+		object="Skyline_Alysia_WorkBench_Methamphetamine_01_F";
+		process[]={"cuissechevre","conservechevre","platchevre","cuissemouton","conservemouton","platmouton","bouteilleraisin"};
+		class marker
+		{
+		 	ShapeLocal="ICON";
+			TypeLocal="plp_mark_civc_clothingmilitary";
+			ColorLocal="ColorRed";
+			SizeLocal[]={0.55,0.55};
+		};
+		class construction
+		{
+			object="Land_Bricks_V3_F";
+			require[]={{"ironp",12},{"woodp",25},{"aluminiump",9}};
+		};
+	};
+	class lab_clothing
+	{
+		object="Skyline_Alysia_WorkBench_Construction_01_F";
+		process[]={"baillon","cagoule","vesteantirad","maskantirad","respirateurantirad"};
+		class marker
+		{
+		 	ShapeLocal="ICON";
+			TypeLocal="plp_mark_civc_clothingmilitary";
+			ColorLocal="ColorRed";
+			SizeLocal[]={0.55,0.55};
+		};
+		class construction
+		{
+			object="Land_Bricks_V3_F";
+			require[]={{"ironp",12},{"woodp",25},{"aluminiump",9}};
+		};
+	};
+	class lab_medical
+	{
+		object="Skyline_Alysia_WorkBench_Methamphetamine_01_F";
+		process[]={"piqureadrenaline","piqurechlore","scalpel","defib","lab_heal","piquremorphine","epinephrine"};
+		class marker
+		{
+		 	ShapeLocal="ICON";
+			TypeLocal="plp_mark_civc_pharmacy";
+			ColorLocal="ColorRed";
+			SizeLocal[]={0.6,0.6};
+		};
+		class construction
+		{
+			object="Land_Bricks_V3_F";
+			require[]={{"ironp",12},{"woodp",25},{"aluminiump",9}};
+		};
+	};
+	class lab_avance
+	{
+		object="Skyline_Alysia_WorkBench_Construction_01_F";
+		process[]={
+		"menotte",
+		"clefmenotte",
+		"serrure",
+		"foreuse",
+		"couteau",
+		"lockpick",
+		"bomb",
+		"herse",
+		"light_double",
+		"chair_wood",
+		"table_wood",
+		"serrureabime",
+		"baillon",
+		"bouteillerad",
+		"cagoule",
+		"respirateur",
+		"vesteantirad",
+		"maskantirad",
+		"respirateurantirad"};
+		class marker
+		{
+		 	ShapeLocal="ICON";
+			TypeLocal="plp_mark_civc_atom";
+			ColorLocal="ColorRed";
+			SizeLocal[]={0.6,0.6};
+		};
+		class construction
+		{
+			object="Land_Bricks_V3_F";
+			require[]={{"ironp",12},{"woodp",25},{"aluminiump",9}};
+		};
+	};
+	class lab_macon
+	{
+		object="Skyline_Alysia_WorkBench_Construction_01_F";
+		process[]={"bag_01","bag_02","hedgehog","watchtower_wood","watchpost_tall","watchpost_small"};
+		class marker
+		{
+		 	ShapeLocal="ICON";
+			TypeLocal="plp_mark_civc_atom";
+			ColorLocal="ColorRed";
+			SizeLocal[]={0.6,0.6};
+		};
+		class construction
+		{
+			object="Land_Bricks_V3_F";
+			require[]={{"ironp",12},{"woodp",25},{"aluminiump",9}};
 		};
 	};
 };

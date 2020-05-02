@@ -2,7 +2,7 @@
 	Tanoa-Life RPG
 	Code written by Lyeed
 */
-private "_CreateLocalVehicle";
+/*private "_CreateLocalVehicle";
 
 _CreateLocalVehicle =
 {
@@ -890,7 +890,7 @@ if (playerSide isEqualTo civilian) then
 		[
 			format
 			[
-				"<img image='Alysia_Client_Texture\Data\actions_menu\license.paa'/> Acheter <t color='#FF0000'>%1</t> (<t color='#8cff9b'>%2</t>$)",
+				"<img image='Alysia_Client_Texture\Data\actions_menu\license.paa'/> Acheter <t color='#FF0000'>%1</t> (<t color='#8cff9b'>%2</t>BTC)",
 				['rebelle_1'] call AlysiaClient_fnc_licenseGetName,
 				[['rebelle_1'] call AlysiaClient_fnc_licenseGetPrice] call AlysiaClient_fnc_numberText
 			],AlysiaClient_fnc_buyLicense,"rebelle_1",0,false,false,"",'vehicle player == player && player distance _target < 4 && !(["rebelle_1"] call AlysiaClient_fnc_hasLicense)'
@@ -1306,3 +1306,4 @@ _colonelScreen_3 setVariable ["cam_data", [["colonel_military_cam_3", [7363.9,84
 ["Skyline_Alysia_Charbon_02_F","[11460.432617,6262.483887,-0.29798]",12.4369,-100,0,0,[]] call _CreateLocalVehicle;
 ["Skyline_Alysia_Charbon_02_F","[11450.772461,6253.0600586,-0.383838]",12.4369,-100,0,0,[]] call _CreateLocalVehicle;
 ["Skyline_Alysia_Charbon_02_F","[11456.827148,6250.13623,-0.383838]",30.745,-100,0,0,[]] call _CreateLocalVehicle;
+*/

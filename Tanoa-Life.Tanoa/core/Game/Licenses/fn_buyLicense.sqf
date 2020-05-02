@@ -27,8 +27,8 @@ if (g_cash < _price) exitWith
 	[
 		format
 		[
-			"Vous n'avez pas <t color='#8cff9b'>%1</t>$<br/>" +
-			"Manquant: <t color='#8cff9b'>%2</t>$",
+			"Vous n'avez pas <t color='#8cff9b'>%1</t>BTC<br/>" +
+			"Manquant: <t color='#8cff9b'>%2</t>BTC",
 			[_price] call AlysiaClient_fnc_numberText,
 			[_price - g_cash] call AlysiaClient_fnc_numberText
 		]
@@ -42,7 +42,7 @@ missionNamespace setVariable [format["license_%1", _license], true];
 	format
 	[
 		"Vous avez acheté <t color='#FE9A2E'>%1</t>.<br/>" +
-		"Prix: <t color='#8cff9b'>%2</t>$",
+		"Prix: <t color='#8cff9b'>%2</t>BTC",
 		[_license] call AlysiaClient_fnc_licenseGetName,
 		[_price] call AlysiaClient_fnc_numberText
 	], "buy"

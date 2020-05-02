@@ -8,7 +8,7 @@ disableSerialization;
 _display = uiNamespace getVariable ["tablet", displayNull];
 if (isNull _display) exitWith {};
 
-(_display displayCtrl 8107) ctrlSetStructuredText parseText "<t align='center' font='PuristaBold' size='2.7' color='#FF8000'>Forfaits</t>";
+(_display displayCtrl 8107) ctrlSetStructuredText parseText "<t align='center' font='PuristaBold' size='2.7' color='#FF8000'>Réseau</t>";
 (_display displayCtrl 8109) buttonSetAction "[] call AlysiaClient_fnc_APP_store_forfait_buy;";
 
 [8107, true] call AlysiaClient_fnc_tabletShow;

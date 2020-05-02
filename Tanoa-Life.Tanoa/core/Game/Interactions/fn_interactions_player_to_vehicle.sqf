@@ -22,15 +22,13 @@ if (isNull _target) exitWith {};
 			"
 		],[
 			"stock_refuel",
-			"Stock",
+			"Ravitaillement",
 			"[g_interaction_target, (missionNamespace getVariable ['refuel_pump', objNull])] spawn AlysiaClient_fnc_fuelStation_stock_progress;",
 			"
 				((vehicle player) isKindOf 'Man') &&
 				((player getVariable ['stock_station_type', '']) != '') &&
 				!(isNull (missionNamespace getVariable ['refuel_pump', objNull])) &&
-				(['company_fuel'] call AlysiaClient_fnc_hasLicense) &&
-				{([(g_interaction_target getVariable ['Trunk', []]), getText(missionConfigFile >> 'ALYSIA_FUEL' >> (player getVariable ['stock_station_type', '']) >> 'item_refuel')] call AlysiaClient_fnc_itemTrunk) > 0} &&
-				!(isNull g_company)
+				{([(g_interaction_target getVariable ['Trunk', []]), getText(missionConfigFile >> 'ALYSIA_FUEL' >> (player getVariable ['stock_station_type', '']) >> 'item_refuel')] call AlysiaClient_fnc_itemTrunk) > 0}
 			"
 		],[
 			"refuel",
@@ -48,14 +46,29 @@ if (isNull _target) exitWith {};
 					('Alysia_jerrycan_bio' in (magazines player))
 				)
 			"
+		/*],[
+			"rafistolage",
+			"Rafistoler",
+			"[g_interaction_target] spawn AlysiaClient_fnc_rafistolage;",
+			"
+				((cursorObject isKindOf 'Car') || (cursorObject isKindOf 'Ship') || (cursorObject isKindOf 'Air') || (cursorObject isKindOf 'Tank')) &&
+				('Alysia_repair_toolbox' in (magazines player))
+			"*/
+		],[
+			"repair",
+			"Réparation max.",
+			"[g_interaction_target] spawn AlysiaClient_fnc_repair;",
+			"
+				((cursorObject isKindOf 'Car') || (cursorObject isKindOf 'Ship') || (cursorObject isKindOf 'Air') || (cursorObject isKindOf 'Tank')) &&
+				('Alysia_repair_toolbox' in (magazines player))
+			"
 		],[
 			"siphon",
 			"Siphon",
 			"[g_interaction_target] spawn AlysiaClient_fnc_vehicleMenu_siphon;",
 			"
 				((vehicle player) isEqualTo player)	&&
-				('Alysia_siphon' in (magazines player)) &&
-				(['company_garagist'] call AlysiaClient_fnc_hasLicense)
+				('Alysia_siphon' in (magazines player))
 			"
 		],[
 			"lock",
@@ -98,7 +111,7 @@ if (isNull _target) exitWith {};
 			"
 		],[
 			"repair",
-			"Réparation",
+			"Réparation min.",
 			"[g_interaction_target] spawn AlysiaClient_fnc_vehicleMenu_repair_open;",
 			"
 				(vehicle player) isEqualTo player
@@ -144,6 +157,14 @@ if (isNull _target) exitWith {};
 			"
 				((vehicle player) isEqualTo g_interaction_target)
 			"
+
+		/*],[
+			"owner",
+			"Vendre",
+			"[g_interaction_target] spawn AlysiaClient_fnc_vehicleMenu_sell;",
+			"
+				(cursorObject isKindOf 'Car') || (cursorObject isKindOf 'Ship') || (cursorObject isKindOf 'Air')
+			"*/
 		],[
 			"owner",
 			"Immatriculation",
@@ -199,11 +220,7 @@ if (isNull _target) exitWith {};
 			"
 				((vehicle player) isKindOf 'Man') &&
 				(isNull (player getVariable ['wallet_obj', objNull])) &&
-				(([(g_interaction_target getVariable ['Trunk', []]), 'money_transfer'] call AlysiaClient_fnc_itemTrunk) > 0) &&
-				(isClass(missionConfigFile >> 'ALYSIA_VEHICLES' >> typeOf(g_interaction_target) >> 'company_money_transfer')) &&
-				{((player distance (g_interaction_target modelToWorld getArray(missionConfigFile >> 'ALYSIA_VEHICLES' >> typeOf(g_interaction_target) >> 'company_money_transfer' >> 'pos'))) <= 1)} &&
-				!(isNull g_company) &&
-				{(((g_company getVariable 'company_info') select 2) isEqualTo 'money_transfer')}
+				(([(g_interaction_target getVariable ['Trunk', []]), 'money_transfer'] call AlysiaClient_fnc_itemTrunk) > 0)
 			 "
 		],[
 			"money_transfer",
@@ -211,9 +228,7 @@ if (isNull _target) exitWith {};
 			 "[g_interaction_target] spawn AlysiaClient_fnc_vehicleMenu_money_bag_deposit;",
 			"
 				((vehicle player) isKindOf 'Man') &&
-				!(isNull (player getVariable ['wallet_obj', objNull])) &&
-				(isClass(missionConfigFile >> 'ALYSIA_VEHICLES' >> typeOf(g_interaction_target) >> 'company_money_transfer')) &&
-				{((player distance (g_interaction_target modelToWorld getArray(missionConfigFile >> 'ALYSIA_VEHICLES' >> typeOf(g_interaction_target) >> 'company_money_transfer' >> 'pos'))) <= 1)}
+				!(isNull (player getVariable ['wallet_obj', objNull]))
 			 "
 		],[
 			"money_bomb",

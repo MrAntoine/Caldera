@@ -31,6 +31,7 @@
 				!(g_interaction_target getVariable ['construction', false])
 			"
 		],
+		/*
 		[
 			"destroy",
 			"Détruire",
@@ -44,6 +45,7 @@
 				)
 			"
 		],
+		*/
 		[
 			"inventory",
 			"Stockage",
@@ -55,7 +57,8 @@
 			"Saboter",
 			"[g_interaction_target] spawn AlysiaClient_fnc_labo_sabotage;",
 			"
-				((g_interaction_target getVariable ['sabotage',0]) < serverTime) &&
+				((['destroy_labo'] call AlysiaClient_fnc_itemCount) > 0) &&
+				(g_interaction_target getVariable ['sabotage',0]) < serverTime) &&
 				!(g_interaction_target getVariable ['construction', false])
 			"
 		]

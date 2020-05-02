@@ -11,7 +11,7 @@ if (isNull _object) exitWith {};
 	_object,
 	"player_to_company",
 	[
-		[
+		/*[
 			"search",
 			"Perquisition",
 			"[g_interaction_target,'company'] spawn AlysiaClient_fnc_item_perquisition;",
@@ -20,14 +20,14 @@ if (isNull _object) exitWith {};
 				!(g_interaction_target getVariable ['perquisition',false]) &&
 				!(g_interaction_target getVariable ['construction',false])
 			"
-		],[
+		],*/[
 			"info",
 			"Infos",
 			"[g_interaction_target] call AlysiaClient_fnc_company_info_open;",
 			"
 				!(g_interaction_target getVariable ['construction',false])
 			"
-		],[
+		/*],[
 			"book",
 			"Livre Comptes",
 			"[g_interaction_target,player] remoteExecCall ['AlysiaServer_fnc_company_history_get',2];",
@@ -46,7 +46,7 @@ if (isNull _object) exitWith {};
 						)
 					)
 				)
-			"
+			"*/
 		],[
 			"construction",
 			"Matériaux",
@@ -60,10 +60,9 @@ if (isNull _object) exitWith {};
 			"[g_interaction_target] spawn AlysiaClient_fnc_company_construction_build;",
 			"
 				(g_interaction_target getVariable ['construction',false]) &&
-				((g_interaction_target getVariable ['construction_require',[]]) isEqualTo []) &&
-				(['company_construction'] call AlysiaClient_fnc_hasLicense)
+				((g_interaction_target getVariable ['construction_require',[]]) isEqualTo [])
 			"
-		],[
+		/*],[
 			"process",
 			"Traitements",
 			"[g_interaction_target] call AlysiaClient_fnc_company_process;",
@@ -71,7 +70,7 @@ if (isNull _object) exitWith {};
 				!(g_interaction_target getVariable ['construction',false]) &&
 				(isClass(missionConfigFile >> 'ALYSIA_COMPANIES_TYPES' >> ((g_interaction_target getVariable 'company_info') select 2) >> 'process')) &&
 				{((player distance (g_interaction_target modelToWorld getArray(missionConfigFile >> 'ALYSIA_COMPANIES_TYPES' >> ((g_interaction_target getVariable 'company_info') select 2) >> 'process' >> 'modelPos'))) <= getNumber(missionConfigFile >> 'ALYSIA_COMPANIES_TYPES' >> ((g_interaction_target getVariable 'company_info') select 2) >> 'process' >> 'posDistance'))}
-			"
+			"*/
 		],[
 			"inventory",
 			"Coffre",
@@ -105,7 +104,7 @@ if (isNull _object) exitWith {};
 				!(g_interaction_target getVariable ['construction',false]) &&
 				(g_company isEqualTo g_interaction_target)
 			"
-		],[
+		/*],[
 			"launder",
 			"Blanchiment",
 			"[g_interaction_target] spawn AlysiaClient_fnc_company_launder_open;",
@@ -127,7 +126,7 @@ if (isNull _object) exitWith {};
 						([getText(missionConfigFile >> 'ALYSIA_FACTIONS' >> str(playerSide) >> 'companies' >> 'destroy' >> 'license')] call AlysiaClient_fnc_hasLicense)
 					)
 				)
-			"
+			"*/
 		],[
 			"light",
 			"Lumière",

@@ -14,7 +14,7 @@ _action =
 [
 	format
 	[
-		"Vous avez <t color='#8cff9b'>%1</t>$ d'argent sale.<br/>Transférer l'argent à la banque permettra de débloquer <t color='#8cff9b'>%2</t>$ dans le compte de votre faction.",
+		"Vous avez <t color='#8cff9b'>%1</t>BTC d'argent sale.<br/>Transférer l'argent à la banque permettra de débloquer <t color='#8cff9b'>%2</t>BTC dans le compte de votre faction.",
 		[_money] call AlysiaClient_fnc_numberText,
 		[_receive] call AlysiaClient_fnc_numberText
 	],
@@ -27,7 +27,7 @@ if (_action) then
 	closeDialog 0;
 	if ([false, "illegal_money", _money] call AlysiaClient_fnc_handleInv) then
 	{
-		[format["<t color='#8cff9b'>%1</t>$ ont été transféré sur le compte de votre faction."], "buy"] call AlysiaClient_fnc_info;
+		[format["<t color='#8cff9b'>%1</t>BTC ont été transféré sur le compte de votre faction."], "buy"] call AlysiaClient_fnc_info;
 		[playerSide, true, _receive, (getPlayerUID player)] remoteExecCall ["AlysiaServer_fnc_factionBankHandle", 2];
 	} else {
 		["Impossible de trouver l'argent sale dans votre inventaire."] call AlysiaClient_fnc_error;

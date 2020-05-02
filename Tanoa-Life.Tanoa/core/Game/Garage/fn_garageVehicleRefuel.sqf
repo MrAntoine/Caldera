@@ -16,7 +16,7 @@ if (_fuel >= 100) exitWith {
 
 _price = (100 - _fuel) * 2.5;
 if (_price > g_atm) exitWith {
-	[format["Vous n'avez pas assez d'argent, il vous manque <t color='#ff8c8c'>%1$</t>.", [(_price - g_atm)] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+	[format["Vous n'avez pas assez d'argent, il vous manque <t color='#ff8c8c'>%1BTC</t>.", [(_price - g_atm)] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 };
 
 waitUntil

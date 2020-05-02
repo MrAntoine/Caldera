@@ -9,9 +9,9 @@ if (isNull _target) exitWith {
 	["Cible invalide."] call AlysiaClient_fnc_error;
 };
 
-if (isNil {_target getVariable "company_info"}) exitWith {
+/*if (isNil {_target getVariable "company_info"}) exitWith {
 	["Impossible de trouver les informations de l'entreprise."] call AlysiaClient_fnc_error;
-};
+};*/
 
 if (!(isNil "gServer_soonReboot")) exitWith {
 	["Veuillez attendre le <t color='#B40404'>redémarrage</t> du serveur pour détruire l'entreprise."] call AlysiaClient_fnc_error;

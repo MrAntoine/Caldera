@@ -1,119 +1,161 @@
 class ALYSIA_FARMING_OBJECT
 {
-	class default_mine
+	class CargoNet_01_barrels_F
 	{
-		tool="Skyline_Pioche_01";
-		sounds[]={"mining_1","mining_2","mining_3","mining_4","mining_5"};
-		times=1;
+		receive[]={{"oilu",2,1}};
+		sound="oil";
+		Actions = "CargoNet_01_barrels_F";
 	};
-
-	class Land_SharpStone_02: default_mine
-	{
-		receive[]={{"iron",2,1}};
-		times=3;
-	};
-	
-	class Land_BluntRock_spike: default_mine
-	{
-		receive[]={{"pierre",1,1}};
-		tool="Skyline_Merlin_01";
-		times=1;
-	};
-	class Land_BluntRock_apart: Land_BluntRock_spike {};
-	class Land_BluntRock_wallH: Land_BluntRock_spike {};
-
-	class Skyline_Alysia_Charbon_01_F: default_mine
-	{
-		receive[]={{"charcoal",3,1}};
-		times=2;
-	};
-	class Skyline_Alysia_Charbon_02_F: Skyline_Alysia_Charbon_01_F {};
 };
 
 class ALYSIA_FARMING_GATHER
 {
 	// sounds=oil / mining / shovel / gather1 / gather2
-	class wood_field_marker_1
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+///////////////Ressources minières///////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+	//Bois//
+	class wood_field
 	{
-		receive[]={{"wood",3,0}};
+		receive[]={{"wood",2,1}};
+		extra[]={};
 		tool="Skyline_Hache_01";
 		sound="axe";
 		area=40;
+		Actions = "wood_field";
 	};
-	class wood_field_marker_2: wood_field_marker_1 {};
-	class wood_field_marker_3: wood_field_marker_1 {};
-
-	class earth_field_marker_1
+	class raisin_field
 	{
+		receive[]={{"raisin",2,1}};
+		extra[]={};
+		sound="gather1";
+		area=30;
+		Actions = "raisin_field";
+	};
+
+	//Petrole//
+	class oil_mine
+	{
+		receive[]={{"oilu",2,1}};
+		extra[]={};
+		sound="oil";
+		area=40;
+		Actions = "petrol_field";
+	};
+	//Charbon//
+	class charbon_mine
+	{
+		receive[]={{"charcoal",2,1}};
+		extra[]={{"anarkhium",2}};
 		tool="Skyline_Pioche_01";
-		receive[]={{"rare_earth",1,1}};
 		sound="mining";
-		area=30;
+		area=15;
+		Actions = "charbon_mine";
 	};
-	class archeologie_field_marker_1: earth_field_marker_1
+	//Plomb//
+	class plomb_mine
 	{
-		receive[]={{"artefact",3,1}};
-	};
-	class volcano_field_marker_1: earth_field_marker_1
-	{
-		receive[]={{"volcano",4,1}};
-		extra[]={{"amethyste",9},{"saphir",0.5},{"topaze",4}};
-		extra_all=0;
-	};
-
-	class pillage_field_marker_1
-	{
-		receive[]={{"objvaleur",2,1}};
+		receive[]={{"plomb",2,1}};
+		extra[]={{"anarkhium",2}};
+		tool="Skyline_Pioche_01";
 		sound="mining";
-		water=1;
-		water_depth=19;
-		area=30;
+		area=40;
+		Actions = "plomb_mine";
 	};
-
-	class sand_field_marker_1
+	//Alu//
+	class aluminium_mine
 	{
-		receive[]={{"sand",4,1}};
+		receive[]={{"aluminium",2,1}};
+		extra[]={{"anarkhium",2}};
+		tool="Skyline_Pioche_01";
+		sound="mining";
+		area=40;
+		Actions = "aluminium_mine";
+	};
+	//granulat//
+	class granulat_mine
+	{
+		receive[]={{"granulat",2,1}};
+		extra[]={{"anarkhium",2}};
 		tool="Skyline_Pelle_01";
-		sound="shovel";
+		sound="mining";
+		area=40;
+		Actions = "granulat_mine";
+	};
+	//Sable//
+	class sand_mine
+	{
+		receive[]={{"sand",2,1}};
+		extra[]={};
+		tool="Skyline_Pelle_01";
+		sound="mining";
+		area=15;
+		Actions = "sand_mine";
+	};
+	//Fer//
+	class iron_mine
+	{
+		receive[]={{"iron",2,1}};
+		extra[]={{"anarkhium",2}};
+		tool="Skyline_Pioche_01";
+		sound="mining";
+		area=15;
+		Actions = "iron_mine";
+	};
+	//Decharge//
+	class detritus_mine
+	{
+		receive[]={{"detritus",1,1}};
+		extra[]={{"anarkhium",2},{"plastique",5},{"bouteillevide",5},{"seringue",5},{"conserve",5},{"circuitimprime",5},{"serrureabime",5}};
+		sound="gather1";
+		area=15;
+		Actions = "detritus_mine";
+	};
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+///////////////Ressources Agricole///////////////////////////
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+	//Aubépine//
+	/*class aubepine_field
+	{
+		receive[]={{"aubepine",2,1}};
+		extra[]={{"anarkhium",1}};
+		sound="gather1";
+		area=50;
+	};
+	//valeriane//
+	class valeriane_field
+	{
+		receive[]={{"valériane",2,1}};
+		extra[]={{"anarkhium",1}};
+		sound="gather1";
 		area=40;
 	};
-
-	class ginger_field_1
+	//ortie//
+	/*class ortie_field
 	{
-		receive[]={{"ginger",3,1}};
+		receive[]={{"ortie",2,1}};
+		extra[]={{"anarkhium",1}};
+		sound="gather1";
+		area=40;
+	};
+	//reinedespres//
+	class reinedespres_field
+	{
+		receive[]={{"reinedespres",2,1}};
+		extra[]={{"anarkhium",1}};
 		sound="gather1";
 		area=30;
 	};
-	class cacao_field_marker_1: ginger_field_1
-	{
-		receive[]={{"cacao",1,1}};
-	};
-	class cafe_2_field_marker_1: ginger_field_1
-	{
-		receive[]={{"cafe_2",1,1}};
-	};
-	class banana_field_marker_1: ginger_field_1
-	{
-		receive[]={{"banana",5,1}};
-	};
-	class banana_field_marker_2: banana_field_marker_1 {};
-	class sugar_field_marker_1: ginger_field_1
-	{
-		receive[]={{"sugar_cane",2,1}};
-	};
-	class sugar_field_marker_2: sugar_field_marker_1 {};
-	class sugar_field_marker_3: sugar_field_marker_1 {};
-	class biofuel_field_marker_1: ginger_field_1
-	{
-		receive[]={{"millettia",3,1}};
-	};
-	class coco_field_marker_1: ginger_field_1
-	{
-		receive[]={{"coconut",1,0}};
-	};
-	class coco_field_marker_2: coco_field_marker_1 {};
-	
-	class shell_field_marker_1
+
+	/*class shell_field_marker_1
 	{
 		receive[]={};
 		extra[]={{"crevette",20},{"star",15},{"oursin",5},{"crabe",30}};
@@ -121,16 +163,5 @@ class ALYSIA_FARMING_GATHER
 		water=1;
 		water_depth=2.5;
 		area=40;
-	};
-	class shell_field_marker_2: shell_field_marker_1
-	{
-		water_depth=1.5;
-	};
-	class corail_field_marker_1: shell_field_marker_1
-	{
-		receive[]={{"corail",1,0}};
-		extra[]={};
-		extra_all=0;
-		water_depth=2.5;
-	};
+	};*/
 };

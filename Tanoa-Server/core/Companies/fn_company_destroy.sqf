@@ -17,5 +17,5 @@ deleteVehicle _object;
 
 _owner = [(_info select 1)] call AlysiaClient_fnc_getPlayerFromUID;
 if (!(isNull _owner)) then {
-	["Votre entreprise a été <t color='#FF8000'>supprimée</t>."] remoteExecCall ["AlysiaClient_fnc_info", _owner];
+	["Votre maison a été <t color='#FF8000'>supprimée</t>."] remoteExecCall ["AlysiaClient_fnc_info", _owner];
 };

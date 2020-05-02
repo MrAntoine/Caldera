@@ -27,5 +27,5 @@ if (isNull g_company) then
 	};
 } else {
 	_actual = g_company getVariable "company_info";
-	[format["Vous êtes déjà membre de l'entreprise : <t color='#74DF00'>%1</t>.<br/>Contactez <t color='#045FB4'>%2</t> et demandez-lui de quitter l'entreprise.", (_actual select 0), (_actual select 4)]] call AlysiaClient_fnc_error;
+	//[format["Vous êtes déjà membre de l'entreprise : <t color='#74DF00'>%1</t>.<br/>Contactez <t color='#045FB4'>%2</t> et demandez-lui de quitter l'entreprise.", (_actual select 0), (_actual select 4)]] call AlysiaClient_fnc_error;
 };

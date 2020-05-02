@@ -31,30 +31,34 @@ if ((_license isEqualTo "") || ((_license != "") && ([_license] call AlysiaClien
 	_license_condition = false;
 };
 
-_price = getNumber(_config >> "price");
+/*_price = getNumber(_config >> "price");
 if ((_price > 0) && (g_atm >= _price)) then {
 	_price_condition = true;
 } else {
 	_price_condition = false;
-};
+};*/
 
 (_display displayCtrl 45006) ctrlSetStructuredText parseText format
 [
 	"<t font='EtelkaMonospacePro' size='0.8'>" +
-	"<t align='center'>- Prérequis -</t><br/>" +
-	"<t align='left'>Rank</t><t align='right' color='%1'>%2</t><br/>" +
-	"<t align='left'>Licence</t><t align='right' color='%3'>%4</t><br/>" +
-	"<t align='left'>Prix</t><t align='right' color='%5'>%6$</t><br/>" +
+	//"<t align='center'>- Prérequis -</t><br/>" +
+	//"<t align='left'>Rank</t><t align='right' color='%1'>%2</t><br/>" +
+	//"<t align='left'>Licence</t><t align='right' color='%3'>%4</t><br/>" +
+	//"<t align='left'>Prix</t><t align='right' color='%5'>%6BTC</t><br/>" +
 	"<t align='center'>- Description - </t><br/>" +
-	"<t align='left'>Peut contenir un coffre</t><t align='right'>%7</t><br/>%9" +
-	"<t align='left'>Possède un garage</t><t align='right'>%8</t><br/>" +
+	"<t align='center'></t><br/>" +
+	"<t align='center'></t><br/>" +
+	"<t align='center'>Vous êtes sur le point de squatter cette maison</t><br/>" +
+	"<t align='center'>Elle contient déjà un coffre</t><br/>" +
+	"<t align='center'>Stockage : 400</t><br/>" +
+	//"<t align='left'>Possède un garage</t><t align='right'>%8</t><br/>" +
 	"</t>",
 	if (_rank_condition) then {"#31B404"} else {"#DF0101"},
 	[playerSide, _rank] call AlysiaClient_fnc_rankToStr,
 	if (_license_condition) then {"#31B404"} else {"#DF0101"},
 	if (_license isEqualTo "") then {"Aucune"} else {getText(missionConfigFile >> "ALYSIA_LICENSES" >> _license >> "name")},
-	if (_price_condition) then {"#31B404"} else {"#DF0101"},
-	[_price] call AlysiaClient_fnc_numberText,
+	//if (_price_condition) then {"#31B404"} else {"#DF0101"},
+	//[_price] call AlysiaClient_fnc_numberText,
 	if (isClass(_config >> "storage")) then {"<t color='#8cff9b'>Oui</t>"} else {"<t color='#ff8c8c'>Non</t>"},
 	if (isClass(_config >> "garage")) then {"<t color='#8cff9b'>Oui</t>"} else {"<t color='#ff8c8c'>Non</t>"},
 	if (isClass(_config >> "storage")) then {
@@ -67,7 +71,7 @@ if ((_price > 0) && (g_atm >= _price)) then {
 	} else {""}
 ];
 
-if (_price_condition && _rank_condition && _license_condition) then
+if (/*_price_condition &&*/ _rank_condition && _license_condition) then
 {
 	ctrlShow[45001, true];
 	ctrlShow[45002, true];

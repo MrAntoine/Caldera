@@ -34,10 +34,10 @@ if ((g_garage_info select 3) isEqualTo 0) then
 			format
 			[
 				"Votre véhicule se trouve à la <t color='#FF8000'>fourrière</t>.<br/>" +
-				"Vous devez payer <t color='#8cff9b'>%1</t>$ pour le récupérer.<br/>" +
+				"Vous devez payer <t color='#8cff9b'>%1</t>BTC pour le récupérer.<br/>" +
 				"Details :<br/>" +
-				"Prix de garage initial - <t color='#8cff9b'>%2</t>$<br/>" +
-				"Supplément de la fourrière - <t color='#8cff9b'>%3</t>$",
+				"Prix de garage initial - <t color='#8cff9b'>%2</t>BTC<br/>" +
+				"Supplément de la fourrière - <t color='#8cff9b'>%3</t>BTC",
 				[_price + _price_fourriere] call AlysiaClient_fnc_numberText,
 				[_price] call AlysiaClient_fnc_numberText,
 				[_price_fourriere] call AlysiaClient_fnc_numberText
@@ -66,9 +66,9 @@ if (g_atm < _price) exitWith
 	[
 		format
 		[
-				"Vous n'avez pas assez d'argent dans votre compte en banque<br/>"
-			+	"Prix : <t color='#ff8c8c'>%1</t>$"
-			+	"Manquant : <t color='#ff8c8c'>%2</t>$",
+				"Vous n'avez pas assez d'argent dans votre compte Bitcoin<br/>"
+			+	"Prix : <t color='#ff8c8c'>%1</t>BTC"
+			+	"Manquant : <t color='#ff8c8c'>%2</t>BTC",
 			[_price] call AlysiaClient_fnc_numberText,
 			[_price - g_atm] call AlysiaClient_fnc_numberText
 		]
@@ -136,7 +136,7 @@ _hitpoints = ([_vehicle] call AlysiaClient_fnc_getAllHitPointsDamage) select 0;
 [
 	format
 	[
-		"Vous avez récupéré <t color='#FF8000'>%1</t> de <t color='#2E9AFE'>%2</t> pour <t color='#8cff9b'>%3</t>$.",
+		"Vous avez récupéré <t color='#FF8000'>%1</t> de <t color='#2E9AFE'>%2</t> pour <t color='#8cff9b'>%3</t>BTC.",
 		lbText[2802, (lbCurSel 2802)],
 		(g_garage_info select 0),
 		[_price] call AlysiaClient_fnc_numberText

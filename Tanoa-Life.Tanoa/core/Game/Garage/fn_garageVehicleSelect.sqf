@@ -19,9 +19,9 @@ private
     "_price_condition",
     "_rank",
     "_rank_condition",
-    "_licenses",
-    "_licenses_text",
-    "_license_condition",
+    //"_licenses",
+    //"_licenses_text",
+    //"_license_condition",
     "_faction_condition"
 ];
 
@@ -73,7 +73,7 @@ if ((_rank isEqualTo 0) || ((_rank > 0) && ((player getVariable ["rank", 0]) >= 
     _rank_condition = false;
 };
 
-_licenses = _vehicleInfo select 13;
+/*_licenses = _vehicleInfo select 13;
 if (count(_licenses) > 0) then
 {
     _licenses_text = "";
@@ -90,7 +90,7 @@ if (count(_licenses) > 0) then
 } else {
     _licenses_text = "<t color='#31B404'>Aucune</t><br/>";
     _license_condition = true;
-};
+};*/
 
 if (((_vehicleInfo select 11) isEqualTo str(playerSide)) || ((_vehicleInfo select 11) isEqualTo "CIV")) then {
     _faction_condition = true;
@@ -104,13 +104,13 @@ if (((_vehicleInfo select 11) isEqualTo str(playerSide)) || ((_vehicleInfo selec
     "<t align='center'>- Prérequis de sortie de garage -</t><br/>" +
     "<t align='left'>Faction</t><t align='right' color='%19'>%20</t><br/>" +
     "<t align='left'>Rank</t><t align='right' color='%14'>%15</t><br/>" +
-    "<t align='left'>Licence(s)</t><t align='right'>%16</t>" +
-    "<t align='left'>Prix</t><t align='right' color='%13'>%4$</t><br/>" +
+    //"<t align='left'>Licence(s)</t><t align='right'>%16</t>" +
+    "<t align='left'>Prix</t><t align='right' color='%13'>%4BTC</t><br/>" +
     "<br/><t align='center'>- Informations générales -</t><br/>" +
 	"<t align='left'>Immatriculation</t><t align='right'>%1</t><br/>" +
     "<t align='left'>Assuré</t><t align='right'>%2</t><br/>" +
-    "<t align='left'>Prix de l'assurance</t><t align='right'><t color='#8cff9b'>%3</t>$</t><br/>" +
-    "<t align='left'>Prix de vente</t><t align='right'><t color='#8cff9b'>%5</t>$</t><br/>" +
+    "<t align='left'>Prix de l'assurance</t><t align='right'><t color='#8cff9b'>%3</t>BTC</t><br/>" +
+    "<t align='left'>Prix de vente</t><t align='right'><t color='#8cff9b'>%5</t>BTC</t><br/>" +
     "<t align='left'>Vitesse max</t><t align='right'>%6 km/h</t><br/>" +
     "<t align='left'>Puissance du moteur</t><t align='right'>%7 ch</t><br/>" +
     "<t align='left'>Sièges passagers</t><t align='right'>%8</t><br/>" +
@@ -136,7 +136,7 @@ if (((_vehicleInfo select 11) isEqualTo str(playerSide)) || ((_vehicleInfo selec
     if (_price_condition) then {"#31B404"} else {"#DF0101"},
     if (_rank_condition) then {"#31B404"} else {"#DF0101"},
     [[_vehicleInfo select 11] call AlysiaClient_fnc_strToSide, _rank] call AlysiaClient_fnc_rankToStr,
-    _licenses_text,
+    //_licenses_text,
     _fuel,
     "%",
     if (_faction_condition) then {"#31B404"} else {"#DF0101"},
@@ -173,7 +173,7 @@ _idc = 2810;
         "Alysia_Client_Texture\Data\garage\action_get_select.paa",
         "
             (
-                _license_condition &&
+
                 _rank_condition &&
                 _price_condition &&
                 _faction_condition &&

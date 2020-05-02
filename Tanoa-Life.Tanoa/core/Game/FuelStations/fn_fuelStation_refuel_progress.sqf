@@ -116,10 +116,10 @@ if (_fill) then
 	{
 		if ([false, _bill] call AlysiaClient_fnc_atmFactionHandle) then
 		{
-			[format["<t color='#8cff9b'>%1</t>$ ont été prélevés du compte en banque de votre faction pour payer la facture.", [_bill] call AlysiaClient_fnc_numberText], "buy"] call AlysiaClient_fnc_info;
+			[format["<t color='#8cff9b'>%1</t>BTC ont été prélevés du compte Bitcoin de votre faction pour payer la facture.", [_bill] call AlysiaClient_fnc_numberText], "buy"] call AlysiaClient_fnc_info;
 			_can_pay = true;
 		} else {
-			["Vous n'avez pas assez d'argent dans le compte en banque de votre faction pour payer la facture.<br/>Le plein de votre véhicule n'a pas été fait."] call AlysiaClient_fnc_error;
+			["Vous n'avez pas assez d'argent dans le compte Bitcoin de votre faction pour payer la facture.<br/>Le plein de votre véhicule n'a pas été fait."] call AlysiaClient_fnc_error;
 			_can_pay = false;
 		};
 	} else {
@@ -128,17 +128,17 @@ if (_fill) then
 			if (_bill <= g_atm) then
 			{
 				[false, _bill, "Station Essence"] call AlysiaClient_fnc_handleATM;
-				[format["<t color='#8cff9b'>%1</t>$ ont été prélevés de votre compte en banque.", [_bill] call AlysiaClient_fnc_numberText], "buy"] call AlysiaClient_fnc_info;
+				[format["<t color='#8cff9b'>%1</t>BTC ont été prélevés de votre compte Bitcoin.", [_bill] call AlysiaClient_fnc_numberText], "buy"] call AlysiaClient_fnc_info;
 				_can_pay = true;
 			} else {
 				_can_pay = false;
-				["Vous n'avez pas assez d'argent dans votre compte en banque pour payer la facture.<br/>Le plein de votre véhicule n'a pas été fait."] call AlysiaClient_fnc_error;
+				["Vous n'avez pas assez d'argent dans votre compte Bitcoin pour payer la facture.<br/>Le plein de votre véhicule n'a pas été fait."] call AlysiaClient_fnc_error;
 			};
 		} else {
 			missionNamespace setVariable ["refuel_bill", (missionNamespace getVariable ["refuel_bill", 0]) + _bill];
 			missionNamespace setVariable ["refuel_vehicle", _veh];
 			missionNamespace setVariable ["refuel_prevent", false];
-			[format["Votre facture s'élève à <t color='#8cff9b'>%1</t>$.<br/>Allez dans la station service pour payer.", [_bill] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
+			[format["Votre facture s'élève à <t color='#8cff9b'>%1</t>BTC.<br/>Allez dans la station service pour payer.", [_bill] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_info;
 			[_veh, _station, _maxDistance] spawn AlysiaClient_fnc_fuelStation_refuel_payment_track;
 			_can_pay = true;
 		};

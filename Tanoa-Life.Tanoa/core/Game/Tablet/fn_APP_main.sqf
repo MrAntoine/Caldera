@@ -13,7 +13,7 @@ if (isNull _display) exitWith {};
 	"<t align='center'><br/>" +
 	"<t size='1.5'>%1</t><br/><t size='1.8'>%2</t><br/><br/>" +
 	"<t size='2.5'>%3 </t><t size='1.7'>ans</t><br/><br/>" +
-	"Citoyen de la<br/><t size='1.5' color='#FFBF00'>République Populaire</t><br/>de Tanoa" +
+	"Réfugié de <br/><t size='1.5' color='#FFBF00'>Tanoa</t><br/>" +
 	"</t>",
 	g_firstName,
 	g_lastName,
@@ -48,7 +48,14 @@ _global_apps =
 		"['solde'] spawn AlysiaClient_fnc_tabletApp;",
 		"Solde",
 		"true"
-	],[
+
+	],/*[
+		"Alysia_Client_Texture\Data\tablet\applications\app_help.paa",
+		"Alysia_Client_Texture\Data\tablet\applications\app_help_select.paa",
+		"['exp'] spawn AlysiaClient_fnc_tabletApp;",
+		"Expérience",
+		"true"
+	],*/[
 		"Alysia_Client_Texture\Data\tablet\applications\app_gps.paa",
 		"Alysia_Client_Texture\Data\tablet\applications\app_gps_select.paa",
 		"['vehicles'] spawn AlysiaClient_fnc_tabletApp;",
@@ -70,7 +77,7 @@ _global_apps =
 		"Alysia_Client_Texture\Data\tablet\applications\app_store.paa",
 		"Alysia_Client_Texture\Data\tablet\applications\app_store_select.paa",
 		"['store'] spawn AlysiaClient_fnc_tabletApp;",
-		"Boutique",
+		"Réseau",
 		"true"
 	],[
 		"Alysia_Client_Texture\Data\tablet\applications\app_help.paa",
@@ -101,41 +108,37 @@ _global_apps =
 		"Alysia_Client_Texture\Data\tablet\applications\app_market_select.paa",
 		"['MARKET'] spawn AlysiaClient_fnc_tabletApp;",
 		"Bourse",
-		"
-			('MARKET' in g_apps) ||
-			((player distance (getMarkerPos 'HV_1') < 20) ||
-			(player distance (getMarkerPos 'HV_2') < 20))
-		"
+		"true"
 	],[
 		"Alysia_Client_Texture\Data\tablet\applications\app_fuel.paa",
 		"Alysia_Client_Texture\Data\tablet\applications\app_fuel_select.paa",
 		"['FUEL'] spawn AlysiaClient_fnc_tabletApp;",
 		"Stations service",
-		"'FUEL' in g_apps"
+		"true"
 	],[
 		"Alysia_Client_Texture\Data\tablet\applications\app_announces.paa",
 		"Alysia_Client_Texture\Data\tablet\applications\app_announces_select.paa",
 		"['ANNOUNCES'] spawn AlysiaClient_fnc_tabletApp;",
 		"Annonces",
-		"'ANNOUNCES' in g_apps"
-	],[
+		"true"
+	]/*,[
 		"Alysia_Client_Texture\Data\tablet\applications\app_company.paa",
 		"Alysia_Client_Texture\Data\tablet\applications\app_company_select.paa",
 		"['COMPAGNIES'] spawn AlysiaClient_fnc_tabletApp;",
-		"Entreprises",
+		"Construction",
 		"true"
-	],[
+	]*/,[
 		"Alysia_Client_Texture\Data\tablet\applications\app_dab.paa",
 		"Alysia_Client_Texture\Data\tablet\applications\app_dab_select.paa",
 		"['DAB'] spawn AlysiaClient_fnc_tabletApp;",
-		"DAB",
-		"'DAB' in g_apps"
+		"BTC",
+		"true"
 	],[
 		"Alysia_Client_Texture\Data\tablet\applications\app_annuaire.paa",
 		"Alysia_Client_Texture\Data\tablet\applications\app_annuaire_select.paa",
 		"['ANNUAIRE'] spawn AlysiaClient_fnc_tabletApp;",
 		"Annuaire",
-		"'ANNUAIRE' in g_apps"
+		"true"
 	]
 ];
 

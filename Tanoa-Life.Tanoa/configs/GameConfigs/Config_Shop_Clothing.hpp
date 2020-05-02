@@ -1,16 +1,137 @@
 class ALYSIA_SHOPS_CLOTHING
 {
-	class civ_clothing 
+
+	class civ_clothing_barbe
 	{
-		name="Friperie civile";
+		name="Barbier";
+		goggles[]=
+		{
+			"TRYK_SBeard_Gr",
+			"TRYK_SBeard_Gr2",
+			"TRYK_SBeard_Gr3",
+			"TRYK_SBeard_Gr4",
+			"TRYK_SBeard_Gr5",
+			"TRYK_SBeard_BW",
+			"TRYK_SBeard_BW2",
+			"TRYK_SBeard_BW3",
+			"TRYK_SBeard_BW4",
+			"TRYK_SBeard_BW5",
+			"TRYK_SBeard",
+			"TRYK_SBeard2",
+			"TRYK_SBeard3",
+			"TRYK_SBeard4",
+			"TRYK_SBeard5",
+			"TRYK_SBeard_BL",
+			"TRYK_SBeard_BL2",
+			"TRYK_SBeard_BL3",
+			"TRYK_SBeard_BL4",
+			"TRYK_SBeard_BL5",
+			"TRYK_SBeard_BK",
+		 	"TRYK_SBeard_BK2",
+			"TRYK_SBeard_BK3",
+			"TRYK_SBeard_BK4",
+			"TRYK_SBeard_BK5",
+			"TRYK_Beard_BK",
+			"TRYK_Beard",
+			"TRYK_Beard_BW",
+			"TRYK_Beard_Gr",
+			"TRYK_Beard_BK2",
+			"TRYK_Beard2",
+			"TRYK_Beard_BW2",
+			"TRYK_Beard_Gr2",
+			"TRYK_Beard_BK3",
+			"TRYK_Beard3",
+			"TRYK_Beard_BW3",
+			"TRYK_Beard_Gr3",
+			"TRYK_Beard_BK4",
+			"TRYK_Beard4",
+			"TRYK_Beard_BW4",
+			"TRYK_Beard_Gr4"
+		};
+	headgear[]=
+		{
+			"EF_Long_wig_B",
+ 			"EF_Punk_wig_B",
+ 			"EF_wig_SB",
+ 			"EF_wig_VSB",
+ 			"EF_Punk_wig_SB3",
+ 			"EF_Punk_wig_SB",
+ 			"EF_Long_wig_BLE",
+ 			"EF_Long_wig_BL",
+ 			"EF_Punk_wig_BL",
+ 			"EF_wig_SBL",
+ 			"EF_wig_VSBL",
+ 			"EF_Punk_wig_SBL3",
+ 			"EF_Punk_wig_SBL",
+ 			"EF_Long_wig_BW",
+ 			"EF_Punk_wig_BW",
+ 			"EF_wig_SBW",
+ 			"EF_wig_VSBW",
+ 			"EF_Punk_wig_SBW3",
+ 			"EF_Punk_wig_SBW",
+ 			"EF_Long_wig_GL",
+ 			"EF_Punk_wig_GL",
+ 			"EF_Punk_wig_SSV3",
+ 			"EF_wig_VSSV",
+ 			"TRYK_H_wig",
+ 			"EF_wig_SSV",
+ 			"EF_Punk_wig_SV",
+ 			"EF_Long_wig_SV",
+ 			"EF_Punk_wig_SGL",
+ 			"EF_Punk_wig_SGL3"
+		};
+	};
+	class civ_clothing_homme
+	{
+		name="Arrivage d'uniformes Hommes";
 		uniforms[]=
 		{
-			"Alysia_Uniform_Civ_PNT",
-			"rds_uniform_Worker1",
-			"rds_uniform_Worker2",
-			"rds_uniform_Worker3",
-			"rds_uniform_Worker4",
-			"Skyline_Uniforme_Alysia_01_F",
+			"Skyline_Character_U_CivilC_01_F",
+			"Skyline_Character_U_CivilC_02_F",
+			"Skyline_Character_U_CivilC_03_F",
+			"Skyline_Character_U_CivilC_04_F",
+			"Skyline_Character_U_CivilC_05_F",
+			"Skyline_Character_U_CivilC_06_F",
+			"Skyline_Character_U_CivilC_07_F",
+			"rds_uniform_citizen1",
+			"rds_uniform_citizen2",
+			"rds_uniform_citizen3",
+			"rds_uniform_citizen4",
+			"Skyline_Character_U_CivilB_01_F",
+			"Skyline_Character_U_CivilB_02_F",
+			"Skyline_Character_U_CivilB_03_F",
+			"Skyline_Character_U_CivilB_04_F",
+			"Skyline_Character_U_CivilB_05_F",
+			"Skyline_Character_U_CivilB_06_F",
+			"Skyline_Character_U_CivilB_07_F",
+			"Skyline_Character_U_CivilB_08_F",
+			"U_C_ConstructionCoverall_Blue_F",
+			"U_C_ConstructionCoverall_Black_F",
+			"U_C_ConstructionCoverall_Red_F",
+			"EF_M_jkt2",
+			"EF_M_jkt2_2",
+			"EF_M_jkt1",
+			"EF_M_jkt2_3",
+			"EF_M_jkt2_32",
+			"EF_M_jkt1_3",
+			"EF_M_jkt2_4",
+			"EF_M_jkt4",
+			"EF_M_jkt3",
+			"EF_M_jkt42",
+			"EF_M_jkt32",
+			"EF_HM_LPBPS",
+			"EF_HM_LPBP",
+			"EF_HM_LPBR",
+			"EF_HM_LPBW",
+			"EF_HM_LPB",
+			"EF_HM_LPBL",
+			"EF_HM_LPBPS2",
+			"EF_HM_LPBP2",
+			"EF_HM_LPBR2",
+			"EF_HM_LPBW2",
+			"EF_HM_LPB2",
+			"EF_HM_LPBL2",
+			"EF_MX1",
 			"U_C_man_sport_3_F",
 			"U_C_man_sport_2_F",
 			"U_C_man_sport_1_F",
@@ -21,138 +142,6 @@ class ALYSIA_SHOPS_CLOTHING
 			"U_C_Poloshirt_stripped",
 			"U_C_Poloshirt_tricolour",
 			"U_C_Poor_1",
-			"TRYK_shirts_DENIM_WHB_Sleeve",
-			"rds_uniform_Villager1",
-			"rds_uniform_Villager2",
-			"rds_uniform_Villager3",
-			"rds_uniform_Villager4",
-			"rds_uniform_Woodlander1",
-			"rds_uniform_Woodlander2",
-			"rds_uniform_Woodlander3",
-			"rds_uniform_schoolteacher",
-			"rds_uniform_Woodlander4",
-			"rds_uniform_citizen1",
-			"rds_uniform_citizen2",
-			"rds_uniform_citizen3",
-			"rds_uniform_citizen4",
-			"U_C_Man_casual_1_F",
-			"U_C_Man_casual_2_F",
-			"U_C_Man_casual_3_F",
-			"U_BG_Guerilla2_1",
-			"U_BG_Guerilla2_2",
-			"U_BG_Guerilla2_3",
-			"U_BG_Guerilla3_1",
-			"Skyline_Uniforme_DolceGabbana_01_F",
-			"Skyline_Uniforme_Hello_Kitty_01_F",
-			"Skyline_Uniforme_Bob_01_F",
-			"Skyline_Uniforme_Patrick_01_F",
-			"U_C_HunterBody_grn",
-			"U_C_Journalist",
-			"TRYK_T_OD_PAD",
-			"TRYK_U_denim_hood_nc",
-			"TRYK_U_B_BLK_OD",
-			"TRYK_U_B_BLK_OD_Tshirt",
-			"TRYK_U_B_BLK_TAN_2",
-			"TRYK_U_B_PCUGs_OD",
-			"TRYK_shirts_TAN_PAD_BK",
-			"TRYK_shirts_BLK_PAD_BL",
-			"TRYK_shirts_OD_PAD_BL",
-			"TRYK_shirts_TAN_PAD_BL",
-			"TRYK_shirts_BLK_PAD_BLW",
-			"TRYK_shirts_OD_PAD_BLW",
-			"TRYK_shirts_TAN_PAD_BLW",
-			"TRYK_shirts_BLK_PAD_BLU3",
-			"TRYK_shirts_OD_PAD_BLU3",
-			"TRYK_shirts_TAN_PAD_BLU3",
-			"TRYK_shirts_BLK_PAD",
-			"TRYK_shirts_OD_PAD",
-			"TRYK_shirts_TAN_PAD",
-			"TRYK_shirts_BLK_PAD_RED2",
-			"TRYK_shirts_OD_PAD_RED2",
-			"TRYK_shirts_TAN_PAD_RED2",
-			"TRYK_shirts_BLK_PAD_YEL",
-			"TRYK_shirts_OD_PAD_YEL",
-			"TRYK_shirts_TAN_PAD_YEL",
-			"rds_uniform_priest",
-			"U_I_C_Soldier_Bandit_4_F",
-			"U_I_C_Soldier_Bandit_5_F",
-			"U_I_C_Soldier_Bandit_1_F",
-			"U_I_C_Soldier_Bandit_2_F",
-			"U_I_C_Soldier_Bandit_3_F",
-			"U_C_Man_casual_4_F",
-			"U_C_Man_casual_5_F",
-			"U_C_Man_casual_6_F",
-			"rds_uniform_Profiteer1",
-			"rds_uniform_Profiteer2",
-			"rds_uniform_Profiteer3",
-			"rds_uniform_Profiteer4",
-			"TRYK_U_pad_hood_Blod",
-			"TRYK_U_pad_hood_Blk",
-			"TRYK_U_pad_hood_Cl_blk",
-			"TRYK_U_pad_hood_Cl",
-			"U_OrestesBody",
-			"TRYK_U_denim_hood_blk",
-			"TRYK_U_denim_jersey_blk",
-			"TRYK_U_denim_jersey_blu",
-			"TRYK_U_B_wh_blk_Rollup_CombatUniform",
-			"TRYK_U_B_wh_OD_Rollup_CombatUniform",
-			"TRYK_U_B_wh_tan_Rollup_CombatUniform",
-			"TRYK_U_B_RED_T_BG_BR",
-			"TRYK_U_B_RED_T_BR",
-			"TRYK_shirts_BLK_PAD_BK",
-			"TRYK_shirts_DENIM_BK",
-			"TRYK_shirts_DENIM_BK_Sleeve",
-			"TRYK_shirts_DENIM_BL",
-			"TRYK_shirts_DENIM_BL_Sleeve",
-			"TRYK_shirts_DENIM_BWH",
-			"TRYK_shirts_DENIM_BWH_Sleeve",
-			"TRYK_shirts_DENIM_od",
-			"TRYK_shirts_DENIM_od_Sleeve",
-			"TRYK_shirts_DENIM_R",
-			"TRYK_shirts_DENIM_R_Sleeve",
-			"TRYK_shirts_DENIM_RED2",
-			"TRYK_shirts_DENIM_RED2_Sleeve",
-			"TRYK_shirts_DENIM_WH",
-			"TRYK_shirts_DENIM_WH_Sleeve",
-			"TRYK_shirts_DENIM_WHB",
-			"TRYK_shirts_DENIM_ylb",
-			"TRYK_shirts_DENIM_ylb_Sleeve",
-			"TRYK_U_B_PCUGs_BLK_R",
-			"TRYK_U_B_PCUGs_gry",
-			"TRYK_U_B_PCUGs_gry_R",
-			"TRYK_U_B_PCUGs_OD_R",
-			"TRYK_shirts_OD_PAD_BK",
-			"TRYK_U_B_PCUGs_BLK",
-			"TRYK_T_TAN_PAD",
-			"TRYK_U_B_Denim_T_BG_BK",
-			"TRYK_U_B_Denim_T_BG_WH",
-			"TRYK_U_B_Denim_T_BK",
-			"TRYK_U_B_Denim_T_WH",
-			"TRYK_T_BLK_PAD",
-			"TRYK_U_B_BLK_T_BG_WH",
-			"TRYK_U_B_BLK_T_BK",
-			"TRYK_U_B_BLK_T_WH",
-			"TRYK_U_B_ODTAN",
-			"TRYK_U_B_ODTAN_Tshirt",
-			"TRYK_U_B_BLK_OD_Rollup_CombatUniform",
-			"TRYK_U_B_BLK_tan_Rollup_CombatUniform",
-			"TRYK_U_B_BLOD_T",
-			"TRYK_U_B_BLTAN_T",
-			"TRYK_U_B_C02_Tsirt",
-			"TRYK_U_B_OD_BLK",
-			"TRYK_U_B_OD_BLK_2",
-			"rds_uniform_Functionary1",
-			"rds_uniform_Functionary2",
-			"TRYK_SUITS_BLK_F",
-			"TRYK_SUITS_BR_F",
-			"EF_M_jkt2_2",
-			"EF_M_jkt2_22",
-			"EF_M_jkt2_3",
-			"EF_M_jkt2_32",
-			"EF_M_jkt1_3",
-			"EF_M_jkt2_4",
-			"EF_M_jkt3",
-			"EF_M_jkt32",
 			"Skyline_Character_U_CivilA_01_F",
 			"Skyline_Character_U_CivilA_02_F",
 			"Skyline_Character_U_CivilA_03_F",
@@ -163,48 +152,50 @@ class ALYSIA_SHOPS_CLOTHING
 			"Skyline_Character_U_CivilA_08_F",
 			"Skyline_Character_U_CivilA_09_F",
 			"Skyline_Character_U_CivilA_10_F",
-			"Skyline_Character_U_Chasseur_01_F",
-			"Skyline_Character_U_Chasseur_02_F",
-			"Skyline_Character_U_Chasseur_03_F",
-			"Skyline_Character_U_Chasseur_04_F",
-			"Skyline_Character_U_Chasseur_05_F",
-			"Skyline_Character_U_CivilB_01_F",
-			"Skyline_Character_U_CivilB_02_F",
-			"Skyline_Character_U_CivilB_03_F",
-			"Skyline_Character_U_CivilB_04_F",
-			"Skyline_Character_U_CivilB_05_F",
-			"Skyline_Character_U_CivilB_06_F",
-			"Skyline_Character_U_CivilB_07_F",
-			"Skyline_Character_U_CivilB_08_F",
-			"Skyline_Character_U_CivilC_01_F",
-			"Skyline_Character_U_CivilC_02_F",
-			"Skyline_Character_U_CivilC_03_F",
-			"Skyline_Character_U_CivilC_04_F",
-			"Skyline_Character_U_CivilC_05_F",
-			"Skyline_Character_U_CivilC_06_F",
-			"Skyline_Character_U_CivilC_07_F",
+			"rds_uniform_Profiteer1",
+			"rds_uniform_Profiteer2",
+			"rds_uniform_Profiteer3",
+			"rds_uniform_Profiteer4",
 			"Skyline_Character_U_CivilE_01_F",
+			"U_O_Wetsuit",
 			"Skyline_Character_U_CivilE_02_F",
 			"Skyline_Character_U_CivilE_03_F",
 			"Skyline_Character_U_CivilE_04_F",
 			"Skyline_Character_U_CivilE_05_F",
 			"Skyline_Character_U_CivilE_06_F",
-			"Skyline_Character_U_CivilE_07_F"
+			"Skyline_Character_U_CivilE_07_F",
+			"rds_uniform_Worker1",
+			"rds_uniform_Worker2",
+			"rds_uniform_Worker3",
+			"rds_uniform_Worker4",
+			"rds_uniform_Villager1",
+			"rds_uniform_Villager2",
+			"rds_uniform_Villager3",
+			"EF_MKJKT",
+			"EF_MKJKT2",
+			"EF_suit_1",
+			"EF_Maels_suit_10",
+			"EF_suit_2",
+			"EF_suit_3",
+			"EF_suit_6",
+			"EF_Maels_suit_7",
+			"EF_Maels_suit_8",
+			"EF_Maels_suit_9",
+			"rds_uniform_Villager4",
+			"rds_uniform_Woodlander1",
+			"rds_uniform_Woodlander2",
+			"rds_uniform_Woodlander3",
+			"rds_uniform_Woodlander4"
 		};
+
 		vests[]=
 		{
-			"V_Rangemaster_belt",
-			"V_BandollierB_cbr",
-			"V_BandollierB_khk",
-			"V_BandollierB_blk",
-			"V_BandollierB_oli",
-			"V_BandollierB_rgr",
-			"Alysia_Saccoche_Civ",
-			"Alysia_PistolHolder_Civ",
-			"Alysia_PistolHolder_Suitcase_Civ",
-			"EF_SH_BK",
-			"EF_SH_BW"
+			"V_Chestrig_rgr",
+			"V_Chestrig_oli",
+			"V_Chestrig_blk",
+			"V_Chestrig_khk"
 		};
+
 		goggles[]=
 		{
 			"G_Shades_Black",
@@ -232,15 +223,20 @@ class ALYSIA_SHOPS_CLOTHING
 			"TRYK_Shemagh_mesh",
 			"TRYK_Shemagh_G",
 			"TRYK_Shemagh",
+			"G_Diving",
 			"TRYK_Shemagh_WH",
 			"TRYK_Shemagh_shade_MH",
 			"TRYK_Shemagh_shade_G",
 			"TRYK_Shemagh_shade",
-			"TRYK_Shemagh_shade_WH"
+			"TRYK_Shemagh_shade_WH",
+			//"mgsr_eyepatch_gogg",
+			"shemagh_faceOD",
+			"shemagh_faceD"
 		};
 		headgear[]=
 		{
 			"H_Bandanna_blu",
+			"division_woolhat_01",
 			"H_Bandanna_cbr",
 			"H_Bandanna_gry",
 			"H_Bandanna_khk",
@@ -249,6 +245,11 @@ class ALYSIA_SHOPS_CLOTHING
 			"H_Bandanna_surfer",
 			"H_Bandanna_surfer_blk",
 			"H_Bandanna_surfer_grn",
+			"Skyline_HeadGear_BonnetLaine_01_F",
+			"Skyline_HeadGear_BonnetLaine_02_F",
+			"Skyline_HeadGear_BonnetLaine_03_F",
+			"Skyline_HeadGear_BonnetLaine_04_F",
+			"Skyline_HeadGear_BonnetLaine_05_F",
 			"H_Cap_blk",
 			"H_Cap_blk_CMMG",
 			"H_Cap_blk_ION",
@@ -307,17 +308,6 @@ class ALYSIA_SHOPS_CLOTHING
 			"Skyline_HeadGear_BonnetLaine_03_F",
 			"Skyline_HeadGear_BonnetLaine_04_F",
 			"Skyline_HeadGear_BonnetLaine_05_F",
-			"Skyline_HeadGear_BandanaHead_01_F",
-			"Skyline_HeadGear_BandanaHead_02_F",
-			"Skyline_HeadGear_BandanaHead_03_F",
-			"Skyline_HeadGear_BandanaHead_04_F",
-			"Skyline_HeadGear_BandanaHead_05_F",
-			"Skyline_HeadGear_BandanaHead_06_F",
-			"Skyline_HeadGear_Bandana_01_F",
-			"Skyline_HeadGear_Bandana_02_F",
-			"Skyline_HeadGear_Bandana_03_F",
-			"Skyline_HeadGear_Bandana_04_F",
-			"Skyline_HeadGear_Bandana_05_F",
 			"Skyline_HeadGear_Cowboy_01_F",
 			"Skyline_HeadGear_Cowboy_02_F",
 			"Skyline_HeadGear_Cowboy_03_F",
@@ -327,38 +317,6 @@ class ALYSIA_SHOPS_CLOTHING
 		};
 		backpacks[]=
 		{
-			"Skyline_Backpack_Improvise_01_F",
-			"B_AssaultPack_blk",
-			"B_AssaultPack_cbr",
-			"B_AssaultPack_Kerry",
-			"B_AssaultPack_khk",
-			"B_AssaultPack_rgr",
-			"B_AssaultPack_sgg",
-			"B_FieldPack_blk",
-			"B_FieldPack_cbr",
-			"B_FieldPack_khk",
-			"B_FieldPack_oli",
-			"TRYK_B_Kitbag_Base",
-			"B_Kitbag_cbr",
-			"B_Kitbag_rgr",
-			"B_Kitbag_sgg",
-			"TRYK_B_Alicepack",
-			"B_TacticalPack_blk",
-			"B_TacticalPack_oli",
-			"B_TacticalPack_rgr",
-			"Skyline_Backpack_Ecole_01_F",
-			"Skyline_Backpack_Ecole_02_F",
-			"Skyline_Backpack_Ecole_03_F",
-			"B_Carryall_cbr",
-			"B_Carryall_khk",
-			"B_Carryall_oli",
-			"TRYK_B_Carryall_blk",
-			"TRYK_B_Coyotebackpack",
-			"TRYK_B_Coyotebackpack_BLK",
-			"TRYK_B_Coyotebackpack_OD",
-			"TRYK_B_Coyotebackpack_WH",
-			"Skyline_Backpack_Chasse_01_F",
-			"Skyline_Backpack_Chasse_Radio_01_F",
 			"Skyline_Backpack_Sac_a_dos_01_F",
 			"Skyline_Backpack_Sac_a_dos_02_F",
 			"Skyline_Backpack_Sac_a_dos_03_F",
@@ -366,16 +324,33 @@ class ALYSIA_SHOPS_CLOTHING
 			"Skyline_Backpack_Montagne_01_F",
 			"Skyline_Backpack_Montagne_02_F",
 			"Skyline_Backpack_Montagne_03_F",
-			"Skyline_Backpack_Montagne_04_F"
+			"Skyline_Backpack_Montagne_04_F",
+			"Skyline_Backpack_Chasse_01_F",
+			"division_megan_B",
+			"division_nomad_B",
+			"division_predator_B",
+			"division_survival_B",
+			"B_Carryall_ghex_F",
+			"B_ViperHarness_oli_F",
+			"B_ViperHarness_blk_F",
+			"B_ViperHarness_khk_F",
+			"B_ViperHarness_hex_F",
+			"B_ViperHarness_ghex_F",
+			"Maels_backpack_1",
+			"Maels_backpack_2",
+			"Maels_backpack_3",
+			"B_Bergen_tna_F",
+			"B_Bergen_dgtl_F",
+			"B_Bergen_mcamo_F",
+			"B_Bergen_hex_F"
 		};
 	};
-	class civ_girl
+	class civ_clothing_femme
 	{
-		name="Friperie civile femme";
+		name="Arrivage d'uniformes Femme";
 		uniforms[]=
 		{
 			"EF_FEM_2U",
-			"EF_FEM_2BK",
 			"EF_FEM_3_2",
 			"EF_FEM_3_3LPBPS",
 			"EF_FEM_3_3LPBP",
@@ -405,7 +380,8 @@ class ALYSIA_SHOPS_CLOTHING
 			"EF_FEM_4_2LPBL2",
 			"EF_FEM_5",
 			"EF_FEM_6",
-			"EF_FEM_3_42"
+			"EF_FEM_3_42",
+			"EF_FEM_2BK"
 		};
 		goggles[]=
 		{
@@ -431,36 +407,12 @@ class ALYSIA_SHOPS_CLOTHING
 			"EF_FPKL_CY",
 			"EF_FPKL_RD",
 			"EF_FPKL_W",
- 			"EF_Long_wig_B",
- 			"EF_Punk_wig_B",
- 			"EF_wig_SB",
- 			"EF_wig_VSB",
- 			"EF_Punk_wig_SB3",
- 			"EF_Punk_wig_SB",
- 			"EF_Long_wig_BLE",
- 			"EF_Long_wig_BL",
- 			"EF_Punk_wig_BL",
- 			"EF_wig_SBL",
- 			"EF_wig_VSBL",
- 			"EF_Punk_wig_SBL3",
- 			"EF_Punk_wig_SBL",
- 			"EF_Long_wig_BW",
- 			"EF_Punk_wig_BW",
- 			"EF_wig_SBW",
- 			"EF_wig_VSBW",
- 			"EF_Punk_wig_SBW3",
- 			"EF_Punk_wig_SBW",
- 			"EF_Long_wig_GL",
- 			"EF_Punk_wig_GL",
- 			"EF_Punk_wig_SSV3",
- 			"EF_wig_VSSV",
 			"EF_FBNE_BK",
 			"EF_FBNE_BL",
 			"EF_FBNE_BR",
 			"EF_FBNE_R",
 			"EF_FBNE_V",
 			"EF_FBNE_W",
-			"EF_FHAT_BK",
 			"EF_FHAT_BW",
 			"EF_FHAT_BK",
 			"EF_FHAT_CL",
@@ -485,596 +437,73 @@ class ALYSIA_SHOPS_CLOTHING
 			"EF_FBAG_SL_SG",
 			"EF_FBAG_SL_VL"
 		};
-		vests[]=
-		{
-			"EF_SHF_BK",
-			"EF_SHF_BW"
-		};
 	};
 
-	class civ_dive
+	class civ_clothing_secu
 	{
-		name="Magasin de plongée";
-		side="CIV";
+		name="Arrivage d'uniformes Sécurité";
 		uniforms[]=
 		{
-			"combi_plonge_civ1",
-			"combi_plonge_civ2",
-			"combi_plonge_civ3",
-			"combi_plonge_civ4"
-		};
-		goggles[]=
-		{
-			"G_Diving"
-		};
-		vests[]=
-		{
-			"Respirateur_civ1",
-			"Respirateur_civ2",
-			"Respirateur_civ3",
-			"Respirateur_civ4"
-		};
-	};
-	
-	class beard
-	{
-		name="Barbier";
-		goggles[]=
-		{
-			"TRYK_Beard_BK",
-			"TRYK_Beard",
-			"TRYK_Beard_BW",
-			"TRYK_Beard_Gr",
-			"TRYK_Beard_BK2",
-			"TRYK_Beard2",
-			"TRYK_Beard_BW2",
-			"TRYK_Beard_Gr2",
-			"TRYK_Beard_BK3",
-			"TRYK_Beard3",
-			"TRYK_Beard_BW3",
-			"TRYK_Beard_Gr3",
-			"TRYK_Beard_BK4",
-			"TRYK_Beard4",
-			"TRYK_Beard_BW4",
-			"TRYK_Beard_Gr4"
-		};
-	};
-
-	class civ_masque
-	{
-		name="Magasin de masque";
-		headgear[]=
-		{
-			"Kio_Afro_Hat",
-			"Kio_Capital_Hat",
-			"Kio_No1_Hat",
-			"Kio_Santa_Hat",
-			"Kio_Spinning_Hat",
-			"Kio_Hat",
-			"Masque_Alien1",
-			"Masque_Anonymous",
-			"Masque_archNemesis",
-			"Masque_Arnold",
-			"Masque_Aubrey",
-			"Masque_Bonnie",
-			"Masque_Bush",
-			"Masque_Chains",
-			"Masque_Chuck",
-			"Masque_Clinton",
-			"Masque_Clover",
-			"Masque_Dallas",
-			"Masque_Fish",
-			"Masque_forceAlpha",
-			"Masque_Gombo",
-			"Masque_GdG",
-			"Masque_Hockey",
-			"Masque_Hoxton",
-			"Masque_Incendiaire",
-			"Masque_Lincoln",
-			"Masque_Lion",
-			"Masque_Macrilleuse",
-			"Masque_Mark",
-			"Masque_Metalhead",
-			"Masque_Momie",
-			"Masque_Optimiste",
-			"Masque_Orc",
-			"Masque_Religieuse",
-			"Masque_Santa",
-			"Masque_Smiley",
-			"Masque_Mempo",
-			"Masque_speedRunner",
-			"Masque_Unic",
-			"Masque_Wolfv2"
-		};
-		goggles[]=
-		{
-			"Skyline_Skyrim",
-			"Skyline_Anonymous",
-			"Skyline_Corvo",
-			"Skyline_Dallas",
-			"Skyline_Hoxton",
-			"Skyline_Wolf",
-			"Masque_Solitaire"
-		};
-	};
-
-	class GUER_clothing
-	{
-		name="Friperie Samu";
-		side="GUER";
-		uniforms[]=
-		{
-			"Skyline_Uniforme_Secouriste_01_F",
-			"Skyline_Uniforme_Secouriste_02_F",
-			"combi_plonge_samu",
-			"Skyline_Uniforme_Pilote_Secouriste_01_F",
-			"rds_uniform_assistant",
-			"rds_uniform_doctor",
-			"U_C_Driver_1_red",
-			"Skyline_Character_U_SecouristeA_01_F",
-			"Skyline_Character_U_SecouristeB_01_F",
-			"Skyline_Character_U_SecouristeB_02_F",
-			"Skyline_Character_U_Infirmier_01_F",
-			"Skyline_Character_U_Infirmier_02_F",
-			"Skyline_Character_U_Infirmier_03_F",
-			"Skyline_Character_U_CivilD_01_F"
-		};
-		goggles[]=
-		{
-			"Skyline_NioshFace",
-			"Masque_Chirurgical",
-			"Skyline_Glasses_Masque_Chirurgical_01_F",
-			"Skyline_Glasses_Masque_GP5_01_F"
-		};
-		headgear[]=
-		{
-			"Skyline_Casque_Pilote_Secouriste_01_F",
-			"Skyline_HeadGear_NBC_Hazmat_01_F"
-		};
-		vests[]=
-		{
-			"Respirateur_samu"
-		};
-		backpacks[]=
-		{
-			"Skyline_Sac_Secouriste_01_2_F",
-			"Skyline_Sac_Secouriste_01_F",
-			"Skyline_Sac_Secouriste_02_F",
-			"TRYK_B_Medbag",
-			"TRYK_B_Medbag_BK"
-		};
-	};
-
-	class civ_compagnies
-	{
-		name="Friperie entreprise";
-		side="CIV";
-		uniforms[]=
-		{
-			"TRYK_U_B_BLK3CD",
-			"Skyline_Uniforme_Depanneur_01_F",
-			"U_C_WorkerCoveralls",
 			"Skyline_Uniforme_Securite_01_F",
 			"Skyline_Uniforme_Securite_02_F",
 			"Skyline_Uniforme_Securite_03_F",
-			"U_fast_repair"
-		};
-		goggles[]={"TRYK_kio_balaclava_BLK"};
-		headgear[]={};
-		vests[]=
-		{
-			"Skyline_Veste_Securite_01_F",
-			"Press_vest",
-			"V_Press_F",
-			"AET_vest"
-			
-		};
-		backpacks[]=
-		{
-			"Skyline_Sac_Depanneur_01_F",
-			"Alysia_Backpack_FastRepair"
-		};
-	};
-
-	class civ_rebel
-	{
-		name="Friperie rebelle";
-		side="CIV";
-		uniforms[]=
-		{
-			"TRYK_U_B_OD_OD_R_CombatUniform",
-			"TRYK_U_B_AOR2_Rollup_CombatUniform",
-			"TRYK_hoodie_Wood",
-			"TRYK_T_camo_Wood_BG",
-			"TRYK_T_camo_wood_marpat_BG",
-			"TRYK_T_camo_Wood",
-			"TRYK_T_camo_wood_marpat",
-			"TRYK_U_B_WDL_GRY_R_CombatUniform",
-			"TRYK_U_B_GRTAN_CombatUniform",
-			"TRYK_U_B_GRTANR_CombatUniformTshirt",
-			"TRYK_U_taki_wh",
-			"TRYK_U_B_OD_OD_CombatUniform",
-			"TRYK_U_Bts_Wood_PCUs",
-			"TRYK_U_denim_hood_mc",
-			"TRYK_U_taki_BL",
-			"TRYK_U_taki_BLK",
-			"TRYK_U_taki_COY",
-			"TRYK_U_B_WDL_GRY_CombatUniform",
-			"TRYK_U_B_Wood_T",
-			"TRYK_U_taki_G_BL",
-			"TRYK_U_taki_G_BLK",
-			"TRYK_U_taki_G_COY",
-			"TRYK_U_taki_G_WH",
-			"TRYK_U_B_MARPAT_Wood_Tshirt",
-			"TRYK_U_B_MARPAT_Wood",
-			"TRYK_U_B_Woodland_Tshirt",
-			"TRYK_U_B_woodR_CombatUniformTshirt",
-			"TRYK_U_B_WOOD_MARPAT_CombatUniformTshirt",
-			"TRYK_U_B_MARPAT_WOOD_CombatUniform",
-			"TRYK_U_B_MARPAT_WOOD_CombatUniformTshirt",
-			"TRYK_U_B_ARO2_CombatUniform",
-			"TRYK_U_B_Woodland",
-			"TRYK_B_USMC_R",
-			"TRYK_C_AOR2_T",
-			"TRYK_DMARPAT_T",
-			"TRYK_T_CSAT_PAD",
-			"TRYK_T_PAD",
-			"TRYK_T_T2_PAD",
-			"TRYK_U_B_3CD_BLK_BDUTshirt",
-			"TRYK_U_B_3CD_Delta_BDU",
-			"TRYK_U_B_ACU",
-			"TRYK_U_B_ACUTshirt",
-			"TRYK_U_B_AOR2_BLK_CombatUniform",
-			"TRYK_U_B_AOR2_BLK_R_CombatUniform",
-			"TRYK_U_B_AOR2_GRY_CombatUniform",
-			"TRYK_U_B_AOR2_GRY_R_CombatUniform",
-			"TRYK_U_B_AOR2_OD_CombatUniform",
-			"TRYK_U_B_AOR2_OD_R_CombatUniform",
-			"TRYK_U_B_ARO1_BLK_R_CombatUniform",
-			"TRYK_U_B_ARO1_CBR_CombatUniform",
-			"TRYK_U_B_ARO1_CBR_R_CombatUniform",
-			"TRYK_U_B_ARO1_CombatUniform",
-			"TRYK_U_B_ARO1_GR_CombatUniform",
-			"TRYK_U_B_ARO1_GR_R_CombatUniform",
-			"TRYK_U_B_ARO1_GRY_CombatUniform",
-			"TRYK_U_B_ARO1_GRY_R_CombatUniform",
-			"TRYK_U_B_ARO1R_CombatUniform",
-			"TRYK_U_B_BLK_TAN_1",
-			"TRYK_U_B_BLKBLK_CombatUniform",
-			"TRYK_U_B_BLKBLK_R_CombatUniform",
-			"TRYK_U_B_BLKOCP_CombatUniform",
-			"TRYK_U_B_BLKOCP_R_CombatUniformTshirt",
-			"TRYK_U_B_BLKTAN_CombatUniform",
-			"TRYK_U_B_BLKTANR_CombatUniformTshirt",
-			"TRYK_U_B_fleece",
-			"TRYK_U_B_fleece_UCP",
-			"TRYK_U_B_NATO_UCP_CombatUniform",
-			"TRYK_U_B_NATO_UCP_GRY_CombatUniform",
-			"TRYK_U_B_MTP_BLK_CombatUniform",
-			"TRYK_U_B_PCUGHs",
-			"U_I_Wetsuit",
-			"U_BG_leader",
-			"U_BG_Guerilla1_1",
-			"U_BG_Guerrilla_6_1",
-			"U_Soldat_ai",
-			"U_I_C_Soldier_Para_1_F",
-			"U_I_C_Soldier_Camo_F"
-		};
-		vests[]=
-		{
-			"V_BandollierB_ghex_F",
-			"V_HarnessO_brn",
-			"V_HarnessO_gry",
-			"V_HarnessO_ghex_F",
-			"V_HarnessOGL_brn",
-			"V_HarnessOGL_gry",
-			"V_HarnessOGL_ghex_F",
-			"V_Chestrig_oli",
-			"V_Chestrig_rgr",
-			"V_TacChestrig_oli_F",
-			"V_TacChestrig_grn_F",
-			"V_TacVest_blk",
-			"V_TacVest_camo",
-			"V_TacVest_oli",
-			"V_TacVest_khk",
-			"V_RebreatherIA",
-			"V_I_G_resistanceLeader_F",
-			"TRYK_V_Bulletproof_BL",
-			"TRYK_V_Bulletproof_BLK",
-			"TRYK_V_Bulletproof"
+			"EF_FEM_2BK"
 		};
 		goggles[]=
 		{
-			"G_Balaclava_blk",
-			"G_Balaclava_oli",
-			"G_Balaclava_combat",
-			"G_Balaclava_lowprofile",
-			"TRYK_kio_balaclavas",
-			"TRYK_kio_balaclava_BLK_ear",
-			"TRYK_kio_balaclava_ear",
-			"TRYK_kio_balaclava_ESS",
-			"G_Bandanna_aviator",
-			"G_Bandanna_beast",
-			"G_Bandanna_khk",
-			"G_Bandanna_oli",
-			"G_Bandanna_tan",
-			"G_Bandanna_shades",
-			"G_Bandanna_sport",
-			"Recon_MskullBLK",
-			"Recon_MskullGRY",
-			"Recon_MskullTAN",
-			"Ghost_ReconOD",
+			"EF_FG21",
+			"EF_FG1",
+			"EF_ACC1",
+			"EF_ACC2",
+			"EF_ACC3",
+			"EF_AC1",
+			"EF_AC2",
+			"EF_AC3",
+			"EF_PG1",
+			"EF_PG2"
+		};
+
+		vests[]=
+		{
+			"V_Chestrig_rgr",
+			"V_Chestrig_oli",
+			"V_Chestrig_blk",
+			"TRYK_V_Bulletproof_BLK",
+			"V_Chestrig_khk"
+		};
+
+		headgear[]=
+		{
+			"TRYK_Shemagh_mesh",
+			"TRYK_Shemagh_G",
+			"TRYK_Shemagh",
+			"TRYK_Shemagh_WH",
+			"TRYK_Shemagh_shade_MH",
+			"TRYK_Shemagh_shade_G",
+			"TRYK_Shemagh_shade",
+			"TRYK_Shemagh_shade_WH",
 			"shemagh_faceD",
 			"shemagh_faceOD",
-			"Tact_HoodACU",
-			"Tact_HoodAOR1",
-			"Tact_HoodBlack",
-			"Tact_HoodMAR",
-			"Tact_HoodMARPAT",
-			"Tact_HoodMC",
-			"Tact_HoodOD",
-			"Tact_HoodTAN",
-			"Tact_HoodWhite"
-		};
-		headgear[]=
-		{
-			"H_Booniehat_tna_F",
-			"H_Shemag_olive",
-			"H_Shemag_olive_hs",
-			"H_ShemagOpen_tan",
-			"H_ShemagOpen_khk",
-			"mgsr_eyepatch",
-			"H_MilCap_ghex_F",
-			"H_MilCap_ocamo",
-			"H_MilCap_tna_F",
-			"H_MilCap_dgtl",
-			"Kio_Pirate_Hat",
-			"H_Bandanna_camo",
-			"H_Bandanna_mcamo",
-			"H_Booniehat_dgtl",
-			"H_Booniehat_khk_hs",
-			"H_Booniehat_mcamo",
-			"TRYK_ESS_CAP",
-			"TRYK_ESS_CAP_OD",
-			"TRYK_ESS_CAP_tan"
+			"Recon_MskullBLK",
+			"Recon_MskullGRY",
+			"Ghost_ReconOD",
+			"Recon_MskullTAN",
+			"mgsr_beret",
+			"TRYK_R_CAP_BLK",
+			"TRYK_R_CAP_TAN",
+			"TRYK_R_CAP_OD_US"
 		};
 		backpacks[]=
 		{
-			"tf_bussole",
-			"B_AssaultPack_mcamo",
-			"B_AssaultPack_ocamo",
-			"B_AssaultPack_dgtl",
-			"B_AssaultPack_tna_F",
-			"TRYK_B_AssaultPack_MARPAT_Wood",
-			"B_FieldPack_ocamo",
-			"B_FieldPack_oucamo",
-			"TRYK_B_FieldPack_Wood",
-			"B_FieldPack_ghex_F",
-			"B_Kitbag_mcamo",
-			"TRYK_B_Kitbag_Base_JSDF",
-			"B_TacticalPack_mcamo",
-			"B_TacticalPack_ocamo",
-			"B_Carryall_mcamo",
-			"B_Carryall_ghex_F",
-			"TRYK_B_Carryall_wh",
-			"TRYK_B_Carryall_wood",
-			"B_Carryall_ocamo",
-			"B_Carryall_oucamo",
-			"TRYK_B_Carryall_JSDF",
-			"B_ViperLightHarness_ghex_F",
-			"B_ViperLightHarness_hex_F",
-			"B_ViperLightHarness_oli_F",
-			"B_ViperLightHarness_blk_F",
-			"B_ViperLightHarness_khk_F",
-			"B_ViperHarness_ghex_F",
-			"B_ViperHarness_hex_F",
+			"Skyline_Backpack_Montagne_03_F",
+			"B_Bergen_mcamo_F",
 			"B_ViperHarness_blk_F",
-			"B_ViperHarness_oli_F",
-			"B_ViperHarness_khk_F"
-		};
-	};
-	
-	class civ_paintball
-	{
-		name="Friperie paintball";
-		uniforms[]=
-		{
-			"Paintball_Uniform_blue_01_I",
-			"Paintball_Uniform_desert_01_B",
-			"Paintball_Uniform_desert_02_I",
-			"Paintball_Uniform_desert_03_I",
-			"Paintball_Uniform_Digital_Urban_01_O",
-			"Paintball_Uniform_Fun_Camo_01_B",
-			"Paintball_Uniform_Hex_Camo_01_B"
-		};
-		headgear[]=
-		{
-			"Paintball_Mask_06",
-			"Paintball_Mask_02",
-			"Paintball_Mask_05",
-			"Paintball_Mask_04",
-			"Paintball_Mask_07",
-			"Paintball_Mask_01",
-			"Paintball_Mask_03"
+			"B_TacticalPack_blk",
+			"TAC_MTAP_BK",
+			"tf_rt1523g_black",
+			"tf_rt1523g_big_rhs",
+			"EF_FBAG_SL_VL"
 		};
 	};
 
-	class EAST_clothing
-	{
-		name="Friperie de l'ANT";
-		side="EAST";
-		uniforms[]=
-		{
-			"Alysia_Uniform_East_recrue_Camo",
-			"Alysia_Uniform_East_recrue_Camo2",
-			"Alysia_Uniform_East_recrue_Parade",
-			"Alysia_Uniform_East_soldier_Camo",
-			"Alysia_Uniform_East_soldier_Camo2",
-			"Alysia_Uniform_East_soldier_Parade",
-			"Alysia_Uniform_East_soldier1st_Camo",
-			"Alysia_Uniform_East_soldier1st_Camo2",
-			"Alysia_Uniform_East_soldier1st_Parade",
-			"Alysia_Uniform_East_capochief_Camo",
-			"Alysia_Uniform_East_capochief_Camo2",
-			"Alysia_Uniform_East_capochief_Parade",
-			"Alysia_Uniform_East_sergent_Camo",
-			"Alysia_Uniform_East_sergent_Camo2",
-			"Alysia_Uniform_East_sergent_Parade",
-			"Alysia_Uniform_East_adjudant_Camo",
-			"Alysia_Uniform_East_adjudant_Camo2",
-			"Alysia_Uniform_East_adjudant_Parade",
-			"Alysia_Uniform_East_major_Camo",
-			"Alysia_Uniform_East_major_Camo2",
-			"Alysia_Uniform_East_major_Parade",
-			"Alysia_Uniform_East_lieutenant_Camo",
-			"Alysia_Uniform_East_lieutenant_Camo2",
-			"Alysia_Uniform_East_lieutenant_Parade",
-			"Alysia_Uniform_East_capitaine_Camo",
-			"Alysia_Uniform_East_capitaine_Camo2",
-			"Alysia_Uniform_East_capitaine_Parade",
-			"Alysia_Uniform_East_LtColonel_Camo",
-			"Alysia_Uniform_East_LtColonel_Camo2",
-			"Alysia_Uniform_East_LtColonel_Parade",
-			"Alysia_Uniform_East_colonel_Camo",
-			"Alysia_Uniform_East_colonel_Camo2",
-			"Alysia_Uniform_East_colonel_Parade",
-			"U_O_Wetsuit",
-			"U_I_FullGhillie_lsh",
-			"Alysia_Soldier_East_recrue_BDR",
-			"Alysia_Soldier_East_soldier_BDR",
-			"Alysia_Soldier_East_capo_BDR",
-			"Alysia_Soldier_East_sergent_BDR",
-			"Alysia_Soldier_East_major_BDR",
-			"Alysia_Soldier_East_adjudant_BDR",
-			"Alysia_Soldier_East_lieutenant_BDR",
-			"Alysia_Soldier_East_capitaine_BDR",
-			"Alysia_Soldier_East_LtColonel_BDR",
-			"Alysia_Soldier_East_colonel_BDR",
-			"Alysia_Uniform_West_Dictateur"
-		};
-		headgear[]=
-		{
-			"Alysia_Casque_East_01",
-			"Alysia_Beret_East_BDR",
-			"H_HelmetCrew_I",
-			"H_PilotHelmetHeli_O",
-			"Alysia_Beret_East",
-			"Alysia_Booniehat_East_01",
-			"Alysia_Casquette_East_Lieutenant",
-			"Alysia_Casquette_East_Capitaine",
-			"Alysia_Casquette_East_LtColonel",
-			"Alysia_Casquette_East_colonel",
-			"Alysia_Calot_East_Recrue",
-			"Alysia_Calot_East_Soldier",
-			"Alysia_Calot_East_Soldier1st",
-			"Alysia_Calot_East_Capochief",
-			"Alysia_Calot_East_Sergent",
-			"Alysia_Calot_East_Adjudant",
-			"Alysia_Calot_East_Major",
-			"Alysia_Calot_East_Lieutenant",
-			"Alysia_Calot_East_Capitaine",
-			"Alysia_Calot_East_LtColonel",
-			"Alysia_Calot_East_Colonel",
-			"Payday_GeneralO"
-		};
-		vests[]=
-		{
-			"V_RebreatherIR",
-			"TAC_EI_RRV28_B",
-			"Alysia_Belt",
-			"Alysia_Vest_Soldier_East_01",
-			"Alysia_Vest_Soldier_East_01_camo",
-			"Alysia_Vest_Soldier_East_01_new",
-			"Alysia_Vest_Soldier_East_02",
-			"Alysia_Vest_Soldier_East_02_camo",
-			"Alysia_Vest_Soldier_East_02_new",
-			"Alysia_Vest_Soldier_East_03",
-			"Alysia_Vest_Soldier_East_03_camo",
-			"Alysia_Vest_Soldier_East_03_new",
-			"Alysia_Vest_Officer_East_01",
-			"Alysia_Vest_Officer_East_01_camo",
-			"Alysia_Vest_Officer_East_01_new",
-			"Alysia_Vest_Officer_East_02",
-			"Alysia_Vest_Officer_East_02_camo",
-			"Alysia_Vest_Officer_East_02_new",
-			"Alysia_Vest_Utility_East_01",
-			"Alysia_Vest_Utility_East_02",
-			"Alysia_Vest_Utility_East_03",
-			"Alysia_Vest_Utility_East_04",
-			"Alysia_Vest_Upgraded_East_1",
-			"Alysia_Vest_Upgraded_East_2",
-			"Alysia_Vest_Upgraded_East_3",
-			"Alysia_Vest_Upgraded_East_4",
-			"Alysia_Vest_Upgraded_East_5"
-		};
-		backpacks[]=
-		{
-			"B_TacticalPack_oli",
-			"B_Carryall_oli",
-			"TRYK_B_Alicepack",
-			"TRYK_B_tube_od",
-			"TRYK_B_Medbag_OD",
-			"Alysia_Radio_LR_East",
-			"Alysia_Radio_LR_West"
-		};
-		goggles[]=
-		{
-			"G_O_Diving"
-		};
-	};
-
-	class WEST_clothing
-	{
-		name="Friperie GDM";
-		side="WEST";
-		uniforms[]=
-		{
-			"U_B_Wetsuit",
-			"Alysia_Uniform_West_Garde",
-			"Alysia_Uniform_West_Caporal",
-			"Alysia_Uniform_West_Sergent",
-			"Alysia_Uniform_West_Lieutenant",
-			"Alysia_Uniform_West_Commandant",
-			"Alysia_Uniform_West_Commissaire_02",
-			"Alysia_Uniform_West_Commissaire_01"
-		};
-		headgear[]=
-		{
-			"Alysia_Casque_West_01",
-			"Alysia_Casque_West_02",
-			"Alysia_Casque_West_03",
-			"Alysia_Casquette_West_01",
-			"Alysia_Casquette_West_02",
-			"Alysia_Casquette_West_03",
-			"Alysia_Casquette_West_04",
-			"Alysia_Casquette_West_05",
-			"Alysia_Casquette_West_06_01",
-			"Alysia_Casquette_West_06_02"
-		};
-		vests[]=
-		{
-			"V_RebreatherB",
-			"Alysia_Belt",
-			"Alysia_Vest_West_01",
-			"Alysia_Vest_West_02"
-		};
-		backpacks[]=
-		{
-			"TRYK_B_Coyotebackpack_BLK",
-			"B_ViperLightHarness_blk_F",
-			"B_ViperLightHarness_khk_F",
-			"Alysia_Radio_LR_West"
-		};
-		goggles[]=
-		{
-			"G_B_Diving",
-			"G_Balaclava_TI_blk_F"
-		};
-	};
-
-	class parachute
-	{
-		name="Marchand de parachute";
-		backpacks[]={"B_Parachute"};
-	};
 };

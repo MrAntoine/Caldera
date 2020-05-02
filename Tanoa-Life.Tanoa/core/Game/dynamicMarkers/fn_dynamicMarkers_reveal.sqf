@@ -7,6 +7,7 @@ _marker = [_this, 0, "", [""]] call BIS_fnc_param;
 
 if (_marker isEqualTo "") exitWith {};
 
+
 _index = [_marker, g_dynamic_markers] call AlysiaClient_fnc_index;
 if (_index isEqualTo -1) then {
 	g_dynamic_markers pushBack [_marker, getMarkerPos _marker];
@@ -16,4 +17,7 @@ if (_index isEqualTo -1) then {
 
 if ((markerAlpha _marker) isEqualTo 0) then {
 	_marker setMarkerAlphaLocal 1;
+	["exploEXP"] spawn mav_ttm_fnc_addExp; ////////////////////Ajout XP/////////////////////
 };
+
+[true, 15000] call AlysiaClient_fnc_handleCash;

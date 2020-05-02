@@ -90,7 +90,6 @@ if (g_staff_markers) then
 						};
 					};
 				} forEach allPlayers;
-
 				uiSleep 1;
 			};
 

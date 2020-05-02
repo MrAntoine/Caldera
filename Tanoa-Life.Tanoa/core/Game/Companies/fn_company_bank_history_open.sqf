@@ -23,11 +23,11 @@ _display = findDisplay 69000;
 _list = _display displayCtrl 69002;
 lbClear _list;
 
-_list lbAdd format["Actuel : %1$", [(_company getVariable ["company_bank", 0])] call AlysiaClient_fnc_numberText];
+_list lbAdd format["Actuel : %1BTC", [(_company getVariable ["company_bank", 0])] call AlysiaClient_fnc_numberText];
 _list lbSetPicture [0, "Alysia_Client_Texture\Data\interactions\player_to_company\action_book.paa"];
 
 {
-	_index = _list lbAdd format["%1$ le %2 de %3 (%4)", ([_x select 3] call AlysiaClient_fnc_numberText), _x select 1, _x select 0, _x select 4];
+	_index = _list lbAdd format["%1BTC le %2 de %3 (%4)", ([_x select 3] call AlysiaClient_fnc_numberText), _x select 1, _x select 0, _x select 4];
 	if ((_x select 2) isEqualTo 1) then {
 		_list lbSetPicture [_index, "Alysia_Client_Texture\Data\global\ope_plus.paa"];
 		_list lbSetColor [_index, [0,1,0,1]];

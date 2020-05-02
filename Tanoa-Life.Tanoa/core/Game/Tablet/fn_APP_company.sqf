@@ -61,7 +61,7 @@ if ((_info select 1) isEqualTo (getPlayerUID player)) then
 
 	(_display displayCtrl 9615) ctrlSetStructuredText parseText format
 	[
-		"<t align='center' color='#8cff9b'>%1</t><t align='right'>$</t>",
+		"<t align='center' color='#8cff9b'>%1</t><t align='right'>BTC</t>",
 		[(_company getVariable ["company_bank", 0])] call AlysiaClient_fnc_numberText
 	];
 

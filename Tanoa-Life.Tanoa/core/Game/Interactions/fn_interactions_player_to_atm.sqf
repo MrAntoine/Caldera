@@ -19,9 +19,7 @@
 			"Remplir",
 			"[g_interaction_target] spawn AlysiaClient_fnc_atm_bag_deposit;",
 			"
-				(getNumber(missionConfigFile >> 'ALYSIA_ATM' >> typeOf(g_interaction_target) >> 'company_money_transfert') isEqualTo 1) &&
-				!(isNull(player getVariable ['wallet_obj', objNull])) &&
-				(['company_money_tranfer'] call AlysiaClient_fnc_hasLicense)
+				(true)
 			"
 		],[
 			"money_transfer",
@@ -34,7 +32,7 @@
 			"
 		]
 	],
-	"Distributeur",
+	"Serveur de Bitcoin",
 	"Alysia_Client_Texture\Data\interactions\background.jpg",
 	true,
 	false

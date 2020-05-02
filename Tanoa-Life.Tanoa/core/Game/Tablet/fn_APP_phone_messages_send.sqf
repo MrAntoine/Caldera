@@ -10,18 +10,18 @@ if (isNull _display) exitWith {};
 
 (_display displayCtrl 8345) ctrlSetStructuredText parseText format
 [
-	"<t align='center' color='#8cff9b'>%1</t><t align='right'>$</t>",
+	"<t align='center' color='#8cff9b'>%1</t><t align='right'>BTC</t>",
 	getNumber(missionConfigFile >> "ALYSIA_PHONE" >> "FORFAITS" >> g_phone_forfait >> "sms_price")
 ];
 
 _list = _display displayCtrl 8332;
 lbClear _list;
 
-{
+/*{
 	_index = _list lbAdd getText(missionConfigFile >> "ALYSIA_FACTIONS" >> _x >> "name");
 	_list lbSetData [_index, _x];
 	_list lbSetPicture [_index, getText(missionConfigFile >> "ALYSIA_FACTIONS" >> _x >> "icon")];
-} forEach (["GUER", "WEST", "EAST"]);
+} forEach (["GUER", "WEST", "EAST"]);*/
 
 if ((
 		isClass(missionConfigFile >> "ALYSIA_FACTIONS" >> str(playerSide) >> "phone" >> "send_global_message") &&

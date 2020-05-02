@@ -18,9 +18,9 @@ _action =
 	[
 		"<t align='center'><img size='6' image='%6'/></t><br/>" +
 		"<t align='left' font='PuristaMedium'>Vous avez reçu une <t color='#74DF00'>demande de paiement</t></t><br/><br/>" +
-		"<t align='left' font='PuristaMedium'>Provenance</t><t align='right'>%1</t><br/>" +
+		//"<t align='left' font='PuristaMedium'>Provenance</t><t align='right'>%1</t><br/>" +
 		"<t align='left' font='PuristaMedium'>Emetteur</t><t align='right'>%2 %3</t><br/>" +
-		"<t align='left' font='PuristaMedium'>Montant</t><t align='right'><t color='#8cff9b'>%4</t>$</t><br/>" +
+		"<t align='left' font='PuristaMedium'>Montant</t><t align='right'><t color='#8cff9b'>%4</t>BTC</t><br/>" +
 		"<t align='center'>-----------------------</t><br/>" +
 		"<t align='center' font='PuristaMedium'>Description</t><br/>" +
 		"%5",

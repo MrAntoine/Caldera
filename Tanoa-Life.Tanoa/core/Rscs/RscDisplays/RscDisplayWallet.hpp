@@ -2,7 +2,7 @@ class RscDisplayWallet: RscDisplayDefaultInteraction
 {
 	idd=58000;
 	name="RscDisplayWallet";
-	
+
 	class controlsBackground: DEFAULT_controlsBackground
 	{
 		class BACKGROUND: BACKGROUND
@@ -25,7 +25,7 @@ class RscDisplayWallet: RscDisplayDefaultInteraction
 	{
 		class TITLE: TITLE
 		{
-			text="<t align='center' size='1.5'>Porte-feuille</t>";
+			text="<t align='center' size='1.5'>Puce intradermique</t>";
 
 			x=0.314375 * safezoneW + safezoneX;
 			y=0.302 * safezoneH + safezoneY;
@@ -90,9 +90,9 @@ class RscDisplayWallet: RscDisplayDefaultInteraction
 		};
 		class PASSPORT_HEADER: RscStructuredText
 		{
-			text="<t align='center'>Passeport</t>";
+			text="<t align='center'>Identité</t>";
 			colorBackground[]={0,0,0,0.8};
-			
+
 			x=0.329844 * safezoneW + safezoneX;
 			y=0.346 * safezoneH + safezoneY;
 			w=0.149531 * safezoneW;
@@ -112,7 +112,7 @@ class RscDisplayWallet: RscDisplayDefaultInteraction
 		class PASSEPORT_PICTURE_BACKGROUND: RscText
 		{
 			colorBackground[]={0,0,0,0.6};
-			
+
 			x=0.371094 * safezoneW + safezoneX;
 			y=0.379 * safezoneH + safezoneY;
 			w=0.061875 * safezoneW;
@@ -161,7 +161,7 @@ class RscDisplayWallet: RscDisplayDefaultInteraction
 		{
 			idc=58007;
 			text="Alysia_Client_Texture\Data\skull\take.paa";
-			
+
 			x=0.532907 * safezoneW + safezoneX;
 			y=0.644934 * safezoneH + safezoneY;
 			w=0.0257291 * safezoneW;

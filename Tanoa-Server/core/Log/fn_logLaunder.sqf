@@ -10,7 +10,7 @@ _type = [_this, 3, "", [""]] call BIS_fnc_param;
 
 "extLOG" callExtension format
 [
-	"1:SERVER_LAUNDER_LOG:Player %1 [%2] launder %3$ and received %4$ (type : %5)",
+	"1:SERVER_LAUNDER_LOG:Player %1 [%2] launder %3BTC and received %4BTC (type : %5)",
 	_player getVariable "realname",
 	getPlayerUID _player,
 	[_illegal_money] call AlysiaClient_fnc_numberText,

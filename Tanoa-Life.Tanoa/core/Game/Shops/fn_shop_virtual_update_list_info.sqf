@@ -68,7 +68,7 @@ if ((_license isEqualTo "") || ([_license] call AlysiaClient_fnc_hasLicense)) th
 	"<t align='left'>Rank</t><t align='right' color='%1'>%2</t><br/>" +
 	"<t align='left'>Licence</t><t align='right' color='%3'>%4</t><br/>" +
 	"<t align='center'>- Informations - </t><br/>" +
-	"<t align='left'>Prix par unité</t><t align='right' color='#8cff9b'>%5$</t><br/>" +
+	"<t align='left'>Prix par unité</t><t align='right' color='#8cff9b'>%5BTC</t><br/>" +
 	"</t>",
 	if (_rank_condition) then {"#31B404"} else {"#DF0101"},
 	[playerSide, _rank] call AlysiaClient_fnc_rankToStr,

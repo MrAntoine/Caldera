@@ -61,6 +61,7 @@ if ((_item != "") && _useItem) then
 {
 	if (_item in (magazines player)) then {
 		player removeMagazine _item;
+		["pneuEXP"] spawn mav_ttm_fnc_addExp;
 	} else {
 		_error = true;
 		["Vous devez garder les pièces de rechange sur vous pendant la réparation"] call AlysiaClient_fnc_error;

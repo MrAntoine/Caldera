@@ -9,7 +9,7 @@ class ALYSIA_BLUEPRINTS
 	class blueprint_helmetMIT: blueprint_uniformeMIT
 	{
 		process[]={"corpo_booniehat", "corpo_helmet", "corpo_beret_1"};
-	};	
+	};
 	class blueprint_giletMIT: blueprint_uniformeMIT
 	{
 		process[]={"gilet_MIT1", "gilet_MIT2"};
@@ -123,7 +123,7 @@ class ALYSIA_BLUEPRINTS
 	};
 	class blueprint_taurus_tracker_455: blueprint_gsh18
 	{
-		process[]={"taurus_tracker_455","taurus_tracker_455_gold","magazine_taurus_tracker_455"}; 
+		process[]={"taurus_tracker_455","taurus_tracker_455_gold","magazine_taurus_tracker_455"};
 	};
 	class blueprint_desert_eagle: blueprint_gsh18
 	{
@@ -161,11 +161,11 @@ class ALYSIA_BLUEPRINTS
 	{
 		process[]={"sdar","magazine_sdar"};
 	};
-	
+
 	class blueprint_hk416: blueprint_gsh18
 	{
 		process[]={"hk416","magazine_hk416"};
-	};	
+	};
 	class blueprint_hk417: blueprint_gsh18
 	{
 		process[]={"hk417","magazine_hk417"};
@@ -185,11 +185,18 @@ class ALYSIA_BLUEPRINTS
 	{
 		process[]={"watchpost_small"};
 	};
-	
+
 	class blueprint_watchtower_wood
 	{
 		process[]={"watchtower_wood"};
 		labos[]={"lab_construction"};
 		compagnies[]={"wood"};
 	};
+
+	class blueprint_portail_electrique
+	{
+		process[]={"portail_electrique"};
+		labos[]={"lab_construction"};
+	};
+
 };

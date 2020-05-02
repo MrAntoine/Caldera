@@ -30,13 +30,13 @@ lbClear _list;
 
 if (_cash > 0) then
 {
-	_index = _list lbAdd format["%1$ (porte-feuille)", [_cash] call AlysiaClient_fnc_numberText];
+	_index = _list lbAdd format["%1BTC (porte-feuille)", [_cash] call AlysiaClient_fnc_numberText];
 	_list lbSetPicture [_index, "Alysia_Client\Textures\Items_virtual\money.paa"];
 };
 
 if (_atm > 0) then
 {
-	_index = _list lbAdd format["%1$ (compte)", [_atm] call AlysiaClient_fnc_numberText];
+	_index = _list lbAdd format["%1BTC (compte)", [_atm] call AlysiaClient_fnc_numberText];
 	_list lbSetPicture [_index, "Alysia_Client\Textures\Items_virtual\money.paa"];
 };
 

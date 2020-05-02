@@ -22,6 +22,16 @@ class CfgFunctions
 		};
 	};
 
+	class Maverick {
+		tag = "mav_ttm";
+		class ttm {
+			file = "Tanoa-Server\core\Maverick";
+			class loadFromDatabase {};
+			class updateDatabaseEntry {};
+			class addTriggerHandlers {};
+		};
+	};
+
 	class Server
 	{
 		tag = "AlysiaServer";
@@ -143,6 +153,7 @@ class CfgFunctions
 			class vehicle_update_storePos {};
 			class vehicle_update_fuel {};
 			class vehicle_update_name {};
+			class changeVehKey {};
 		};
 
 		class Systems

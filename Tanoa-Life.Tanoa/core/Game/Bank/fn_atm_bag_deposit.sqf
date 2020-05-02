@@ -10,7 +10,7 @@ if (isNull _target) exitWith {
 };
 
 if (_target getVariable ["inUse", false]) exitWith {
-	["Quelqu'un est en train d'utiliser le distributeur."] call AlysiaClient_fnc_error;
+	["Quelqu'un est en train d'utiliser le Serveur de Bitcoin."] call AlysiaClient_fnc_error;
 };
 
 if (g_action_inUse) exitWith {
@@ -19,7 +19,7 @@ if (g_action_inUse) exitWith {
 
 _obj = player getVariable ["wallet_obj", objNull];
 if (isNull(_obj)) exitWith {
-	["Vous n'avez pas de valise de billet."] call AlysiaClient_fnc_error;
+	["Vous n'avez pas de valise de CryptoMonnaie."] call AlysiaClient_fnc_error;
 };
 
 _max = getNumber(missionConfigFile >> "ALYSIA_ATM" >> typeOf(_target) >> "money_stock");
@@ -33,8 +33,9 @@ if (_amount < _max) then
 	playSound "buy";
 	detach _obj;
 	deleteVehicle _obj;
-	[g_company, true, 10000 + floor(15000 * (1 - (_amount / _max))), (player getVariable "realname"), "Activité professionnelle"] remoteExec ["AlysiaServer_fnc_company_bank_handle", 2];
-	[_target, true, 10000] call AlysiaClient_fnc_atmMoneyHandle;
+	['Vous venez de remplir le serveur de Bitcoin de 50.000BTC ! Et pour votre geste citoyen, vous gagnez 20.000BTC '] call AlysiaClient_fnc_info;
+	[true, 20000] call AlysiaClient_fnc_handleCash;
+	[_target, true, 50000] call AlysiaClient_fnc_atmMoneyHandle;
 	g_action_inUse = false;
 	_target setVariable ["inUse", false, false];
 } else {

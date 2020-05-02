@@ -44,9 +44,9 @@ if ((player getVariable ["arrested", false]) && !(isNull g_arrest_Prison) && !(g
 		if (_price > 0) then
 		{
 			if (g_atm < _price) then {
-				["Vous n'avez pas assez d'argent pour payer vos frais d'hospitalisation<br/>Ces derniers on été payé par l'Etat", "buy"] call AlysiaClient_fnc_info;
+				["Vous n'avez pas assez d'argent pour payer vos frais d'hospitalisation<br/>Ces derniers sont subventionnés par les autres habitants.", "buy"] call AlysiaClient_fnc_info;
 			} else {
-				[format["Vos frais d'<t color='#FE2EF7'>hospitalisation</t> s'élèvent à <t color='#8cff9b'>%1$</t>.", ([_price] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
+				[format["Vos frais d'<t color='#FE2EF7'>hospitalisation</t> s'élèvent à <t color='#8cff9b'>%1BTC</t>.", ([_price] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
 				[false, _price, "Soins hôpital"] call AlysiaClient_fnc_handleATM;
 				[independent, true, _price] remoteExecCall ["AlysiaServer_fnc_factionBankHandle", 2];
 			};
@@ -67,16 +67,13 @@ if ((player getVariable ["arrested", false]) && !(isNull g_arrest_Prison) && !(g
 	if (isNull g_respawn_point) then
 	{
 		private "_spawn";
-		_name = "Hôpital de Malieuville";
+		_name = "Hôpital de Tanoa";
 		_spawn = false;
 		_timeFade = 30;
-
-		{
+		player setPos (getMarkerPos "respawn_hospital");
+		/*{
 			if ([_x, false] call AlysiaClient_fnc_sitDown) exitWith {_spawn = true};
 		} forEach ([
-			medical_bed_8,
-			medical_bed_7,
-			medical_bed_6,
 			medical_bed_5,
 			medical_bed_4,
 			medical_bed_3,
@@ -87,13 +84,13 @@ if ((player getVariable ["arrested", false]) && !(isNull g_arrest_Prison) && !(g
 		if (!_spawn) then {
 			player setPos (getMarkerPos "respawn_guerrila");
 		};
-
+		*/
 		[150] call AlysiaClient_fnc_handleBlood;
 	} else {
 		_timeFade = 10;
 		_name = "Chez vous";
 		player setPosATL (g_respawn_point buildingPos 0);
-		[4000] call AlysiaClient_fnc_handleBlood;
+		[2500] call AlysiaClient_fnc_handleBlood;
 	};
 };
 

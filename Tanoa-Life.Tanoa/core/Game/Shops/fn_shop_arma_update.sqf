@@ -72,9 +72,9 @@ _desc = ([_item] call AlysiaClient_fnc_fetchCfgDetails) select 9;
 [
 		"<t font='EtelkaMonospacePro' size='0.8'>"
 	+	"<t align='center'>- Prérequis -</t><br/>"
-	+	"<t align='left'>Rank</t><t align='right' color='%1'>%2</t><br/>"
+	+	"<t align='left'>Rang</t><t align='right' color='%1'>%2</t><br/>"
 	+	"<t align='left'>Licence(s)</t><t align='right'>%3</t>"
-	+	"<t align='left'>Prix</t><t align='right' color='%4'>%5$</t><br/>"
+	+	"<t align='left'>Prix</t><t align='right' color='%4'>%5BTC</t><br/>"
 	+	"<t align='center'>- Description - </t><br/>"
 	+	"<t align='center'>%6</t>"
 	+	"</t>",

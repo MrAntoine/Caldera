@@ -20,7 +20,7 @@ _price = getNumber(_config >> "price");
 
 (_display displayCtrl 97004) ctrlSetStructuredText parseText format
 [
-	"<t align='center' color='#%2'>%1</t><t align='right'>$</t>",
+	"<t align='center' color='#%2'>%1</t><t align='right'>BTC</t>",
 	([_price] call AlysiaClient_fnc_numberText),
 	if ((g_cash >= _price) || ((["illegal_money"] call AlysiaClient_fnc_itemCount) >= _price)) then {"8cff9b"} else {"ff8c8c"}
 ];

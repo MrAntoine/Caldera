@@ -14,7 +14,7 @@ while {!gServer_soonReboot} do
 	{
 		_ressource = configName _x;
 		_actualPrice = [_ressource] call AlysiaClient_fnc_market_getPrice;
-		_percent = round(random(20) + 10);
+		_percent = round(random(5) + 10);
 		if (random(100) < 45) then
 		{
 			if (_actualPrice != getNumber(_x >> "market" >> "min")) then

@@ -20,7 +20,7 @@ if (isNil "_info") exitWith {
 _amount = parseNumber(ctrlText 70002);
 _min = 20000;
 if (_amount < _min) exitWith {
-	[format["Vous devez blanchir au minimum <t color='#8cff9b'>%1</t>$.", _min]] call AlysiaClient_fnc_error;
+	[format["Vous devez blanchir au minimum <t color='#8cff9b'>%1</t>BTC.", _min]] call AlysiaClient_fnc_error;
 };
 
 if (((gServer_rebootHour * 60) - serverTime) < (30 * 60)) exitWith
@@ -44,7 +44,7 @@ if ([false, "illegal_money", _amount] call AlysiaClient_fnc_handleInv) then
 	[
 		format
 		[
-			"L'entreprise <t color='#74DF00'>%1</t> recevra <t color='#8cff9b'>%2</t>$ dans son compte en banque dans quelques minutes.",
+			"L'entreprise <t color='#74DF00'>%1</t> recevra <t color='#8cff9b'>%2</t>BTC dans son compte en banque dans quelques minutes.",
 			(_info select 0),
 			[_amount] call AlysiaClient_fnc_numberText
 		]

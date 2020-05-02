@@ -62,7 +62,7 @@ _receive_weight = 0;
 
 if (getNumber(_config >> "receive" >> "money") > 0) then
 {
-	_index = _list_receive lbAdd format["%1$", [(getNumber(_config >> "receive" >> "money") * _maxAmount)] call AlysiaClient_fnc_numberText];
+	_index = _list_receive lbAdd format["%1BTC", [(getNumber(_config >> "receive" >> "money") * _maxAmount)] call AlysiaClient_fnc_numberText];
 	_list_receive lbSetPicture [_index, "Alysia_Client\Textures\Items_virtual\money.paa"];
 };
 

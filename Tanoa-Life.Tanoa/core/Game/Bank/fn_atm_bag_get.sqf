@@ -18,16 +18,16 @@ if (isNull g_company) exitWith {
 };
 
 if (_target getVariable ["inUse", false]) exitWith {
-	["Quelqu'un est en train d'utiliser le distributeur."] call AlysiaClient_fnc_error;
+	["Quelqu'un est en train d'utiliser le serveur de bitcoin."] call AlysiaClient_fnc_error;
 };
 
 _obj = player getVariable ["wallet_obj", objNull];
 if (!isNull(_obj)) exitWith {
-	["Vous avez déjà une valise de billets."] call AlysiaClient_fnc_error;
+	["Vous avez déjà une valise de cryptomonnaie."] call AlysiaClient_fnc_error;
 };
 
 if (getNumber(missionConfigFile >> "ALYSIA_ATM" >> typeOf(_target) >> "company_money_get") isEqualTo 0) exitWith {
-	["Vous ne pouvez pas récupérer de valise de billets à partir de ce distributeur."] call AlysiaClient_fnc_error;
+	["Vous ne pouvez pas récupérer de valise de cryptomonnaie à partir de ce serveur de Bitcoin."] call AlysiaClient_fnc_error;
 };
 
 _price = 10000;

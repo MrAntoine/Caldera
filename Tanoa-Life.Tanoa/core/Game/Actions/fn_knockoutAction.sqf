@@ -45,7 +45,7 @@ if (!(isNull _target) && (_target isKindOf "Man") && (isPlayer _target) && ((pla
 	{
 		[_target, "punch", 15] call AlysiaClient_fnc_globalSay3d;
 		[getNumber(_config >> "damage") * -1, player] remoteExecCall ["AlysiaClient_fnc_handleBlood", _target];
-		[] call AlysiaEvent_fnc_onPlayerFireNear;
+		//[] call AlysiaEvent_fnc_onPlayerFireNear;
 	};
 };
 

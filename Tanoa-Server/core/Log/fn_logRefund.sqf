@@ -11,7 +11,7 @@ if ((isNull _from) || (isNull _to)) exitWith {};
 
 "extLOG" callExtension format
 [
-	"1:SERVER_REFUND_LOG:%1 [%2] refund %3$ to %4 [%5]",
+	"1:SERVER_REFUND_LOG:%1 [%2] refund %3BTC to %4 [%5]",
 	_from getVariable "realname",
 	getPlayerUID _from,
 	[_amount] call AlysiaClient_fnc_numberText,

@@ -5,6 +5,10 @@
 private["_display", "_list", "_target"];
 _target = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 
+if (!(['macon_amateur'] call AlysiaClient_fnc_hasLicense)) exitWith {
+	["Vous devez être apprenti maçon pour pouvoir faire cela !"] call AlysiaClient_fnc_error;
+};
+
 if (isNull _target) exitWith {
 	["Cible invalide."] call AlysiaClient_fnc_error;
 };

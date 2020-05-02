@@ -8,12 +8,14 @@
 // ***********************************
 // ********* loading infos ***********
 // ***********************************
-author="Lyeed";// Author of the mission. The default loading screen shows this string below the onLoadName in a smaller font prefixed by "by ".
-onLoadName="Tanoa Life";// String (usually mission name) shown during mission loading. The string is shown in a slightly larger font above the loadScreen.
+author="Adapté par Caldera-Life";// Author of the mission. The default loading screen shows this string below the onLoadName in a smaller font prefixed by "by ".
+onLoadName="Caldera-Life";// String (usually mission name) shown during mission loading. The string is shown in a slightly larger font above the loadScreen.
 onLoadMission="";// Displays a message while the mission is loading. Note that a mission that takes very little time to load will only display the message for a short time. Care should be taken to see whether your message is readable in that timeframe.
 onLoadMissionTime=0;// Define whether you will see the time and date displayed while the mission loads. 1 means visible, 0 hidden.
-onLoadIntro="Tanoa Life";// Displays a message while the intro is loading.
+onLoadIntro="Caldera-Life";// Displays a message while the intro is loading.
 onLoadIntroTime=0;// Define whether you will see the time and date displayed while the intro loads. 1 means visible, 0 hidden.
+loadScreen = "Alysia_Client_Texture\Data\tablet\backgrounds\back.jpg";
+
 //---------------------------------
 
 // ***********************************
@@ -23,14 +25,16 @@ class Header
 {
 	gameType=RPG;// Game type is a simplified category describing what a mission is about. It helps player to navigate through potentially large number of available missions and pick the one they would like to play.
 	minPlayers=1;//min # of players the mission supports
-	maxPlayers=200;//max # of players the mission supports
+	maxPlayers=100;//max # of players the mission supports
 };
+unsafeCVL = 1;
 //---------------------------------
 
 /**********************************
 ****** join/left configs **********
 ***********************************/
 joinUnassigned=1;// By default a new player is not auto assigned a free playable slot in the mission lobby in Multiplayer. Set it to 0/false to make him auto assigned to the side with least players.
+skipLobby = 1;
 briefing=0;// Skip briefing screen for SP missions. If no briefing.html is present, it is skipped anyway.
 debriefing=0;// Defines if the debriefing is shown or not at the end of the mission.
 //---------------------------------
@@ -130,7 +134,8 @@ onPauseScript[]={AlysiaEvent_fnc_onPlayerESC};
 saving=0;// disable saving
 enableItemsDropping=0;// Disable dropping items while swimming. Introduced in BETA 1.60.93965.
 weaponPool=0;// Allows equipment transferred from one campaign mission to the next to be available during the briefing in the gear menu.
-enableDebugConsole=1;// Allows access to the Debug Console outside of the editor during normal gameplay.
+//enableDebugConsole=1;// Allows access to the Debug Console outside of the editor during normal gameplay.
+enableDebugConsole[] = {"76561198194171709","76561198126541038","76561197989150242"};
 scriptedPlayer=1;// When scripted player is enabled, game no longer shows "No player select" error message upon mission start when no player unit is present.
 allowFunctionsLog=1;// Allows functions to log to the RPT file. Set it to 1/true to allow RPT logging
 disableRandomization[]={"All"};// Disables randomization on certain objects, object types or object kinds in the mission.
@@ -145,7 +150,7 @@ showWatch=1;// Defines if the watch is visible.
 showGroupIndicator=0;// When set to 1, changes default GPS mini map into a radar like display that indicates group members relative position to the player.
 showMap=1;// Defines if the map is shown after the mission starts.
 showNotePad=0;// In ArmA, defines if the NotePad is shown after the mission starts.
-showGPS=0;// Enables/Disables the GPS.
+showGPS=1;// Enables/Disables the GPS.
 showHUD[]={
 	1,// Scripted HUD (same as showHUD command)
 	0,// Vehicle + soldier info
@@ -163,6 +168,9 @@ showHUD[]={
 ************** UI *****************
 ***********************************/
 #include "core\Rscs\MasterHandler.h"
+//#include "Taneino/TaneinoDialogMaster.hpp"
+#include "kreygers\mainmenu\dialog\mainmenu01.hpp"
+#include "kreygers\mainmenu\dialog\fondend.hpp"
 //---------------------------------
 
 /**********************************
@@ -175,6 +183,7 @@ showHUD[]={
 ******** mission functions ********
 ***********************************/
 #include "configs\Cfg_Functions.hpp"
+//#include "Taneino\taneino_functions.cpp"
 //---------------------------------
 
 /**********************************
@@ -182,3 +191,53 @@ showHUD[]={
 ***********************************/
 #include "configs\Cfg_Debriefings.hpp"
 //---------------------------------
+
+
+
+class CfgSounds {
+    sounds[] = {};
+    class Click1 {
+        name = "Click1";
+        sound[] = {"@Caldera_Client_Texture\Data\main_menu\sounds\Click1.ogg", db + 50, 1};
+        titles[] = {};
+    };
+	
+	class Click2 {
+        name = "Click2";
+        sound[] = {"@Caldera_Client_Texture\Data\main_menu\sounds\Click2.ogg",  db + 50, 1};
+        titles[] = {};
+    };
+	
+	class Click3 {
+		name = "Click3";
+		sound[] = {"@Caldera_Client_Texture\Data\main_menu\sounds\Click3.ogg",  db + 60, 1};
+		titles[] = {};
+	};
+	
+	class Notif1 {
+		name = "Notif1";
+		sound[] = {"@Caldera_Client_Texture\Data\main_menu\sounds\Notif1.ogg",  db + 60, 1};
+		titles[] = {};
+	};
+	
+	class Notif2 {
+		name = "Notif2";
+		sound[] = {"@Caldera_Client_Texture\Data\main_menu\sounds\Notif2.ogg",  db + 60, 1};
+		titles[] = {};
+	};
+};
+
+class CfgMusic
+{
+	tracks[] = {};
+	class MusicStart01
+	{
+		name	= "";
+		sound[]	= { "@Caldera_Client_Texture\Data\main_menu\sounds\MusicStart01.ogg", db + 60, 1.0 };
+	};
+};
+
+
+
+
+#include "infiSTAR_AdminMenu.hpp"

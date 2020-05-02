@@ -14,12 +14,12 @@ if (playerSide != civilian) exitWith {
 	["Vous ne pouvez pas utiliser cet objet."] call AlysiaClient_fnc_error;
 };
 
-if (!(isNull g_laboratory)) exitWith {
+/*if (!(isNull g_laboratory)) exitWith {
 	["Vous possédez déjà un laboratoire."] call AlysiaClient_fnc_error;
-};
+};*/
 
 g_laboratory = getText(_config >> "object") createVehicle [0, 0, 0];
-g_laboratory attachTo [player, [0, 2, 1]];
+g_laboratory attachTo [player, [0, 2, 2]];
 
 _action_1 = player addAction [format["Placer <t color='#FFFF33'>%1</t>", [_item] call AlysiaClient_fnc_itemGetName],
 {

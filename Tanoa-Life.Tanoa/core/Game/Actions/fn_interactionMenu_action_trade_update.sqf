@@ -108,7 +108,7 @@ lbClear _ctrl_list_trade;
 
 if (g_interaction_trade_money > 0) then
 {
-	_index = _ctrl_list_trade lbAdd format["%1$", [g_interaction_trade_money] call AlysiaClient_fnc_numberText];
+	_index = _ctrl_list_trade lbAdd format["%1BTC", [g_interaction_trade_money] call AlysiaClient_fnc_numberText];
 	_ctrl_list_trade lbSetPicture [_index, "Alysia_Client\Textures\Items_virtual\money.paa"];
 	_ctrl_list_trade lbSetData [_index, "money"];
 	_ctrl_list_trade lbSetTooltip [_index, _ctrl_list_trade lbText _index];

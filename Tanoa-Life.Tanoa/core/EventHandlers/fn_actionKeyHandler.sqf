@@ -80,7 +80,6 @@ if (_vehicle isKindOf "Man") then
 					[_target] call AlysiaClient_fnc_interactions_player_to_skull;
 					true breakOut "main";
 				};
-
 				if (isClass(missionConfigFile >> "ALYSIA_ATM" >> _type)) then
 				{
 					[_target] call AlysiaClient_fnc_interactions_player_to_atm;
@@ -98,7 +97,18 @@ if (_vehicle isKindOf "Man") then
 					[_target] call AlysiaClient_fnc_catchTurtle;
 					true breakOut "main";
 				};
-
+				////////////////////////////////////////////////////////////////////////////////////////////////////////
+				if (_type isEqualTo "Goat_random_F") then
+				{
+					[_target] call AlysiaClient_fnc_catchGoat;
+					true breakOut "main";
+				};
+				if (_type isEqualTo "Sheep_random_F") then
+				{
+					[_target] call AlysiaClient_fnc_catchSheep;
+					true breakOut "main";
+				};
+				////////////////////////////////////////////////////////////////////////////////////////////////////////
 				if (isClass(missionConfigFile >> "ALYSIA_FARMING_PLANT_OBJETCS" >> _type)) then
 				{
 					[_target] spawn AlysiaClient_fnc_plantHarvest;
@@ -230,7 +240,7 @@ if (_vehicle isKindOf "Man") then
 	{
 		if ((markerAlpha (configName _x)) != 1) then
 		{
-			[format["Vous avez découvert <t color='#74DF00'>%1</t>.", (markerText (configName _x))]] call AlysiaClient_fnc_info;
+			[format["Vous avez découvert <t color='#74DF00'>%1</t>.Cette découverte vous rapporte 15.000BTC", (markerText (configName _x))]] call AlysiaClient_fnc_info;
 			[(configName _x)] call AlysiaClient_fnc_dynamicMarkers_reveal;
 			true breakOut "main";
 		} else {

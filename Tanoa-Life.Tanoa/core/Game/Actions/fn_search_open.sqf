@@ -26,7 +26,7 @@ _list ctrlSetEventHandler ["LBSelChanged", "_this call AlysiaClient_fnc_search_u
 
 if (_money > 0) then
 {
-	_index = _list lbAdd format["%1$", [_money] call AlysiaClient_fnc_numberText];
+	_index = _list lbAdd format["%1BTC", [_money] call AlysiaClient_fnc_numberText];
 	_list lbSetPicture [_index, "Alysia_Client\Textures\Items_virtual\money.paa"];
 	_list lbSetValue [_index, 0];
 };

@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Hôte :                        127.0.0.1
--- Version du serveur:           8.0.3-rc-log - MySQL Community Server (GPL)
+-- Version du serveur:           10.3.22-MariaDB - mariadb.org binary distribution
 -- SE du serveur:                Win64
--- HeidiSQL Version:             9.5.0.5196
+-- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -11,160 +11,227 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Export de la structure de la base pour tanoa
-DROP DATABASE IF EXISTS `tanoa`;
-CREATE DATABASE IF NOT EXISTS `tanoa` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `tanoa`;
-
--- Export de la structure de la table tanoa. companies
-DROP TABLE IF EXISTS `companies`;
+-- Listage de la structure de la table tanoa. companies
 CREATE TABLE IF NOT EXISTS `companies` (
   `plate` varchar(6) NOT NULL COMMENT 'Unique ID',
   `name` varchar(50) NOT NULL DEFAULT '',
   `owner` varchar(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
   `type` varchar(20) NOT NULL DEFAULT '',
-  `bank` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `bank` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
   `members` text NOT NULL COMMENT 'Array',
   `INV_virtual` text NOT NULL COMMENT 'Array',
   `INV_arma` text NOT NULL COMMENT 'Array',
-  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_direction` smallint(3) NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
-  `link_percentage` tinyint(2) unsigned NOT NULL DEFAULT '20' COMMENT 'Range [0-70(%)]',
-  `CONSTRUCTION_built` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `POS_x` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_y` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_z` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_direction` smallint(3) NOT NULL DEFAULT 0 COMMENT 'Range [0-360(°)]',
+  `link_percentage` tinyint(2) unsigned NOT NULL DEFAULT 20 COMMENT 'Range [0-70(%)]',
+  `CONSTRUCTION_built` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean',
   `CONSTRUCTION_require` text NOT NULL COMMENT 'Array',
   PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.companies : ~0 rows (environ)
+-- Listage des données de la table tanoa.companies : ~0 rows (environ)
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. companies_bank_transactions
-DROP TABLE IF EXISTS `companies_bank_transactions`;
+-- Listage de la structure de la table tanoa. companies_bank_transactions
 CREATE TABLE IF NOT EXISTS `companies_bank_transactions` (
   `COMPANY_plate` varchar(6) NOT NULL,
   `TRANS_reason` varchar(25) NOT NULL,
   `TRANS_from` varchar(25) NOT NULL,
   `TRANS_date` varchar(25) NOT NULL,
-  `TRANS_type` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT 'Boolean | 0 : withdraw | 1 : deposit',
-  `TRANS_value` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `TRANS_type` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Boolean | 0 : withdraw | 1 : deposit',
+  `TRANS_value` int(10) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
   KEY `COMPANY_plate` (`COMPANY_plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.companies_bank_transactions : ~0 rows (environ)
+-- Listage des données de la table tanoa.companies_bank_transactions : ~0 rows (environ)
 /*!40000 ALTER TABLE `companies_bank_transactions` DISABLE KEYS */;
 /*!40000 ALTER TABLE `companies_bank_transactions` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. dynamic_markers
-DROP TABLE IF EXISTS `dynamic_markers`;
+-- Listage de la structure de la table tanoa. dynamic_markers
 CREATE TABLE IF NOT EXISTS `dynamic_markers` (
   `name` varchar(50) NOT NULL,
-  `POS_X` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_Y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_Z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_X` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_Y` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_Z` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.dynamic_markers : ~0 rows (environ)
+-- Listage des données de la table tanoa.dynamic_markers : ~20 rows (environ)
 /*!40000 ALTER TABLE `dynamic_markers` DISABLE KEYS */;
+INSERT INTO `dynamic_markers` (`name`, `POS_X`, `POS_Y`, `POS_Z`) VALUES
+	('epave_1', 1946.39, 3217.38, -0.002),
+	('epave_2', 4957.22, 4552.83, -0.002),
+	('epave_3', 6348.17, 6884.13, -0.002),
+	('epave_4', 2918.83, 2012.66, -0.002),
+	('epave_5', 968.126, 4652.4, -0.002),
+	('monument1', 2562.42, 8023.35, 0.9955),
+	('monument2', 6589.81, 6030.35, 0.06647),
+	('monument3', 3063.8, 3347.43, 0.9959),
+	('monument4', 3411.99, 8090.6, 0.292),
+	('monument5', 1490.69, 8607.4, 0.6035),
+	('sculture1', 2223.87, 6012.05, 0.697),
+	('sculture2', 4123.77, 7380.55, 0.495151),
+	('sculture3', 8286.57, 6764.73, 0.0132),
+	('sculture4', 1922.38, 8666.27, 0.6365),
+	('sculture5', 3651.55, 8184.29, 0.548204),
+	('statue1', 3931.17, 4673.7, 0.9467),
+	('statue2', 2089.48, 9321.78, 1.28603),
+	('statue3', 1499.38, 6530.41, 0.519),
+	('statue4', 4880.43, 7192.22, 4.82944),
+	('statue5', 1395.5, 8851.51, 0.7138);
 /*!40000 ALTER TABLE `dynamic_markers` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. factions
-DROP TABLE IF EXISTS `factions`;
+-- Listage de la structure de la table tanoa. factions
 CREATE TABLE IF NOT EXISTS `factions` (
   `name` varchar(50) NOT NULL COMMENT 'ArmA3 side',
-  `bank` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `bank` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
   `history` text NOT NULL COMMENT 'Array',
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.factions : ~4 rows (environ)
+-- Listage des données de la table tanoa.factions : ~4 rows (environ)
 /*!40000 ALTER TABLE `factions` DISABLE KEYS */;
-INSERT IGNORE INTO `factions` (`name`, `bank`, `history`) VALUES
+INSERT INTO `factions` (`name`, `bank`, `history`) VALUES
 	('CIV', 0, '"[]"'),
-	('EAST', 0, '"[]"'),
-	('GUER', 0, '"[]"'),
+	('EAST', 84100, '"[]"'),
+	('GUER', 18000, '"[]"'),
 	('WEST', 0, '"[]"');
 /*!40000 ALTER TABLE `factions` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. houses
-DROP TABLE IF EXISTS `houses`;
+-- Listage de la structure de la table tanoa. houses
 CREATE TABLE IF NOT EXISTS `houses` (
   `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
   `classname` varchar(50) NOT NULL DEFAULT '' COMMENT 'ArmA3 classname',
   `pid` varchar(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
   `STOCK_virtual` text NOT NULL COMMENT 'Array',
   `STOCK_arma` text NOT NULL COMMENT 'Array',
-  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_x` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
   `tenants` text NOT NULL COMMENT 'Array',
   PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.houses : ~0 rows (environ)
+-- Listage des données de la table tanoa.houses : ~12 rows (environ)
 /*!40000 ALTER TABLE `houses` DISABLE KEYS */;
+INSERT INTO `houses` (`plate`, `classname`, `pid`, `STOCK_virtual`, `STOCK_arma`, `POS_x`, `POS_y`, `POS_z`, `tenants`) VALUES
+	(63318, 'Land_i_Shed_Ind_F', '76561198193788047', '"[[`circuitimprime`,3],[`seringue`,2],[`bouteillevide`,2],[`plastique`,3],[`aubepinep`,5],[`woodp`,5],[`ortiep`,5],[`goat`,2],[`steelp`,5],[`anarkhium`,25]]"', '"[[[],[]],[[],[]],[[],[]],[[],[]]]"', 4530.18, 6927.24, 0.56498, '"[]"'),
+	(358433, 'Land_i_Shed_Ind_F', '76561198349752423', '"[]"', '"[[[],[]],[[],[]],[[],[]],[[],[]]]"', 4928.95, 7195.62, 0.221596, '"[]"'),
+	(369456, 'Land_i_Shed_Ind_F', '76561198165158755', '"[[`ironp`,1],[`serrureabime`,6],[`woodp`,1],[`seringue`,2],[`conserve`,1],[`bouteillevide`,4],[`goat`,5],[`sheep`,3],[`steelp`,9],[`aubepinep`,5],[`anarkhium`,3],[`circuitimprime`,2]]"', '"[[[],[]],[[],[]],[[],[]],[[],[]]]"', 5414.54, 6820.25, 0.693285, '"[]"'),
+	(394681, 'Land_i_House_Big_01_V1_F', '76561198264000931', '"[[`circuitimprime`,4],[`charcoal`,1],[`magazinep`,23],[`bulletp`,3],[`seringue`,1],[`barrelp`,5],[`receiverp`,5],[`gripp`,4],[`slapperp`,5],[`framep`,5],[`triggerp`,7],[`bouteillevide`,1],[`plastique`,1],[`plombp`,36],[`anarkhium`,1]]"', '"[[[`KA_SilverBaller_L`],[1]],[[`KA_8Rnd_45ACP_Mag`],[9]],[[],[]],[[],[]]]"', 4973.53, 7344.71, 0.877853, '"[]"'),
+	(401825, 'Land_i_House_Small_02_V2_F', '76561198102210699', '"[[`charcoal`,6],[`steelp`,95],[`wheat_cake`,15],[`eau50`,14],[`plombp`,25],[`plastique`,1],[`sheep`,2],[`aluminiump`,5],[`shoulderp`,1],[`slapperp`,2],[`framep`,1],[`cylinderp`,3],[`triggerp`,3],[`magazinep`,7],[`bulletp`,9]]"', '"[[[],[]],[[`RH_19Rnd_9x19_g18`],[3]],[[`Skyline_Character_U_CivilC_06_F`,`TRYK_r_cap_tan_Glasses`,`shemagh_faceD`],[1,1,1]],[[],[]]]"', 4349.66, 6383.78, 0.048111, '"[]"'),
+	(456943, 'Land_i_House_Big_01_V3_F', '76561198321021809', '"[[`seringue`,69],[`aubepinep`,45],[`anarkhium`,2],[`ironp`,5],[`sheep`,2]]"', '"[[[`Skyline_Pioche_01`,`Skyline_Pelle_01`],[1,1]],[[`SkylineItems_Morphine`],[6]],[[`EWK_Cigar1`],[1]],[[],[]]]"', 5110.37, 5722.59, 0.497896, '"[]"'),
+	(465090, 'Land_i_Shed_Ind_F', '76561198237617140', '"[]"', '"[[],[],[],[]]"', 4745.54, 7054.13, 0.204912, '"[]"'),
+	(528410, 'Land_i_House_Big_01_b_pink_F', '76561198169530053', '"[[`aluminiump`,5]]"', '"[[[],[]],[[],[]],[[],[]],[[],[]]]"', 2404.04, 8202.71, -0.0000901222, '"[]"'),
+	(634240, 'Land_i_Shed_Ind_F', '76561197988967412', '"[[`steelp`,84],[`framep`,1],[`triggerp`,1],[`glass`,5],[`bulletp`,8],[`magazinep`,12],[`gazole`,73],[`anarkhium`,23]]"', '"[[[`RH_g17`],[1]],[[`RH_17Rnd_9x19_g17`],[10]],[[],[]],[[],[]]]"', 4592.35, 6858.29, 0.777349, '"[`76561198075018946`]"'),
+	(884809, 'Land_i_House_Big_01_V1_F', '76561198075018946', '"[[`anarkhium`,4],[`wheat_cake`,6],[`eau50`,7],[`serrureabime`,3],[`charcoal`,4],[`steelp`,6],[`seringue`,5],[`ironp`,1],[`aluminiump`,13],[`cotton`,16],[`chair_wood`,1]]"', '"[[[],[]],[[`Alysia_repair_tireLever`,`KA_8Rnd_45ACP_Mag`,`RH_17Rnd_9x19_g17`],[1,2,3]],[[],[]],[[],[]]]"', 6365.1, 7650.87, 1.04167, '"[]"'),
+	(890350, 'Land_i_Shed_Ind_F', '76561198249426408', '"[]"', '"[[[],[]],[[],[]],[[],[]],[[],[]]]"', 2384.83, 8161.58, 0.899596, '"[]"'),
+	(935377, 'Land_i_House_Big_01_V3_F', '76561198126898419', '"[[`steelp`,104],[`ironp`,25],[`plastique`,1],[`circuitimprime`,4],[`magazinep`,7],[`bulletp`,2],[`barrelp`,5],[`receiverp`,5],[`gripp`,5],[`slapperp`,5],[`framep`,6],[`triggerp`,8],[`oilu`,15],[`plombp`,5]]"', '"[[[`KA_SilverBaller`,`Skyline_Pioche_01`],[1,1]],[[`Alysia_repair_tire`,`Alysia_jerrycan_diesel`,`Alysia_repair_tireLever`,`Alysia_repair_toolbox`,`RH_17Rnd_9x19_g17`,`KA_8Rnd_45ACP_Mag`,`Alysia_jerrycan_empty`],[16,3,3,3,32,6,1]],[[`EWK_Cig1`,`EWK_Cigar1`],[1,1]],[[],[]]]"', 5070.82, 5894.99, 0.437268, '"[]"');
 /*!40000 ALTER TABLE `houses` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. labo
-DROP TABLE IF EXISTS `labo`;
+-- Listage de la structure de la table tanoa. labo
 CREATE TABLE IF NOT EXISTS `labo` (
   `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
   `owner` varchar(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
   `type` varchar(50) NOT NULL DEFAULT '',
-  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_direction` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
-  `CONSTRUCTION_BUILT` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `POS_x` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_direction` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Range [0-360(°)]',
+  `CONSTRUCTION_BUILT` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean',
   `CONSTRUCTION_REQUIRE` text NOT NULL COMMENT 'Array',
   `INV_virtual` text NOT NULL COMMENT 'Array',
   `EXTRA_process` text NOT NULL COMMENT 'Array',
   PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.labo : ~0 rows (environ)
+-- Listage des données de la table tanoa.labo : ~0 rows (environ)
 /*!40000 ALTER TABLE `labo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `labo` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. land_atms
-DROP TABLE IF EXISTS `land_atms`;
+-- Listage de la structure de la table tanoa. land_atms
 CREATE TABLE IF NOT EXISTS `land_atms` (
-  `amount` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `amount` int(10) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
   `type` varchar(50) NOT NULL DEFAULT '' COMMENT 'ArmA3 classname',
-  `POS_X` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_Y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_Z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS'
+  `POS_X` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_Y` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_Z` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.land_atms : ~0 rows (environ)
+-- Listage des données de la table tanoa.land_atms : ~4 rows (environ)
 /*!40000 ALTER TABLE `land_atms` DISABLE KEYS */;
+INSERT INTO `land_atms` (`amount`, `type`, `POS_X`, `POS_Y`, `POS_Z`) VALUES
+	(2000000, 'Land_MultiScreenComputer_01_black_F', 1509.88, 5571.45, 0.000000953674),
+	(2000000, 'Land_MultiScreenComputer_01_black_F', 4568.26, 2663.7, 0),
+	(1882940, 'Land_MultiScreenComputer_01_black_F', 5120.16, 5956.18, -0.000447273),
+	(2000000, 'Land_MultiScreenComputer_01_black_F', 9228.82, 4822.65, 0);
 /*!40000 ALTER TABLE `land_atms` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. land_fuels
-DROP TABLE IF EXISTS `land_fuels`;
+-- Listage de la structure de la table tanoa. land_fuels
 CREATE TABLE IF NOT EXISTS `land_fuels` (
   `type` varchar(50) NOT NULL,
-  `POS_X` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_Y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `POS_Z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
-  `fuel_Diesel` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
-  `fuel_SP95` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
-  `fuel_SP98` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
-  `fuel_Kerosene` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
-  `fuel_GPL` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
-  `fuel_BIO` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter'
+  `POS_X` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_Y` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `POS_Z` float NOT NULL DEFAULT 0 COMMENT 'Position AGLS',
+  `fuel_Diesel` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Liter',
+  `fuel_SP95` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Liter',
+  `fuel_SP98` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Liter',
+  `fuel_Kerosene` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Liter',
+  `fuel_GPL` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Liter',
+  `fuel_BIO` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Liter'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.land_fuels : ~0 rows (environ)
+-- Listage des données de la table tanoa.land_fuels : ~42 rows (environ)
 /*!40000 ALTER TABLE `land_fuels` DISABLE KEYS */;
+INSERT INTO `land_fuels` (`type`, `POS_X`, `POS_Y`, `POS_Z`, `fuel_Diesel`, `fuel_SP95`, `fuel_SP98`, `fuel_Kerosene`, `fuel_GPL`, `fuel_BIO`) VALUES
+	('Land_FuelStation_Feed_F', 6306.95, 7654.05, -0.124311, 0, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 9026.8, 6002.07, 0, 200, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 9026.8, 5992.63, 0, 200, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 9228.13, 5442.81, -0.0595875, 200, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 9112.17, 5233.46, -0.118801, 500, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 9112.19, 5225.43, -0.118801, 422, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 9112.19, 5217.38, -0.118801, 500, 0, 0, 0, 0, 0),
+	('Land_FuelStation_03_pump_F', 5361.81, 5986.17, -0.0000138283, 0, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 9346.97, 4872.12, 0, 200, 0, 0, 0, 0, 0),
+	('Land_FuelStation_01_pump_malevil_F', 7466.17, 4584.51, -0.076725, 974, 0, 0, 0, 0, 0),
+	('Land_FuelStation_01_pump_malevil_F', 7474.39, 4581.35, -0.076725, 985, 0, 0, 0, 0, 0),
+	('Land_FuelStation_01_pump_malevil_F', 7472.06, 4575.46, -0.076725, 1000, 0, 0, 0, 0, 0),
+	('Land_FuelStation_01_pump_malevil_F', 7463.85, 4578.63, -0.076725, 954, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 6276.84, 4931.97, -0.000000953674, 132, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 6276.17, 4921.94, 0, 200, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4576.45, 6942.44, -0.0712414, 0, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4572.37, 6949.32, -0.0719261, 85, 0, 0, 0, 0, 0),
+	('Land_FuelStation_03_pump_F', 6008.68, 4938.34, -0.00000524521, 0, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 5155.17, 5580.44, -0.0535898, 0, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 5155.13, 5574.44, -0.0528474, 0, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 6026.59, 4240.79, -0.0739508, 56, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 6009.88, 4239.99, -0.0591297, 141, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 2330.28, 7961.53, -0.17872, 465, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 2323.56, 7957.54, -0.19282, 479, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 2140.05, 9341.78, -0.0566573, 200, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4702.66, 2786.29, -0.118801, 454, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4707.53, 2780.02, -0.118801, 459, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4696.36, 2781.23, -0.118801, 500, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4701.27, 2775, -0.118801, 500, 0, 0, 0, 0, 0),
+	('Land_FuelStation_01_pump_malevil_F', 3371.75, 3745.78, -0.0165005, 901, 0, 0, 0, 0, 0),
+	('Land_FuelStation_01_pump_malevil_F', 3366.36, 3742.97, -0.0165653, 916, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 2968.61, 4204.15, 0, 200, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 1651.81, 6240.29, -0.285002, 411, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 1650.95, 6232.16, -0.285002, 431, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 1650.14, 6224.16, -0.285002, 404, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 5726.56, 1773.12, -0.285572, 370, 0, 0, 0, 0, 0),
+	('Land_FuelStation_03_pump_F', 1761.86, 5207.89, 0.00000572205, 0, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 1861.34, 4840.85, -0.0357323, 200, 0, 0, 0, 0, 0),
+	('Land_FuelStation_Feed_F', 1861.23, 4833.42, -0.035738, 200, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4589.05, 1088.81, 0, 500, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4589.05, 1080.79, 0, 500, 0, 0, 0, 0, 0),
+	('Land_fs_feed_F', 4589.05, 1072.79, 0, 500, 0, 0, 0, 0, 0);
 /*!40000 ALTER TABLE `land_fuels` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. players
-DROP TABLE IF EXISTS `players`;
+-- Listage de la structure de la table tanoa. players
 CREATE TABLE IF NOT EXISTS `players` (
   `uid` varchar(17) NOT NULL COMMENT 'PlayerUID',
   `profileName` varchar(60) NOT NULL DEFAULT '',
@@ -176,37 +243,37 @@ CREATE TABLE IF NOT EXISTS `players` (
   `RP_face` varchar(50) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
   `DYN_markers` text NOT NULL COMMENT 'Array',
   `LEVEL_donator` enum('0','1','2') NOT NULL DEFAULT '0',
-  `HEALTH_blood` smallint(4) unsigned NOT NULL DEFAULT '4000' COMMENT 'Range [0-4000]',
-  `HEALTH_bleed` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `HEALTH_coma` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Boolean',
-  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_alive` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
-  `POS_direction` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
+  `HEALTH_blood` smallint(4) unsigned NOT NULL DEFAULT 4000 COMMENT 'Range [0-4000]',
+  `HEALTH_bleed` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `HEALTH_coma` tinyint(1) unsigned NOT NULL DEFAULT 0 COMMENT 'Boolean',
+  `POS_x` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_alive` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean',
+  `POS_direction` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Range [0-360(°)]',
   `HEALTH_deseases` text NOT NULL COMMENT 'Array',
-  `HEALTH_hunger` tinyint(3) unsigned NOT NULL DEFAULT '100' COMMENT 'Range [0-100]',
-  `HEALTH_thirst` tinyint(3) unsigned NOT NULL DEFAULT '100' COMMENT 'Range [0-100]',
-  `HEALTH_fatigue` double unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-1]',
-  `HEALTH_alcool` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `HEALTH_hurt` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `HEALTH_hunger` tinyint(3) unsigned NOT NULL DEFAULT 100 COMMENT 'Range [0-100]',
+  `HEALTH_thirst` tinyint(3) unsigned NOT NULL DEFAULT 100 COMMENT 'Range [0-100]',
+  `HEALTH_fatigue` double unsigned NOT NULL DEFAULT 0 COMMENT 'Range [0-1]',
+  `HEALTH_alcool` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `HEALTH_hurt` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean',
   `WEST_level` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
   `GUER_level` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
   `EAST_level` enum('0','1','2','3','4','5','6','7','8','9','10','11','12') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
   `CIV_level` enum('0','1','2') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
   `JAIL_prison` varchar(2) NOT NULL DEFAULT '',
   `JAIL_cell` varchar(50) NOT NULL DEFAULT '',
-  `JAIL_time` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Minuts',
-  `JAIL_caution` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `JAIL_time` smallint(5) unsigned NOT NULL DEFAULT 0 COMMENT 'Minuts',
+  `JAIL_caution` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
   `JAIL_reason` varchar(50) NOT NULL DEFAULT '',
-  `JAIL_escape` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `JAIL_escape` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean',
   `JAIL_gear` text NOT NULL COMMENT 'Array',
   `PHONE_number` varchar(10) NOT NULL DEFAULT '',
   `PHONE_contacts` text NOT NULL COMMENT 'Array',
   `PHONE_messages` text NOT NULL COMMENT 'Array',
   `PHONE_forfait` varchar(50) NOT NULL DEFAULT '' COMMENT 'See Phone config',
   `PHONE_blacklist` text NOT NULL COMMENT 'Array',
-  `PHONE_annuaire` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `PHONE_annuaire` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean',
   `CIV_licenses` text NOT NULL COMMENT 'Array',
   `CIV_inventory` text NOT NULL COMMENT 'Array',
   `CIV_gear` text NOT NULL COMMENT 'Array',
@@ -220,73 +287,128 @@ CREATE TABLE IF NOT EXISTS `players` (
   `GUER_gear` text NOT NULL COMMENT 'Array',
   `GUER_inventory` text NOT NULL COMMENT 'Array',
   `GUER_licenses` text NOT NULL COMMENT 'Array',
-  `STATS_global_played` smallint(5) unsigned DEFAULT '0' COMMENT 'Total minuts played',
-  `STATS_last_update` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last connection',
-  `STATS_first_connection` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'First connection',
-  `CIV_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
-  `CIV_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
-  `GUER_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
-  `GUER_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
-  `EAST_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
-  `EAST_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
-  `WEST_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
-  `WEST_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `STATS_global_played` smallint(5) unsigned DEFAULT 0 COMMENT 'Total minuts played',
+  `STATS_last_update` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Last connection',
+  `STATS_first_connection` datetime DEFAULT current_timestamp() COMMENT 'First connection',
+  `CIV_cash` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `CIV_atm` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `GUER_cash` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `GUER_atm` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `EAST_cash` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `EAST_atm` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `WEST_cash` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `WEST_atm` int(50) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
+  `exp_level` int(11) NOT NULL DEFAULT 0,
+  `exp_total` int(11) NOT NULL DEFAULT 0,
+  `exp_perkPoints` int(11) NOT NULL DEFAULT 0,
+  `exp_perks` text DEFAULT NULL,
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.players : ~0 rows (environ)
+-- Listage des données de la table tanoa.players : ~41 rows (environ)
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
+INSERT INTO `players` (`uid`, `profileName`, `RP_firstname`, `RP_lastname`, `RP_birth`, `RP_nationality`, `RP_sexe`, `RP_face`, `DYN_markers`, `LEVEL_donator`, `HEALTH_blood`, `HEALTH_bleed`, `HEALTH_coma`, `POS_x`, `POS_y`, `POS_z`, `POS_alive`, `POS_direction`, `HEALTH_deseases`, `HEALTH_hunger`, `HEALTH_thirst`, `HEALTH_fatigue`, `HEALTH_alcool`, `HEALTH_hurt`, `WEST_level`, `GUER_level`, `EAST_level`, `CIV_level`, `JAIL_prison`, `JAIL_cell`, `JAIL_time`, `JAIL_caution`, `JAIL_reason`, `JAIL_escape`, `JAIL_gear`, `PHONE_number`, `PHONE_contacts`, `PHONE_messages`, `PHONE_forfait`, `PHONE_blacklist`, `PHONE_annuaire`, `CIV_licenses`, `CIV_inventory`, `CIV_gear`, `TABLET_apps`, `WEST_gear`, `EAST_gear`, `WEST_inventory`, `WEST_licenses`, `EAST_inventory`, `EAST_licenses`, `GUER_gear`, `GUER_inventory`, `GUER_licenses`, `STATS_global_played`, `STATS_last_update`, `STATS_first_connection`, `CIV_cash`, `CIV_atm`, `GUER_cash`, `GUER_atm`, `EAST_cash`, `EAST_atm`, `WEST_cash`, `WEST_atm`, `exp_level`, `exp_total`, `exp_perkPoints`, `exp_perks`) VALUES
+	('76561197960603762', 'Ethan Liverschild', 'Ethan', 'Liverschild', '"[15,10,2001]"', 'Belgium', 'Homme', 'Miller', '"[]"', '0', 4000, 0, 0, 7492.79, 4578.05, 0.552483, 1, 272, '"[[],[],[]]"', 79, 85, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[``,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 30, '2020-04-01 13:13:10', '2019-12-01 08:19:44', 500, 740, 0, 0, 0, 0, 0, 0, 1, 27, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561197975282714', 'John Martous', 'John', 'Martous', '"[17,3,2014]"', 'France', 'Homme', 'WhiteHead_12', '"[]"', '0', 4000, 0, 0, 5076.85, 5945.38, 0.00131035, 1, 226, '"[[],[],[]]"', 87, 82, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[[`wheat_cake`,10],[`eau50`,10]]"', '"[[`U_C_ConstructionCoverall_Black_F`,[`ItemGPS`,`sc0t_puce`,`AnarkhiaBitcoinKey`]],[`V_Chestrig_blk`,[]],[`Skyline_Backpack_Montagne_03_F`,[]],``,`division_woolhat_01`,[`ItemMap`,`ItemCompass`,`tf_anprc148jem_6`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 25, '2020-04-01 13:13:10', '2019-11-22 23:16:06', 0, 3673, 0, 0, 0, 0, 0, 0, 1, 28, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561197988967412', 'Charles Pieri', 'Charles', 'Pieri', '"[19,7,2004]"', 'Ireland', 'Homme', 'asczHead_beardy_A3', '"[[`monument4`,[3411.99,8090.6,0]],[`sculture5`,[3651.55,8184.29,0]],[`monument2`,[6589.81,6030.35,0]]]"', '0', 4000, 0, 0, 5092, 5948.28, 0.00130367, 1, 191, '"[[],[],[]]"', 43, 74, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`,`armurier_auto`]"', '"[]"', '"[[`U_O_Wetsuit`,[`ItemMap`,`tf_microdagr`,`tf_anprc148jem_3`,`ItemGPS`,`AnarkhiaBitcoinKey`,`AnarkhiaBitcoinKey`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`sc0t_puce`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`sc0t_puce`,`Alysia_repair_tireLever`,`RH_14Rnd_9x19_sw`,`RH_14Rnd_9x19_sw`,`RH_14Rnd_9x19_sw`,`AnarkhiaBitcoinKey`,`AnarkhiaBitcoinKey`]],[`V_Chestrig_oli`,[`H_Watchcap_blk`,`RH_14Rnd_9x19_sw`,`RH_14Rnd_9x19_sw`,`RH_14Rnd_9x19_sw`,`Alysia_repair_tire`,`Alysia_repair_tire`,`RH_14Rnd_9x19_sw`,`Alysia_siphon`,`AnarkhiaBitcoinKey`]],[`Skyline_Backpack_Montagne_03_F`,[`Skyline_Character_U_CivilC_05_F`,`Skyline_Pioche_01`]],`G_Diving`,``,[`ItemMap`,`tf_microdagr`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[`RH_sw659`,[`RH_14Rnd_9x19_sw`],[``,``,``,``],14],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`RH_14Rnd_9x19_sw`,14,false,-1,`Uniform`],[`RH_14Rnd_9x19_sw`,14,false,-1,`Uniform`],[`RH_14Rnd_9x19_sw`,14,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`RH_14Rnd_9x19_sw`,14,false,-1,`Vest`],[`RH_14Rnd_9x19_sw`,14,false,-1,`Vest`],[`RH_14Rnd_9x19_sw`,14,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Vest`],[`RH_14Rnd_9x19_sw`,14,false,-1,`Vest`],[`Alysia_siphon`,30,false,-1,`Vest`],[`AnarkhiaBitcoinKey`,30,false,-1,`Vest`],[`RH_14Rnd_9x19_sw`,14,true,2,`RH_sw659`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 1448, '2020-04-01 13:13:10', '2019-11-18 21:10:04', 5949, 1575530, 0, 0, 0, 0, 0, 0, 10, 4307, 4, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",1],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198045440856', 'Ricardo Vargas', 'Ricardo', 'Vargas', '"[21,3,2019]"', 'Chile', 'Homme', 'WhiteHead_21', '"[]"', '0', 4000, 0, 0, 5712.02, 5448.28, 0.1405, 1, 133, '"[[],[],[]]"', 62, 59, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`U_C_ConstructionCoverall_Black_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`Skyline_Backpack_Montagne_04_F`,[]],`Bear_RoundGlasses_gold`,`H_Booniehat_tan`,[`ItemMap`,`tf_anprc148jem_22`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 93, '2020-04-01 13:13:10', '2019-11-25 22:13:40', 48842, 4350, 0, 0, 0, 0, 0, 0, 1, 65, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198075018946', 'Scott McConor', 'Scott', 'McConor', '"[1,1,1969]"', 'Tanocien', 'Homme', 'asczHead_mctavish_A3', '"[[`monument4`,[3411.99,8090.6,0]],[`sculture5`,[3651.55,8184.29,0]]]"', '0', 4000, 0, 0, 9528.11, 5240.43, 0.00145006, 1, 236, '"[[],[],[]]"', 48, 66, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '379351', '"[]"', '"[]"', 'classic', '"[]"', 0, '"[`bricoleur_amateur`,`macon_amateur`,`macon_avance`,`architecte_specialise`,`infirmier_stagiaire`,`importateurpoidslourds`,`importateurluxe`,`importateurmaritime`]"', '"[]"', '"[[`U_C_ConstructionCoverall_Vrana_F`,[`AnarkhiaBitcoinKey`,`Alysia_repair_tire`]],[``,[]],[`Maels_backpack_1`,[`Alysia_repair_toolbox`,`Alysia_repair_toolbox`,`Alysia_repair_toolbox`,`Alysia_repair_tire`]],``,``,[`ItemMap`,`tf_microdagr`,`tf_anprc148jem_1`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`Alysia_repair_tire`,30,false,-1,`Uniform`],[`Alysia_repair_toolbox`,30,false,-1,`Backpack`],[`Alysia_repair_toolbox`,30,false,-1,`Backpack`],[`Alysia_repair_toolbox`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 696, '2020-04-04 18:57:11', '2019-11-18 20:26:38', 567514, 149665, 0, 0, 0, 0, 0, 0, 4, 992, 3, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",1],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198094602826', 'Matt Wilson', 'Matt', 'Wilson', '"[29,7,2006]"', 'Tanocien', 'Homme', 'WhiteHead_17', '"[]"', '0', 4000, 0, 0, 5118.7, 5952.9, 9.28712, 1, 194, '"[[],[],[]]"', 90, 88, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`apprenti_cuisinier`]"', '"[[`wheat_cake`,7],[`eau50`,10]]"', '"[[`Skyline_Character_U_CivilB_04_F`,[`ItemMap`,`AnarkhiaBitcoinKey`,`Alysia_repair_tireLever`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[]],``,`TRYK_R_CAP_BLK`,[`ItemMap`,`tf_microdagr`,`tf_anprc148jem_8`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 480, '2020-04-01 13:13:10', '2019-11-25 19:54:35', 0, 65547, 0, 0, 0, 0, 0, 0, 2, 327, 1, '[[["perk_alimentaire_1",1],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198097490252', 'Kane Kuro', 'Kane', 'Kuro', '"[24,1,1976]"', 'Belgium', 'Homme', 'RyanZombieFace6_Glowing', '"[]"', '0', 4000, 0, 0, 5132.54, 5946.69, 0.00126839, 1, 205, '"[[],[],[]]"', 35, 74, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`infirmier_stagiaire`]"', '"[]"', '"[[`EF_M_jkt2_32`,[`G_Spectacles`,`TRYK_SBeard_BK5`,`AnarkhiaBitcoinKey`,`sc0t_puce`,`SkylineItems_Bandage`,`Alysia_repair_tireLever`]],[`V_Chestrig_rgr`,[]],[`Maels_backpack_1`,[`Skyline_Hache_01`,`Binocular`]],`EWK_Cigar1`,`H_Watchcap_camo`,[`ItemMap`,`ItemCompass`,`ItemWatch`,`tf_anprc148jem_7`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 62, '2020-04-01 13:13:10', '2019-11-26 14:46:43', 0, 70088, 0, 0, 0, 0, 0, 0, 1, 92, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",1],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198102210699', 'Ivard Krytack', 'Ivard', 'Krytack', '"[17,2,2014]"', 'France', 'Homme', 'Sturrock', '"[[`monument4`,[3411.99,8090.6,0]],[`sculture5`,[3651.55,8184.29,0]],[`monument2`,[6589.81,6030.35,0]]]"', '0', 4000, 0, 0, 5019.58, 5973.67, 1.16722, 1, 315, '"[[],[],[]]"', 54, 62, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`armurier_legere`,`importateur`,`importateurpoidslourds`]"', '"[[`anarkhium`,2]]"', '"[[`EF_M_jkt32`,[`sc0t_puce`,`Alysia_repair_tireLever`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`AnarkhiaBitcoinKey`,`AnarkhiaBitcoinKey`,`sc0t_puce`]],[`V_Chestrig_rgr`,[`RH_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`]],[`division_predator_B`,[]],`TRYK_Beard_BK4`,`Skyline_HeadGear_Cowboy_03_F`,[`ItemMap`,`tf_anprc148jem_1`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 693, '2020-04-01 13:13:10', '2019-11-18 21:12:58', 0, 178893, 0, 0, 0, 0, 0, 0, 7, 2241, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",1],[[["perk_logistique_2",1],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198110912694', 'Bryan Leroy', 'Bryan', 'Leroy', '"[30,3,2000]"', 'France', 'Homme', 'Sturrock', '"[]"', '0', 4000, 0, 0, 5082.58, 5951.5, 0.00145054, 1, 128, '"[[],[],[]]"', 100, 100, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[``,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 2, '2020-04-01 13:13:10', '2019-11-23 17:58:07', 25000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+	('76561198111567230', 'James Tarantino', 'James', 'Tarantino', '"[12,4,1995]"', 'Belgium', 'Homme', 'asczHead_neumann_A3', '"[]"', '0', 4000, 0, 0, 5112.51, 5933.95, 18.1996, 1, 290, '"[[],[],[]]"', 66, 94, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`macon_amateur`,`importateur`,`importateurpoidslourds`]"', '"[]"', '"[[`Skyline_Character_U_CivilC_05_F`,[`tf_anprc148jem_2`,`sc0t_puce`,`AnarkhiaBitcoinKey`]],[`V_Chestrig_blk`,[]],[`division_megan_B`,[]],`Bear_RoundGlasses_blk`,`H_Watchcap_blk`,[`ItemMap`,`tf_anprc148jem_6`,`ItemGPS`,`Binocular`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 191, '2020-04-01 13:13:10', '2019-11-20 20:37:08', 0, 91400, 0, 0, 0, 0, 0, 0, 7, 2562, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",1],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",1],[[["perk_logistique_2",1],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198121841047', 'Sam Barsik', 'Sam', 'Barsik', '"[25,3,1993]"', 'Australia', 'Homme', 'WhiteHead_20', '"[[`monument2`,[6589.81,6030.35,0]],[`monument4`,[3411.99,8090.6,0]],[`sculture5`,[3651.55,8184.29,0]]]"', '0', 4000, 0, 0, 5079.29, 5952.84, 0.00155735, 1, 7, '"[[],[],[]]"', 81, 49, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`,`importateur`]"', '"[[`anarkhium`,8],[`serrureabime`,2],[`wheat_cake`,12],[`eau50`,10]]"', '"[[`rds_uniform_Woodlander1`,[`AnarkhiaBitcoinKey`,`sc0t_puce`,`AnarkhiaBitcoinKey`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[`V_LegStrapBag_black_F`,[`Alysia_repair_tireLever`]],[`Skyline_Backpack_Montagne_01_F`,[`Skyline_Pioche_01`]],`TRYK_Beard_BW`,``,[`ItemMap`,`tf_anprc148jem_2`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Vest`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 299, '2020-04-01 13:13:10', '2019-11-18 23:10:36', 1678, 92713, 0, 0, 0, 0, 0, 0, 4, 1005, 2, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",1],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198126898419', 'Julius Gremory', 'Julius', 'Gremory', '"[6,10,2001]"', 'Switzerland', 'Homme', 'asczHead_sokolov_A3', '"[[`monument2`,[6589.81,6030.35,0]],[`sculture5`,[3651.55,8184.29,0]],[`monument4`,[3411.99,8090.6,0]]]"', '0', 4000, 0, 0, 5121.96, 5954.93, 1.55247, 1, 125, '"[[],[],[]]"', 93, 95, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`,`macon_amateur`,`importateur`,`importateurpoidslourds`,`importateurmaritime`]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`]],[``,[]],[``,[]],``,``,[`ItemMap`,`tf_microdagr`,`tf_anprc148jem_10`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 2146, '2020-04-01 13:13:10', '2019-11-18 23:33:51', 0, 1465880, 0, 0, 0, 0, 0, 0, 16, 8890, 8, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",1],[[["perk_logistique_2",1],[[["perk_logistique_3",1],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198129609379', 'Judas Ysca', 'Judas', 'Ysca', '"[2,3,2012]"', 'Finland', 'Homme', 'GreekHead_A3_12', '"[]"', '0', 4000, 0, 0, 5241.53, 5762.5, 9.00874, 1, 214, '"[[],[],[]]"', 58, 73, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`bricoleur_amateur`]"', '"[[`anarkhium`,1]]"', '"[[`Skyline_Character_U_CivilC_06_F`,[`sc0t_puce`,`AnarkhiaBitcoinKey`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[`Skyline_Pioche_01`]],`TRYK_Beard_BK2`,`H_Bandanna_gry`,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 68, '2020-04-01 13:13:10', '2019-11-21 23:21:06', 0, 51389, 0, 0, 0, 0, 0, 0, 1, 52, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",1],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198134667084', 'Axel Chesnov', 'Axel', 'Chesnov', '"[4,10,1995]"', 'Belgium', 'Homme', 'WhiteHead_13', '"[]"', '0', 4000, 0, 0, 5393.71, 6687.49, 0.00130272, 1, 213, '"[[],[],[]]"', 43, 52, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`macon_amateur`]"', '"[[`wheat_cake`,13],[`eau50`,14]]"', '"[[`Skyline_Character_U_CivilC_06_F`,[`AnarkhiaBitcoinKey`,`SkylineItems_Bandage`,`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`division_survival_B`,[`EWK_Cigar1`,`EWK_Cig1`]],`shemagh_faceOD`,`H_Watchcap_blk`,[`ItemMap`,`tf_anprc148jem_9`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 118, '2020-04-01 13:13:10', '2019-11-18 21:17:21', 21742, 8468, 0, 0, 0, 0, 0, 0, 1, 92, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",1],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198140677880', 'James O Connor', 'James', 'O Connor', '"[4,1,1990]"', 'Angola', 'Homme', 'AfricanHead_03', '"[]"', '0', 4000, 0, 0, 5069.88, 5971.42, 0.00141907, 1, 157, '"[[],[],[]]"', 80, 57, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`]"', '"[[`wheat_cake`,1]]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`ItemGPS`,`AnarkhiaBitcoinKey`,`sc0t_puce`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`Alysia_siphon`]],[``,[]],[`Skyline_Backpack_Montagne_03_F`,[`EWK_Cigar1`,`EWK_Cig1`,`Alysia_repair_tireLever`,`Alysia_jerrycan_empty`]],`TRYK_SBeard_BW`,`EF_Punk_wig_SBW`,[`ItemMap`,`tf_microdagr`,`tf_anprc148jem_3`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_siphon`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Backpack`],[`Alysia_jerrycan_empty`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 194, '2020-04-01 13:13:10', '2019-11-24 23:43:33', 17534, 112455, 0, 0, 0, 0, 0, 0, 2, 301, 1, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198149981467', 'Azgard Sanchez', 'Azgard', 'Sanchez', '"[18,4,2000]"', 'France', 'Homme', 'Default', '"[]"', '0', 4000, 0, 0, 5120.46, 5866.89, 0.45857, 1, 122, '"[[],[],[]]"', 100, 100, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`Skyline_Backpack_Montagne_03_F`,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 0, '2020-04-01 13:13:10', '2019-11-30 01:10:00', 25000, 0, 0, 0, 0, 0, 0, 0, 1, 2, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198153810575', 'Kenzo Wallas', 'Kenzo', 'Wallas', '"[25,4,1995]"', 'Tanocien', 'Homme', 'PersianHead_A3_02', '"[]"', '0', 4000, 0, 0, 5131.52, 5899.78, 0.00141716, 1, 140, '"[[],[],[]]"', 98, 95, 0.0975823, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`EF_HM_LPBL2`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`Skyline_Backpack_Montagne_04_F`,[]],`Bear_RoundGlasses_gold`,`H_Bandanna_surfer`,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 0, '2020-04-01 13:13:10', '2019-11-30 08:20:30', 1820, 0, 0, 0, 0, 0, 0, 0, 1, 28, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198163300209', 'Carlos Kandinsky', 'Carlos', 'Kandinsky', '"[10,10,1990]"', 'Belarus', 'Homme', 'WhiteHead_02', '"[]"', '0', 4000, 0, 0, 5737.63, 5527.19, 0.00143862, 1, 257, '"[[],[],[]]"', 74, 85, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`infirmier_stagiaire`]"', '"[[`circuitimprime`,1]]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`tf_anprc148jem_4`,`AnarkhiaBitcoinKey`,`sc0t_puce`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[`Skyline_Pioche_01`,`Alysia_repair_toolbox`]],``,``,[`ItemMap`,`tf_anprc148jem_2`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_toolbox`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 196, '2020-04-01 13:13:10', '2019-12-03 20:49:07', 17556, 60649, 0, 0, 0, 0, 0, 0, 2, 428, 1, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",1],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198164979948', 'Jeremy Walker', 'Jeremy', 'Walker', '"[18,4,1990]"', 'France', 'Homme', 'Default', '"[[`monument4`,[3411.99,8090.6,0]],[`monument2`,[6589.81,6030.35,0]]]"', '0', 1391, 83, 0, 6997.26, 4277.64, 0.00172043, 1, 312, '"[[],[],[]]"', 90, 97, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`apprenti_cuisinier`,`macon_amateur`]"', '"[[`anarkhium`,7],[`eau50`,5]]"', '"[[`Skyline_Character_U_CivilC_06_F`,[`Alysia_siphon`,`Alysia_repair_tireLever`,`sc0t_puce`,`AnarkhiaBitcoinKey`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[]],`G_Sport_Blackred`,`H_Watchcap_blk`,[`ItemMap`,`tf_anprc148jem_5`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`Alysia_siphon`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 369, '2020-04-01 13:13:10', '2019-11-24 18:32:00', 89729, 0, 0, 0, 0, 0, 0, 0, 4, 978, 3, '[[["perk_alimentaire_1",1],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",1],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198165158755', 'Fabien LeFadas', 'Fabien', 'LeFadas', '"[26,6,2010]"', 'France', 'Homme', 'Default', '"[[`sculture5`,[3651.55,8184.29,0]]]"', '0', 4000, 0, 0, 7492.82, 4577.95, 0.552483, 1, 302, '"[[],[],[]]"', 74, 87, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`bricoleur_amateur`,`bricoleur_avance`]"', '"[[`glass`,5],[`anarkhium`,1],[`eau50`,1],[`raisin`,10]]"', '"[[`EF_M_jkt1`,[`sc0t_puce`,`AnarkhiaBitcoinKey`,`Alysia_repair_tireLever`,`Alysia_siphon`,`RH_19Rnd_9x19_g18`]],[`V_Chestrig_oli`,[`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`RH_19Rnd_9x19_g18`,`Alysia_jerrycan_diesel`,`SkylineItems_Couteau`,`SkylineItems_Couteau`,`Alysia_repair_tire`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[`Skyline_Backpack_Montagne_02_F`,[`Skyline_tl122_blanche`,`RH_g18`,`Skyline_Hache_01`,`Alysia_repair_tire`]],`TRYK_SBeard_BK4`,`H_Bandanna_sgg`,[`ItemMap`,`ItemCompass`,`ItemWatch`,`tf_anprc148jem_9`,`ItemGPS`,`Binocular`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`Alysia_siphon`,30,false,-1,`Uniform`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Uniform`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`RH_19Rnd_9x19_g18`,19,false,-1,`Vest`],[`Alysia_jerrycan_diesel`,30,false,-1,`Vest`],[`SkylineItems_Couteau`,30,false,-1,`Vest`],[`SkylineItems_Couteau`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 1459, '2020-04-01 13:13:10', '2019-11-21 21:26:47', 71455, 742103, 0, 0, 0, 0, 0, 0, 10, 3757, 4, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",1],[[["perk_fabricant_2",1],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198169530053', 'Mick HERTY', 'Mick', 'HERTY', '"[7,11,2019]"', 'Tanocien', 'Homme', 'GreekHead_A3_14', '"[]"', '0', 4000, 0, 0, 5053.52, 5938.65, 0.00135422, 1, 246, '"[[],[],[]]"', 23, 67, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`infirmier_stagiaire`]"', '"[[`aluminium`,19],[`eau50`,1]]"', '"[[`Skyline_Character_U_Infirmier_01_F`,[`sc0t_puce`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`AnarkhiaBitcoinKey`,`Alysia_repair_tireLever`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[`G_Respirator_blue_F`,`Skyline_Pelle_01`,`Skyline_Pioche_01`,`SkylineItems_Bandage`]],``,`division_woolhat_01`,[`ItemMap`,`tf_anprc148jem_13`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 172, '2020-04-01 13:13:10', '2019-11-24 21:05:52', 418, 7863, 0, 0, 0, 0, 0, 0, 1, 151, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",1],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198173083614', 'Mouloud Guevara', 'Mouloud', 'Guevara', '"[24,1,2000]"', 'France', 'Homme', 'PersianHead_A3_01', '"[]"', '0', 4000, 0, 0, 5222.86, 5780.72, 2.41737, 1, 262, '"[[],[],[]]"', 95, 95, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[``,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 15, '2020-04-01 13:13:10', '2019-12-15 23:07:16', 25000, 1450, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+	('76561198189710551', 'Zouzou Polska', 'Zouzou', 'Polska', '"[1,1,2007]"', 'France', 'Homme', 'RussianHead_5', '"[]"', '0', 4000, 0, 0, 5081.8, 5956.34, 0.00156879, 1, 45, '"[[],[],[]]"', 55, 81, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[[`wheat_cake`,4],[`eau50`,2]]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Hache_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 50, '2020-04-01 13:13:10', '2019-12-01 08:51:41', 15515, 10125, 0, 0, 0, 0, 0, 0, 1, 46, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198193788047', 'Drakeur Fresne', 'Drakeur', 'Fresne', '"[8,6,1998]"', 'France', 'Homme', 'RussianHead_4', '"[[`monument4`,[3411.99,8090.6,0]],[`sculture5`,[3651.55,8184.29,0]],[`monument2`,[6589.81,6030.35,0]]]"', '0', 4000, 0, 0, 5120.67, 5955.57, 1.47702, 1, 254, '"[[],[],[]]"', 56, 60, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`bricoleur_amateur`,`bricoleur_avance`,`importateur`]"', '"[]"', '"[[`U_C_ConstructionCoverall_Black_F`,[`Alysia_repair_toolbox`]],[`V_LegStrapBag_black_F`,[`Skyline_tl122_blanche`,`AnarkhiaBitcoinKey`,`Alysia_repair_tireLever`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`sc0t_puce`]],[`Skyline_Backpack_Montagne_04_F`,[`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`]],`shemagh_faceOD`,`division_woolhat_01`,[`ItemMap`,`ItemCompass`,`ItemWatch`,`tf_anprc148jem_1`,`ItemGPS`,`Binocular`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[`RH_g17`,[`RH_17Rnd_9x19_g17`],[``,``,``,``],17],[[`Alysia_repair_toolbox`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Vest`],[`Alysia_repair_tireLever`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`sc0t_puce`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,true,2,`RH_g17`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 652, '2020-04-01 13:13:10', '2019-11-18 21:16:31', 2000, 166572, 0, 0, 0, 0, 0, 0, 12, 5219, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",1],[[["perk_fabricant_2",1],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",1],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198198007519', 'Leo Monpasset', 'Leo', 'Monpasset', '"[9,5,2004]"', 'France', 'Homme', 'WhiteHead_17', '"[]"', '0', 3813, 0, 0, 5122.52, 5868.05, 0.00165081, 1, 55, '"[[],[],[]]"', 91, 97, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`sc0t_puce`]],[``,[]],[``,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 7, '2020-04-01 13:13:10', '2019-11-22 23:28:44', 25000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+	('76561198202626967', 'Lautaro Rodriguez', 'Lautaro', 'Rodriguez', '"[9,10,2015]"', 'Colombia', 'Homme', 'RussianHead_3', '"[]"', '0', 4000, 0, 0, 5078.33, 5953.33, 0.0015707, 1, 63, '"[[],[],[]]"', 52, 68, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`macon_amateur`]"', '"[[`wheat_cake`,5],[`eau50`,5]]"', '"[[`U_C_Poloshirt_blue`,[`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`AnarkhiaBitcoinKey`,`sc0t_puce`,`SkylineItems_Bandage`]],[`V_Chestrig_blk`,[`EWK_Cig1`,`Alysia_repair_tireLever`]],[`Skyline_Backpack_Montagne_01_F`,[]],`G_Aviator`,``,[`ItemMap`,`tf_anprc148jem_4`,`ItemGPS`,`Binocular`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Vest`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 53, '2020-04-01 13:13:10', '2019-12-16 15:00:40', 400, 3828, 0, 0, 0, 0, 0, 0, 1, 57, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",1],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198222011156', 'Lucas Sicario', 'Lucas', 'Sicario', '"[14,11,2011]"', 'Colombia', 'Homme', 'GreekHead_A3_11', '"[]"', '0', 4000, 0, 0, 5081.39, 5957.57, 0.00155735, 1, 64, '"[[],[],[]]"', 40, 78, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`]"', '"[]"', '"[[`EF_MX1`,[]],[``,[]],[`Maels_backpack_1`,[`SkylineItems_Bandage`,`AnarkhiaBitcoinKey`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],``,``,[`ItemMap`,`ItemCompass`,`tf_microdagr`,`tf_anprc148jem_4`,`ItemGPS`,`Binocular`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`SkylineItems_Bandage`,30,false,-1,`Backpack`],[`AnarkhiaBitcoinKey`,30,false,-1,`Backpack`],[`SkylineItems_Bandage`,30,false,-1,`Backpack`],[`SkylineItems_Bandage`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 175, '2020-04-01 13:13:10', '2019-11-23 08:26:57', 37015, 38529, 0, 0, 0, 0, 0, 0, 1, 75, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198224639224', 'Frank Del Dio', 'Frank', 'Del Dio', '"[7,8,2005]"', 'Poland', 'Homme', 'Default', '"[]"', '0', 4000, 0, 0, 5114.25, 5867.07, 0.327884, 1, 36, '"[[],[],[]]"', 99, 96, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Character_U_CivilB_04_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 11, '2020-04-01 13:13:10', '2019-11-19 13:33:33', 19996, 0, 0, 0, 0, 0, 0, 0, 1, 4, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198237617140', 'Jorge Lidalba Castillo', 'Jorge Lidalba', 'Castillo', '"[26,8,2006]"', 'Cuba', 'Homme', 'GreekHead_A3_11', '"[]"', '0', 4000, 0, 0, 5078.92, 5952.72, 0.0013485, 1, 169, '"[[],[],[]]"', 42, 43, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`]"', '"[[`anarkhium`,4],[`wheat_cake`,5],[`eau50`,5]]"', '"[[`Skyline_Character_U_CivilB_05_F`,[`ItemGPS`,`EWK_Cigar1`,`AnarkhiaBitcoinKey`,`sc0t_puce`,`Alysia_repair_tireLever`,`RH_17Rnd_9x19_g17`]],[``,[]],[`division_survival_B`,[`Skyline_Pioche_01`,`RH_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`,`RH_17Rnd_9x19_g17`]],`G_Aviator`,`H_Cap_blk`,[`ItemMap`,`tf_anprc148jem_8`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Uniform`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`],[`RH_17Rnd_9x19_g17`,17,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 99, '2020-04-01 13:13:10', '2019-11-24 11:27:16', 571, 149645, 0, 0, 0, 0, 0, 0, 0, 0, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198249426408', 'Andy Mcnally', 'Andy', 'McNally', '"[18,3,2017]"', 'Canada', 'Homme', 'Default', '"[]"', '0', 4000, 0, 0, 5728.38, 5558.24, 0.00143909, 1, 244, '"[[],[],[]]"', 25, 64, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`infirmier_stagiaire`]"', '"[[`aubepine`,4],[`light_double`,1],[`eau50`,4]]"', '"[[`Skyline_Character_U_Infirmier_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`Alysia_repair_tireLever`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[`Binocular`,`Skyline_Pioche_01`,`Skyline_tl122_blanche`,`Alysia_jerrycan_diesel`]],``,`division_woolhat_01`,[`ItemMap`,`tf_anprc148jem_8`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`Alysia_jerrycan_diesel`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 558, '2020-04-01 13:13:10', '2019-11-24 16:28:19', 85488, 3575, 0, 0, 0, 0, 0, 0, 2, 319, 1, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",1],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198259509327', 'Ashley Wilson', 'Ashley', 'Wilson', '"[3,9,2007]"', 'Tanocien', 'Femme', 'Fem_1', '"[]"', '0', 4000, 0, 0, 5075.67, 5956.09, 0.00152779, 1, 349, '"[[],[],[]]"', 80, 87, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`apprenti_cuisinier`]"', '"[[`wheat_cake`,10],[`eau50`,4]]"', '"[[`EF_FEM_4`,[`ItemGPS`,`ItemMap`,`AnarkhiaBitcoinKey`,`sc0t_puce`,`Alysia_repair_tireLever`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[`Skyline_Hache_01`,`Skyline_Pelle_01`,`Skyline_tl122_blanche`]],``,`EF_FPKL_BK`,[`ItemMap`,`tf_anprc148jem_7`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 209, '2020-04-01 13:13:10', '2019-11-25 20:28:03', 0, 74875, 0, 0, 0, 0, 0, 0, 1, 111, 0, '[[["perk_alimentaire_1",1],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198264000931', 'Mathis Lavoche', 'Mathis', 'Lavoche', '"[13,11,2011]"', 'France', 'Homme', 'WhiteHead_11', '"[]"', '0', 4000, 0, 0, 5079.11, 5953.86, 0.00158215, 1, 41, '"[[],[],[]]"', 61, 52, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`]"', '"[]"', '"[[`rds_uniform_Woodlander4`,[`TRYK_Shemagh_G`,`Alysia_repair_tireLever`,`sc0t_puce`]],[`V_Chestrig_oli`,[`AnarkhiaBitcoinKey`,`Alysia_repair_toolbox`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[`Skyline_Backpack_Montagne_01_F`,[]],`TRYK_SBeard_BW`,`H_Watchcap_cbr`,[`ItemMap`,`tf_microdagr`,`tf_anprc148jem_1`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Vest`],[`Alysia_repair_toolbox`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Vest`],[`Alysia_repair_tire`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`],[`SkylineItems_Bandage`,30,false,-1,`Vest`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 1038, '2020-04-01 13:13:10', '2019-11-29 21:17:08', 1731, 209550, 0, 0, 0, 0, 0, 0, 3, 897, 2, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198271980565', 'Hugo Hodson', 'Hugo', 'Hodson', '"[26,2,1995]"', 'France', 'Homme', 'Default', '"[]"', '0', 4000, 0, 0, 5211.55, 6157.37, 0.00162411, 1, 360, '"[[],[],[]]"', 81, 87, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[[`wheat_cake`,3],[`eau50`,3]]"', '"[[`Skyline_Character_U_CivilC_06_F`,[`sc0t_puce`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[``,[]],[`Skyline_Backpack_Montagne_03_F`,[]],`shemagh_faceOD`,`TRYK_R_CAP_OD_US`,[`ItemMap`,`tf_anprc148jem_11`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 38, '2020-04-01 13:13:10', '2019-11-19 20:57:06', 639, 2384, 0, 0, 0, 0, 0, 0, 1, 32, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198279888587', 'Ronald Speirs', 'Ronald', 'Speirs', '"[29,6,2002]"', 'Russia', 'Homme', 'WhiteHead_20', '"[]"', '0', 4000, 0, 0, 5213.64, 5810.65, 0, 0, 283, '"[[],[],[]]"', 100, 100, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[``,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 0, '2020-04-01 13:13:10', '2019-11-24 07:14:05', 25000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+	('76561198321021809', 'Thibaud Delessert', 'Thibaud', 'Delessert', '"[19,12,1999]"', 'Switzerland', 'Homme', 'WhiteHead_09', '"[[`sculture5`,[3651.55,8184.29,0]]]"', '0', 4000, 0, 0, 5075.63, 5947.06, 0.00145149, 1, 127, '"[[],[],[]]"', 90, 94, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`infirmier_stagiaire`]"', '"[]"', '"[[`Skyline_Character_U_CivilC_05_F`,[`AnarkhiaBitcoinKey`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`Alysia_repair_tire`,`Alysia_repair_tire`]],[``,[]],[`Skyline_Backpack_Montagne_03_F`,[`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tireLever`,`Alysia_repair_toolbox`,`Alysia_repair_toolbox`]],`G_Aviator`,`Skyline_HeadGear_Cowboy_02_F`,[`ItemMap`,`ItemCompass`,`ItemWatch`,`tf_anprc148jem_11`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tire`,30,false,-1,`Uniform`],[`Alysia_repair_tire`,30,false,-1,`Uniform`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tireLever`,30,false,-1,`Backpack`],[`Alysia_repair_toolbox`,30,false,-1,`Backpack`],[`Alysia_repair_toolbox`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 188, '2020-04-01 13:13:10', '2019-11-18 21:07:19', 271, 26311, 0, 0, 0, 0, 0, 0, 3, 859, 2, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",1],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198323531003', 'Mateo Bollut', 'Mateo', 'Bollut', '"[25,2,2005]"', 'France', 'Homme', 'WhiteHead_21', '"[[`statue1`,[3931.17,4673.7,0]]]"', '0', 4000, 0, 0, 5124.5, 5872.91, 0.00153542, 1, 91, '"[[],[],[]]"', 68, 79, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[]"', '"[[`eau50`,1],[`sheep`,2]]"', '"[[`Skyline_Character_U_CivilE_06_F`,[`EWK_Cig1`,`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`Skyline_Backpack_Montagne_03_F`,[`Skyline_Uniforme_Alysia_01_F`,`Skyline_tl122_blanche`]],`TRYK_Beard_BK`,`TRYK_H_wig`,[`ItemMap`,`tf_anprc148jem_3`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 66, '2020-04-01 13:13:10', '2019-11-24 03:18:30', 361, 53038, 0, 0, 0, 0, 0, 0, 1, 292, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198348010745', 'Herver dubois', 'Herver', 'Dubois', '"[1,1,2014]"', 'Tanocien', 'Homme', 'Default', '"[]"', '0', 10, 0, 1, 5772.76, 7614.25, 0.0013237, 1, 44, '"[[],[],[]]"', 93, 81, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 1, '"[`macon_amateur`]"', '"[[`anarkhium`,3],[`wheat_cake`,14],[`eau50`,3]]"', '"[[`Skyline_Character_U_CivilB_02_F`,[`sc0t_puce`,`AnarkhiaBitcoinKey`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`Alysia_repair_tireLever`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[``,[]],[`Skyline_Backpack_Montagne_02_F`,[`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`Alysia_repair_tire`,`SkylineItems_Bandage`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],``,``,[`ItemMap`,`tf_anprc148jem_2`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`Alysia_repair_tire`,30,false,-1,`Backpack`],[`SkylineItems_Bandage`,30,false,-1,`Backpack`],[`SkylineItems_Bandage`,30,false,-1,`Backpack`],[`SkylineItems_Bandage`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 115, '2020-04-01 13:13:10', '2019-11-21 17:11:10', 3164, 96682, 0, 0, 0, 0, 0, 0, 1, 291, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",1],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198349752423', 'Will Neil', 'Will', 'Neil', '"[23,2,2000]"', 'UnitedStates', 'Homme', 'Sturrock', '"[]"', '0', 3972, 0, 0, 9113.6, 5257.1, 0.535883, 1, 182, '"[[],[],[]]"', 76, 78, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`armurier_legere`,`armurier_auto`,`armurier_lourdes`,`armurier_accessoire`,`bricoleur_amateur`,`bricoleur_avance`,`ingenieur`,`importateur`,`importateurpoidslourds`,`importateurmaritime`]"', '"[]"', '"[[`U_C_CBRN_Suit_01_White_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`,`Alysia_repair_tireLever`,`SkylineItems_Bandage`,`SkylineItems_Bandage`]],[``,[]],[`Skyline_Backpack_Montagne_03_F`,[`ItemGPS`,`EWK_Cig1`,`tf_microdagr`,`G_Aviator`,`Skyline_Character_U_CivilC_05_F`,`V_Chestrig_rgr`,`H_Cap_blk_CMMG`]],`G_RegulatorMask_F`,``,[`ItemMap`,`ItemCompass`,`ItemWatch`,`tf_anprc148jem_3`,`ItemGPS`,`Binocular`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 598, '2020-04-01 13:13:10', '2019-12-01 11:55:57', 6454, 14225, 0, 0, 0, 0, 0, 0, 20, 12348, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",1],[[["perk_armurier_2",1],[[["perk_armurier_3",1],[["perk_armurier_4",1]]]]]]],[["perk_fabricant_1",1],[[["perk_fabricant_2",1],[[["perk_fabricant_3",1],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",1],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198808756399', 'Nathan Clinthon', 'Nathan', 'Clinthon', '"[3,11,1993]"', 'France', 'Homme', 'Ioannou', '"[]"', '0', 4000, 0, 0, 6671.34, 7628.34, 1.23361, 1, 136, '"[[],[],[]]"', 92, 93, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[]"', '"[]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`sc0t_puce`,`AnarkhiaBitcoinKey`]],[``,[]],[`Skyline_Backpack_Montagne_01_F`,[]],``,``,[`ItemMap`,`ItemGPS`],[``,[],[``,``,``,``],0],[``,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 18, '2020-04-01 13:13:10', '2019-11-26 14:47:45', 0, 8225, 0, 0, 0, 0, 0, 0, 1, 22, 5, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198838052949', 'Baptiste Hanzman', 'Baptiste', 'Hanzman', '"[6,3,2005]"', 'Germany', 'Homme', 'Default', '"[]"', '0', 4000, 0, 0, 1468.27, 5492.29, 0.27899, 1, 262, '"[[],[],[]]"', 80, 81, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`bricoleur_amateur`]"', '"[[`plomb`,5],[`wheat_cake`,8],[`eau50`,8]]"', '"[[`Skyline_Uniforme_Alysia_01_F`,[`AnarkhiaBitcoinKey`,`sc0t_puce`]],[``,[]],[`division_predator_B`,[]],``,``,[`ItemMap`,`tf_microdagr`,`tf_anprc148jem_1`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`sc0t_puce`,30,false,-1,`Uniform`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 9, '2020-04-01 13:13:10', '2019-11-18 21:43:09', 273, 51534, 0, 0, 0, 0, 0, 0, 1, 33, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",1],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",0],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]'),
+	('76561198854156949', 'Tom Scrall', 'Tom', 'Scrall', '"[24,12,2004]"', 'France', 'Homme', 'WhiteHead_11', '"[]"', '0', 4000, 0, 0, 5117.23, 5906.45, 0.00153828, 1, 342, '"[[],[],[]]"', 70, 57, 0, 0, 0, '0', '0', '0', '0', '', '', 0, 0, '', 0, '"[]"', '', '"[]"', '"[]"', 'lite', '"[]"', 0, '"[`macon_amateur`]"', '"[[`anarkhium`,4],[`eau50`,4]]"', '"[[`rds_uniform_Woodlander1`,[`sc0t_puce`,`AnarkhiaBitcoinKey`,`SkylineItems_Bandage`]],[``,[]],[`Skyline_Backpack_Montagne_02_F`,[`Alysia_repair_tireLever`]],``,``,[`ItemMap`,`tf_anprc148jem_6`,`ItemGPS`],[``,[],[``,``,``,``],0],[`Skyline_Pioche_01`,[],[``,``,``,``]],[``,[],[``,``,``,``],0],[[`sc0t_puce`,30,false,-1,`Uniform`],[`AnarkhiaBitcoinKey`,30,false,-1,`Uniform`],[`SkylineItems_Bandage`,30,false,-1,`Uniform`],[`Alysia_repair_tireLever`,30,false,-1,`Backpack`]]]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', '"[]"', 46, '2020-04-01 13:13:10', '2019-11-22 23:07:38', 2000, 105149, 0, 0, 0, 0, 0, 0, 1, 86, 0, '[[["perk_alimentaire_1",0],[[["perk_alimentaire_2",0],[[["perk_alimentaire_3",0],[["perk_alimentaire_4",0]]]]]]],[["perk_armurier_1",0],[[["perk_armurier_2",0],[[["perk_armurier_3",0],[["perk_armurier_4",0]]]]]]],[["perk_fabricant_1",0],[[["perk_fabricant_2",0],[[["perk_fabricant_3",0],[["perk_fabricant_4",0]]]]]]],[["perk_constructeur_1",1],[[["perk_constructeur_2",0],[[["perk_constructeur_3",0],[["perk_constructeur_4",0]]]]]]],[["perk_medicale_1",0],[[["perk_medicale_2",0],[[["perk_medicale_3",0],[["perk_medicale_4",0]]]]]]],[["perk_logistique_1",0],[[["perk_logistique_2",0],[[["perk_logistique_3",0],[[["perk_logistique_4",0],[["perk_logistique_5",0]]]]]]]]]]');
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. ressources
-DROP TABLE IF EXISTS `ressources`;
+-- Listage de la structure de la table tanoa. ressources
 CREATE TABLE IF NOT EXISTS `ressources` (
   `name` varchar(50) NOT NULL,
-  `price` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `price` mediumint(8) unsigned NOT NULL DEFAULT 0 COMMENT 'Money',
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.ressources : ~0 rows (environ)
+-- Listage des données de la table tanoa.ressources : ~12 rows (environ)
 /*!40000 ALTER TABLE `ressources` DISABLE KEYS */;
+INSERT INTO `ressources` (`name`, `price`) VALUES
+	('aluminiump', 1320),
+	('aubepinep', 864),
+	('cottonp', 630),
+	('fioul', 1945),
+	('gazole', 2420),
+	('glass', 620),
+	('ironp', 610),
+	('ortiep', 1390),
+	('plombp', 532),
+	('reinedespresp', 1018),
+	('valerianep', 664),
+	('woodp', 260);
 /*!40000 ALTER TABLE `ressources` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. serverinfo
-DROP TABLE IF EXISTS `serverinfo`;
+-- Listage de la structure de la table tanoa. serverinfo
 CREATE TABLE IF NOT EXISTS `serverinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `year` smallint(4) unsigned NOT NULL DEFAULT '2000',
-  `month` tinyint(2) unsigned NOT NULL DEFAULT '12',
-  `day` tinyint(2) unsigned NOT NULL DEFAULT '1',
-  `hour` tinyint(2) unsigned NOT NULL DEFAULT '12',
-  `minute` tinyint(2) unsigned NOT NULL DEFAULT '0',
+  `year` smallint(4) unsigned NOT NULL DEFAULT 2000,
+  `month` tinyint(2) unsigned NOT NULL DEFAULT 12,
+  `day` tinyint(2) unsigned NOT NULL DEFAULT 1,
+  `hour` tinyint(2) unsigned NOT NULL DEFAULT 12,
+  `minute` tinyint(2) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.serverinfo : ~0 rows (environ)
+-- Listage des données de la table tanoa.serverinfo : ~1 rows (environ)
 /*!40000 ALTER TABLE `serverinfo` DISABLE KEYS */;
-INSERT IGNORE INTO `serverinfo` (`id`, `year`, `month`, `day`, `hour`, `minute`) VALUES
-	(1, 2030, 10, 24, 12, 0);
+INSERT INTO `serverinfo` (`id`, `year`, `month`, `day`, `hour`, `minute`) VALUES
+	(1, 2039, 5, 25, 10, 14);
 /*!40000 ALTER TABLE `serverinfo` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. taxes
-DROP TABLE IF EXISTS `taxes`;
+-- Listage de la structure de la table tanoa. taxes
 CREATE TABLE IF NOT EXISTS `taxes` (
   `variable` varchar(50) NOT NULL,
-  `value` double unsigned NOT NULL DEFAULT '1' COMMENT 'Factor/Coef (Range [0-1])',
+  `value` double unsigned NOT NULL DEFAULT 1 COMMENT 'Factor/Coef (Range [0-1])',
   PRIMARY KEY (`variable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.taxes : ~4 rows (environ)
+-- Listage des données de la table tanoa.taxes : ~4 rows (environ)
 /*!40000 ALTER TABLE `taxes` DISABLE KEYS */;
-INSERT IGNORE INTO `taxes` (`variable`, `value`) VALUES
-	('gServer_tax_companies_building_multiplier', 0.2),
-	('gServer_tax_companies_employee_multiplier', 0.4),
-	('gServer_tax_house_multiplier', 0.2),
-	('gServer_tax_salary_multiplier', 0.2);
+INSERT INTO `taxes` (`variable`, `value`) VALUES
+	('gServer_tax_companies_building_multiplier', 0),
+	('gServer_tax_companies_employee_multiplier', 0),
+	('gServer_tax_house_multiplier', 0),
+	('gServer_tax_salary_multiplier', 0);
 /*!40000 ALTER TABLE `taxes` ENABLE KEYS */;
 
--- Export de la structure de la table tanoa. vehicles
-DROP TABLE IF EXISTS `vehicles`;
+-- Listage de la structure de la table tanoa. vehicles
 CREATE TABLE IF NOT EXISTS `vehicles` (
   `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
   `classname` varchar(50) NOT NULL COMMENT 'ArmA3 classname',
@@ -296,24 +418,95 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `inventory` text NOT NULL COMMENT 'Array',
   `displayname` varchar(50) NOT NULL DEFAULT '' COMMENT 'Display name in garage. Can be changed by user',
   `HitPointsDamage` text NOT NULL COMMENT 'Array',
-  `active` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean | 0 : stored | 1 : out of garage',
-  `assurance` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
-  `fuel` tinyint(3) unsigned NOT NULL DEFAULT '100' COMMENT 'Range [0-100(%)]',
+  `active` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean | 0 : stored | 1 : out of garage',
+  `assurance` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean',
+  `fuel` tinyint(3) unsigned NOT NULL DEFAULT 100 COMMENT 'Range [0-100(%)]',
   `fuel_type` varchar(20) NOT NULL DEFAULT '' COMMENT 'Current fuel type in tank. (only stored if not default vehicle''s fuel)',
-  `POS_store_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_store_y` float DEFAULT '0' COMMENT 'Position ATL',
-  `POS_store_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_x` float unsigned NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
-  `POS_direction` smallint(3) unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
-  `occuped` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean | 0 : free to use | 1 : cannot be accessed',
+  `POS_store_x` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_store_y` float DEFAULT 0 COMMENT 'Position ATL',
+  `POS_store_z` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_x` float unsigned NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT 0 COMMENT 'Position ATL',
+  `POS_direction` smallint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Range [0-360(°)]',
+  `occuped` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Boolean | 0 : free to use | 1 : cannot be accessed',
   PRIMARY KEY (`plate`),
   KEY `pid` (`pid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.vehicles : ~0 rows (environ)
+-- Listage des données de la table tanoa.vehicles : ~70 rows (environ)
 /*!40000 ALTER TABLE `vehicles` DISABLE KEYS */;
+INSERT INTO `vehicles` (`plate`, `classname`, `pid`, `side`, `type`, `inventory`, `displayname`, `HitPointsDamage`, `active`, `assurance`, `fuel`, `fuel_type`, `POS_store_x`, `POS_store_y`, `POS_store_z`, `POS_x`, `POS_y`, `POS_z`, `POS_direction`, `occuped`) VALUES
+	(15476, 'd3s_e38_98_2', '76561198349752423', 'CIV', 'Car', '"[]"', 'BMW 730i Kaki', '"[0.598425,0.023622,0.598425,0.0472441,0,0.362205,0.228346,1,1,0.42126,1,0.633858,0.220472,0,0,0,0,0,0,0,0,0]"', 0, 1, 41, '', 5078.48, 5951.27, 0, 0, 0, 0, 114, 0),
+	(63606, 'd3s_giulietta_16_3', '76561198164979948', 'CIV', 'Car', '"[]"', 'Alfa Romeo Giulietta', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(70326, 'd3s_uaz_469P_EXP5', '76561198134667084', 'CIV', 'Car', '"[]"', 'UAZ469P Noir', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1]"', 0, 1, 0, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(74354, 'C_Boat_Civil_01_F', '76561198126898419', 'CIV', 'Ship', '"[]"', 'Motorboat', '"[0,0,0,0,0,0,0]"', 0, 1, 97, '', 5359.09, 5979.35, 0.000273705, 0, 0, 0, 0, 0),
+	(77047, 'd3s_uaz_469P_EXP3', '76561198264000931', 'CIV', 'Car', '"[]"', 'UAZ469P Rouge', '"[0.448819,0.019685,0.543307,0.023622,0.015748,0.0669291,0.0354331,1,0.834646,0.208661,1,0.275591,0.0393701,0,0,0,0,0,0,0,0.169291,0.169291]"', 0, 1, 34, '', 5078.48, 5951.27, 0, 0, 0, 0, 258, 0),
+	(80104, 'd3s_clubman_11_3', '76561198111567230', 'CIV', 'Car', '"[]"', 'MINI Cooper 1', '"[1,0.0354331,1,0.0314961,0.015748,0.287402,0.149606,1,1,0.248031,1,0.23622,0.0944882,0,0,0,0,0,0,0,0,0]"', 0, 1, 91, '', 0, 0, 0, 0, 0, 0, 115, 0),
+	(84599, 'd3s_uaz_469P_EXP5', '76561198271980565', 'CIV', 'Car', '"[]"', 'UAZ469P Noir', '"[]"', 0, 0, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(93222, 'd3s_e38_98_2', '76561198094602826', 'CIV', 'Car', '"[[`wheat_cake`,3],[`eau50`,5]]"', 'BMW 730i Kaki', '"[0.598425,0.0944882,0.598425,0.0708661,0.011811,0.795276,0.480315,1,1,1,1,1,0.444882,0,0,0,0,0,0,0,0,0]"', 0, 1, 62, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(102202, 'd3s_vesta_15_2', '76561198094602826', 'CIV', 'Car', '"[]"', 'Lada Vesta Bleu', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(119588, 'd3s_avalon_18_4', '76561198164979948', 'CIV', 'Car', '"[]"', 'Toyota Avalon', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(119741, 'd3s_e38_98_2', '76561198193788047', 'CIV', 'Car', '"[]"', 'BMW 730i Kaki', '"[0,0.015748,0,0.015748,0,0.125984,0.0708661,1,0.551181,0.153543,0.476378,0.141732,0.0629921,0,0,0,0,0,0,0,0,0]"', 0, 1, 96, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(127346, 'd3s_e38_98_2', '76561198129609379', 'CIV', 'Car', '"[]"', 'BMW 730i Kaki', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 72, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(129938, 'd3s_uaz_469P_EXP6', '76561198249426408', 'CIV', 'Car', '"[]"', 'UAZ469P Blanche', '"[0.598425,0.0787402,0.598425,0.0984252,0.0669291,0.240157,0.141732,1,1,0.700787,1,0.984252,0.145669,0,0,0,0,0,0,0,0.602362,0.653543]"', 0, 1, 23, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(135166, 'd3s_uaz_469P_EXP3', '76561198165158755', 'CIV', 'Car', '"[]"', 'UAZ469P Rouge', '"[0.527559,0.0472441,0.889764,0.0551181,0.0393701,0.161417,0.0905512,1,1,0.492126,1,0.586614,0.0905512,0,0,0,0,0,0,0,0.42126,0.42126]"', 0, 1, 91, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(145112, 'd3s_giulietta_16_4', '76561198045440856', 'CIV', 'Car', '"[]"', 'Alfa Romeo Giulietta Noir', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(148353, 'd3s_e38_98_5', '76561198264000931', 'CIV', 'Car', '"[]"', 'BMW 730i Bleu', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 100, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(192491, 'ffaa_ar_lcm', '76561198126898419', 'CIV', 'Ship', '"[]"', 'LCM-1E', '"[]"', 0, 0, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(222418, 'd3s_savana_VAN_4', '76561198193788047', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise Silver', '"[0.204724,0,0.688976,0,0,0.0708661,0.0433071,1,0.248031,1,0,0,0,0,0,0,0,0,0,0,0.173228,0.0826772]"', 0, 1, 35, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(265153, 'd3s_trailcat_17_sahara_4', '76561198126898419', 'CIV', 'Car', '"[[`ironp`,10],[`anarkhium`,6]]"', 'Jeep Trailcat Rouge', '"[0.15748,0,0.397638,0,0,0.0708661,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 70, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(265379, 'RDS_Zetor6945_Base', '76561198075018946', 'CIV', 'Car', '"[]"', 'Tractor', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(266827, 'd3s_uaz_469P_EXP4', '76561198202626967', 'CIV', 'Car', '"[]"', 'UAZ469P Vert', '"[0,0,0,0,0.015748,0.0590551,0.0354331,1,0.527559,0.173228,1,0.393701,0.0433071,0,0,0,0,0,0,0,0.153543,0.153543]"', 0, 1, 56, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(278729, 'ffaa_ar_lcm', '76561197988967412', 'CIV', 'Ship', '"[]"', 'LCM-1E', '"[0,0,0]"', 0, 1, 100, '', 5359.09, 5979.35, 0.000273705, 0, 0, 0, 184, 0),
+	(280967, 'd3s_e38_98_5', '76561198808756399', 'CIV', 'Car', '"[]"', 'BMW 730i Bleu', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 80, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(284594, 'd3s_savana_VAN_2', '76561198126898419', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise Noir', '"[0.602362,0.212598,0.69685,0.228346,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1]"', 0, 1, 68, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(311016, 'd3s_uaz_469P_EXP3', '76561198094602826', 'CIV', 'Car', '"[]"', 'UAZ469P Rouge', '"[0.464567,0.023622,0.464567,0.019685,0.015748,0.0590551,0.0314961,1,0.972441,0.212598,0.602362,0.169291,0.0314961,0,0,0,0,0,0,0,0.145669,0.145669]"', 0, 1, 54, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(340938, 'd3s_uaz_469P_EXP4', '76561198193788047', 'CIV', 'Car', '"[]"', 'UAZ469P Vert', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 83, '', 5078.48, 5951.27, 0, 0, 0, 0, 301, 0),
+	(395934, 'hlf_yellow_submarine', '76561198126898419', 'CIV', 'Ship', '"[]"', 'SDV (Yellow)', '"[0,0,0,0,0,0,0,0,0]"', 0, 1, 74, '', 5359.09, 5979.35, 0.000273705, 0, 0, 0, 0, 0),
+	(398031, 'd3s_C63S_14_SE_3', '76561198075018946', 'CIV', 'Car', '"[[`cone`,18],[`light_double`,2]]"', 'MercedesAMG C63S Orange', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 94, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(408834, 'd3s_uaz_469P_EXP5', '76561198348010745', 'CIV', 'Car', '"[]"', 'UAZ469P Noir', '"[0.543307,0.0314961,0.405512,0.019685,0.019685,0.0669291,0.0354331,1,1,0.291339,0.543307,0.177165,0.0393701,0,0,0,0,0,0,0,0.169291,0.169291]"', 0, 1, 85, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(416505, 'd3s_savana_VAN_2', '76561198349752423', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise Noir', '"[0.598425,0.0511811,0.598425,0.0669291,0.0551181,0.751969,0.46063,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1]"', 0, 1, 100, '', 9114.03, 5258.77, 0.535002, 0, 0, 0, 358, 0),
+	(450749, 'd3s_e38_98_4', '76561198321021809', 'CIV', 'Car', '"[]"', 'BMW 730i Rouge', '"[0.598425,0.224409,0.598425,0.185039,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 87, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(458990, 'd3s_e38_98_2', '76561198164979948', 'CIV', 'Car', '"[]"', 'BMW 730i', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 63, '', 5078.48, 5951.27, 0, 0, 0, 0, 352, 0),
+	(463785, 'd3s_giulietta_16_4', '76561197975282714', 'CIV', 'Car', '"[]"', 'Alfa Romeo Giulietta Noir', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 97, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(492399, 'd3s_vesta_15_2', '76561198164979948', 'CIV', 'Car', '"[]"', 'Lada Vesta', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(496201, 'd3s_trailcat_17_sahara_2', '76561198237617140', 'CIV', 'Car', '"[]"', 'Jeep Trailcat Bleu', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 99, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(500680, 'd3s_next_3', '76561198126898419', 'CIV', 'Car', '"[]"', 'Camion URAL Minier Kaki', '"[0,0,0.0354331,0.0866142,0,0,0.0393701,0.102362,0.133858,0.307087,0.161417,1,1,1,1,0,0,0,0,0,0.771654,0.771654]"', 0, 1, 86, '', 5078.48, 5951.27, 0, 0, 0, 0, 41, 0),
+	(501254, 'd3s_uaz_469P_1', '76561197988967412', 'CIV', 'Car', '"[]"', 'UAZ469P Beta', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 94, '', 5078.48, 5951.27, 0, 0, 0, 0, 127, 0),
+	(503217, 'd3s_e38_98_5', '76561198163300209', 'CIV', 'Car', '"[]"', 'BMW 730i Bleu', '"[1,0.015748,0.96063,0.011811,0,0.161417,0.0984252,1,1,0.251969,0.555118,0.185039,0.0905512,0,0,0,0,0,0,0,0,0]"', 0, 1, 70, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(506469, 'd3s_e38_98_4', '76561198237617140', 'CIV', 'Car', '"[[`steelp`,8]]"', 'BMW 730i Rouge', '"[0.161417,0,0.602362,0.011811,0,0.0551181,0.0393701,1,0.169291,0.0629921,0.519685,0.114173,0.0354331,0,0,0,0,0,0,0,0,0]"', 0, 1, 60, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(512487, 'd3s_uaz_469P_1', '76561198321021809', 'CIV', 'Car', '"[]"', 'UAZ469P Beta', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 85, '', 5078.48, 5951.27, 0, 0, 0, 0, 301, 0),
+	(517029, 'd3s_next_bocha_1', '76561197988967412', 'CIV', 'Car', '"[]"', 'Camion URAL Citerne rouge', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 72, '', 5078.48, 5951.27, 0, 0, 0, 0, 3, 0),
+	(518533, 'd3s_savana_VAN_2', '76561198164979948', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise', '"[0.992126,0.0669291,1,0.0472441,0.0354331,0.472441,0.26378,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1]"', 0, 1, 47, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(527624, 'd3s_giulietta_16_4', '76561198097490252', 'CIV', 'Car', '"[]"', 'Alfa Romeo Giulietta Noir', '"[0,0.0354331,0,0.0354331,0.011811,0.185039,0.114173,1,1,0.354331,1,0.338583,0.110236,0,0,0,0,0,0,0,0,0]"', 0, 1, 69, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(554745, 'd3s_e38_98_2', '76561198140677880', 'CIV', 'Car', '"[]"', 'Le Velo A 4 Roue', '"[0.598425,0.220472,0.598425,0.173228,0.0708661,1,0.88189,1,1,1,1,1,0.814961,0,0,0,0,0,0,0,0,0]"', 0, 1, 0, '', 0, 0, 0, 0, 0, 0, 25, 0),
+	(565085, 'd3s_e38_98_4', '76561198854156949', 'CIV', 'Car', '"[]"', 'BMW 730i Rouge', '"[0.598425,0.0354331,0.598425,0.0275591,0,0.0669291,0.0472441,1,0.606299,0.133858,0.200787,0.0748032,0.0433071,0,0,0,0,0,0,0,0,0]"', 0, 1, 46, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(570724, 'd3s_savana_VAN_5', '76561198249426408', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise Blanc', '"[0.598425,0.015748,0.598425,0.019685,0.019685,0.271654,0.153543,1,1,1,0,0,0,0,0,0,0,0,0,0,0.653543,0.484252]"', 0, 1, 55, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(575167, 'd3s_e38_98_5', '76561198323531003', 'CIV', 'Car', '"[[`ironp`,5],[`anarkhium`,1]]"', 'BMW 730i Bleu', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 47, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(576681, 'd3s_uaz_469P_EXP4', '76561198126898419', 'CIV', 'Car', '"[]"', 'UAZ469P Vert', '"[0.681102,0.0511811,0.653543,0.0354331,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1]"', 0, 1, 55, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(587144, 'd3s_uaz_469P_EXP6', '76561198075018946', 'CIV', 'Car', '"[]"', 'UAZ469P Blanche', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 96, '', 2282.89, 7315.09, 0.00378418, 0, 0, 0, 0, 0),
+	(634941, 'd3s_giulietta_16_4', '76561198094602826', 'CIV', 'Car', '"[]"', 'Alfa Romeo Giulietta Noir', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 100, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(634994, 'd3s_clubman_11_2', '76561198164979948', 'CIV', 'Car', '"[]"', 'MINI Cooper', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(701685, 'd3s_e38_98_5', '76561198222011156', 'CIV', 'Car', '"[]"', 'BMW 730i Bleu', '"[]"', 0, 0, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(708685, 'd3s_avalon_18_2', '76561197960603762', 'CIV', 'Car', '"[[`raisin`,14],[`anarkhium`,1]]"', 'Toyota Avalon Marron', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 80, '', 7494.39, 4576.86, 0.550999, 0, 0, 0, 0, 0),
+	(717477, 'd3s_clubman_11_4', '76561198094602826', 'CIV', 'Car', '"[[`aluminiump`,10]]"', 'MINI Cooper Rouge', '"[0.598425,0.0629921,0.598425,0.0708661,0.019685,0.523622,0.30315,1,1,0.519685,1,0.527559,0.200787,0,0,0,0,0,0,0,0,0]"', 0, 1, 43, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(736528, 'd3s_savana_VAN_1', '76561197988967412', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise Rouge', '"[0,0.023622,0,0,0.011811,0.232283,0.133858,1,1,1,0,0,0,0,0,0,0,0,0,0,0.574803,0.637795]"', 0, 1, 87, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(756712, 'd3s_e38_98_2', '76561197988967412', 'CIV', 'Car', '"[]"', 'BMW 730i Kaki', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 56, '', 5078.48, 5951.27, 0, 0, 0, 0, 286, 0),
+	(769928, 'd3s_uaz_469P_EXP6', '76561198164979948', 'CIV', 'Car', '"[]"', '4x4', '"[1,0.0590551,1,0.0472441,0.0393701,0.153543,0.0826772,1,1,0.566929,1,0.437008,0.0866142,0,0,0,0,0,0,0,0.389764,0.389764]"', 0, 1, 94, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(800851, 'd3s_avalon_18_4', '76561198094602826', 'CIV', 'Car', '"[]"', 'Toyota Avalon Noir', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 46, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(803461, 'd3s_uaz_469P_EXP5', '76561198153810575', 'CIV', 'Car', '"[]"', 'UAZ469P Noir', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(811494, 'd3s_e38_98_5', '76561198189710551', 'CIV', 'Car', '"[]"', 'BMW 730i Bleu', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 65, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(811886, 'd3s_uaz_469P_EXP5', '76561198838052949', 'CIV', 'Car', '"[[`plomb`,16]]"', 'UAZ469P Noir', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 75, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(823705, 'd3s_uaz_469P_EXP5', '76561198102210699', 'CIV', 'Car', '"[]"', 'UAZ469P Noir', '"[0.598425,0.161417,0.598425,0.173228,0.122047,0.440945,0.255906,1,1,1,1,1,0.267717,0,0,0,0,0,0,0,1,1]"', 0, 1, 14, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(825854, 'd3s_uaz_469P_EXP6', '76561198102210699', 'CIV', 'Car', '"[]"', 'UAZ469P Blanche', '"[0.598425,0.0708661,0.661417,0.0472441,0.0472441,0.137795,0.0787402,1,1,1,1,0.527559,0.106299,0,0,0,0,0,0,0,0.34252,0.34252]"', 0, 1, 47, '', 5078.48, 5951.27, 0, 0, 0, 0, 161, 0),
+	(857018, 'd3s_savana_VAN_4', '76561198237617140', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise Silver', '"[]"', 0, 1, 100, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(861794, 'd3s_next_bocha_1', '76561198126898419', 'CIV', 'Car', '"[[`oilu`,75]]"', 'Camion URAL Citerne rouge', '"[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"', 0, 1, 100, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(871553, 'd3s_uaz_469P_EXP3', '76561198321021809', 'CIV', 'Car', '"[]"', 'UAZ469P Rouge', '"[0.208661,0.015748,0.476378,0.023622,0.015748,0.0551181,0.0314961,1,0.480315,0.153543,1,0.311024,0.0354331,0,0,0,0,0,0,0,0.149606,0.149606]"', 0, 1, 85, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(915527, 'hlf_yellow_submarine', '76561198075018946', 'CIV', 'Ship', '"[]"', 'SDV (Yellow)', '"[0,0,0,0,0.322835,0.322835,0.322835,0.322835,0.322835]"', 0, 1, 73, '', 0, 0, 0, 0, 0, 0, 0, 0),
+	(945804, 'd3s_uaz_469P_EXP6', '76561198121841047', 'CIV', 'Car', '"[]"', 'UAZ469P  MOTH Conversion', '"[0,0.0708661,0,0.0472441,0.0472441,0.169291,0.0944882,1,1,0.944882,1,0.574803,0.114173,0,0,0,0,0,0,0,0.417323,0.417323]"', 0, 1, 79, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0),
+	(952448, 'd3s_savana_VAN_4', '76561198165158755', 'CIV', 'Car', '"[]"', 'GMC Savana Marchandise Silver', '"[0.129921,0,0.46063,0,0,0.0472441,0.0314961,1,0.161417,0.673228,0,0,0,0,0,0,0,0,0,0,0.114173,0.0551181]"', 0, 1, 80, '', 7494.39, 4576.86, 0.550999, 0, 0, 0, 87, 0),
+	(976102, 'd3s_e38_98_5', '76561198121841047', 'CIV', 'Car', '"[]"', 'BMW 730i Bleu', '"[0.527559,0,0.409449,0,0,0.0590551,0.0354331,0.874016,0.307087,0.0787402,0.216535,0.0669291,0.0314961,0,0,0,0,0,0,0,0,0]"', 0, 1, 98, '', 5078.48, 5951.27, 0, 0, 0, 0, 0, 0);
 /*!40000 ALTER TABLE `vehicles` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

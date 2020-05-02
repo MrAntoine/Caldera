@@ -25,8 +25,17 @@ g_keybinds pushBack "actionVictim";
 ["Alysia", "actionKnock", "Mettre un coup", {[] spawn AlysiaClient_fnc_knockoutAction}, {}, [DIK_G, [true, false, false]], false, 0, false] call CBA_fnc_addKeybind;
 g_keybinds pushBack "actionKnock";
 
-["Alysia", "actionHoldster", "Holster", {[] call AlysiaClient_fnc_holdsterSwitch}, {}, [DIK_H, [true, false, false]], false, 0, false] call CBA_fnc_addKeybind;
+["Alysia", "actionHoldster", "Arme dans le holster", {[] call AlysiaClient_fnc_holdsterSwitch}, {}, [DIK_H, [true, false, false]], false, 0, false] call CBA_fnc_addKeybind;
 g_keybinds pushBack "actionHoldster";
+
+["Alysia", "actionTalent", "Ouvrir l'arbre des talents", {}, {}, [DIK_T, [false, true, false]], false, 0, false] call CBA_fnc_addKeybind;
+g_keybinds pushBack "actionTalent";
+
+["Alysia", "actionConstruction", "Ouvrir menu de Construction", {[player] call AlysiaClient_fnc_company_create_open}, {}, [DIK_C, [false, true, false]], false, 0, false] call CBA_fnc_addKeybind;
+g_keybinds pushBack "actionConstruction";
+
+["Alysia", "actionRadar", "Radar", {[player] call AlysiaClient_fnc_radar}, {}, [DIK_L, [false, true, false]], false, 0, false] call CBA_fnc_addKeybind;
+g_keybinds pushBack "actionRadar";
 
 ["Alysia", "actionSifflet", "Utiliser (sifflet)", {[] call AlysiaClient_fnc_sifflet}, {}, [DIK_F, [false, false, true]], false, 0, false] call CBA_fnc_addKeybind;
 g_keybinds pushBack "actionSifflet";

@@ -28,6 +28,7 @@ if (_unit getVariable ["bullet_operation_inUse", false]) exitWith {
 _chance = switch (_type) do
 {
 	case "main": {getNumber(missionConfigFile >> "ALYSIA_MEDICAL" >> "stabilize" >> "hand_succeed_percentage")};
+	case "epinephrine": {getNumber(missionConfigFile >> "ALYSIA_MEDICAL" >> "stabilize" >> "piqure_succeed_percentage")};
 	case "defib": {getNumber(missionConfigFile >> "ALYSIA_MEDICAL" >> "stabilize" >> "debif_succeed_percentage")};
 };
 if (isNil "_chance") exitWith {
@@ -53,6 +54,7 @@ while {(!g_interrupted && (_unit getVariable ["is_coma", false]) && !(player get
 	if (random(100) <= _chance) exitWith
 	{
 		titleText["* Réussi *", "PLAIN DOWN"];
+		["soinEXP"] spawn mav_ttm_fnc_addExp;
 		if (player getVariable ["heart_attack", false]) then {
 			_unit setVariable ["heart_attack", false, true];
 		} else {

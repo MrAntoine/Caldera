@@ -13,7 +13,7 @@ _action =
 [
 	format
 	[
-		"Votre facture d'essence s'élève à <t color='#8cff9b'>%1</t>$.<br/><br/>Désirez-vous payer maintenant ?",
+		"Votre facture d'essence s'élève à <t color='#8cff9b'>%1</t>BTC.<br/><br/>Désirez-vous payer maintenant ?",
 		[_bill] call AlysiaClient_fnc_numberText
 	],
 	"Station service",
@@ -34,7 +34,7 @@ if (_action) then
 	{
 		if (_bill > g_atm) exitWith
 		{
-			["Vous n'avez pas assez d'argent dans votre compte en banque pour payer votre plein."] call AlysiaClient_fnc_error;
+			["Vous n'avez pas assez d'argent dans votre compte Bitcoin pour payer votre plein."] call AlysiaClient_fnc_error;
 			_paid = false;
 		};
 		[false, _bill] call AlysiaClient_fnc_handleATM;
@@ -61,7 +61,7 @@ if (_action) then
 				[
 					format
 					[
-						"Le véhicule de type <t color='#DF7401'>%1</t> est finalement revenu pour payer sa facture d'essence s'élevant à <t color='#8cff9b'>%2</t>$.La plaque du véhicule est %3.",
+						"Le véhicule de type <t color='#DF7401'>%1</t> est finalement revenu pour payer sa facture d'essence s'élevant à <t color='#8cff9b'>%2</t>BTC.La plaque du véhicule est %3.",
 						getText(configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName"),
 						_bill,
 						(_veh getVariable "info") select 2

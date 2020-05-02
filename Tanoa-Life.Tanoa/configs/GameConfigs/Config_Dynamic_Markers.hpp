@@ -1,7 +1,7 @@
 class ALYSIA_DYN_MARKERS
 {
 	//- DRUGS FIELDS
-	class cocaine_field_marker_1
+	/*class cocaine_field_marker_1
 	{
 		text="Champ de coca";
 		type="Maels_illegal_field";
@@ -16,243 +16,225 @@ class ALYSIA_DYN_MARKERS
 		{
 			price=124000;
 		};
-	};
-	class cannabis_field_marker_1: cocaine_field_marker_1
+	};*/
+	class statue1
 	{
-		text="Champ de cannabis";
-		class shop
-		{
-			price=115000;
-		};
-	};
-	class meth_field_marker_1: cocaine_field_marker_1
-	{
-		text="Champ d'ephedra";
-		class shop
-		{
-			price=135000;
-		};
-	};
-	class heroin_field_marker_1: cocaine_field_marker_1
-	{
-		text="Champ de pavot";
-		class shop
-		{
-			price=126000;
-		};
-	};
-	class mushroom_field_marker_1: cocaine_field_marker_1
-	{
-		text="champignonnière";
-		positions="mushroom";
-		class shop
-		{
-			price=116000;
-		};
-	};
-
-	//- Blanchiment
-	class launder_marker_1
-	{
-		text="Blanchiment";
-		type="Maels_illegal_blanchiment";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		linked="launder_stand_1";
-		destroy[]={"EAST"};
-		destroy_item="destroy_stand";
-		positions="launder";
-		distance=5;
-		class shop
-		{
-			price=145550;
-		};
-	};
-
-	//- BLACKMARKETS
-	class blackMarket_marker_1
-	{
-		text="Marché noir";
-		type="Maels_sell";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		linked="blackMarket_stand_1";
-		destroy[]={"EAST"};
-		destroy_item="destroy_stand";
-		positions="stands_general";
-		distance=5;
-		class shop
-		{
-			price=128950;
-		};
-	};
-	class blackMarket_marker_2: blackMarket_marker_1
-	{
-		linked="blackMarket_stand_2";
-		class shop: shop {};
-	};
-
-	//- RECELEURS
-	class cars_seller_marker_1
-	{
-		text="Receleur de véhicules";
-		type="Maels_luxe_car";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		linked="cars_seller_stand_1";
-		destroy[]={"EAST"};
-		destroy_item="destroy_stand";
-		positions="stands_general";
-		distance=5;
-		class shop
-		{
-			price=120500;
-		};
-	};
-	class cars_seller_marker_2: cars_seller_marker_1
-	{
-		linked="cars_seller_stand_2";
-		class shop: shop {};
-	};
-
-	//- DEALERS
-	class drugs_seller_marker_1
-	{
-		text="Dealeur";
-		type="Maels_sell";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		linked="drugs_seller_stand_1";
-		destroy[]={"EAST"};
-		destroy_item="destroy_stand";
-		positions="stands_general";
-		distance=5;
-		class shop
-		{
-			price=155000;
-		};
-	};
-	class drugs_seller_marker_2: drugs_seller_marker_1
-	{
-		linked="drugs_seller_stand_2";
-		class shop: shop {};
-	};
-
-	//- ARCHEOLOGIE
-	class archeologie_field_marker_1
-	{
-		text="Site archéologique";
-		type="Maels_archeo";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		destroy[]={"EAST"};
-		destroy_item="destroy_archeo";
-		positions="archeologie";
+		text="Statue de Rodin";
+		linked="statue1";
+		positions="statue";
 		distance=20;
 		class shop
 		{
-			price=50700;
+			price=124000;
 		};
 	};
-	class renovation_marker
+	class statue2
 	{
-		text="Rénovation d'artefacts";
-		type="Maels_archeo_renove";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		linked="archeologie_process_stand_1";
-		destroy[]={"EAST"};
-		destroy_item="destroy_stand";
-		positions="stands_general";
-		distance=5;
-		class shop
-		{
-			price=76400;
-		};
-	};
-
-	//- PILLAGE
-	class pillage_field_marker_1
-	{
-		text="Pillage d'épave";
-		type="Maels_archeo";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		destroy[]={"EAST"};
-		destroy_item="destroy_field";
-		positions="pillage";
+		text="Statue de Rodin";
+		linked="statue2";
+		positions="statue";
 		distance=20;
 		class shop
 		{
-			price=41900;
+			price=124000;
 		};
 	};
-
-	//- METH PROCESS
-	class soufre_process_marker_1
+	class statue3
 	{
-		text="Hydratation du soufre";
-		type="Maels_sell";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		linked="soufre_process_stand_1";
-		destroy[]={"EAST"};
-		destroy_item="destroy_stand";
-		positions="stands_general";
-		distance=5;
-		class shop
-		{
-			price=77500;
-		};
-	};
-
-	//- REBELS
-	class rebel_marker_1
-	{
-		text="Camp rebelle";
-		type="Maels_rebel";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		linked="rebel_stand_1";
-		destroy[]={"EAST"};
-		destroy_item="destroy_stand";
-		positions="rebels";
-		distance=5;
-		nearObjects[]={"Campfire_burning_F"};
-		class shop
-		{
-			price=255000;
-		};
-	};
-	class rebel_marker_2: rebel_marker_1
-	{
-		linked="rebel_stand_2";
-		class shop: shop {};
-	};
-
-	class corail_field_marker_1
-	{
-		text="Barrière de corail";
-		type="Maels_corail";
-		color="ColorRed";
-		shape="ICON";
-		size=0.55;
-		destroy[]={"EAST"};
-		destroy_item="destroy_field";
-		positions="recif";
+		text="Statue de Rodin";
+		positions="statue";
+		linked="statue3";
 		distance=20;
 		class shop
 		{
-			price=36500;
+			price=124000;
+		};
+	};
+	class statue4
+	{
+		text="Statue de Rodin";
+		linked="statue4";
+		positions="statue";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class statue5
+	{
+		text="Statue de Rodin";
+		linked="statue5";
+		positions="statue";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class monument1
+	{
+		text="Monument aux morts";
+		linked="monument1";
+		positions="monument";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class monument2
+	{
+		text="Monument aux morts";
+		linked="monument2";
+		positions="monument";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class monument3
+	{
+		text="Monument aux morts";
+		linked="monument3";
+		positions="monument";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class monument4
+	{
+		text="Monument aux morts";
+		linked="monument4";
+		positions="monument";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class monument5
+	{
+		text="Monument aux morts";
+		positions="monument";
+		linked="monument5";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class sculture1
+	{
+		text="Sculture du Soleil";
+		positions="sculture";
+		linked="sculture1";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class sculture2
+	{
+		text="Sculture du Soleil";
+		linked="sculture2";
+		positions="sculture";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class sculture3
+	{
+		text="Sculture du Soleil";
+		positions="sculture";
+		linked="sculture3";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class sculture4
+	{
+		text="Sculture du Soleil";
+		positions="sculture";
+		linked="sculture4";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class sculture5
+	{
+		text="Sculture du Soleil";
+		positions="sculture";
+		linked="sculture5";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class epave_1
+	{
+		text="Statue de la déesse des mers";
+		positions="epave";
+		linked="epave_1";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class epave_2
+	{
+		text="Statue de la déesse des mers";
+		positions="epave";
+		linked="epave_2";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class epave_3
+	{
+		text="Statue de la déesse des mers";
+		positions="epave";
+		linked="epave_3";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class epave_4
+	{
+		text="Statue de la déesse des mers";
+		positions="epave";
+		linked="epave_4";
+		distance=20;
+		class shop
+		{
+			price=124000;
+		};
+	};
+	class epave_5
+	{
+		text="Statue de la déesse des mers";
+		positions="epave";
+		linked="epave_5";
+		distance=20;
+		class shop
+		{
+			price=124000;
 		};
 	};
 };

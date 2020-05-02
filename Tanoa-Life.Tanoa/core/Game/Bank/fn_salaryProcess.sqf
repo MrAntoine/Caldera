@@ -62,8 +62,8 @@ if (!isNull(g_company) && !(g_company getVariable ['construction', false])) then
 				_price_remove = _price_remove + _price;
 				if (!([false, _price, "Salaires des employés"] call AlysiaClient_fnc_handleATM)) then
 				{
-					["Vous n'avez pas assez d'argent pour payer les salaires de vos employés. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "BANQUE"] call AlysiaClient_fnc_phone_message_receive;
-					[format["%1 n'a pas suffisamment d'argent pour payer le salaire de ses employés.", player getVariable "realname"], "BANQUE", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
+					["Vous n'avez pas assez d'argent pour payer les salaires de vos employés. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "WEB"] call AlysiaClient_fnc_phone_message_receive;
+					[format["%1 n'a pas suffisamment d'argent pour payer le salaire de ses employés.", player getVariable "realname"], "WEB", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
 				};
 			};
 
@@ -74,8 +74,8 @@ if (!isNull(g_company) && !(g_company getVariable ['construction', false])) then
 				if ([false, _price, "Taxe salariale"] call AlysiaClient_fnc_handleATM) then {
 					_add_to_gouv = _add_to_gouv + _price;
 				} else {
-					["Vous n'avez pas assez d'argent pour payer votre taxe salariale. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "BANQUE"] call AlysiaClient_fnc_phone_message_receive;
-					[format["%1 n'a pas suffisamment d'argent pour payer sa taxe salariale.", player getVariable "realname"], "BANQUE", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
+					["Vous n'avez pas assez d'argent pour payer votre taxe salariale. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "WEB"] call AlysiaClient_fnc_phone_message_receive;
+					[format["%1 n'a pas suffisamment d'argent pour payer sa taxe salariale.", player getVariable "realname"], "WEB", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
 				};
 			};
 		} else {
@@ -92,8 +92,8 @@ if (!isNull(g_company) && !(g_company getVariable ['construction', false])) then
 		if ([false, _price_building, "Taxe foncière (entreprise)"] call AlysiaClient_fnc_handleATM) then {
 			_add_to_gouv = _add_to_gouv + _price_building;
 		} else {
-			["Vous n'avez pas assez d'argent pour payer votre taxe foncière. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "BANQUE"] call AlysiaClient_fnc_phone_message_receive;
-			[format["%1 n'a pas suffisamment d'argent pour payer sa taxe foncière.", player getVariable "realname"], "BANQUE", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
+			["Vous n'avez pas assez d'argent pour payer votre taxe foncière. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "WEB"] call AlysiaClient_fnc_phone_message_receive;
+			[format["%1 n'a pas suffisamment d'argent pour payer sa taxe foncière.", player getVariable "realname"], "WEB", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
 		};
 	};
 };
@@ -115,8 +115,8 @@ if (count(g_houses) > 0) then
 		_price_remove = _price_remove + _price;
 		if (!([false, _price, "Taxe foncière (maison/stockage/garage)"] call AlysiaClient_fnc_handleATM)) then
 		{
-			["Vous n'avez pas assez d'argent pour payer votre taxe d'habitation. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "BANQUE"] call AlysiaClient_fnc_phone_message_receive;
-			[format["%1 n'a pas suffisamment d'argent pour payer sa taxe d'habitation.", (player getVariable ["realname", profileName])], "BANQUE", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
+			["Vous n'avez pas assez d'argent pour payer votre taxe d'habitation. Régularisez votre situation dans les plus brefs délais ou les autorités passeront !", "WEB"] call AlysiaClient_fnc_phone_message_receive;
+			[format["%1 n'a pas suffisamment d'argent pour payer sa taxe d'habitation.", (player getVariable ["realname", profileName])], "WEB", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
 		};
 	};
 };
@@ -128,9 +128,9 @@ if (isClass(_config_phone)) then
 	_price = getNumber(_config_phone >> "bill");
 	if (_price > 0) then
 	{
-		if (!([false, _price, "Forfait téléphonique"] call AlysiaClient_fnc_handleATM)) then
+		if (!([false, _price, "Réseau"] call AlysiaClient_fnc_handleATM)) then
 		{
-			["Vous n'avez plus assez d'argent dans votre compte en banque pour payer votre forfait téléphonique.<br/>Vous avez été rétrogradé au forfait lite.", "FORFAIT"] call AlysiaClient_fnc_phone_message_receive;
+			["Vous n'avez plus assez d'argent dans votre compte en banque pour payer votre forfait téléphonique.<br/>Vous avez été rétrogradé au forfait le plus bas.", "WEB"] call AlysiaClient_fnc_phone_message_receive;
 			["lite"] call AlysiaClient_fnc_phone_forfait_change;
 		};
 		_price_remove = _price_remove + _price;
@@ -146,13 +146,13 @@ if (profileNamespace getVariable ["ALYSIA_phone_salary", true]) then
 	[
 		format
 		[
-				"Vous avez reçu votre salaire et vos factures<br/>"
-			+	"+ <t color='#8cff9b'>%1</t>$<br/>"
-			+	"- <t color='#ff8c8c'>%2</t>$<br/>"
+				"Vous avez reçu votre virement et vos dépenses<br/>"
+			+	"+ <t color='#8cff9b'>%1</t>BTC<br/>"
+			+	"- <t color='#ff8c8c'>%2</t>BTC<br/>"
 			+	"Pour plus d'informations rendez-vous dans l'application <t color='#00FF80'>solde</t> de votre tablette",
 			[_price_add] call AlysiaClient_fnc_numberText,
 			[_price_remove] call AlysiaClient_fnc_numberText
 		],
-		"BANQUE"
+		"WEB"
 	] call AlysiaClient_fnc_phone_message_receive;
 };

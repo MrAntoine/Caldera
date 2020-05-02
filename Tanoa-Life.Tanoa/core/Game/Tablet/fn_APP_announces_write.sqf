@@ -18,7 +18,7 @@ if (g_atm >= _price) then
 
 (_display displayCtrl 9521) ctrlSetStructuredText parseText format
 [
-	"<t font='EtelkaMonospacePro' size='0.8'>Votre message restera en ligne %1<br/>Prix par message <t color='#8cff9b'>%2</t>$</t>",
+	"<t font='EtelkaMonospacePro' size='0.8'>Votre message restera en ligne %1<br/>Prix par message <t color='#8cff9b'>%2</t>BTC</t>",
 	[(gServer_rebootHour * 60) - serverTime, "M:SS"] call CBA_fnc_formatElapsedTime,
 	[_price] call AlysiaClient_fnc_numberText
 ];

@@ -21,7 +21,7 @@ _obj attachTo [player, [-0.03, -0.05, -0.25], "rightHandMiddle1"];
 _obj setDir 90;
 player setVariable ["wallet_obj", _obj];
 
-_action_1 = player addAction [format["Déposer <t color='#FFFF33'>%1</t>", ["money_transfer"] call AlysiaClient_fnc_itemGetName],
+_action_1 = player addAction [format["Êtes vous sûr de vouloir déposer <t color='#FFFF33'>%1 ?</t>", ["money_transfer"] call AlysiaClient_fnc_itemGetName],
 {
 	if (!g_action_inUse && !(isNull (player getVariable ["wallet_obj", objNull]))) then
 	{

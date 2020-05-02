@@ -2,7 +2,7 @@ class RscDisplayCompanyCreate: RscDisplayDefaultInteraction
 {
 	idd=90000;
 	name="RscDisplayCompanyCreate";
-	
+
 	class controlsBackground: DEFAULT_controlsBackground
 	{
 		class BACKGROUND: BACKGROUND
@@ -22,12 +22,12 @@ class RscDisplayCompanyCreate: RscDisplayDefaultInteraction
 			h=0.429 * safezoneH;
 		};
 	};
-	
+
 	class controls: DEFAULT_controls
 	{
 		class TITLE: TITLE
 		{
-			text="<t align='center' size='1.5'>Création d'entreprise</t>";
+			text="<t align='center' size='1.5'>Construction de maison</t>";
 
 			x=0.314375 * safezoneW + safezoneX;
 			y=0.302 * safezoneH + safezoneY;
@@ -170,9 +170,9 @@ class RscDisplayCompanyCreate: RscDisplayDefaultInteraction
 		class SELECT_EDIT_HEADER: RscStructuredText
 		{
 			idc=90010;
-			text="<t align='center'>Nom de l'entreprise</t>";
+			text="<t align='center'>Nom de votre maison</t>";
 			colorBackground[]={0,0,0,0.8};
-			
+
 			x=0.484531 * safezoneW + safezoneX;
 			y=0.577 * safezoneH + safezoneY;
 			w=0.180469 * safezoneW;

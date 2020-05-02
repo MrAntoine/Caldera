@@ -34,7 +34,7 @@ if (g_atm >= _price) then {
 [
 	"<t font='EtelkaMonospacePro' size='0.8'>" +
 	"<t align='center'>- Prérequis -</t><br/>" +
-	"<t align='left'>Prix</t><t align='right' color='%1'>%2$</t><br/>" +
+	"<t align='left'>Prix</t><t align='right' color='%1'>%2BTC</t><br/>" +
 	"<t align='center'>- Description - </t><br/>" +
 	"<t align='left'>Licence</t><t align='right'>%3</t><br/>" +
 	"</t>",

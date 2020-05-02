@@ -73,15 +73,32 @@
 				('Alysia_Lockpick' in (magazines player)) &&
 				(isNull (g_interaction_target getVariable ['escorted',objNull]))
 			"
-		],[
+		],
+		[
+			"license",
+			"Donner licence",
+			"[g_interaction_target] spawn AlysiaClient_fnc_interactionMenu_action_license_give_open;",
+			"
+				count
+				(
+					'
+						(
+							((player getVariable [''rank'',0]) >= getNumber(_x >> ''rank'')) &&
+							((getText(_x >> ''license'') isEqualTo '''') || ([getText(_x >> ''license'')] call AlysiaClient_fnc_hasLicense)) &&
+							((getNumber(_x >> ''same_side_only'') isEqualTo 0) || ((getNumber(_x >> ''same_side_only'') isEqualTo 1) && ((side g_interaction_target) isEqualTo playerSide))) &&
+							(isClass(missionConfigFile >> ''ALYSIA_LICENSES'' >> (configName _x) >> ''factions'' >> str(side g_interaction_target)))
+						)
+					'
+					configClasses (missionConfigFile >> 'ALYSIA_FACTIONS' >> str(playerSide) >> 'licenses_give')
+				) > 0
+			"
+		],
+		[
 			"ticket",
 			"Paiement",
 			"[g_interaction_target] spawn AlysiaClient_fnc_interactionMenu_action_ticket;",
 			"
 				(
-					(
-						(playerSide in [independent,east,west]) || !(isNull g_company)
-					) &&
 					(isNull (g_interaction_target getVariable ['escorted',objNull]))
 				)
 			"
@@ -110,7 +127,7 @@
 			"Morphine",
 			"[nil,nil,nil,g_interaction_target] spawn AlysiaClient_fnc_item_morphine_use;",
 			"('SkylineItems_Morphine' in (magazines player))"
-		],[
+		/*],[
 			"company_create",
 			"Entreprise",
 			"[g_interaction_target] call AlysiaClient_fnc_company_create_open;",
@@ -188,7 +205,7 @@
 				(isNull (g_interaction_target getVariable ['escorted',objNull])) &&
 				(['guer_medical'] call AlysiaClient_fnc_hasLicense) &&
 				((['stethoscope'] call AlysiaClient_fnc_itemCount) > 0)
-			"
+			"*/
 		],[
 			"headbag_put",
 			"Mettre cagoule",
@@ -245,7 +262,7 @@
 			"morphine",
 			"Piqure Chlore",
 			"[g_interaction_target] spawn AlysiaClient_fnc_item_chlore_use;",
-			"('Alysia_Chlore' in (magazines player)) && (playerSide isEqualTo independent)"
+			"('Alysia_Chlore' in (magazines player))"
 		],[
 			"feed",
 			"Force-feed",

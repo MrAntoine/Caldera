@@ -17,7 +17,7 @@ if (isNil "_data") exitWith {
 _price = ([_data select 0] call AlysiaClient_fnc_fetchVehInfo) select 19;
 _action =
 [
-	format["Vous êtes sur le point de <t color='#DF0101'>vendre</t> votre véhicule pour <t color='#8cff9b'>%1</t>$.", [_price] call AlysiaClient_fnc_numberText],
+	format["Vous êtes sur le point de <t color='#DF0101'>vendre</t> votre véhicule pour <t color='#8cff9b'>%1</t>BTC.", [_price] call AlysiaClient_fnc_numberText],
 	"Vente",
 	"Valider",
 	"Annuler"

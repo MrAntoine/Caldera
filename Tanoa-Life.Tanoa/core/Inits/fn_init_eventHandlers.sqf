@@ -5,7 +5,7 @@
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", "(_this select 1) call AlysiaEvent_fnc_onPlayerKeyPress"];
 
-player addEventHandler ["FiredNear", "_this call AlysiaEvent_fnc_onPlayerFireNear"];
+//player addEventHandler ["FiredNear", "_this call AlysiaEvent_fnc_onPlayerFireNear"];
 player addEventHandler ["handleDamage", "_this call AlysiaEvent_fnc_onPlayerHandleDamage"];
 player addEventHandler ["InventoryOpened", "[_this select 1] spawn AlysiaEvent_fnc_onPlayerInventoryOpen"];
 // player addEventHandler ["Reloaded", "_this call AlysiaEvent_fnc_onPlayerReload"];

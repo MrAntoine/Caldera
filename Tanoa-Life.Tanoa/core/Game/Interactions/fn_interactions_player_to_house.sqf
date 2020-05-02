@@ -26,14 +26,14 @@
 			"
 		],[
 			"sell",
-			"Vendre",
+			"Quitter",
 			"[g_interaction_target] spawn AlysiaClient_fnc_house_menu_action_sell;",
 			"
 				(((g_interaction_target getVariable ['house_owner', ['', '']]) select 0) isEqualTo (getPlayerUID player))
 			"
 		],[
 			"sell",
-			"Acheter",
+			"Squatter",
 			"[g_interaction_target] call AlysiaClient_fnc_house_menu_open_buy;",
 			"
 				(isClass(missionConfigFile >> 'ALYSIA_HOUSES' >> (typeOf g_interaction_target) >> 'factions' >> str(playerSide))) &&
@@ -99,7 +99,7 @@
 			"Crochetter",
 			"[g_interaction_target, true] spawn AlysiaClient_fnc_building_door_lock_handle;",
 			"
-				('Alysia_Lockpick' in (magazines player)) &&
+				('Bank_Drill' in (magazines player)) &&
 				(([g_interaction_target] call AlysiaClient_fnc_nearestDoor) != 0) &&
 				((g_interaction_target animationPhase format['door_%1_rot', (([g_interaction_target] call AlysiaClient_fnc_nearestDoor) != 0)]) isEqualTo 0)
 			"
@@ -128,7 +128,7 @@
 				(([g_interaction_target] call AlysiaClient_fnc_nearestDoor) != 0) &&
 				((g_interaction_target animationPhase format['door_%1_rot', (([g_interaction_target] call AlysiaClient_fnc_nearestDoor) != 0)]) isEqualTo 0)
 			"
-		],[
+		]/*,[
 			"bell",
 			"Sonner",
 			"[g_interaction_target] call AlysiaClient_fnc_building_door_doorbell;",
@@ -136,7 +136,7 @@
 				(([g_interaction_target] call AlysiaClient_fnc_nearestDoor) != 0) &&
 				((g_interaction_target animationPhase format['door_%1_rot', (([g_interaction_target] call AlysiaClient_fnc_nearestDoor) != 0)]) isEqualTo 0)
 			"
-		]
+		]*/
 	],
 	"Bâtiment",
 	"Alysia_Client_Texture\Data\interactions\player_to_house\background_house.jpg",

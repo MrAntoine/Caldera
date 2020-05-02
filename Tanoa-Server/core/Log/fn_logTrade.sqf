@@ -12,7 +12,7 @@ if ((isNull _player) || (isNull _from)) exitWith {};
 
 "extLOG" callExtension format
 [
-	"1:SERVER_PLAYER_TRADE_LOG:%1 [%2] received %3$ and %4 from %5 [%6]",
+	"1:SERVER_PLAYER_TRADE_LOG:%1 [%2] received %3BTC and %4 from %5 [%6]",
 	_player getVariable "realname",
 	getPlayerUID _player,
 	[_money] call AlysiaClient_fnc_numberText,

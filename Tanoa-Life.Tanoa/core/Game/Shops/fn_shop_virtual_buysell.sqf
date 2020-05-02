@@ -53,6 +53,7 @@ if (_total != 0) then
 	} else {
 		[false, abs(_total)] call AlysiaClient_fnc_handleCash;
 	};
+	["venteEXP"] spawn mav_ttm_fnc_addExp;
 };
 g_shop_bill_dollar = 0;
 g_shop_receive_dollar = 0;

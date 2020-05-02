@@ -8,6 +8,10 @@ diag_log "-------------------- Starting Server Init -------------------";
 diag_log "-------------------------------------------------------------";
 _timeStamp = diag_tickTime;
 
+
+diag_log "--------------------------- SERVER FPS ----------------------------------";
+diag_log diag_fps;
+
 "#lock" call RCON_fnc_sendCommand;
 gServer_server_isReady = false;
 
@@ -119,10 +123,14 @@ publicVariable "gServer_rebootHour_txt";
 /* PBO CHECK */
 gServer_mods = [];
 {
-	_pbo = configName _x;
-	if !(_pbo in getArray(configFile >> "Cfg_Server" >> "serverMods")) then {
-		gServer_mods pushBack _pbo;
-	};
+    _pbo = configName _x;
+    if (_pbo != "inidbi2") then
+    {
+        if !(_pbo in getArray(configFile >> "Cfg_Server" >> "serverMods")) then
+         {
+            gServer_mods pushBack _pbo;
+        };
+    };
 } forEach ("true" configClasses (configFile >> "CfgPatches"));
 publicVariable "gServer_mods";
 

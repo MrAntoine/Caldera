@@ -1,154 +1,222 @@
 class ALYSIA_COMPANIES_BUILDINGS
 {
-	class Land_i_Windmill01_F
+
+/*
+	class Land_CastleRuins_01_bastion_F //cachot
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",40},{"ciment",90},{"furniture",5},{"ironp",20},{"sand",20},{"pierre",100}};
-		taxe=105;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class Skyline_Vehicule_Pack_Structures_Garage_01
+*/
+
+
+
+/*
+	class Land_ConcreteWall_01_l_gate_F //Portail electrique
 	{
-		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",85},{"furniture",6},{"glass",20},{"pierre",100}};
-		taxe=100;
+		bedrock="Land_CinderBlocks_01_F";
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_i_Shed_Ind_F
+*/
+	class Land_BrickWall_04_l_5m_F //mur brique
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"ciment",70},{"ironp",60},{"glass",50},{"furniture",2}};
-		taxe=230;
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_WIP_F
+
+	class Land_ConcreteWall_01_l_8m_F //mur en béton
 	{
-		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",75},{"furniture",5},{"ironp",25},{"sand",50},{"glass",30},{"pierre",50}};
-		taxe=225;
+		bedrock="Land_CinderBlocks_01_F";
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_Hangar_F
+
+	class Land_ConcreteWall_01_l_pole_F //coin
 	{
-		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",55},{"ciment",70},{"furniture",10},{"ironp",20},{"sand",50},{"glass",20}};
-		taxe=250;
+		bedrock="Land_CinderBlocks_01_F";
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_i_House_Small_03_V1_F
+
+	class Land_PipeFence_01_m_gate_v2_F //portail
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",65},{"furniture",10},{"ironp",35},{"sand",40},{"glass",20}};
-		taxe=128;
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_FuelStation_01_shop_F
+
+
+
+
+
+
+
+	class Land_GarageRow_01_small_F //Triple garage
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",65},{"furniture",10},{"ironp",35},{"sand",40},{"glass",20}};
-		taxe=128;
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_Cargo_HQ_V1_F
+
+	class Land_GarageOffice_01_F //Bureaux
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",10},{"ciment",65},{"furniture",5},{"ironp",20},{"sand",50},{"glass",20}};
-		taxe=145;
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_Entreprise01_F
+
+	class Skyline_Vehicule_Pack_Structures_Garage_01 //Entreprise
 	{
-		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",35},{"furniture",15},{"ironp",25},{"glass",45}};
-		taxe=136;
+		bedrock="Land_Pipes_large_F";
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_SCF_01_washer_F
+
+	class Land_i_Addon_03mid_V1_F //Terrasse couverte
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"ciment",70},{"ironp",65},{"glass",30},{"pierre",15}};
-		taxe=150;
+		construction[]={{"woodp",50},{"ironp",5},{"granulat",80}};
+		taxe=0;
 	};
-	class Land_Warehouse_03_F
+
+	class Land_Shed_14_F //Garage en bois
 	{
-		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",65},{"furniture",15},{"ironp",40},{"glass",45}};
-		taxe=140;
+		bedrock="Land_WoodenPlanks_01_F";
+		construction[]={{"woodp",80},{"ironp",5}};
+		taxe=0;
 	};
-	class Lemon_TanoCars
+
+	class Land_i_Garage_V1_F //Garage
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",55},{"furniture",12},{"ironp",45},{"glass",75}};
-		taxe=275;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class Lemon_Disco
+
+	class Land_HelipadCivil_F //Héliport
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",25},{"ciment",80},{"furniture",35},{"ironp",55},{"glass",85}};
-		taxe=400;
+		construction[]={{"ironp",50},{"granulat",250},{"sable",75}};
+		taxe=0;
 	};
-	class Land_kiosk_redburger_f
+
+	class Land_i_Shed_Ind_F //Entrepot
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",10},{"ciment",65},{"furniture",15},{"ironp",45},{"glass",45}};
-		taxe=110;
+		construction[]={{"ironp",50},{"granulat",250},{"sable",75}};
+		taxe=0;
 	};
-	class Land_Factory_Main_F
+
+
+
+
+	class Land_Kiosk_redburger_F //Marché
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",75},{"furniture",25},{"ironp",45},{"glass",45}};
-		taxe=130;
-	};	
-	class Gek_Entreprise_Cacao
-	{
-		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",75},{"furniture",20},{"ironp",45},{"glass",50}};
-		taxe=120;
+		construction[]={{"verre",75},{"aluminiump",75},{"plastique",60}};
+		taxe=0;
 	};
-	class Gek_Entreprise_Cafe
+
+	class Land_em_mansion_01 //Grande maison
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",25},{"ciment",70},{"furniture",25},{"ironp",45},{"glass",45}};
-		taxe=160;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class GeK_Entreprise_Distillerie
+
+	class Land_HouseA //Maison A
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",75},{"furniture",30},{"ironp",35},{"glass",45}};
-		taxe=200;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class GeK_Entreprise_Fonderie
+
+	class Land_HouseA1 //Maison A1
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",75},{"furniture",28},{"ironp",40},{"glass",45}};
-		taxe=140;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class GeK_Entreprise_Menuiserie
+
+	class Land_HouseB //Maison B
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",30},{"ciment",65},{"furniture",25},{"ironp",45},{"glass",45}};
-		taxe=140;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class GeK_Entreprise_Scierie
+
+	class Land_HouseC_R //Maison C
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",80},{"furniture",20},{"ironp",45},{"glass",45}};
-		taxe=120;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class GeK_Entreprise_Soufflerie
+
+	class Land_HouseDoubleAL //Maison Double
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",25},{"ciment",75},{"furniture",25},{"ironp",40},{"glass",40}};
-		taxe=140;
+		construction[]={{"ironp",50},{"granulat",250}};
+		taxe=0;
 	};
-	class Gek_Entreprise_Sucrerie
+
+
+
+	class Land_Shed_02_F //petite maison en tôle
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",75},{"furniture",20},{"ironp",50},{"glass",45}};
-		taxe=150;
+		construction[]={{"woodp",50},{"aluminiump",50},{"ironp",50},{"granulat",150}};
+		taxe=0;
 	};
-	class Gek_Entreprise_Tabac
+	class Land_Slum_01_F //petite maison en tôle
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",25},{"ciment",75},{"furniture",25},{"ironp",45},{"glass",40}};
-		taxe=180;
+		construction[]={{"woodp",50},{"aluminiump",50},{"ironp",50},{"granulat",150}};
+		taxe=0;
 	};
-	class Gek_Entreprise_Textile
+
+
+
+
+	class Land_House_Small_02_F //petite maison
 	{
 		bedrock="Land_Bricks_V3_F";
-		construction[]={{"woodp",20},{"ciment",60},{"furniture",25},{"ironp",50},{"glass",45}};
-		taxe=200;
+		construction[]={{"woodp",50},{"aluminiump",50},{"ironp",50},{"granulat",250}};
+		taxe=0;
+	};
+
+
+
+
+	class Land_House_Small_03_F //petite maison
+	{
+		bedrock="Land_Bricks_V3_F";
+		construction[]={{"woodp",100},{"aluminiump",50},{"ironp",50},{"glass",50},{"granulat",150}};
+		taxe=0;
+	};
+	class Land_House_Small_06_F //petite maison
+	{
+		bedrock="Land_Bricks_V3_F";
+		construction[]={{"woodp",100},{"aluminiump",50},{"ironp",50},{"glass",50},{"granulat",150}};
+		taxe=0;
+	};
+
+
+
+
+	class Land_House_Big_03_F //grande maison
+	{
+		bedrock="Land_Bricks_V3_F";
+		construction[]={{"woodp",200},{"aluminiump",200},{"ironp",200},{"glass",200},{"granulat",450}};
+		taxe=0;
+	};
+	class Land_House_Big_04_F //grande maison
+	{
+		bedrock="Land_Bricks_V3_F";
+		construction[]={{"woodp",200},{"aluminiump",200},{"ironp",200},{"glass",200},{"granulat",450}};
+		taxe=0;
 	};
 };
 
@@ -160,59 +228,217 @@ class ALYSIA_COMMPAGNIES_INFO
 
 class ALYSIA_COMPANIES_TYPES
 {
-	class farming
+
+	/*
+	class cachot
 	{
-		name="Ferme agricole";
-		price=555000;
-		building="Land_i_Windmill01_F";
-		license="company_farming";
+		name="Cachot";
+		price=257500;
+		building="Land_CastleRuins_01_bastion_F";
+		license="macon_amateur";
 		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
-		members_max=14;
-		salary=90;
-		ticket=1;
-		ressources_link[]={"cotton","bean","corn","wheat"};
-		class process
+		class storage
 		{
-			posDistance=2;
-			modelPos[]={-0.0447998,0.448669,-3.53146};
-			list[]=
-			{
-				"cassoulet",
-				"wine_redp",
-				"wine_whitep",
-				"wine_pinkedp",
-				"champagnep",
-				"red_grape_juicep",
-				"assembling_wine_redp",
-				"white_grape_juicep",
-				"assembling_wine_whitep",
-				"pinked_grape_juicep",
-				"assembling_wine_pinkedp",
-				"wine_pinkedp",
-				"assembling_champagne",
-				"champagnep",
-				"Maltagep",
-				"Brassagep",
-				"Fermentp",
-				"Whiskyp",
-				"brewingp",
-				"Ferment_beerp",
-				"Beerp",
-				"Pressing_olivep",
-				"Olive_oilp",
-				"Mixer_olivep",
-				"Tapenadep",
-				"Olive_cocktail",
-				"Grinding_flourp",
-				"doughp",
-				"baguettep",
-				"puff_pastryp",
-				"cutting_puff_pastryp",
-				"baking_croissantp",
-				"cutting_puff_chocolatep",
-				"baking_chocolate_croissant"
-			};
+			type="Coffre";
 		};
+	};
+*/
+
+
+	/*----- D2CO -----*/
+/*
+	class electric_portail
+	{
+		name="Portail éléctrique";
+		price=10000;
+		building="Land_ConcreteWall_01_l_gate_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
+	};
+*/
+	class portail
+	{
+		name="Portail";
+		price=10000;
+		building="Land_PipeFence_01_m_gate_v2_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
+	};
+
+	class brique_mur
+	{
+		name="Mur en brique";
+		price=10000;
+		building="Land_BrickWall_04_l_5m_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
+	};
+
+	class beton_mur
+	{
+		name="Mur en béton";
+		price=10000;
+		building="Land_ConcreteWall_01_l_8m_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
+	};
+
+	class beton_colonne
+	{
+		name="Colonne en béton";
+		price=10000;
+		building="Land_ConcreteWall_01_l_pole_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
+	};
+
+	class terrasse
+	{
+		name="Térrasse Couverte";
+		price=10000;
+		building="Land_i_Addon_03mid_V1_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
+	};
+
+
+
+	/*----- GARAGES -----*/
+
+	class heliport
+	{
+		name="Héliport";
+		price=1000000;
+		building="Land_HelipadCivil_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\garage\type_air.paa";
+		class garage
+		{
+			types[]={"Air"};
+		};
+	};
+
+	class garage_bois
+	{
+		name="Garage en bois";
+		price=57500;
+		building="Land_Shed_14_F";
+		license="macon_avance";
+		image="Alysia_Client_Texture\Data\garage\store\action_store.paa";
+		class storage
+		{
+			type="Coffre";
+		};
+		class garage
+		{
+			types[]={"Car"};
+		};
+	};
+
+	class triple_garage
+	{
+		name="Triple Garage";
+		price=56000;
+		building="Land_GarageRow_01_small_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\garage\store\action_store.paa";
+		class garage
+		{
+			types[]={"Car"};
+		};
+	};
+
+	class petit_garage
+	{
+		name="Petit Garage";
+		price=257500;
+		building="Land_i_Garage_V1_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\garage\store\action_store.paa";
+		class garage
+		{
+			types[]={"Car"};
+		};
+	};
+
+
+	/*----- MAISONS -----*/
+
+	class grandemaison
+	{
+		name="Grande Maison";
+		price=257500;
+		building="Land_em_mansion_01";
+		license="architecte";
+		image="Alysia_Client_Texture\Data\companies\types\farming.paa";
+		class storage
+		{
+			type="Skyline_Coffre_Large";
+		};
+	};
+
+	class maisontole1
+	{
+		name="Cabane en tôle";
+		price=257500;
+		building="Land_Shed_02_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\tablet\home_basic.paa";
+		class storage
+		{
+			type="Coffre";
+		};
+	};
+	class maisontole2
+	{
+		name="Maison en tôle";
+		price=257500;
+		building="Land_Slum_01_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\tablet\home_basic.paa";
+		class storage
+		{
+			type="Coffre";
+		};
+	};
+
+
+	class petitemaisonbrique
+	{
+		name="Bungalow en briques";
+		price=358600;
+		building="Land_House_Small_02_F";
+		license="macon_avance";
+		image="Alysia_Client_Texture\Data\tablet\home_basic.paa";
+		class storage
+		{
+			type="Skyline_Coffre_Medium";
+		};
+	};
+
+	class petitemaison1
+	{
+		name="Bungalow turquoise";
+		price=958500;
+		building="Land_House_Small_03_F";
+		license="architecte";
+		image="Alysia_Client_Texture\Data\tablet\home_basic.paa";
+		class storage
+		{
+			type="Skyline_Coffre_Large";
+		};
+		class garage
+		{
+			types[]={"Car"};
+		};
+	};
+	class petitemaison2
+	{
+		name="Bungalow Jaune";
+		price=958500;
+		building="Land_House_Small_06_F";
+		license="architecte";
+		image="Alysia_Client_Texture\Data\tablet\home_basic.paa";
 		class storage
 		{
 			type="Skyline_Coffre_Large";
@@ -223,246 +449,16 @@ class ALYSIA_COMPANIES_TYPES
 		};
 	};
 
-	class garagist
+	class maisongrande1
 	{
-		name="Garagiste";
-		price=595000;
-		building="Skyline_Vehicule_Pack_Structures_Garage_01";
-		license="company_garagist";
-		image="Alysia_Client_Texture\Data\companies\types\garagist.paa";
-		members_max=10;
-		salary=105;
-		ticket=1;
+		name="Villa";
+		price=1985000;
+		building="Land_House_Big_03_F";
+		license="architecte_specialise";
+		image="Alysia_Client_Texture\Data\tablet\home_basic.paa";
 		class storage
 		{
-			type="Skyline_Coffre_Large";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class money_transfer
-	{
-		name="Transport de fonds";
-		price=715000;
-		building="Land_i_Shed_Ind_F";
-		license="company_money_tranfer";
-		image="Alysia_Client_Texture\Data\companies\types\money_transfer.paa";
-		members_max=8;
-		salary=200;
-		class storage
-		{
-			type="Skyline_Coffre_Medium";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class construction
-	{
-		name="Entreprise de BTP";
-		price=482000;
-		building="Land_WIP_F";
-		license="company_construction";
-		image="Alysia_Client_Texture\Data\companies\types\construction.paa";
-		members_max=9;
-		salary=120;
-		ticket=1;
-		ressources_link[]={"ciment"};
-		class process
-		{
-			posDistance=8;
-			modelPos[]={-1.68054,0.411194,0.407104};
-			list[]={"Cimenttr"};
-		};
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class transport_people
-	{
-		name="Transport de personnes : Taxi & Luxe";
-		price=375000;
-		building="Land_Hangar_F";
-		license="company_transport_people";
-		image="Alysia_Client_Texture\Data\companies\types\transport.paa";
-		members_max=9;
-		salary=85;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Medium";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class location_land
-	{
-		name="Location de véhicules terrestres";
-		price=415000;
-		building="Land_i_House_Small_03_V1_F";
-		license="company_location_land";
-		image="Alysia_Client_Texture\Data\companies\types\location_land.paa";
-		members_max=5;
-		salary=158;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Medium";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class location_sea
-	{
-		name="Location de véhicules maritimes";
-		price=415000;
-		building="Land_FuelStation_01_shop_F";
-		license="company_location_sea";
-		image="Alysia_Client_Texture\Data\companies\types\location_sea.paa";
-		members_max=5;
-		salary=158;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Medium";
-		};
-		class garage
-		{
-			types[]={"Ship"};
-		};
-	};
-
-	class security
-	{
-		name="Sécurité";
-		price=695000;
-		building="Land_Cargo_HQ_V1_F";
-		license="company_security";
-		image="Alysia_Client_Texture\Data\companies\types\security.paa";
-		members_max=12;
-		salary=210;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Medium";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class service
-	{
-		name="Service";
-		price=250000;
-		building="Land_Entreprise01_F";
-		license="company_service";
-		image="Alysia_Client_Texture\Data\companies\types\service.paa";
-		members_max=8;
-		salary=100;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Medium";
-		};
-	};
-
-	class fuel
-	{
-		name="Exploitation du pétrole";
-		price=749000;
-		building="Land_SCF_01_washer_F";
-		license="company_fuel";
-		image="Alysia_Client_Texture\Data\companies\types\fuel.paa";
-		members_max=15;
-		salary=115;
-		class process
-		{
-			posDistance=4;
-			modelPos[]={-0.408203,7.0498,-5.20283};
-			list[]={"sp98","gazole","kerosene","sp95","gpl","milletia"};
-		};
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class press
-	{
-		name="Agence de presse";
-		price=392000;
-		building="Land_Warehouse_03_F";
-		license="company_press";
-		image="Alysia_Client_Texture\Data\companies\types\news.paa";
-		members_max=12;
-		salary=145;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Medium";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class driving_school
-	{
-		name="Auto école";
-		price=410000;
-		building="Land_Entreprise01_F";
-		license="company_driving_school";
-		image="Alysia_Client_Texture\Data\companies\types\driving_school.paa";
-		members_max=10;
-		salary=105;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Small";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class tourism
-	{
-		name="Agence de tourisme";
-		price=325000;
-		building="Land_Entreprise01_F";
-		license="company_tourism";
-		image="Alysia_Client_Texture\Data\companies\types\tourism.paa";
-		members_max=7;
-		salary=102;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Small";
+			type="Skyline_Coffre_Extra";
 		};
 		class garage
 		{
@@ -470,307 +466,35 @@ class ALYSIA_COMPANIES_TYPES
 		};
 	};
 
-	class car_shop
+	class maisongrande2
 	{
-		name="Concesionnaire";
-		price=670000;
-		building="Lemon_TanoCars";
-		license="company_car_shop";
-		image="Alysia_Client_Texture\Data\companies\types\car_shop.paa";
-		members_max=5;
-		salary=125;
-		ticket=1;
+		name="Immeuble d'appartement";
+		price=1985000;
+		building="Land_House_Big_04_F";
+		license="architecte_specialise";
+		image="Alysia_Client_Texture\Data\tablet\home_basic.paa";
 		class storage
 		{
-			type="Skyline_Coffre_Small";
+			type="Skyline_Coffre_Extra";
 		};
 		class garage
 		{
-			types[]={"Car"};
+			types[]={"Car","Air"};
 		};
 	};
 
-	class event
-	{
-		name="Entreprise événementielle";
-		price=275000;
-		building="Land_Entreprise01_F";
-		license="company_event";
-		image="Alysia_Client_Texture\Data\companies\types\event.paa";
-		members_max=6;
-		salary=100;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-	};
+	/*----- ENTREPRISES -----*/
 
-	class night_club
+	class entrepot
 	{
-		name="Boite de nuit";
-		price=430000;
-		building="Lemon_Disco";
-		license="company_night_club";
-		image="Alysia_Client_Texture\Data\companies\types\night_club.paa";
-		members_max=6;
-		salary=110;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-	};
-
-	class music_label
-	{
-		name="Label de Musique";
-		price=550000;
-		building="Land_Entreprise01_F";
-		license="company_music_label";
-		image="Alysia_Client_Texture\Data\companies\types\music_label.paa";
-		members_max=5;
-		salary=135;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Small";
-		};
-	};
-
-	class gun
-	{
-		name="Armurerie";
-		price=975000;
-		building="GeK_Entreprise_Fonderie";
-		license="company_gun";
-		image="Alysia_Client_Texture\Data\companies\types\gun.paa";
-		members_max=5;
-		salary=195;
-		ticket=1;
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"holosight",
-				"intermediary_shoulder",
-				"military_shoulder",
-				"barrel",
-				"intermediary_barrel",
-				"military_barrel",
-				"receiver",
-				"intermediary_receiver",
-				"military_receiver",
-				"grip",
-				"intermediary_grip",
-				"military_grip",
-				"slapper",
-				"intermediary_slapper",
-				"military_slapper",
-				"frame",
-				"intermediary_frame",
-				"military_frame",
-				"magazine",
-				"military_magazine",
-				"bullet",
-				"military_bullet",
-				"chevrotine",
-				"cylinder",
-				"trigger"
-			};
-		};
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class cook
-	{
-		name="Restaurant";
-		price=430000;
-		building="Land_kiosk_redburger_f";
-		license="company_cook";
-		image="Alysia_Client_Texture\Data\companies\types\cook.paa";
-		members_max=5;
-		salary=110;
-		ticket=1;
-		class process
-		{
-			posDistance=1.3;
-			modelPos[]={0.0467529,-0.264099,-2.87032};
-			list[]=
-			{
-		    	"sea_foodp",
-				"cake_batterp",
-				"cake_smeltp",
-				"cake_chocolate_batterp",
-				"cake_chocolate_smeltp",
-				"roast_porkp",
-				"chop_porkp",
-				"filet_mignonp",
-				"beefp",
-				"beef_steak_beef",
-				"ground_beef",
-				"rib_coast_beef",
-				"beef_tenderloin_beef",
-				"rib_steak_beef"
-			};
-		};
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-	};
-
-	class textile
-	{
-		name="Manufacture de textile";
-		price=535000;
-		building="GeK_Entreprise_Textile";
-		license="company_textile";
-		image="Alysia_Client_Texture\Data\companies\types\textile.paa";
-		ressources_link[]={"cottonp"};
-		members_max=10;
-		salary=140;
-		ticket=1;
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"cotton",
-				"tissue",
-				"textilep",
-				"textile2p",
-				"textile3p",
-				"textile4p",
-				"textile5p",
-				"textile6p",
-				"textile7p",
-				"textile8p",
-				"textile9p",
-				"textile10p",
-				"textile11p",
-				"textile12p",
-				"textile13p",
-				"textile14p",
-				"textile15p",
-				"textile16p",
-				"girltextilep",
-				"girltextile2p",
-				"girltextile3p",
-				"girltextile4p",
-				"girltextile5p",
-				"girltextile6p",
-				"girltextile7p",
-				"girltextile8p",
-				"girltextile9p",
-				"girltextile10p",
-				"girltextile11p",
-				"girltextile12p",
-				"girltextile13p",
-				"girltextile14p",
-				"girltextile15p",
-				"girltextile16p",
-				"girltextile17p",
-				"girltextile18p",
-				"girltextile19p",
-				"girltextile20p",
-				"girltextile21p",
-				"girltextile22p",
-				"girltextile23p",
-				"girltextile24p",
-				"girltextile25p",
-				"girltextile26p",
-				"girltextile27p",
-				"girltextile28p",
-				"girltextile29p",
-				"girltextile30p",
-				"girltextile31p",
-				"girltextile32p",
-				"girltextile33p",
-				"textile_biker"
-			};
-		};
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class tabac
-	{
-		name="Manufacture de tabac";
-		price=640150;
-		building="GeK_Entreprise_Tabac";
-		image="Alysia_Client_Texture\Data\companies\types\tabac.paa";
-		license="company_tabac";
-		ressources_link[]={"cigarette"};
-		members_max=15;
-		salary=150;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"tabac",
-				"cig_clothing_01",
-				"cig_clothing_02",
-				"cig_clothing_03",
-				"cig_clothing_04",
-				"cig_clothing_05"
-			};
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class furniture
-	{
-		name="Menuiserie";
-		price=498100;
-		building="GeK_Entreprise_Menuiserie";
+		name="Entrepôt";
+		price=2057500;
+		building="Land_i_Shed_Ind_F";
+		license="architecte_specialise";
 		image="Alysia_Client_Texture\Data\companies\types\furniture.paa";
-		license="company_furniture";
-		ressources_link[]={"furniture"};
-		members_max=16;
-		salary=100;
-		ticket=1;
 		class storage
 		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"furniture",
-				"chair_wood",
-				"table_wood"
-			};
+			type="Skyline_Coffre_Extra";
 		};
 		class garage
 		{
@@ -778,30 +502,16 @@ class ALYSIA_COMPANIES_TYPES
 		};
 	};
 
-	class coffee
+	class entreprise
 	{
-		name="Atelier de torréfaction du café";
-		price=518280;
-		building="GeK_Entreprise_Cafe";
-		image="Alysia_Client_Texture\Data\companies\types\coffee.paa";
-		license="company_coffee";
-		ressources_link[]={"coffeec"};
-		members_max=12;
-		salary=150;
-		ticket=1;
+		name="Entreprise";
+		price=5057500;
+		building="Skyline_Vehicule_Pack_Structures_Garage_01";
+		license="architecte_specialise";
+		image="Alysia_Client_Texture\Data\companies\types\service.paa";
 		class storage
 		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"coffeep",
-				"cafeep2"
-			};
+			type="Skyline_Coffre_Extra";
 		};
 		class garage
 		{
@@ -809,217 +519,31 @@ class ALYSIA_COMPANIES_TYPES
 		};
 	};
 
-	class rhum
+	class marche
 	{
-		name="Distillerie";
-		price=721000;
-		building="GeK_Entreprise_Distillerie";
-		image="Alysia_Client_Texture\Data\companies\types\rhum.paa";
-		license="company_rhum";
-		ressources_link[]={"rhum"};
-		members_max=10;
-		salary=180;
-		ticket=1;
+		name="Marché";
+		price=257500;
+		building="Land_Kiosk_redburger_F";
+		license="macon_amateur";
+		image="Alysia_Client_Texture\Data\companies\types\cook.paa";
 		class storage
 		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"rhum"
-			};
-		};
-		class garage
-		{
-			types[]={"Car"};
+			type="Coffre";
 		};
 	};
 
-	class cacao
+	class bureaux
 	{
-		name="Atelier de torréfaction du cacao";
-		price=521280;
-		building="GeK_Entreprise_Cacao";
-		image="Alysia_Client_Texture\Data\companies\types\cacao.paa";
-		license="company_cacao";
-		ressources_link[]={"cacaop"};
-		members_max=12;
-		salary=150;
-		ticket=1;
+		name="Bureaux";
+		price=75600;
+		building="Land_GarageOffice_01_F";
+		license="macon_avance";
+		image="Alysia_Client_Texture\Data\companies\types\service.paa";
 		class storage
 		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"cacao"
-			};
-		};
-		class garage
-		{
-			types[]={"Car"};
+			type="Skyline_Coffre_Medium";
 		};
 	};
 
-	class steel
-	{
-		name="Métallurgie";
-		price=625000;
-		building="GeK_Entreprise_Fonderie";
-		image="Alysia_Client_Texture\Data\companies\types\steel.paa";
-		license="company_steel";
-		ressources_link[]={"ironp","soufre","steelp","rare_earth"};
-		members_max=15;
-		salary=140;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"repair_rotor",
-				"repair_fuel",
-				"repair_engine",
-				"repair_body",
-				"repair_track",
-				"siphon",
-				"iron",
-				"acier",
-				"conserve",
-				"light_double"
-			};
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
 
-	class wood
-	{
-		name="Scierie";
-		price=317500;
-		building="GeK_Entreprise_Scierie";
-		image="Alysia_Client_Texture\Data\companies\types\wood.paa";
-		license="company_wood";
-		ressources_link[]={"wood","woodp"};
-		members_max=15;
-		salary=105;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"wood"
-			};
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class sugar
-	{
-		name="Sucrerie";
-		price=410250;
-		building="GeK_Entreprise_Sucrerie";
-		image="Alysia_Client_Texture\Data\companies\types\sugar.paa";
-		license="company_sugar";
-		ressources_link[]={"sugar"};
-		members_max=15;
-		salary=100;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"sugar"
-			};
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class glass
-	{
-		name="Soufflerie";
-		price=452250;
-		building="GeK_Entreprise_Soufflerie";
-		image="Alysia_Client_Texture\Data\companies\types\glass.paa";
-		license="company_glass";
-		ressources_link[]={"glass"};
-		members_max=15;
-		salary=110;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class process
-		{
-			posDistance=2.5;
-			modelPos[]={6.28711,0.510254,0.528652};
-			list[]=
-			{
-				"glass",
-				"bouteille",
-				"seringue",
-				"bocalp",
-				"repair_glass"
-			};
-		};
-		class garage
-		{
-			types[]={"Car"};
-		};
-	};
-
-	class fish
-	{
-		name="Poissonnerie";
-		price=401500;
-		building="Land_Entreprise01_F";
-		image="";
-		license="company_fish";
-		ressources_link[]={"crabe","crevette","star","oursin"};
-		members_max=15;
-		salary=95;
-		ticket=1;
-		class storage
-		{
-			type="Skyline_Coffre_Large";
-		};
-		class garage
-		{
-			types[]={"Ship"};
-		};
-	};
 };

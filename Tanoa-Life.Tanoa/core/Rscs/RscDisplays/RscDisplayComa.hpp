@@ -3,12 +3,12 @@ class RscDisplayComa: RscDisplayDefault
 	idd=350;
 	name="RscDisplayComa";
 
-	class controlsBackground 
+	class controlsBackground
 	{
 		class BACKGROUND: RscText
 		{
 			colorBackground[]={0,0,0,1};
-			
+
 			x=0 * safezoneW + safezoneX;
 			y=0 * safezoneH + safezoneY;
 			w=1 * safezoneW;
@@ -21,7 +21,7 @@ class RscDisplayComa: RscDisplayDefault
 		class TITLE: RscStructuredText
 		{
 			text="<t align='center' size='3'>Vous êtes inconscient</t>";
-			
+
 			x=-0.000156274 * safezoneW + safezoneX;
 			y=0.357 * safezoneH + safezoneY;
 			w=1.00031 * safezoneW;
@@ -41,7 +41,7 @@ class RscDisplayComa: RscDisplayDefault
 		class TIME_LEFT: RscStructuredText
 		{
 			idc=351;
-			
+
 			x=-0.000156274 * safezoneW + safezoneX;
 			y=0.456 * safezoneH + safezoneY;
 			w=1.00031 * safezoneW;
@@ -69,8 +69,8 @@ class RscDisplayComa: RscDisplayDefault
 		};
 		class MEDIC_CONTACT: RscStructuredText
 		{
-			text="<t align='center'>Contacter le SAMU ?</t>";
-			
+			text="<t align='center'>Demander de l'aide ?</t>";
+
 			x=0.432968 * safezoneW + safezoneX;
 			y=0.027 * safezoneH + safezoneY;
 			w=0.134062 * safezoneW;
@@ -112,7 +112,7 @@ class RscDisplayComa: RscDisplayDefault
 		{
 			idc=360;
 			colorText[]={1,1,1,1};
-			
+
 			x=0.432969 * safezoneW + safezoneX;
 			y=0.654 * safezoneH + safezoneY;
 			w=0.134062 * safezoneW;

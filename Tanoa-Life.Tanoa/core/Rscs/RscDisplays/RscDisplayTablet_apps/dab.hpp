@@ -31,7 +31,7 @@ class DAB_HEADER: RscStructuredText
 {
 	idc=DAB_HEADER_IDC;
 	colorBackground[]={0,0,0,0.8};
-	text="<t align='center'>Distributeurs</t>";
+	text="<t align='center'>Serveur Bitcoin</t>";
 
 	x=0.324687 * safezoneW + safezoneX;
 	y=0.357 * safezoneH + safezoneY;

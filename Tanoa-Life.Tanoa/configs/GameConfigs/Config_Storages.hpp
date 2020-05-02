@@ -1,28 +1,19 @@
 class ALYSIA_STORAGES
 {
-	class Skyline_Coffre_Small
+	class Coffre //Squatt
 	{
-		inventory=600;
-		// maximumLoad=2000;
+		inventory=400;
 	};
-	class Skyline_Coffre_Medium
+	class Skyline_Coffre_Medium //Petite maison
+	{
+		inventory=1000;
+	};
+	class Skyline_Coffre_Large // Moyenne maison
 	{
 		inventory=1500;
-		// maximumLoad=3500;
 	};
-	class Skyline_Coffre_Large
+	class Skyline_Coffre_Extra //Grande maison
 	{
-		inventory=4000;
-		// maximumLoad=5000;
-	};
-	class Skyline_Coffre_Extra
-	{
-		inventory=8000;
-		// maximumLoad=10000;
-	};
-	class Skyline_Coffre_Mega
-	{
-		inventory=20000;
-		// maximumLoad=25000;
+		inventory=2000;
 	};
 };

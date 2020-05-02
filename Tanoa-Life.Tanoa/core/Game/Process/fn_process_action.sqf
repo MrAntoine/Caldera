@@ -96,5 +96,5 @@ if (!_itemsCheck) exitWith {
 if (getNumber(_config >> "receive" >> "money") > 0) then {
 	[true, (getNumber(_config >> "receive" >> "money") * _maxAmount)] call AlysiaClient_fnc_handleCash;
 };
-
+["processEXP"] spawn mav_ttm_fnc_addExp;
 ["Traitement <t color='#3ADF00'>terminé</t>"] call AlysiaClient_fnc_info;

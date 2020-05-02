@@ -17,7 +17,7 @@ if (isNull _display) exitWith {};
 _price = _list lbValue _index;
 (_display displayCtrl 8111) ctrlSetStructuredText parseText format
 [
-	"<br/><br/><br/><t align='center' font='PuristaBold'><t size='2.1'>Prix</t><br/><t size='1.8'><t color='#%2'>%1</t>$</t></t>",
+	"<br/><br/><br/><t align='center' font='PuristaBold'><t size='2.1'>Prix</t><br/><t size='1.8'><t color='#%2'>%1</t>BTC</t></t>",
 	([_price] call AlysiaClient_fnc_numberText),
 	if (g_atm >= _price) then {"8cff9b"} else {"ff8c8c"}
 ];

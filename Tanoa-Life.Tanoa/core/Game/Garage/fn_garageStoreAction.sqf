@@ -53,7 +53,7 @@ if (cbChecked ((findDisplay 35000) displayCtrl 35006)) then
 			[
 				format
 				[
-					"Vous n'avez pas assez d'argent sur votre compte pour payer la facture du garage, vous demandant <t color='#8cff9b'>%1</t>$ pour stocker vos objets",
+					"Vous n'avez pas assez d'argent sur votre compte pour payer la facture du garage, vous demandant <t color='#8cff9b'>%1</t>BTC pour stocker vos objets",
 					[_price] call AlysiaClient_fnc_numberText
 				]
 			] call AlysiaClient_fnc_error;

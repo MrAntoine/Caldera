@@ -69,8 +69,6 @@ if (!("ItemMap" in (assignedItems player))) then
 	player assignItem "ItemMap";
 };
 
-player addItem "NVGoggles_INDEP";
-
 _keyForward = (findDisplay 46) displayAddEventHandler ["KeyDown","if ((_this select 1) in (actionKeys 'MoveForward')) then {call AlysiaAdmin_fnc_fly_forward}"];
 _keyLeft = (findDisplay 46) displayAddEventHandler ["KeyDown","if ((_this select 1) in (actionKeys 'MoveLeft')) then {call AlysiaAdmin_fnc_fly_left}"];
 _keyBackward = (findDisplay 46) displayAddEventHandler ["KeyDown","if ((_this select 1) in (actionKeys 'MoveBack')) then {call AlysiaAdmin_fnc_fly_backward}"];

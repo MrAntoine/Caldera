@@ -41,12 +41,12 @@ if (playerSide isEqualTo independent) then
 	];
 };
 
-player addAction
+/*player addAction
 [
 	"<img image='Alysia_Client_Texture\Data\actions_menu\morphine.paa'/> Se faire une <t color='#FF5722'>piqure de chlore</t>",
 	{[player] spawn AlysiaClient_fnc_item_chlore_use}, "", 0, false, true, "", '(("Alysia_Chlore" in (magazines player)) && !(player getVariable ["is_coma",false]) && !g_action_inUse)'
 ];
-
+*/
 player addAction
 [
 	"<img image='Alysia_Client_Texture\Data\actions_menu\bandage.paa'/> Se faire un <t color='#FF5722'>bandage</t>",

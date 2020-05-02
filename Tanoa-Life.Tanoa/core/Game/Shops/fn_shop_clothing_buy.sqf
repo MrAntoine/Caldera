@@ -53,4 +53,6 @@ switch (_type) do
 
 playSound "buy";
 [false, _price] call AlysiaClient_fnc_handleCash;
+["vetementEXP"] spawn mav_ttm_fnc_addExp; ////////////////////Ajout XP/////////////////////
 g_shop_clothing_active = false;
+

@@ -29,7 +29,7 @@ if (isNull _display) exitWith {};
 	+	"%1<br/><br/>"
 	+	"Type<br/>"
 	+	"%2<br/><br/>"
-	+	"DG<br/>"
+	+	"Propriétaire<br/>"
 	+	"%3",
 	(_info select 0),
 	getText(missionConfigFile >> "ALYSIA_COMPANIES_TYPES" >> (_info select 2) >> "name"),

@@ -7,7 +7,7 @@ class RscTitlePlayer
 	fadein=6;
 	duration=9999999999999;
 	fadeout=0;
-	class controlsBackground 
+	class controlsBackground
 	{
 		/*===========================
 		  ===       PERCENT       ===
@@ -123,7 +123,7 @@ class RscTitlePlayer
 			w=0.020625 * safezoneW;
 			h=0.033 * safezoneH;
 		};
-		
+
 		/*===========================
 		  ===       VEHICLE       ===
 		  =========================== */
@@ -182,7 +182,7 @@ class RscTitlePlayer
 		{
 			idc=23540;
 
-			x=0.768125 * safezoneW + safezoneX;
+			x=0.000000 * safezoneW + safezoneX;
 			y=0.694 * safezoneH + safezoneY;
 			w=0.257813 * safezoneW;
 			h=0.429 * safezoneH;
@@ -190,8 +190,8 @@ class RscTitlePlayer
 		class GPS_AZIMUT_INFO: RscStructuredText
 		{
 			idc=23542;
-			
-			x=0.835156 * safezoneW + safezoneX;
+
+			x=0.060000 * safezoneW + safezoneX;
 			y=0.83 * safezoneH + safezoneY;
 			w=0.0360937 * safezoneW;
 			h=0.011 * safezoneH;
@@ -199,8 +199,8 @@ class RscTitlePlayer
 		class GPS_ALTITUDE_INFO: RscStructuredText
 		{
 			idc=23543;
-			
-			x=0.835156 * safezoneW + safezoneX;
+
+			x=0.060000 * safezoneW + safezoneX;
 			y=0.862074 * safezoneH + safezoneY;
 			w=0.0360937 * safezoneW;
 			h=0.011 * safezoneH;
@@ -208,8 +208,8 @@ class RscTitlePlayer
 		class GPS_POSITION_INFO: RscStructuredText
 		{
 			idc=23544;
-			
-			x=0.834895 * safezoneW + safezoneX;
+
+			x=0.070000 * safezoneW + safezoneX;
 			y=0.894444 * safezoneH + safezoneY;
 			w=0.0360937 * safezoneW;
 			h=0.011 * safezoneH;
@@ -218,7 +218,7 @@ class RscTitlePlayer
 		{
 			idc=23539;
 
-			x=0.877292 * safezoneW + safezoneX;
+			x=0.115000 * safezoneW + safezoneX;
 			y=0.826296 * safezoneH + safezoneY;
 			w=0.111563 * safezoneW;
 			h=0.148556 * safezoneH;

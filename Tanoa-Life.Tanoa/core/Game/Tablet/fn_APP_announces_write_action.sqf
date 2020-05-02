@@ -41,6 +41,7 @@ if ([false, 250, "Annonce (application)"] call AlysiaClient_fnc_handleATM) then
 	(_display displayCtrl 9523) ctrlSetText "";
 	(_display displayCtrl 9525) ctrlSetText "";
 	playSound "buy";
+	[format["Nouvelle annonce <t color='#01DF01'>en ligne</t>."], "Annonce", false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", civilian];
 } else {
-	[format["Vous n'avez pas assez d'argent.<br/>Prix : <t color='#8cff9b'>%1</t>$", [250] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
+	[format["Vous n'avez pas assez d'argent.<br/>Prix : <t color='#8cff9b'>%1</t>BTC", [250] call AlysiaClient_fnc_numberText]] call AlysiaClient_fnc_error;
 };

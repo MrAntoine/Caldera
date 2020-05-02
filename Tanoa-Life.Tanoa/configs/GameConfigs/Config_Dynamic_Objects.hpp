@@ -13,13 +13,18 @@ class ALYSIA_DYN_OBJECTS
 	class Land_Razorwire_F
 	{
 		item="spikeStrip";
-		attachTo[]={0,5.5,0};
+		attachTo[]={0,5.5,0.73};
 		setDamage=1;
 	};
 	class Land_ChairWood_F
 	{
 		item="chair_wood";
 		attachTo[]={0,2.5,0.1};
+	};
+	class Land_GasTank_01_Blue_F
+	{
+		item="bonbonne_explo";
+		attachTo[]={0,3.5,0.5};
 	};
 	class Land_WoodenTable_large_F
 	{
@@ -30,7 +35,7 @@ class ALYSIA_DYN_OBJECTS
 	{
 		item="bargate";
 		attachTo[]={0,5.5,4};
-	};	
+	};
 	class Alysia_Medical_Brancard_01_F
 	{
 		item="brancard";
@@ -55,7 +60,7 @@ class ALYSIA_DYN_OBJECTS
 	class Czech_Hedgehog_F
 	{
 		item="hedgehog";
-		attachTo[]={0,3.5,0};
+		attachTo[]={0,3.5,0.8};
 	};
 	class Wooden_Watchtower_F
 	{
@@ -77,4 +82,11 @@ class ALYSIA_DYN_OBJECTS
 		item="camoNet";
 		attachTo[]={0,3.5,0};
 	};
+
+	class Land_ConcreteWall_01_l_gate_F
+	{
+		item="Partail Electrique";
+		attachTo[]={0,3.5,0};
+	};
+
 };

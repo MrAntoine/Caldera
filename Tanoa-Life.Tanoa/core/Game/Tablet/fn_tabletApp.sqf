@@ -19,14 +19,15 @@ switch (_app) do
 {
 	case "MAIN": {[] call AlysiaClient_fnc_APP_main};
 	case "SERVER": {[] spawn AlysiaClient_fnc_APP_server};
+	//case "EXP": {createDialog "TTM_GUI_RscDisplayTalentOverview"};
 	case "HELP": {[] call AlysiaClient_fnc_APP_help};
 	case "SETTINGS": {[] spawn AlysiaClient_fnc_APP_settings};
 	case "SOLDE": {[] call AlysiaClient_fnc_APP_solde};
 	case "SOLDE_BILLS": {[] call AlysiaClient_fnc_APP_solde_bills};
 	case "VEHICLES": {[] spawn AlysiaClient_fnc_APP_vehicles};
 	case "STORE": {[] call AlysiaClient_fnc_APP_store};
-	case "STORE_APPLICATIONS": {[] call AlysiaClient_fnc_APP_store_applications};
-	case "STORE_LICENSES": {[] call AlysiaClient_fnc_APP_store_licenses};
+	//case "STORE_APPLICATIONS": {[] call AlysiaClient_fnc_APP_store_applications};
+	//case "STORE_LICENSES": {[] call AlysiaClient_fnc_APP_store_licenses};
 	case "STORE_FORFAIT": {[] call AlysiaClient_fnc_APP_store_forfait};
 	case "PHONE_CATEGORY": {[] call AlysiaClient_fnc_APP_phone};
 	case "PHONE_CONTACTS": {[] call AlysiaClient_fnc_APP_phone_contacts};
@@ -38,19 +39,19 @@ switch (_app) do
 	case "PHONE_SETTINGS": {[] spawn AlysiaClient_fnc_APP_phone_settings};
 	case "PHONE_BLACKLIST": {[] call AlysiaClient_fnc_APP_phone_blacklist};
 	case "LICENSES": {[] call AlysiaClient_fnc_APP_licenses};
-	case "FACTION": {[] call AlysiaClient_fnc_APP_faction};
+	//case "FACTION": {[] call AlysiaClient_fnc_APP_faction};
 	case "MARKET": {[] spawn AlysiaClient_fnc_APP_market};
 	case "STAFF": {[] call AlysiaClient_fnc_APP_staff};
 	case "FUEL": {[] spawn AlysiaClient_fnc_APP_fuel};
 	case "ANNOUNCES_WRITE": {[] call AlysiaClient_fnc_APP_announces_write};
 	case "ANNOUNCES_SHOW": {[] call AlysiaClient_fnc_APP_announces_show};
-	case "GOV": {[] call AlysiaClient_fnc_APP_gov};
-	case "GOV_TAXES": {[] call AlysiaClient_fnc_APP_gov_taxes};
+	//case "GOV": {[] call AlysiaClient_fnc_APP_gov};
+	//case "GOV_TAXES": {[] call AlysiaClient_fnc_APP_gov_taxes};
 	case "DAB": {[] spawn AlysiaClient_fnc_APP_dab};
 	case "ANNUAIRE": {[] call AlysiaClient_fnc_APP_annuaire};
-	case "COMPANY": {[g_company] spawn AlysiaClient_fnc_APP_company};
-	case "COMPAGNIES": {[] spawn AlysiaClient_fnc_APP_compagnies};
-	case "COMPAGNIES_INFOLIST": {[] call AlysiaCLient_fnc_APP_compagnies_infolist};
+	//case "COMPANY": {[player] call AlysiaClient_fnc_company_create_open};
+	//case "COMPAGNIES": {[player] call AlysiaClient_fnc_company_create_open};
+	//case "COMPAGNIES_INFOLIST": {[] call AlysiaCLient_fnc_APP_compagnies_infolist};
 };
 
 g_CTRL_inUse = false;

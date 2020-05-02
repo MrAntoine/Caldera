@@ -7,12 +7,13 @@
 {
 	private["_bp", "_default"];
 	scriptName "Alysia_Weight_Loop";
-	_default = 24;
+	_default = 15;
 	while {true} do
 	{
 		waitUntil {((backpack player) != "")};
 		_bp = backpack player;
-		g_maxWeight = _default + round(getNumber(configFile >> "CfgVehicles" >> (backpack player) >> "maximumload") / 8);
+		//g_maxWeight = _default + round(getNumber(configFile >> "CfgVehicles" >> (backpack player) >> "maximumload") / 8);
+		g_maxWeight = getNumber(missionConfigFile >> "ALYSIA_ITEMS_ARMA" >> _bp >> "inventairevirtuel");
 		waitUntil {((backpack player) != _bp)};
 		if ((backpack player) isEqualTo "") then {g_maxWeight = _default};
 	};
@@ -149,7 +150,7 @@
 	{
 		["Vous n'êtes pas connecté sur le Teamspeak du serveur. Vous allez être expulsé dans 45 secondes."] call AlysiaClient_fnc_error;
 		uiSleep 45;
-		if (!(["YOUR TEAMSPEAK NAME", call TFAR_fnc_getTeamSpeakServerName] call BIS_fnc_inString)) then
+		if (!(["Caldera-Life", call TFAR_fnc_getTeamSpeakServerName] call BIS_fnc_inString)) then
 		{
 			[] call AlysiaDB_fnc_query_update_disconnect;
 			uiSleep 2;
@@ -175,7 +176,7 @@
 
 		if (("(getText(_x >> 'uid') isEqualTo (getPlayerUID player)) && (getNumber(_x >> 'teamspeak') isEqualTo 1)" configClasses (missionConfigFile >> "ALYSIA_STAFF" >> "members")) isEqualTo []) then
 		{
-			if ((["YOUR TEAMSPEAK NAME", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString) && (call TFAR_fnc_isTeamSpeakPluginEnabled)) then
+			if ((["Caldera-Life", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString) && (call TFAR_fnc_isTeamSpeakPluginEnabled)) then
 			{
 				if (!((call TFAR_fnc_getTeamSpeakChannelName) isEqualTo "TaskForceRadio")) then {
 					[] spawn _fnc_channel;

@@ -17,7 +17,7 @@ lbClear _list;
 	{
 		if (getNumber(_config >> "tablet") isEqualTo 1) then
 		{
-			_index = _list lbAdd format["Distributeur - %1", (mapGridPosition _x)];
+			_index = _list lbAdd format["Serveur Bitcoin - %1", (mapGridPosition _x)];
 			_list lbSetData [_index, str([typeOf(_x), (getPos _x)])];
 			_list lbSetValue [_index, (player distance _x)];
 		};

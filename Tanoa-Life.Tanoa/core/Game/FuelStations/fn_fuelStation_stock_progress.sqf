@@ -7,7 +7,7 @@ _veh = [_this, 0, ObjNull, [ObjNull]] call BIS_fnc_param;
 _station = [_this, 1, ObjNull, [ObjNull]] call BIS_fnc_param;
 
 if ((isNull _station) || (isNull _veh)) exitWith {["Remplissage de la station impossible.<br/>Cible invalide."] call AlysiaClient_fnc_error};
-if (isNull g_company) exitWith {["Remplissage de la station impossible.<br/>Vous devez faire parti d'une entreprise."] call AlysiaClient_fnc_error};
+//if (isNull g_company) exitWith {["Remplissage de la station impossible.<br/>Vous devez faire parti d'une entreprise."] call AlysiaClient_fnc_error};
 
 if (isEngineOn _veh) exitWith {["Remplissage de la station impossible.<br/>Le véhicule doit avoir le moteur éteint."] call AlysiaClient_fnc_error};
 if (((locked _veh) isEqualTo 2)) exitWith {["Remplissage de la station impossible.<br/>Le véhicule doit être ouvert."] call AlysiaClient_fnc_error};
@@ -103,8 +103,9 @@ if ((_liters > 0) && (_receive > 0)) then
 {
 	_veh setVariable ["Trunk", (_veh getVariable ["Trunk", []]), true];
 	_station setVariable [_type, (_currentLiters + _liters), true];
-	[g_company, true, _receive, (player getVariable "realname"), "Activité professionnelle"] remoteExec ["AlysiaServer_fnc_company_bank_handle", 2];
-	[format["Votre entreprise à reçu <t color='#8cff9b'>%1</t>$ pour le remplissage de la station.", ([_receive] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
+	//[g_company, true, _receive, (player getVariable "realname"), "Activité professionnelle"] remoteExec ["AlysiaServer_fnc_company_bank_handle", 2];
+	[true, _receive] call AlysiaClient_fnc_handleCash;
+	[format["Vous avec reçu <t color='#8cff9b'>%1</t>BTC pour le remplissage de la station.", ([_receive] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
 };
 
 _veh setVariable ["refuel_inUse", false, true];

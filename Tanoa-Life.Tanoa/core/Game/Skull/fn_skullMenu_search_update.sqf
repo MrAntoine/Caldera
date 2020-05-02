@@ -14,7 +14,7 @@ lbClear _list;
 {
 	_data = switch (_x select 0) do
 	{
-		case "money": {[format["%1$", (_x select 1)], "Alysia_Client\Textures\Items_virtual\money.paa"]};
+		case "money": {[format["%1BTC", (_x select 1)], "Alysia_Client\Textures\Items_virtual\money.paa"]};
 		case "virtual": {[format["%1x %2", (_x select 1) select 1, ([(_x select 1) select 0] call AlysiaClient_fnc_itemGetName)], ([(_x select 1) select 0] call AlysiaClient_fnc_itemGetImage)]};
 		case "arma":
 		{

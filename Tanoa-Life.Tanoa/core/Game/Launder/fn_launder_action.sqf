@@ -16,7 +16,7 @@ if (!([_amount] call AlysiaClient_fnc_isNumber)) exitWith {
 _amount = parseNumber(_amount);
 _min = 20000;
 if (_amount < _min) exitWith {
-	[format["Vous devez blanchir au minimum <t color='#8cff9b'>%1</t>$.", _min]] call AlysiaClient_fnc_error;
+	[format["Vous devez blanchir au minimum <t color='#8cff9b'>%1</t>BTC.", _min]] call AlysiaClient_fnc_error;
 };
 if (!(isNil "gServer_soonReboot")) exitWith {
 	["Vous ne pouvez pas interagir blanchir de l'argent juste avant le <t color='#B40404'>redémarrage</t> du serveur."] call AlysiaClient_fnc_error;
@@ -46,8 +46,8 @@ if (["Blanchiment", (_data select 1), _target] call AlysiaClient_fnc_showProgres
 		[
 			format
 			[
-				"Vous avez reçu <t color='#8cff9b'>%1</t>$ en <t color='#FF8000'>liquide</t>.<br/>" +
-				"Part du blanchisseur : <t color='#8cff9b'>%2</t>$",
+				"Vous avez reçu <t color='#8cff9b'>%1</t>BTC en <t color='#FF8000'>liquide</t>.<br/>" +
+				"Part du blanchisseur : <t color='#8cff9b'>%2</t>BTC",
 				[_receive] call AlysiaClient_fnc_numberText,
 				[_amount - _receive] call AlysiaClient_fnc_numberText
 			]

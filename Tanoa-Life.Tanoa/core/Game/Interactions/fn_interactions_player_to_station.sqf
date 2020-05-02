@@ -27,9 +27,9 @@ if ((player getVariable ["stock_station_type", ""]) != "") exitWith
 		],
 		[
 			"stock_refuel",
-			"Stock",
+			"Ravitaillement",
 			"[g_interaction_target,1] call AlysiaClient_fnc_fuelStation_refuel_open;",
-			"(['company_fuel'] call AlysiaClient_fnc_hasLicense)"
+			"true"
 		],
 		[
 			"refuel_jerry",

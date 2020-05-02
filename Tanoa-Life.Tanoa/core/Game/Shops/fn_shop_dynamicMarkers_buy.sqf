@@ -20,6 +20,6 @@ if (g_cash < _price) exitWith {
 };
 
 [false, _price] call AlysiaClient_fnc_handleCash;
-[format["Vous avez acheté les coordonnées de <t color='#74DF00'>%1</t> pour <t color='#8cff9b'>%2</t>$", (markerText _marker), ([_price] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
+[format["Vous avez acheté les coordonnées de <t color='#74DF00'>%1</t> pour <t color='#8cff9b'>%2</t>BTC", (markerText _marker), ([_price] call AlysiaClient_fnc_numberText)], "buy"] call AlysiaClient_fnc_info;
 [_marker] call AlysiaClient_fnc_dynamicMarkers_reveal;
 [] call AlysiaClient_fnc_shop_dynamicMarkers_update_list;

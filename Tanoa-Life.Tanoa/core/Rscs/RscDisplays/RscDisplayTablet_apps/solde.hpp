@@ -4,7 +4,7 @@
 #define SOLDE_SMS_TITLE_IDC    7603
 #define SOLDE_ACTION_BILLS_IDC 7604
 
-SOLDE_BACKGROUND="Alysia_Client_Texture\Data\tablet\backgrounds\back.jpg";
+SOLDE_BACKGROUND="Alysia_Client_Texture\Data\tablet\solde\bg_solde.jpg";
 SOLDE_IDCS[] =
 {
 	SOLDE_TITLE_IDC,
@@ -15,7 +15,7 @@ SOLDE_IDCS[] =
 class SOLDE_TITLE: RscStructuredText
 {
 	idc=SOLDE_TITLE_IDC;
-	text="<t font='RobotoRegular' size='1.9'>Mes informations banquaires</t>";
+	text="<t font='RobotoRegular' size='1.9'>Mon portefeuille Bitcoins</t>";
 
 	x=0.324687 * safezoneW + safezoneX;
 	y=0.357 * safezoneH + safezoneY;
@@ -25,7 +25,7 @@ class SOLDE_TITLE: RscStructuredText
 class SOLDE_INFO: RscStructuredText
 {
 	idc=SOLDE_INFO_IDC;
-	
+
 	x=0.324687 * safezoneW + safezoneX;
 	y=0.423 * safezoneH + safezoneY;
 	w=0.350625 * safezoneW;
@@ -35,7 +35,7 @@ class SOLDE_SMS_CHECKBOX: RscCheckbox
 {
 	idc=SOLDE_SMS_CHECKBOX_IDC;
 	onCheckedChanged="if ((_this select 1) isEqualTo 0) then {profileNamespace setVariable [""ALYSIA_phone_salary"", false]} else {profileNamespace setVariable [""ALYSIA_phone_salary"", true]};";
-	
+
 	x=0.329844 * safezoneW + safezoneX;
 	y=0.643 * safezoneH + safezoneY;
 	w=0.0154688 * safezoneW;
@@ -44,8 +44,8 @@ class SOLDE_SMS_CHECKBOX: RscCheckbox
 class SOLDE_SMS_TITLE: RscStructuredText
 {
 	idc=SOLDE_SMS_TITLE_IDC;
-	text="Recevoir un SMS lors du salaire";
-	
+	text="Recevoir un SMS lors de l'aide";
+
 	x=0.343749 * safezoneW + safezoneX;
 	y=0.642074 * safezoneH + safezoneY;
 	w=0.158594 * safezoneW;
@@ -56,7 +56,7 @@ class SOLDE_ACTION_BILLS: RscButtonMenu
 	idc=SOLDE_ACTION_BILLS_IDC;
 	text="Relevé";
 	action="['SOLDE_BILLS'] spawn AlysiaClient_fnc_tabletApp;";
-	
+
 	x=0.536094 * safezoneW + safezoneX;
 	y=0.643 * safezoneH + safezoneY;
 	w=0.0773437 * safezoneW;
@@ -67,7 +67,7 @@ class SOLDE_ACTION_BILLS: RscButtonMenu
 #define SOLDE_BILLS_TITLE_IDC  7651
 #define SOLDE_BILLS_LIST_IDC   7652
 
-SOLDE_BILLS_BACKGROUND="Alysia_Client_Texture\Data\tablet\backgrounds\back.jpg";
+SOLDE_BILLS_BACKGROUND="Alysia_Client_Texture\Data\tablet\solde\bg_solde.jpg";
 SOLDE_BILLS_IDCS[] =
 {
 	SOLDE_BILLS_ICONE_IDC,
@@ -88,7 +88,7 @@ class SOLDE_BILLS_ICONE: RscPicture
 class SOLDE_BILLS_TITLE: RscStructuredText
 {
 	idc=SOLDE_BILLS_TITLE_IDC;
-	text="<t size='1.5'>Relevé bancaire</t>";
+	text="<t size='1.5'>Historique BitcoinsWallet</t>";
 
 	x=0.352969 * safezoneW + safezoneX;
 	y=0.361519 * safezoneH + safezoneY;

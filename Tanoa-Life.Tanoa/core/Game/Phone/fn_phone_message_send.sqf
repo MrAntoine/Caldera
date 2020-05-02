@@ -56,11 +56,11 @@ _sent = 0;
 		case "CIV":
 		{
 			if ((
-					isClass(missionConfigFile >> "ALYSIA_FACTIONS" >> str(playerSide) >> "phone" >> "send_global_message") &&
+					isClass(missionConfigFile >> "ALYSIA_FACTIONS" >> str(playerSide) >> "phone" >> "send_global_message") /*&&
 					(getNumber(missionConfigFile >> "ALYSIA_FACTIONS" >> str(playerSide) >> "phone" >> "send_global_message" >> "rank") <= (player getVariable ["rank", 0]))
 				) || (
 					["company_press"] call AlysiaClient_fnc_hasLicense
-			)) then
+			)*/)) then
 			{
 				if (_hide) then
 				{
@@ -82,7 +82,7 @@ _sent = 0;
 			};
 		};
 
-		case "GUER":
+		/*case "GUER":
 		{
 			if ((independent countSide allPlayers) isEqualTo 0) then
 			{
@@ -152,7 +152,7 @@ _sent = 0;
 					[_msg, _from, false] remoteExecCall ["AlysiaClient_fnc_phone_message_receive", east];
 				};
 			};
-		};
+		};*/
 
 		default
 		{

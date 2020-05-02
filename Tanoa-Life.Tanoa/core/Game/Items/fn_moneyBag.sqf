@@ -19,7 +19,7 @@ if (!(isNull g_company) && {(((g_company getVariable 'company_info') select 2) i
 } else {
 	_action =
 	[
-		"En ramassant ce sac, vous le transformerez en <t color='#DF0101'>argent sale</t>",
+		"Êtes vous sûr(e) de vouloir ramasser ce sac ?",
 		"Validation",
 		"Valider",
 		"Annuler"
@@ -35,7 +35,7 @@ if (!(isNull g_company) && {(((g_company getVariable 'company_info') select 2) i
 				["Cible invalide."] call AlysiaClient_fnc_error;
 			} else {
 				deleteVehicle _object;
-				[true, "illegal_money", 10000] call AlysiaClient_fnc_handleInv;
+				[true, "money_transfer", 1] call AlysiaClient_fnc_handleInv;
 			};
 		};
 	};

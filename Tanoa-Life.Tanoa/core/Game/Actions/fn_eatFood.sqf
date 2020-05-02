@@ -50,4 +50,15 @@ if (isClass(_config)) then
 			missionNamespace setVariable ["unlimitedRun", (_actual + _unlimitedRun)];
 		};
 	};
+	_exp = getNumber(_config >> "exp");
+	if (_exp > 0) then
+	{
+		["foodEXP"] spawn mav_ttm_fnc_addExp;
+	};
+	_souffle = getNumber(_config >> "souffle");
+	if (_souffle > 0) then
+	{
+		player setCustomAimCoef 0;
+		["Ce plat vous permets de mieux viser !"] call AlysiaClient_fnc_info;
+	};
 };

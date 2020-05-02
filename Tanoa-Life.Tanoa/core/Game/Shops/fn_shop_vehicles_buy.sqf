@@ -52,11 +52,13 @@ if (getNumber(missionConfigFile >> "ALYSIA_SHOPS_VEHICLES" >> g_shop_vehicles_ty
 
 		g_vehicles pushBack _vehicle;
 		["Le véhicule vous venez d'acheter a été <t color='#01DF01'>livré</t> au concessionnaire.", "buy"] call AlysiaClient_fnc_info;
+		["voitureEXP"] spawn mav_ttm_fnc_addExp; ////////////////////Ajout XP/////////////////////
 	};
 } else {
 	_vehicle = objNull;
 	_proceed = true;
 	["Le véhicule vous venez d'acheter sera <t color='#01DF01'>disponible</t> dans votre garage d'ici quelques secondes.", "buy"] call AlysiaClient_fnc_info;
+	["voitureEXP"] spawn mav_ttm_fnc_addExp; ////////////////////Ajout XP/////////////////////
 };
 
 if (_proceed) then

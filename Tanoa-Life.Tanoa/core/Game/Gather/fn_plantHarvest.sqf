@@ -61,6 +61,7 @@ _missing = "";
 	} else {
 		[true, (_x select 0), _amount] call AlysiaClient_fnc_handleInv;
 	};
+["planteEXP"] spawn mav_ttm_fnc_addExp;////////////////////Ajout XP/////////////////////
 } forEach getArray(missionConfigFile >> "ALYSIA_FARMING_PLANT_OBJETCS" >> typeOf(_object) >> "receive");
 
 if (_space) then

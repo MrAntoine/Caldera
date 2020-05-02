@@ -5,7 +5,7 @@
 #define ANNOUNCES_CATEGORY_WRITE_IMAGE_IDC  9504
 #define ANNOUNCES_CATEGORY_WRITE_BUTTON_IDC 9505
 
-ANNOUNCES_BACKGROUND="Alysia_Client_Texture\Data\tablet\backgrounds\back.jpg";
+ANNOUNCES_BACKGROUND="Alysia_Client_Texture\Data\tablet\announces\bg_ann.jpg";
 ANNOUNCES_IDCS[]=
 {
 	ANNOUNCES_CATEGORY_SHOW_TITLE_IDC,
@@ -121,7 +121,7 @@ class ANNOUNCES_BACK_BUTTON: RscButtonSilent
 #define ANNOUNCES_WRITE_TITLE_HEADER_IDC   9529
 #define ANNOUNCES_WRITE_TITLE_EDIT_IDC     9530
 
-ANNOUNCES_WRITE_BACKGROUND="Alysia_Client_Texture\Data\tablet\backgrounds\back.jpg";
+ANNOUNCES_WRITE_BACKGROUND="Alysia_Client_Texture\Data\tablet\announces\bg_ann.jpg";
 ANNOUNCES_WRITE_IDCS[]=
 {
 	ANNOUNCES_BACK_IMAGE_IDC,
@@ -254,7 +254,7 @@ class ANNOUNCES_WRITE_ACTION_BUTTON: RscButtonSilent
 #define ANNOUNCES_SHOW_LIST_IDC  9551
 #define ANNOUNCES_SHOW_INFO_IDC  9552
 
-ANNOUNCES_SHOW_BACKGROUND="Alysia_Client_Texture\Data\tablet\backgrounds\back.jpg";
+ANNOUNCES_SHOW_BACKGROUND="Alysia_Client_Texture\Data\tablet\announces\bg_ann.jpg";
 ANNOUNCES_SHOW_IDCS[]=
 {
 	ANNOUNCES_BACK_IMAGE_IDC,

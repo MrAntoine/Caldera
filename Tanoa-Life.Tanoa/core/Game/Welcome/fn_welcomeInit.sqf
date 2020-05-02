@@ -2,6 +2,9 @@
 	Tanoa-Life RPG
 	Code written by Lyeed
 */
+
+closeDialog 0;
+
 private["_handle", "_display", "_targetPos", "_cameraPos", "_camera", "_action", "_bad"];
 
 if (playerSide != civilian) exitWith {
@@ -27,8 +30,40 @@ playMusic "Chica_Chica";
 
 _camera = "camera" camCreate [0,0,0];
 _camera cameraEffect ["internal", "back"];
-_camera camSetPos [5636,11022.9,32.7001];
-_camera camSetTarget [5789.28,10561.9,0];
+_camera camSetPos [5292.768,7939.458,71.237];
+_camera camSetTarget [5271.398,5386.411,110.324];
+
+[] spawn {
+    sleep 15;
+    [
+        [
+            ["Caldera-Life","<t align = 'center' size = '0.7'>%1</t><br/>"],
+            ["Te souhaite la bienvenue !","<t align = 'center' size ='1'>%1</t><br/>"]
+        ]
+    ] spawn BIS_fnc_typeText;
+    sleep 12;
+    [
+        [
+            ["Dans quelques minutes..","<t align = 'center' size = '0.7'>%1</t><br/>"],
+            ["L'avion va attérir sur l'ile..","<t align = 'center' size ='1'>%1</t><br/>"]
+        ]
+    ] spawn BIS_fnc_typeText;
+    sleep 20;
+    [
+        [
+            ["Ta clé bitcoin te permettra de stocker ton argent et de le mettre en sécurité","<t align = 'center' size = '0.7'>%1</t><br/>"],
+            ["D'ailleurs, nous t'avons donné un peu de liquide. Pense à le mettre en sécurité ! ","<t align = 'center' size ='1'>%1</t><br/>"]
+        ]
+    ] spawn BIS_fnc_typeText;
+	 sleep 20;
+    [
+        [
+            ["En cas de contrôle, pense à présenter ta puce","<t align = 'center' size = '0.7'>%1</t><br/>"],
+            ["Elle contient toutes tes données personnelles !","<t align = 'center' size ='1'>%1</t><br/>"]
+        ]
+	] spawn BIS_fnc_typeText;
+};
+
 _camera camCommit 0;
 
 ("initLayer" call BIS_fnc_rscLayer) cutText ["", "BLACK IN", 4, false];
@@ -36,7 +71,7 @@ _camera camCommit 0;
 
 profileNamespace setVariable ["ALYSIA_phone_sms_ring", ""];
 profileNamespace setVariable ["ALYSIA_phone_call_ring", ""];
-profileNamespace setVariable ["ALYSIA_tablet_animation", true];
+profileNamespace setVariable ["ALYSIA_tablet_animation", false];
 profileNamespace setVariable ["ALYSIA_house_spawn_info", nil];
 saveProfileNamespace;
 
@@ -60,7 +95,7 @@ _action =
 ] call BIS_fnc_guiMessage;
 if (_action) then
 {
-	_camera camSetPos [5448.23,10081.7,32.5474];
+	_camera camSetPos [5271.398,5386.411,110.324];
 	_camera camCommit 20;
 	waitUntil {camCommitted _camera};
 	uiSleep 1;

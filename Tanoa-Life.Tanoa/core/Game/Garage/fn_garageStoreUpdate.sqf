@@ -24,19 +24,19 @@ if ((cbChecked (_display displayCtrl 35006)) && g_garage_pay) then
 {
 	private "_weight";
 	_weight = 0;
-
+	_trunk = _vehicle getVariable ["Trunk", []];
 	{
 		if (getNumber(missionConfigFile >> "ALYSIA_ITEMS" >> (_x select 0) >> "illegal") isEqualTo 1) then {
 			_hasIllegal = true;
 		};
 		_weight = _weight + ([_x select 0] call AlysiaClient_fnc_itemGetWeight);
 	} forEach (_vehicle getVariable ["Trunk", []]);
-	_price = round((_weight + 4) * 75);
+	_price = round((([_trunk] call AlysiaClient_fnc_weightGenerate) + 4) * 75);
 };
 
 (_display displayCtrl 35008) ctrlSetStructuredText parseText format
 [
-	"<t align='center' color='%2'>%1</t><t align='right'>$</t>",
+	"<t align='center' color='%2'>%1</t><t align='right'>BTC</t>",
 	[_price] call AlysiaClient_fnc_numberText,
 	if (g_atm < _price) then {"#ff8c8c"} else {"#8cff9b"}
 ];

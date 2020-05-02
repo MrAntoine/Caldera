@@ -42,7 +42,7 @@ if (g_blood >= 4000) then
 		};
 		if (_value < 0) then
 		{
-			[] call AlysiaEvent_fnc_onPlayerFireNear;
+			//[] call AlysiaEvent_fnc_onPlayerFireNear;
 			[10] spawn BIS_fnc_BloodEffect;
 			if (((vehicle player) != player) && ([_this, 2, true, [true]] call BIS_fnc_param)) then {
 				addCamShake [random(15) + 1, 1, random(5) + 1];

@@ -6,6 +6,10 @@ private["_action", "_target", "_display", "_title", "_balance", "_btnL1", "_btnL
 _action = [_this, 0, "", [""]] call BIS_fnc_param;
 _target = [_this, 1, objNull, [objNull]] call BIS_fnc_param;
 
+if (!("AnarkhiaBitcoinKey" in (magazines player))) exitWith {
+	["Vous devez posséder une Clef USB Bitcoins Wallet pour accéder à votre compte."] call AlysiaClient_fnc_error;
+};
+
 if (isNull _target) exitWith {};
 
 disableSerialization;
@@ -46,8 +50,8 @@ switch (_action) do
 {
 	case "home":
 	{
-		_title ctrlSetStructuredText parseText "<t align='center' size='1.5'>Distributeur</t>";
-		_balance ctrlSetStructuredText parseText format["<t align ='left' size='1.2'>Solde </t><t align='center' size='1.2'><t color='#74DF00'>%1</t>$</t>", [g_atm] call AlysiaClient_fnc_numberText];
+		_title ctrlSetStructuredText parseText "<t align='center' size='1.5'>Serveur Bitcoin</t>";
+		_balance ctrlSetStructuredText parseText format["<t align ='left' size='1.2'>Solde </t><t align='center' size='1.2'><t color='#74DF00'>%1</t>BTC</t>", [g_atm] call AlysiaClient_fnc_numberText];
 
 		_txtL1 ctrlSetStructuredText parseText "<t align='left'>Retrait</t>";
 		_btnL1 buttonSetAction "[""withdraw"", g_interaction_target] call AlysiaClient_fnc_atmScreen";
@@ -59,7 +63,7 @@ switch (_action) do
 		_btnR1 ctrlShow true;
 		_txtR1 ctrlShow true;
 
-		_txtR4 ctrlSetStructuredText parseText "<t align='right'>Récupérer Carte</t>";
+		_txtR4 ctrlSetStructuredText parseText "<t align='right'>Récupérer Clef</t>";
 		_btnR4 buttonSetAction "closeDialog 0";
 		_btnR4 ctrlShow true;
 		_txtR4 ctrlShow true;
@@ -134,7 +138,7 @@ switch (_action) do
 		_btnR1 ctrlShow true;
 		_txtR1 ctrlShow true;
 
-		_txtR4 ctrlSetStructuredText parseText "<t align='right'>Récupérer Carte</t>";
+		_txtR4 ctrlSetStructuredText parseText "<t align='right'>Récupérer Clef</t>";
 		_btnR4 buttonSetAction "closeDialog 0";
 		_btnR4 ctrlShow true;
 		_txtR4 ctrlShow true;
@@ -193,7 +197,7 @@ switch (_action) do
 
 		_balance ctrlSetStructuredText parseText format
 		[
-			"<t align ='left' size='1.2'>Solde </t><t align='center' size='1.2'><t color='#74DF00'>%1</t>$</t>",
+			"<t align ='left' size='1.2'>Solde </t><t align='center' size='1.2'><t color='#74DF00'>%1</t>BTC</t>",
 			[[playerSide] call AlysiaClient_fnc_atmFactionGet] call AlysiaClient_fnc_numberText
 		];
 
@@ -292,7 +296,7 @@ switch (_action) do
 
 		_balance ctrlSetStructuredText parseText format
 		[
-			"<t align ='left' size='1.2'>Solde </t><t align='center' size='1.2'><t color='#74DF00'>%1</t>$</t>",
+			"<t align ='left' size='1.2'>Solde </t><t align='center' size='1.2'><t color='#74DF00'>%1</t>BTC</t>",
 			[(g_company getVariable ["company_bank", 0])] call AlysiaClient_fnc_numberText
 		];
 
